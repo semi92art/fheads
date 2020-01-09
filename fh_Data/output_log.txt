@@ -1,0 +1,113 @@
+Initialize engine version: 5.5.0p4 (2f9c3a0f4141)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [aticfx32.dll 8.17.10.1247]
+    Renderer: AMD Radeon HD 8550G + 8600/8700M Dual Graphics
+    Vendor:   ATI
+    VRAM:     3072 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=1 NULL=1 RESZ=1 SlowINTZ=1 ATOC=0 BC4=1 BC5=1
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Artem\Desktop\Football_Heads\fh_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Artem\Desktop\Football_Heads\fh_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Artem\Desktop\Football_Heads\fh_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Artem\Desktop\Football_Heads\fh_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Artem\Desktop\Football_Heads\fh_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Artem\Desktop\Football_Heads\fh_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Artem\Desktop\Football_Heads\fh_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Artem\Desktop\Football_Heads\fh_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Artem\Desktop\Football_Heads\fh_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Artem\Desktop\Football_Heads\fh_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Artem\Desktop\Football_Heads\fh_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Artem\Desktop\Football_Heads\fh_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.048 seconds
+Platform assembly: C:\Users\Artem\Desktop\Football_Heads\fh_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Artem\Desktop\Football_Heads\fh_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 3.322984 ms
+Launches = 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+48
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+1000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bingo
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+1000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Everyday Reward
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+lg = 1, game = 1, ind = 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.565361 ms
+Launches = 1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+bonusObj.length = 5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 274 unused Assets to reduce memory usage. Loaded Objects now: 2867.
+Total: 2.161259 ms (FindLiveObjects: 0.245242 ms CreateObjectMapping: 0.117735 ms MarkObjects: 1.578930 ms  DeleteObjects: 0.208114 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.903336 ms
+Launches = 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+48
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+1000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bingo
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+1000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 147 unused Assets to reduce memory usage. Loaded Objects now: 3088.
+Total: 8.180932 ms (FindLiveObjects: 0.304354 ms CreateObjectMapping: 0.196877 ms MarkObjects: 6.266869 ms  DeleteObjects: 1.411853 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.744564 ms
+Launches = 3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+bonusObj.length = 5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 272 unused Assets to reduce memory usage. Loaded Objects now: 2873.
+Total: 7.116424 ms (FindLiveObjects: 0.640463 ms CreateObjectMapping: 0.475340 ms MarkObjects: 5.276618 ms  DeleteObjects: 0.720093 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 9d4 -> priority: 1 

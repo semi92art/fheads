@@ -1,0 +1,482 @@
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
+using UnityEngine.UI;
+
+
+public class GameManager : MonoBehaviour 
+{
+    [SerializeField]
+	private Scripts scr;
+
+	public bool quitPanel, pauseInLevel, gamePaused;
+
+    private bool firstCallProfPl;
+	private int loadPanTimer = -2;
+	private int timer;
+    [HideInInspector]
+    public bool isNoAds;
+
+	[System.Serializable]
+	public class Bools
+	{
+		public bool 
+		menu,
+		menuCareer,
+		menuProfile;
+	}
+
+	[Header("Loaded menues in main scene Menu")]
+	public Bools menuBools;
+
+	void Awake()
+	{
+        isNoAds = scr.univFunc.Int2Bool(PlayerPrefs.GetInt("NoAds"));
+
+		switch (SceneManager.GetActiveScene().name) 
+		{
+            case "Menu":
+                scr.buf.isPractice = false;
+                scr.allAw.allAwPan.SetActive(false);
+                scr.alPrScr.isRandGame = 0;
+
+                Time.timeScale = 1f;
+    			
+    			menuBools.menu = true;
+    			DestroyImmediate (GameObject.Find ("ChampList"));
+    			DestroyImmediate (GameObject.Find ("ChampListImage"));
+    			break;
+    		case "Level":
+    			break;
+		}
+
+		scr.alPrScr.doCh = true;
+	}
+
+    [SerializeField]
+    [Range(0.01f, 2f)]
+    private float _timeScale;
+    private float check_timeScale;
+
+	void Update()
+	{
+
+        if (check_timeScale != _timeScale)
+            Time.timeScale = _timeScale;
+        else
+            _timeScale = Time.timeScale;
+
+        
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+            Update_Menu();
+        else if (SceneManager.GetActiveScene().buildIndex == 2)
+            Update_Level();
+
+        check_timeScale = _timeScale;
+	}
+
+    private void Update_Menu()
+    {
+        if(Input.GetKey(KeyCode.R))
+            SceneManager.LoadScene("Menu");
+
+        if (Input.GetKeyUp (KeyCode.Escape))
+        {
+            if (menuBools.menu)
+                Application.Quit();
+            else if (menuBools.menuCareer || menuBools.menuProfile) 
+            {
+                DependentMenuBack ();
+                LogoOn ();
+            } 
+        }
+    }
+		
+    private void Update_Level()
+    {
+        if(loadPanTimer >= 0) 
+            loadPanTimer++;
+
+        switch (loadPanTimer) 
+        {
+            case 1:
+                scr.congrPan.mainCanvas.enabled = true;
+                break;
+            case 2:
+                SceneManager.LoadScene("Menu"); 
+                break;
+            case -2:
+                loadPanTimer ++;
+                break;
+        }
+
+        if (Time.timeSinceLevelLoad <= .1f && Time.timeScale != 1f)
+            Time.timeScale = 1f;
+
+        if (Input.GetKeyUp (KeyCode.Escape)) 
+        {
+            if (scr.tM.isBetweenTimes && Time.timeScale <= 0.1f)
+            {
+                scr.tM.CallBackBetweenTimesPanel();
+
+                if (scr.levAudScr.menuButtonsSource.enabled)
+                    scr.levAudScr.menuButtonsSource.Play();
+            }
+
+            else
+            {
+                if (!gamePaused && scr.pMov.startGame)
+                {
+                    if (scr.levAudScr.menuButtonsSource.enabled)
+                        scr.levAudScr.menuButtonsSource.Play();
+
+                    if (!pauseInLevel)
+                    {
+                        Pause();
+                        scr.objLev.mainCanvas.enabled = true;
+                    }   
+                    else
+                    {
+                        switch (scr.objLev.quitPanel.activeSelf)
+                        {
+                            case true:
+                                PauseQuitBack();
+
+                                break;
+                            case false:
+                                PauseBack();
+                                scr.objLev.mainCanvas.enabled = false;
+                                break;
+                        }
+                    } 
+                }
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            if (!scr.pMov.startGame || scr.tM.isBetweenTimes)
+                StartGame();
+        }
+    }
+
+	public void StartGame()
+	{
+		Time.timeScale = 1f;
+		scr.pMov.startGame = true;
+		scr.objLev.startPanelAnim.gameObject.SetActive(false);
+	}
+
+	public void DependentMenuBack() 
+	{
+		scr.objM.logo.SetActive(true);
+		scr.objM.evrdAw.SetActive(true);
+		scr.objM.cupAw.SetActive(true);
+		scr.objM.currPrPan.SetActive(true);
+        scr.objM.moneyCount.SetActive(true);
+
+        if (scr.objM.buttonsSource.enabled)
+		    scr.objM.buttonsSource.Play();
+
+		if (menuBools.menuCareer) 
+		{
+			scr.objM.menCarAnim.SetBool("call", false);
+			menuBools.menuCareer = false;
+			menuBools.menu = true;
+			scr.objM.menuCareer.SetActive (false);
+		}
+			
+		if (menuBools.menuProfile)
+		{
+			scr.objM.prPlAnim.SetBool ("call", false);
+			menuBools.menuProfile = false;
+		}
+
+        scr.objM.menuProfile.SetActive(false);
+        scr.objM.menuCareer.SetActive(false);
+	}
+
+    public void MenuCareer(int lg)
+    {
+        scr.carMng.currLeague = lg;
+
+        menuBools.menuCareer = true;
+        menuBools.menu = false;
+        scr.allAw.yesButObj.SetActive(false);
+        scr.allAw.noButTxt.gameObject.SetActive(false);
+        scr.objM.cupAw.SetActive(false);
+        scr.objM.moneyCount.SetActive(false);
+        scr.objM.evrdAw.SetActive(false);
+        scr.objM.menuCareer.SetActive(true);
+        scr.objM.logo.SetActive(false);
+        scr.objM.menCarAnim.SetBool("call", true);
+        scr.objM.currPrPan.SetActive(false);
+
+        for (int i = 0; i < scr.carMng.scrViewObjs.Length; i++)
+            scr.carMng.scrViewObjs[i].SetActive(false);
+
+        scr.carMng.scrViewObjs[lg - 1].SetActive(true);
+
+        if (scr.objM.buttonsSource.enabled)
+            scr.objM.buttonsSource.Play();
+    }
+
+    public void MenuProfilePlayers()
+    {
+        if (!firstCallProfPl)
+        {
+            scr.objM.cP.anchoredPosition = new Vector2(
+                0.0f, scr.objM.cP.anchoredPosition.y);
+            
+            firstCallProfPl = true;
+        }
+            
+        scr.objM.currPrPan.SetActive(false);
+        scr.objM.prPlAnim.SetBool("call", true);
+        menuBools.menuProfile = true;
+        menuBools.menu = false;
+        scr.prMng.SetOpenedPlayersCountryText(false);
+    }
+
+	public void GoToMenu()
+	{
+        if (scr.buf != null)
+        {
+            scr.buf.is1stPractice = false;
+            SceneManager.LoadScene("Menu");
+            scr.alPrScr.doCh = true;
+        }
+        else
+            Debug.Log("Finish Practice!");
+	}
+	
+	public void GoToMenuNewGame (RectTransform tr)
+	{
+		tr.anchoredPosition = new Vector3 (tr.anchoredPosition.x, -300, 0);
+	}
+
+	public void IsInPause()
+	{
+		Time.timeScale = 1f;
+	}
+	
+	public void LevelRestartInLevel()
+	{
+        PlayerPrefs.SetInt("MenuTrigger_1", 1);
+		SceneManager.LoadScene("Level");
+	}
+		
+	public void WinGame1()
+	{
+		if (SceneManager.GetActiveScene().buildIndex == 2)
+		{
+			Score.score = 6;
+			Score.score1 = 0;
+			scr.scoreScr.SetScore();
+			scr.tM.time0 = 2;
+		}
+	}
+
+	public void LooseGame()
+	{
+		if (SceneManager.GetActiveScene().buildIndex == 2)
+		{
+			Score.score = 0;
+			Score.score1 = 3;
+			scr.scoreScr.SetScore();
+			scr.tM.time0 = 2;
+		}
+	}
+
+	public void TieGame()
+	{
+		if (SceneManager.GetActiveScene().buildIndex == 2)
+		{
+			Score.score = 1;
+			Score.score1 = 1;
+			scr.scoreScr.SetScore();
+			scr.tM.time0 = 2;
+		}
+	}
+
+	private void RandomStadium()
+	{
+        int rand = Mathf.CeilToInt(Random.value * (scr.alPrScr.wonGamesL1.Length - 1f));
+        scr.alPrScr.stadium = scr.carMng.Tourn_Stadium(rand);
+		scr.alPrScr.doCh = true;
+	}
+
+    private void RandomEnemy()
+	{
+        float rand0 = Random.value;
+        scr.alPrScr.enLg = rand0 < 0.5f ? 1 : 2;
+        int _count = 45;
+        //int _count = rand0 < 0.5f ? scr.prMng.itemList.Count : scr.prMng.itemList_2.Count;
+
+        int k = Mathf.CeilToInt(Random.value * _count);
+
+        if (k == scr.alPrScr.playerIndex && scr.alPrScr.plLgRand == scr.alPrScr.enLg)
+            k = k == 0 ? k + 1 : k - 1;
+
+		scr.alPrScr.enemyIndex = k;
+		scr.alPrScr.doCh = true;
+	}
+
+	private void RandomPlayer()
+	{
+        float rand0 = Random.value;
+        scr.alPrScr.plLgRand = rand0 < 0.5f ? 1 : 2;
+        int _count = 45;
+        //int _count = rand0 < 0.5f ? scr.prMng.itemList.Count : scr.prMng.itemList_2.Count;
+
+        int k = Mathf.CeilToInt(Random.value * _count);
+
+        scr.alPrScr.playerIndexRand = k;
+        scr.alPrScr.doCh = true;
+	}
+
+	public void LoadSimpleLevel()
+	{
+        scr.buf.SetData();
+		SceneManager.LoadScene("Level");
+	}
+		
+	public void LoadRandomLevel()
+	{
+        RandomStadium();
+        RandomPlayer();
+        RandomEnemy();
+
+		scr.alPrScr.isRandGame = 1;
+		scr.alPrScr.doCh = true;
+
+        scr.buf.SetData();
+		SceneManager.LoadScene("Level");
+	}
+
+	public void LogoOn ()
+	{
+		scr.objM.logo.SetActive(true);
+	}
+
+	public void LogoOff()
+	{
+		scr.objM.logo.SetActive(false);
+	}
+
+	public void ExitGame()
+	{
+		//Debug.Log("Game quited!");
+		Application.Quit();
+	}
+
+	public void DeleteAllPrefs()
+	{
+		PlayerPrefs.DeleteAll ();
+	}
+
+    [HideInInspector]
+    public float currTimeScale;
+
+	public void Pause () 
+	{
+        if (!scr.practScr.is1stPractice)
+        {
+            System.GC.Collect();
+            pauseInLevel = true;
+            scr.objLev.pauseMenuAnim.gameObject.SetActive(true);
+            scr.objLev.pauseMenuAnim.ResetTrigger("back");
+            scr.objLev.pauseMenuAnim.SetTrigger ("call");
+
+            currTimeScale = Time.timeScale;
+            Time.timeScale = 0f;
+
+            Rigidbodies_TimeScale(0);
+        }
+	}
+	
+	public void PauseBack()
+	{
+		pauseInLevel = false;
+		scr.objLev.pauseMenuAnim.SetTrigger("back");
+        Time.timeScale = currTimeScale;
+		//scr.objLev.pauseMenuAnim.gameObject.SetActive(false);
+        Rigidbodies_TimeScale(1);
+	}
+
+	public void PauseQuitBack ()
+	{
+		scr.objLev.quitPanel.SetActive(false);
+		scr.objLev.pauseMenuAnim.gameObject.SetActive(true);
+		scr.objLev.pauseMenuAnim.SetTrigger("call");
+	}
+
+	public void MenuOff()
+	{
+		menuBools.menu = false;
+	}
+	
+	public void MenuOn()
+	{
+		menuBools.menu = true;
+	}
+	
+	public void MenuResult()
+	{
+		gamePaused = true;
+		scr.objLev.resultMenuAnim.gameObject.SetActive(true);
+		scr.objLev.resultMenuAnim.SetTrigger("call");
+		Time.timeScale = 0f;
+	}
+
+	public void MenuResultBack()
+	{
+		scr.objLev.resultMenuAnim.SetBool ("call", false);
+		Time.timeScale = 1f;
+		scr.objLev.resultMenuAnim.gameObject.SetActive(false);
+	}
+
+	public void MenuProfilePlayersBack ()
+	{
+		scr.objM.prPlAnim.SetBool("call", false);
+		menuBools.menuProfile = false;
+		menuBools.menu = true;
+	}
+
+	public void ChooseLastMenuProfileMaterials()
+	{
+		GameObject[] menuProfMat = GameObject.FindGameObjectsWithTag ("MenuProfileMaterials");
+
+		if (menuProfMat.Length == 2)
+		{
+			if (SceneManager.GetActiveScene().buildIndex == 1)
+				DestroyImmediate (menuProfMat [0]); 
+			 else 
+				DestroyImmediate (menuProfMat [1]); 
+		}
+	}
+
+    public void Rigidbodies_TimeScale(int tScale)
+    {
+        for (int i = 0; i < scr.objLev.allRbs.Length; i++)
+        {
+            if (tScale == 0)
+                scr.objLev.allRbs[i].bodyType = RigidbodyType2D.Kinematic;
+            else
+                scr.objLev.allRbs[i].bodyType = RigidbodyType2D.Dynamic;
+        }
+    }
+
+    public void LoadPractice()
+    {
+        scr.buf.isPractice = true;
+        scr.buf.SetData();
+        SceneManager.LoadScene("Level");
+
+        scr.objM.buttonsSource.Play();
+    }
+}
+
+
+

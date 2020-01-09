@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04884765aeeb4749909d668fc086f5c, type: 3}
+  m_Name: AndroidNativeSettings
+  m_EditorClassIdentifier: 
+  EnablePlusAPI: 1
+  EnableGamesAPI: 1
+  EnableAppInviteAPI: 1
+  EnableDriveAPI: 0
+  LoadProfileIcons: 1
+  LoadProfileImages: 1
+  LoadQuestsImages: 1
+  LoadQuestsIcons: 1
+  LoadEventsIcons: 1
+  ShowConnectingPopup: 1
+  AutoLoadLocalPlayerScore: 0
+  GoogleFitEnabled: 0
+  EnableATCSupport: 0
+  OneSignalEnabled: 0
+  OneSignalAppID: YOUR_ONESIGNAL_APP_ID
+  OneSignalDownloadLink: https://goo.gl/Vc6tfK
+  OneSignalDocLink: https://goo.gl/aZjkxV
+  UseParsePushNotifications: 0
+  ParseAppId: YOUR_PARSE_APP_ID
+  DotNetKey: YOUR_PARSE_DOT_NET_KEY
+  ParseDocLink: http://goo.gl/9BgQ8r
+  ParseDownloadLink: https://goo.gl/dm7jYL
+  DialogTheme: 0
+  EnableSoomla: 0
+  SoomlaDownloadLink: http://goo.gl/7LYwuj
+  SoomlaDocsLink: https://goo.gl/es5j1N
+  SoomlaGameKey: 
+  SoomlaEnvKey: 
+  Ad_EditorFillRateIndex: 4
+  Ad_EditorFillRate: 100
+  Is_Ad_EditorTestingEnabled: 0
+  InApps_EditorFillRateIndex: 4
+  InApps_EditorFillRate: 100
+  Is_InApps_EditorTestingEnabled: 1
+  Is_Leaderboards_Editor_Notifications_Enabled: 0
+  Is_Achievements_Editor_Notifications_Enabled: 0
+  GCM_SenderId: YOUR_SENDER_ID_HERE
+  PushService: 0
+  SaveCameraImageToGallery: 0
+  UseProductNameAsFolderName: 1
+  GalleryFolderName: FH Battle Game
+  MaxImageLoadSize: 512
+  CameraCaptureMode: 0
+  ImageFormat: 0
+  ShowAppPermissions: 1
+  EnableBillingAPI: 1
+  EnablePSAPI: 1
+  EnableSocialAPI: 0
+  EnableCameraAPI: 0
+  ExpandNativeAPI: 1
+  ExpandPSAPI: 1
+  ExpandBillingAPI: 1
+  ExpandSocialAPI: 1
+  ExpandCameraAPI: 1
+  ThirdPartyParams: 0
+  ShowPSSettingsResources: 0
+  ShowActions: 0
+  GCMSettingsActinve: 0
+  LocalNotificationsAPI: 0
+  ImmersiveModeAPI: 1
+  ApplicationInformationAPI: 0
+  ExternalAppsAPI: 0
+  PoupsandPreloadersAPI: 0
+  CheckAppLicenseAPI: 0
+  NetworkStateAPI: 0
+  FirebaseAnalytics: 0
+  InAppPurchasesAPI: 1
+  GooglePlayServicesAPI: 0
+  PlayServicesAdvancedSignInAPI: 0
+  GoogleButtonAPI: 0
+  AnalyticsAPI: 0
+  GoogleCloudSaveAPI: 0
+  PushNotificationsAPI: 0
+  GoogleMobileAdAPI: 1
+  GoogleOAuthAPI: 0
+  GalleryAPI: 0
+  CameraAPI: 0
+  KeepManifestClean: 1
+  GooglePlayServiceAppID: 216817929098
+  ToolbarSelectedIndex: 2
+  base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkH+eGdntzW9aN8ByHuOsIwhW7Ox9mCnjqdbY81RyOMHxT1EQiv+Vt+Co5F+lZFSHhTTsTF4EG7aK14SR1im0l7PAyTKODE1AMffs26CkgRPCxJ8W2/j1ndnmldo9qeptvICdw2kY0aCrt0M9d8lWfE1UDeCQZg6nn5IHLZ7el9w0PWWgZj2RxywSoL5CIBpCCR5uxoEzZm9V0nL9sUerC9plPQP9u7aVkkseDQL5jWts1W0ij4oPPezTVj+vzqCNdNp0wzOSFagyrAJlEuypQzgE3g/DEAjkOmvIBTyoXIGMQ3zRMgWr+L44fJjB5DpQfRKCabFmzOj1a20H1XiERQIDAQAB
+  ShowStoreProducts: 1
+  InAppProducts:
+  - IsOpen: 0
+    SKU: unlim_freeze
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: Unlim Slowdown
+    _Texture: {fileID: 0}
+    _ProductType: 1
+  - IsOpen: 0
+    SKU: no_ads
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: No Ads
+    _Texture: {fileID: 0}
+    _ProductType: 1
+  - IsOpen: 0
+    SKU: money_pack_1_
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: 500,000$
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 0
+    SKU: money_pack_2_
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: 2,000,000$
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 0
+    SKU: money_pack_3
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: 10,000,000$
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  ShowLeaderboards: 1
+  Leaderboards: []
+  ShowAchievements: 1
+  Achievements: []
+  ShowWhenAppIsForeground: 1
+  EnableVibrationLocal: 0
+  LocalNotificationSmallIcon: {fileID: 0}
+  LocalNotificationLargeIcon: {fileID: 0}
+  LocalNotificationSound: {fileID: 0}
+  LocalNotificationWakeLockTimer: 10000
+  ReplaceOldNotificationWithNew: 0
+  ShowPushWhenAppIsForeground: 1
+  EnableVibrationPush: 0
+  PushNotificationColor: {r: 1, g: 1, b: 1, a: 1}
+  PushNotificationSmallIcon: {fileID: 0}
+  PushNotificationLargeIcon: {fileID: 0}
+  PushNotificationSound: {fileID: 0}

@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - ground
+  - Collider1
+  - ground1
+  - Leg
+  - Head
+  - Body
+  - Ball
+  - BallCheck
+  - RealGround
+  - GatesTrigger
+  - EnemyCollider
+  - EnemyBody
+  - EnemyLeg
+  - Middle
+  - GoalkeeperState
+  - LegSprite
+  - GatesTrigger2
+  - JumpZone
+  - Shadow
+  - ShadowEnemy
+  - ShadowBall
+  - Obstacle
+  - Enemy
+  - PausePanel
+  - LeftHand
+  - PlayButton
+  - ExitButton
+  - ButtonCollider1
+  - ButtonCollider2
+  - WindForce
+  - Ball1
+  - UpAngleLeft
+  - DownAngleLeft
+  - ProfileIcon
+  - ProfileLockIcon
+  - Splash1
+  - Scroll Panel
+  - ProfileShowcase
+  - MoneyCoast
+  - MoneyCoastShadow
+  - MoneyCoastImage
+  - CupPlayer
+  - AllLevelScript
+  - PlayoffListSave
+  - ChampList
+  - PlayoffChoose
+  - ChampChoose
+  - StadiumImage
+  - StadiumLockIcon
+  - StadiumMoneyCoastShadow
+  - StadiumMoneyCoastImage
+  - Stadium
+  - StadiumMoneyCoast
+  - Showcase
+  - ExtrasShowcase
+  - ExtrasIcon
+  - ExtrasMoneyIcon
+  - ExtrasMoneyText
+  - ExtrasMoneyShadow
+  - ExtrasLockIcon
+  - ExtrasButton
+  - StadiumGal
+  - CupListImage
+  - PlayoffList
+  - MenuProfileMaterials
+  - ChampListImage
+  - StadiumButton
+  - CareerButton
+  - ProfileButton
+  - ChallButton
+  - UnlockedPlayerText
+  - BallManyBall
+  - BallsMaterials
+  - ExtrasMaterials
+  - ChampInfoUI
+  - ShopButton
+  - EnemyIconFP
+  - EnemyShowcaseFP
+  - StadiumButtonFP
+  - ProfileButtonFP
+  - ReignServices
+  - Flag
+  - FreePlayFlag
+  - FreePlayPlayer
+  - FreePlayEnemy
+  - MultiplayerPlayer
+  - BluetoothScr
+  - MultiplayerScr
+  - PlayerNetwork
+  - LegNetwork
+  - ProfileRetroButton
+  - ShowcaseRetro
+  - ProfileIconRetro
+  - deadTrigger
+  - onlyTrigger
+  - BallTail
+  - PlaneTail
+  - SampleBonus
+  - BonusZone
+  - GameButton
+  - Showcase_2
+  - ProfileButton_2
+  - Showcase_0
+  - Showcase_2_0
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Sun
+  - Player
+  - Markers
+  - Ball
+  - Ground
+  - Test
+  - Bonus
+  - Leg
+  - Bonus_1
+  - BodyCollider
+  - Walls4Player
+  - BallsForce
+  - Enemy2Wall
+  - WallStop
+  - Wall4Enemy
+  - Rain
+  - Triangles
+  - Test_1
+  - Test_2
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Default
+    uniqueID: 3363470833
+    locked: 0
+  - name: Background
+    uniqueID: 1535931219
+    locked: 0
+  - name: Character
+    uniqueID: 2511236001
+    locked: 0
+  - name: Foreground
+    uniqueID: 1024582385
+    locked: 0
+  - name: UI
+    uniqueID: 149272721
+    locked: 0
