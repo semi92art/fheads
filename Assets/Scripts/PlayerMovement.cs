@@ -149,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
         kickSpeed = kickSpeed * (100f + (float)scr.alPrScr.upgrKick * 2f) / 100f;
     }
 
-	void Update()
+	private void Update()
 	{
 		if (!startGame) 
 		{
@@ -311,8 +311,8 @@ public class PlayerMovement : MonoBehaviour
                 if (!kOvH)
                 {
                     JointAngleLimits2D limits = HJPlayerLeg.limits;
-                    limits.min = 0f;
-                    limits.max = 90f;
+                    limits.min = 270f;
+                    limits.max = 360f;
                     HJPlayerLeg.limits = limits;
 
                     JointMotor2D motor = HJPlayerLeg.motor;
@@ -326,8 +326,8 @@ public class PlayerMovement : MonoBehaviour
                 if (!kOvH)
                 {
                     JointAngleLimits2D limits = HJPlayerLeg.limits;
-                    limits.min = 0;
-                    limits.max = 1;
+                    limits.min = 270;
+                    limits.max = 271;
                     HJPlayerLeg.limits = limits;
 
                     JointMotor2D motor1 = HJPlayerLeg.motor;

@@ -137,7 +137,6 @@ public class Enemy : MonoBehaviour
             case OpponentType.Goalkeeper:
                 isGrounded = scr.grTr.isEnemy1Grounded;
                 defPosX = scr.marks.gkStateTr.position.x + 12f * (0.5f + 1f * Mathf.Sin(Time.time)) + 3f;
-                //Debug.Log(defPosX);
                 break;
         }
 
@@ -208,9 +207,7 @@ public class Enemy : MonoBehaviour
     {
         EnemyMovementControl();
         MaxSpeedControl();
-
-        //if (isKickControl && !gameStop) 
-            KickControl();
+        KickControl();
 
         if (_enType == OpponentType.Goalkeeper)
             GoalkeeperJump();
@@ -246,32 +243,26 @@ public class Enemy : MonoBehaviour
         switch (_enType)
         {
             case OpponentType.Classic:
-                limits = legHJ.limits;
-                limits.min = 0f;
+                limits.min = -180f;
                 limits.max = -90f;
                 legHJ.limits = limits;
                 break;
             case OpponentType.Bycicle:
                 if (!kOvH)
                 {
-                    limits = legHJ.limits;
-                    limits.min = 0f;
+                    limits.min = -180f;
                     limits.max = -90f;
                     legHJ.limits = limits;
                 }
                 break;
             case OpponentType.Goalkeeper:
-                limits = legHJ.limits;
-                limits.min = 0f;
+                limits.min = -180f;
                 limits.max = -90f;
                 legHJ.limits = limits;
                 break;
         }
     }
-
-    /// <summary>
-    /// Bored Tactic
-    /// </summary>
+    
     private void EnemyBored()
     {
         boredTimer += Time.deltaTime;
@@ -297,10 +288,7 @@ public class Enemy : MonoBehaviour
 
         boredTimer = boredTimer > 200 ? 0 : boredTimer;
     }
-
-    /// <summary>
-    /// Defend Tactic
-    /// </summary>
+    
     private void Defend()
     {
         if (bX < scr.marks.midTr.position.x)
@@ -350,9 +338,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Goalkeeper tactic
-    /// </summary>
     private void GoalKeeper()
     {
         if (bX < transform.position.x)
@@ -365,10 +350,7 @@ public class Enemy : MonoBehaviour
                 Force = -1;
         }
     }
-
-    /// <summary>
-    /// Attack tactic
-    /// </summary>
+    
     private void Attack()
     {
         if (enX > bX - distToBall)
@@ -445,17 +427,11 @@ public class Enemy : MonoBehaviour
                 if (Score.score - Score.score1 < 3)
                     isTimDef = true;
             }
-
-            //Debug.Log("gameStop = " + gameStop);
-            //Debug.Log("scr.pMov.restart = " + scr.pMov.restart);
-            //Debug.Log("scr.pMov.freezeOnStart = " + scr.pMov.freezeOnStart);
-
+            
             if (!gameStop && !scr.pMov.restart && !scr.pMov.freezeOnStart)
             {
-                //Debug.Log("Enemy Alive -3!");
                 float timLim = scr.tM.matchPeriods == 2 ?
                     35f : (float)prevScoreDiff / 2f + 1f;
-                //Debug.Log("Enemy Alive -2!");
                 if (isTimDef)
                 {
                     timDef += Time.fixedDeltaTime;
@@ -466,29 +442,16 @@ public class Enemy : MonoBehaviour
                         isTimDef = false;
                     }
                 }
-                //Debug.Log("Enemy Alive -1!");
                 if (enX > plX && enX < bX - distToBall_1)
-                {
-                    //Debug.Log("Enemy Alive 0!");
                     Force = 1;
-                }
                 else
                 {
-                    //Debug.Log("Enemy Alive 1!");
-
                     if (Score.score < Score.score1)
-                    {
                         Defend();
-                        //Debug.Log("Enemy Alive 2!");
-                    }
                     else
                     {
-                        //Debug.Log("Enemy Alive 3!");
-
                         if (!scr.tM.isGoldenGoal)
                         {
-                            //Debug.Log("Enemy Alive3!");
-
                             if (Score.score - Score.score1 >= 3)
                                 Attack();
                             else
@@ -515,7 +478,7 @@ public class Enemy : MonoBehaviour
         {
             if (Mathf.Abs(_rb.velocity.x) < maxSpeed)
             {
-                if (Force != 0)
+                if (Force > float.Epsilon)
                     _rb.AddForce(new Vector2(Force * moveForce, 0));
                 else
                 {
@@ -565,29 +528,13 @@ public class Enemy : MonoBehaviour
 
     private bool isKickOverHead()
     {
-        if (!kOvH)
-        {
-            if (bX > enX - 1f && bX < enX + whenKick + 3f)
-            {
-                if (bY < enY + 15f && bY > enY + 2f)
-                    return true;
-                else
-                    return false;
-            }
-            else
-                return false;
-        }
-        else
-            return kOvH;
+        return kOvH ? true : (bX > enX - 1f && bX < enX + whenKick + 3f) && (bY < enY + 15f && bY > enY + 2f);
     }
 
     private void KickOverHeadFcn()
     {
         kOvH = isKickOverHead();
-
-        //if (Input.GetKeyDown(KeyCode.C))
-        //    kOvH = true;
-
+        
         if (kOvH)
         {
             if (!scr.jScr.isMolniya)
@@ -608,9 +555,7 @@ public class Enemy : MonoBehaviour
                 timH += Time.deltaTime;
 
                 kOvHTorque = timH < torqTime ? kickOvHTorq_0 : kOvHTorque / 2f;
-
-                //if (!scr.jScr.isMolniya)
-                    _rb.AddTorque(kOvHTorque);
+                _rb.AddTorque(kOvHTorque);
 
                 jump = isGrounded ? true : jump;
                 kOvH = timH > 0.5f ? false : true;
