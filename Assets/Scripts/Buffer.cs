@@ -308,9 +308,6 @@ public class Buffer : MonoBehaviour
         int ind = Mathf.FloorToInt(((float)max_ind - 0.01f) * Random.value);
 
         SetPlayerData(ind, lg);
-        
-        //number of opponent players
-        //is2Enemies = Random.value > 0.5f ? true : false;
         is2Enemies = false;
         oppType = Random.value > 0.5f ? OpponentType.Bycicle : OpponentType.Classic;
 
