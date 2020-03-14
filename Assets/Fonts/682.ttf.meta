@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: b043e98b47ecf9d46a6c53fd809980c2
+timeCreated: 1497632851
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Maximum Security
+  fontNames:
+  - Maximum Security
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
