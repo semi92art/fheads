@@ -54,7 +54,16 @@ public class LevelAudioScript : MonoBehaviour
     {
         int trib = scr.alPrScr.tribunes;
 
-        if (trib == 0 || trib == 3)
+        if (trib == 0)
+        {
+	        _tribunes[0].enabled = false;
+	        _tribunes[1].enabled = false;
+	        _tribunes[2].enabled = false;
+	        goalSource.enabled = false;
+	        molniya.enabled = false;
+	        tribInd = 0;
+        } 
+        else if (trib == 3)
         {
             _tribunes[0].enabled = true;
             _tribunes[1].enabled = false;
