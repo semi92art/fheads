@@ -31,7 +31,7 @@ public class Objects_Menu : MonoBehaviour
     public RectTransform cP;
     public Text[] text_opndPlayers;
     public string[] idForTesting;
-    public Text text_ExitButton;
+    public Text text_BackSettingsButton;
     public GameObject obj_MainMenu;
     public Animator anim_MainMenu;
     public GameObject obj_MenuTournament;
@@ -154,14 +154,14 @@ public class Objects_Menu : MonoBehaviour
         if (_on)
         {
             scr.gM._menues = Menues.menuCareer;
-            text_ExitButton.text = "BACK";
+            text_BackSettingsButton.text = "BACK";
             anim_MainMenu.SetTrigger(Animator.StringToHash("1"));
             obj_MenuTournament.SetActive(true);
             anim_MenuTournament.SetTrigger(Animator.StringToHash("0"));
         }
         else
         {
-            text_ExitButton.text = "EXIT";
+            text_BackSettingsButton.text = "SETTINGS";
             anim_MenuTournament.SetTrigger(Animator.StringToHash("1"));
         }
     }
@@ -171,14 +171,14 @@ public class Objects_Menu : MonoBehaviour
         if (_on)
         {
             scr.gM._menues = Menues.menuPlayers;
-            text_ExitButton.text = "BACK";
+            text_BackSettingsButton.text = "BACK";
             anim_MainMenu.SetTrigger(Animator.StringToHash("1"));
             obj_MenuPlayers.SetActive(true);
             anim_MenuPlayers.SetTrigger(Animator.StringToHash("0"));
         }
         else
         {
-            text_ExitButton.text = "EXIT";
+            text_BackSettingsButton.text = "SETTINGS";
             anim_MenuPlayers.SetTrigger(Animator.StringToHash("1"));
         }
     }
@@ -191,20 +191,20 @@ public class Objects_Menu : MonoBehaviour
         if (_on)
         {
             scr.gM._menues = Menues.menuUpgrades;
-            text_ExitButton.text = "BACK";
+            text_BackSettingsButton.text = "BACK";
             anim_MainMenu.SetTrigger(Animator.StringToHash("1"));
             obj_MenuUpgrades.SetActive(true);
         }
         else
         {
-            text_ExitButton.text = "EXIT";
+            text_BackSettingsButton.text = "SETTINGS";
             anim_MenuUpgrades.SetTrigger(Animator.StringToHash("1"));
         }
     }
 
     public void Menu_Info(bool _on)
     {
-        text_ExitButton.text = _on ? "BACK" : "EXIT";
+        text_BackSettingsButton.text = _on ? "BACK" : "SETTINGS";
     }
 
     public void Button_Sound()

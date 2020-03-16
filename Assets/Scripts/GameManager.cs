@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
         switch (_menues)
         {
             case Menues.mainMenu:
-                ExitGame();
+                GameSettings();
                 break;
             case Menues.menuCareer:
                 scr.objM.Menu_Tournaments(false);
@@ -158,6 +158,11 @@ public class GameManager : MonoBehaviour
         }
 
         _menues = Menues.mainMenu;
+	}
+
+	private void GameSettings()
+	{
+		//empty function for game settings
 	}
 
     public void MenuProfilePlayers()
