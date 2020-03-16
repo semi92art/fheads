@@ -248,7 +248,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 scr.camSize.tim = 0;
                 scr.skyScr.isGoal = true;
-                scr.fwScr.SetActiveGoalFirework();
+                if (scr.alPrScr.tribunes != 0)
+                {
+	                scr.fwScr.SetActiveGoalFirework();
+                }
 
                 if (goalCheck == -1)
                 {
