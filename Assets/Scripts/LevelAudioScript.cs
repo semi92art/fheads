@@ -1,16 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 
 public class LevelAudioScript : MonoBehaviour 
 {
-    [SerializeField]
-	private Scripts scr;
-
-    public Animator anim_SoundOn;
-    public bool isSoundOn;
-
-    private AudioSource[] audSources;
+	#region public fields
+	
+	public Animator anim_SoundOn;
+	
 	public AudioSource goalSource;
 	public AudioSource playerJumpSource, enemyJumpSource;
 	public AudioSource ballTouchSource;
@@ -20,13 +15,14 @@ public class LevelAudioScript : MonoBehaviour
 	public AudioSource refereeWhistleSource;
 	public AudioSource longWhistle;
 	public AudioSource kickSource;
-    public AudioSource bonus_1, bonus_2;
-    public AudioSource molniya;
-    public AudioSource timeSlow_In, timeSlow_Out;
-    [Header("Goal Clips:")]
-    public AudioClip goalClip1;
-    public AudioClip goalClip2;
-
+	public AudioSource bonus_1, bonus_2;
+	public AudioSource molniya;
+	public AudioSource timeSlow_In, timeSlow_Out;
+	public AudioSource[] _tribunes;
+	public AudioClip goalClip1;
+	public AudioClip goalClip2;
+	
+	public bool isSoundOn;
 	[HideInInspector]
 	public bool goal;
 	[HideInInspector]
@@ -34,229 +30,179 @@ public class LevelAudioScript : MonoBehaviour
 	[HideInInspector]
 	public bool isPlayingJumpClipPlayer, isPlayingJumpClipEnemy;
 
-	private int timerGoal;
+	#endregion
+	
+	#region attributes
+	
+    [SerializeField]
+	private Scripts scr;
+	private AudioSource[] audSources;
+    private int timerGoal;
 	private int timerJumpPlayer, timerJumpEnemy;
 	private int timerBallTouch;
     private int reset;
-    private float maxTribVolume;
+    private readonly float maxTribVolume = 0.25f;
     private AudioSource tribSource;
-    public AudioSource[] _tribunes;
+    
     private int tribInd;
+    
+    #endregion
 
+    #region engine methods
+    
     void Awake()
     {
-        maxTribVolume = scr.alPrScr.tribunes == 0 ? 0.1f : 0.25f;
-        SetTribunesSource();
+	    SetTribunesSource();
         _tribunes[tribInd].volume = 0.05f;
     }
-
+    
+    void Update()
+    {
+	    BallTouchSound();
+	    Attenuation_TribunesSound();
+    }
+    
+    #endregion
+    
+    #region private methods
+    
     private void SetTribunesSource()
     {
-        int trib = scr.alPrScr.tribunes;
-
-        if (trib == 0)
-        {
-	        _tribunes[0].enabled = false;
-	        _tribunes[1].enabled = false;
-	        _tribunes[2].enabled = false;
-	        goalSource.enabled = false;
-	        molniya.enabled = false;
-	        tribInd = 0;
-        } 
-        else if (trib == 3)
-        {
-            _tribunes[0].enabled = true;
-            _tribunes[1].enabled = false;
-            _tribunes[2].enabled = false;
-            tribInd = 0;
-        }
-        else if (trib == 1 || trib == 4)
-        {
-            _tribunes[0].enabled = false;
-            _tribunes[1].enabled = true;
-            _tribunes[2].enabled = false;
-            tribInd = 1;
-        }
-        else if (trib == 2 || trib == 5)
-        {
-            _tribunes[0].enabled = false;
-            _tribunes[1].enabled = false;
-            _tribunes[2].enabled = true;
-            tribInd = 2;
-        }
+	    int trib = scr.alPrScr.tribunes;
+	    _tribunes[0].enabled = trib == 3;
+	    _tribunes[1].enabled = trib == 1 || trib == 4;
+	    _tribunes[2].enabled = trib == 2 || trib == 5;
+	    goalSource.enabled = trib != 0;
+	    molniya.enabled = trib != 0;
+	    tribInd = trib == 0 || trib == 3 ? 0 : trib == 1 || trib == 4 ? 1 : 2;
     }
 
-	void Update()
-	{
-		BallTouchSound();
-        Attenuation_TribunesSound();
-	}
+	
 		
-	private void JumpSoundPlayer()
-	{
-		if (scr.pMov.jump)
-		{
-			timerJumpPlayer ++;
-
-			if (timerJumpPlayer == 1)
-			{
-                if (isSoundOn)
-				    playerJumpSource.Play();
-			}
-			else 
-			{
-				if (timerJumpPlayer != 0)
-				{
-                    timerJumpPlayer = timerJumpPlayer > 20 ? 0 : timerJumpPlayer + 1;
-				}
-			}
-		} 
-		else 
-		{
-			if (timerJumpPlayer != 0)
-			{
-				timerJumpPlayer ++;
-
-				if (timerJumpPlayer >= 20)
-					timerJumpPlayer = 0;
-			}
-		}
-	}
+    private void JumpSoundPlayer()
+    {
+	    if (scr.pMov.jump)
+	    {
+		    timerJumpPlayer++;
+		    if (timerJumpPlayer == 1 && isSoundOn)
+			    playerJumpSource.Play();
+		    else if (timerJumpPlayer != 0)
+			    timerJumpPlayer = timerJumpPlayer > 20 ? 0 : timerJumpPlayer + 1;
+	    } 
+	    else if (timerJumpPlayer != 0)
+	    {
+		    timerJumpPlayer ++;
+		    if (timerJumpPlayer >= 20)
+			    timerJumpPlayer = 0;
+	    }
+    }
 		
-	private void JumpSoundEnemy()
-	{
-		if (scr.jScr.jump)
-		{
-			timerJumpEnemy ++;
+    private void JumpSoundEnemy()
+    {
+	    if (scr.jScr.jump)
+	    {
+		    timerJumpEnemy++;
+		    if (timerJumpEnemy == 1 && isSoundOn)
+			    enemyJumpSource.Play();
+		    else if (timerJumpEnemy != 0)
+		    {
+			    timerJumpEnemy ++;
+			    if (timerJumpEnemy >= 20)
+				    timerJumpEnemy = 0;
+		    }
+	    } 
+	    else if (timerJumpEnemy != 0)
+	    {
+		    timerJumpEnemy++;
+		    if (timerJumpEnemy >= 20)
+			    timerJumpEnemy = 0;
+	    }
+    }
+    
+    private void Attenuation_TribunesSound()
+    {
+	    if (!scr.tM.isGoldenGoal && TimeManager.resOfGame == 0)
+	    {
+		    if (_tribunes[tribInd].volume < maxTribVolume)
+			    _tribunes[tribInd].volume *= 1.001f;
+	    }
+	    else if (!scr.tM.isGoldenGoal && TimeManager.resOfGame != 0)
+	    {
+		    if (_tribunes[tribInd].volume > 0.05f)
+			    _tribunes[tribInd].volume *= 0.99f;
+	    }
+	    else if (scr.tM.isGoldenGoal)
+	    {
+		    if (_tribunes[tribInd].volume > 0.005f)
+			    _tribunes[tribInd].volume *= 0.997f;
+	    }
+    }
+    
+    #endregion
 
-			if (timerJumpEnemy == 1)
-			{
-                if (isSoundOn)
-				    enemyJumpSource.Play ();
-			} 
-			else
-			{
-				if (timerJumpEnemy != 0)
-				{
-					timerJumpEnemy ++;
+    #region public methods
+    
+    public void BallTouchSound()
+    {
+	    reset = scr.ballScr.transform.position.y < scr.marks.topBarTr.position.y ? 10 : 5;
 
-					if (timerJumpEnemy >= 20)
-						timerJumpEnemy = 0;
-				}
-			}
-		} 
-		else
-		{
-			if (timerJumpEnemy != 0)
-			{
-				timerJumpEnemy ++;
-
-				if (timerJumpEnemy >= 20)
-					timerJumpEnemy = 0;
-			}
-		}
-	}
-
-	public void BallTouchSound()
-	{
-		if (scr.ballScr.transform.position.y < scr.marks.topBarTr.position.y)
-			reset = 10;
-		else
-			reset = 5;
-
-        if (scr.ballScr.transform.gameObject.activeSelf) 
-		{
-			if (scr.ballTScr.isCollision)
-			{
-				if (timerBallTouch == 0)
-					timerBallTouch ++;
-
-				if (timerBallTouch == 1)
-				{
-					if (scr.ballTScr.velMagnitude > 20)
-						ballTouchSource.volume = 1 + 0.2f;
-					else
-						ballTouchSource.volume = scr.ballTScr.velMagnitude * 0.02f * (1 + 0.2f);
-
-                    if (isSoundOn)
-						ballTouchSource.Play();
-				}
-				else
-				{
-					if (timerBallTouch != 0)
-					{
-						timerBallTouch ++;
-
-						if (timerBallTouch > reset)
-							timerBallTouch = 0;
-					}
-				}
-			} 
-			else
-			{
-				if (timerBallTouch != 0)
-				{
-					timerBallTouch ++;
-
-					if (timerBallTouch > reset)
-						timerBallTouch = 0;
-				}
-			}	
-		}
-	}
+	    if (scr.ballScr.transform.gameObject.activeSelf) 
+	    {
+		    if (scr.ballTScr.isCollision)
+		    {
+			    if (timerBallTouch == 0)
+				    timerBallTouch++;
+			    if (timerBallTouch == 1)
+			    {
+				    ballTouchSource.volume = scr.ballTScr.velMagnitude > 20 ? 
+					    1 + 0.2f : scr.ballTScr.velMagnitude * 0.02f * (1 + 0.2f);
+				    if (isSoundOn)
+					    ballTouchSource.Play();
+			    }
+			    else if (timerBallTouch != 0)
+			    {
+				    timerBallTouch ++;
+				    if (timerBallTouch > reset)
+					    timerBallTouch = 0;
+			    }
+		    } 
+		    else if (timerBallTouch != 0)
+		    {
+			    timerBallTouch++;
+			    if (timerBallTouch > reset)
+				    timerBallTouch = 0;
+		    }	
+	    }
+    }
 
     public void EnableSound(int isAwake)
     {
-        audSources = FindObjectsOfType<AudioSource>();
-        isSoundOn = isAwake == 1 ? isSoundOn : !isSoundOn;
-        int isSoundOn_int = isSoundOn ? 1 : 0;
+	    audSources = FindObjectsOfType<AudioSource>();
+	    isSoundOn = isAwake == 1 ? isSoundOn : !isSoundOn;
 
-        anim_SoundOn.SetTrigger(
-            Animator.StringToHash(isAwake.ToString() + isSoundOn_int.ToString()));
+	    anim_SoundOn.SetTrigger(
+		    Animator.StringToHash(isAwake + (isSoundOn ? "1" : "0")));
 
-        if (isAwake == 0)
-            PlayerPrefs.SetInt("SoundOn", isSoundOn_int);
+	    if (isAwake == 0)
+		    PlayerPrefs.SetInt("SoundOn", isSoundOn ? 1 : 0);
 
-        for (int i = 0; i < audSources.Length; i++)
-            audSources[i].mute = !isSoundOn;
+	    for (int i = 0; i < audSources.Length; i++)
+		    audSources[i].mute = !isSoundOn;
 
-        if (scr.alPrScr.tribunes == 1 || scr.alPrScr.tribunes == 5)
-        {
-            AudioSource[] audS =
-                scr.rainMan.rainScr.gameObject.GetComponents<AudioSource>();
-
-            for (int i = 0; i < audS.Length; i++)
-            {
-                audS[i].mute = !isSoundOn;
-            }
-        }
+	    if (scr.alPrScr.tribunes == 1 || scr.alPrScr.tribunes == 5)
+	    {
+		    AudioSource[] audS = scr.rainMan.rainScr.gameObject.GetComponents<AudioSource>();
+		    for (int i = 0; i < audS.Length; i++)
+			    audS[i].mute = !isSoundOn;
+	    }
     }
 
     public void Button_Sound()
     {
-        if (!menuButtonsSource.mute && menuButtonsSource.enabled)
-            menuButtonsSource.Play();
+	    if (!menuButtonsSource.mute && menuButtonsSource.enabled)
+		    menuButtonsSource.Play();
     }
+    
+    #endregion
 
-    private void Attenuation_TribunesSound()
-    {
-        if (!scr.tM.isGoldenGoal)
-        {
-            if (TimeManager.resOfGame == 0)
-            {
-                if (_tribunes[tribInd].volume < maxTribVolume)
-                    _tribunes[tribInd].volume *= 1.001f;
-            }
-            else
-            {
-                if (_tribunes[tribInd].volume > 0.05f)
-                    _tribunes[tribInd].volume *= 0.99f;
-            }
-        }
-        else
-        {
-            if (_tribunes[tribInd].volume > 0.005f)
-                _tribunes[tribInd].volume *= 0.997f;
-        }
-    }
 }
