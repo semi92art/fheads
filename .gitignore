@@ -293,3 +293,8 @@ __pycache__/
 FootballHeads.sln
 Assets/lightening/Materials/Small.mat
 Assets/StreamingAssets/build_info.txt
+
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp-firstpass.csproj
+Assembly-CSharp-Editor-firstpass.csproj

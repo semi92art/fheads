@@ -48,7 +48,7 @@ public class ProfileManager : MonoBehaviour
 		{
 			PopulateList_1 ();
             PopulateList_2 ();
-            scr.gM._menues = Menues.mainMenu;
+            GameManager.Instance._menues = Menues.MainMenu;
 
             switch (PlayerPrefs.GetInt("PlayerLeague"))
             {
@@ -254,14 +254,14 @@ public class ProfileManager : MonoBehaviour
 
         if (previewPlayerLg == 1)
         {
-            if (scr.gM._menues == Menues.menuPlayers)
+            if (GameManager.Instance._menues == Menues.MenuPlayers)
                 moneyCoast1 = moneyCoast[butInd];
 
             if (scr.alPrScr.moneyCount >= moneyCoast1 && scr.alPrScr.openedPlayers[butInd] == 0)
             {
                 ProfileSampleButton but = profBut0[butInd].GetComponent<ProfileSampleButton>();
 
-                if (scr.gM._menues == Menues.menuPlayers)
+                if (GameManager.Instance._menues == Menues.MenuPlayers)
                 {
                     scr.alPrScr.moneyCount -= moneyCoast1;
                     scr.alPrScr.setMoney = true;
@@ -275,14 +275,14 @@ public class ProfileManager : MonoBehaviour
         }
         else if (previewPlayerLg == 2)
         {
-            if (scr.gM._menues == Menues.menuPlayers)
+            if (GameManager.Instance._menues == Menues.MenuPlayers)
                 moneyCoast1 = moneyCoast_2[butInd];
 
             if (scr.alPrScr.moneyCount >= moneyCoast1 && scr.alPrScr.openedPlayers_2[butInd] == 0)
             {
                 ProfileSampleButton but = profBut0_2[butInd].GetComponent<ProfileSampleButton>();
 
-                if (scr.gM._menues == Menues.menuPlayers)
+                if (GameManager.Instance._menues == Menues.MenuPlayers)
                 {
                     scr.alPrScr.moneyCount -= moneyCoast1;
                     scr.alPrScr.setMoney = true;
@@ -435,7 +435,7 @@ public class ProfileManager : MonoBehaviour
             SetSkillsAndSprite();
 		}
 
-        if (scr.gM._menues != Menues.mainMenu)
+        if (GameManager.Instance._menues != Menues.MainMenu)
             scr.objM.buttonsSource.Play();
 	}
 
@@ -489,7 +489,7 @@ public class ProfileManager : MonoBehaviour
             SetSkillsAndSprite();
         }
 
-        if (scr.gM._menues != Menues.mainMenu)
+        if (GameManager.Instance._menues != Menues.MainMenu)
             scr.objM.buttonsSource.Play();
     }
 

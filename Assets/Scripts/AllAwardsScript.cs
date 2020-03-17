@@ -86,7 +86,7 @@ public class AllAwardsScript : MonoBehaviour
         awPans[1].SetActive(true);
         pansActive[1] = 1;
 
-        if (scr.gM._menues == Menues.menuCareer)
+        if (GameManager.Instance._menues == Menues.MenuCareer)
         {
             if (scr.alPrScr.moneyCount >= scr.carMng.lg_cost[scr.carMng._lgPrev])
             {
@@ -115,15 +115,15 @@ public class AllAwardsScript : MonoBehaviour
 
     public void YesButton_Preview()
     {
-        switch (scr.gM._menues)
+        switch (GameManager.Instance._menues)
         {
-            case Menues.menuPlayers:
+            case Menues.MenuPlayers:
                 scr.prMng.Unlock();
                 scr.prMng.SetSkillsAndSprite();
                 scr.prMng.SetShowcase();
                 scr.allAw.CloseAllAwardsPanel(1);
                 break;
-            case Menues.menuCareer:
+            case Menues.MenuCareer:
                 scr.carMng.UnlockLeague(scr.carMng._lgPrev);
                 scr.allAw.CloseAllAwardsPanel(1);
                 break;

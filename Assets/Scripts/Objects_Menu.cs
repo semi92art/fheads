@@ -153,8 +153,8 @@ public class Objects_Menu : MonoBehaviour
     {
         if (_on)
         {
-            scr.gM._menues = Menues.menuCareer;
             text_BackSettingsButton.text = "BACK";
+            GameManager.Instance._menues = Menues.MenuCareer;
             anim_MainMenu.SetTrigger(Animator.StringToHash("1"));
             obj_MenuTournament.SetActive(true);
             anim_MenuTournament.SetTrigger(Animator.StringToHash("0"));
@@ -170,8 +170,8 @@ public class Objects_Menu : MonoBehaviour
     {
         if (_on)
         {
-            scr.gM._menues = Menues.menuPlayers;
             text_BackSettingsButton.text = "BACK";
+            GameManager.Instance._menues = Menues.MenuPlayers;
             anim_MainMenu.SetTrigger(Animator.StringToHash("1"));
             obj_MenuPlayers.SetActive(true);
             anim_MenuPlayers.SetTrigger(Animator.StringToHash("0"));
@@ -190,8 +190,8 @@ public class Objects_Menu : MonoBehaviour
 
         if (_on)
         {
-            scr.gM._menues = Menues.menuUpgrades;
             text_BackSettingsButton.text = "BACK";
+            GameManager.Instance._menues = Menues.MenuUpgrades;
             anim_MainMenu.SetTrigger(Animator.StringToHash("1"));
             obj_MenuUpgrades.SetActive(true);
         }

@@ -192,7 +192,7 @@ public class CareerManager : MonoBehaviour
 		CheckIfGameWon(lg, scr.alPrScr.game);
         awardIm.sprite = LeagueAwardSpr(lg);
 
-        if (!scr.gM.menuBools.menu)
+        if (!GameManager.Instance.menuBools.menu)
 		    scr.objM.buttonsSource.Play();
 
 		SetColorsOfGameButtons(lg, scr.alPrScr.game);

@@ -578,19 +578,19 @@ public class PlayerMovement : MonoBehaviour
 
 		if (Input.GetKeyDown (KeyCode.W))
 		{
-			scr.gM.WinGame1();
+			GameManager.Instance.WinGame1();
 			scr.tM.matchPeriods = 1;
 		}
 
 		if (Input.GetKeyDown (KeyCode.L))
 		{
-			scr.gM.LooseGame();
+			GameManager.Instance.LooseGame();
 			scr.tM.matchPeriods = 1;
 		}
 
 		if (Input.GetKeyDown (KeyCode.T)) 
 		{
-			scr.gM.TieGame();
+			GameManager.Instance.TieGame();
 			scr.tM.matchPeriods = 1;
 		}
 

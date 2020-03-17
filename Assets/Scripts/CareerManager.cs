@@ -92,7 +92,7 @@ public class CareerManager : MonoBehaviour
             PlayerPrefs.SetInt("CanRestart", 3);
             scr.alPrScr.doCh = true;
             anim_LeagueMenu.SetTrigger(Animator.StringToHash("l" + _lg.ToString()));
-            scr.gM.SetStadium();
+            GameManager.Instance.SetStadium();
         }
             
         else
@@ -111,7 +111,7 @@ public class CareerManager : MonoBehaviour
 
     public void LoadTournament (int _lg)
     {
-        scr.gM.LoadSimpleLevel();
+        GameManager.Instance.LoadSimpleLevel();
     }
 
     private void SetLeagueData(int _lg)

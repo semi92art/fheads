@@ -28,7 +28,7 @@ public class CongradulationsPanel : MonoBehaviour
 		scoreText.text = Score.score1 + ":" + Score.score;
 		congrPanel.SetActive(true);
         Enemy.gameStop = true;
-		scr.gM.MenuResultBack ();
+        GameManager.Instance.MenuResultBack ();
 
         scr.camSize.SetCameraPositionForCongrPan();
         scr.alPrScr.doCh = true;

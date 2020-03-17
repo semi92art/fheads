@@ -1,19 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using UnityEngine.UI;
 
-public enum Menues
+public class GameManager : MonoBehaviour
 {
-    mainMenu,
-    menuCareer,
-    menuPlayers,
-    menuUpgrades
-}
-
-
-public class GameManager : MonoBehaviour 
-{
+	public static GameManager Instance { get; private set; }
+	
     public Scripts scr;
 
 	public bool quitPanel, pauseInLevel, gamePaused;
@@ -29,6 +20,13 @@ public class GameManager : MonoBehaviour
 
 	void Awake()
 	{
+		if (Instance != null)
+		{
+			DestroyImmediate(gameObject);
+			return;
+		}
+		Instance = this;
+		
         isNoAds = scr.univFunc.Int2Bool(PlayerPrefs.GetInt("NoAds"));
 
 		switch (SceneManager.GetActiveScene().buildIndex) 
@@ -44,7 +42,7 @@ public class GameManager : MonoBehaviour
 
                 Time.timeScale = 1f;
 
-                _menues = Menues.mainMenu;
+                _menues = Menues.MainMenu;
     			DestroyImmediate (GameObject.Find ("ChampList"));
     			DestroyImmediate (GameObject.Find ("ChampListImage"));
     			break;
@@ -74,13 +72,13 @@ public class GameManager : MonoBehaviour
         {
             switch (_menues)
             {
-                case Menues.mainMenu:
+                case Menues.MainMenu:
                     Application.Quit();
                     break;
-                case Menues.menuCareer:
+                case Menues.MenuCareer:
                     DependentMenuBack();
                     break;
-                case Menues.menuPlayers:
+                case Menues.MenuPlayers:
                     DependentMenuBack();
                     break;
             }
@@ -109,17 +107,10 @@ public class GameManager : MonoBehaviour
                     }   
                     else
                     {
-                        switch (scr.objLev.quitPanel.activeSelf)
-                        {
-                            case true:
-                                PauseQuitBack();
-
-                                break;
-                            case false:
-                                PauseBack();
-                                scr.objLev.mainCanvas.enabled = false;
-                                break;
-                        }
+	                    if (scr.objLev.quitPanel.activeSelf)
+		                    PauseQuitBack();
+	                    else
+							PauseBack();
                     } 
                 }
             }
@@ -143,21 +134,21 @@ public class GameManager : MonoBehaviour
 	{
         switch (_menues)
         {
-            case Menues.mainMenu:
-                GameSettings();
+	        case Menues.MainMenu:
+		        GameSettings();
                 break;
-            case Menues.menuCareer:
+            case Menues.MenuCareer:
                 scr.objM.Menu_Tournaments(false);
                 break;
-            case Menues.menuPlayers:
+            case Menues.MenuPlayers:
                 scr.objM.Menu_Players(false);
                 break;
-            case Menues.menuUpgrades:
+            case Menues.MenuUpgrades:
                 scr.objM.Menu_Upgrades(false);
                 break;
         }
 
-        _menues = Menues.mainMenu;
+        _menues = Menues.MainMenu;
 	}
 
 	private void GameSettings()
@@ -169,15 +160,13 @@ public class GameManager : MonoBehaviour
     {
         if (!firstCallProfPl)
         {
-            scr.objM.cP.anchoredPosition = new Vector2(
-                0.0f, scr.objM.cP.anchoredPosition.y);
-            
+            scr.objM.cP.anchoredPosition = new Vector2(0.0f, scr.objM.cP.anchoredPosition.y);
             firstCallProfPl = true;
         }
             
         scr.objM.currPrPan.SetActive(false);
         scr.prMng.SetOpenedPlayersCountryText(false);
-        _menues = Menues.menuPlayers;
+        _menues = Menues.MenuPlayers;
     }
 
 	public void GoToMenu()
@@ -313,24 +302,6 @@ public class GameManager : MonoBehaviour
 		scr.objLev.resultMenuAnim.gameObject.SetActive(false);
 	}
 
-	/*public void MenuProfilePlayersBack ()
-	{
-        _menues = Menues.mainMenu;
-	}
-
-	public void ChooseLastMenuProfileMaterials()
-	{
-		GameObject[] menuProfMat = GameObject.FindGameObjectsWithTag ("MenuProfileMaterials");
-
-		if (menuProfMat.Length == 2)
-		{
-			if (SceneManager.GetActiveScene().buildIndex == 1)
-				DestroyImmediate (menuProfMat [0]); 
-			 else 
-				DestroyImmediate (menuProfMat [1]); 
-		}
-	}*/
-
     public void Rigidbodies_TimeScale(int tScale)
     {
         for (int i = 0; i < scr.objLev.allRbs.Length; i++)
@@ -347,15 +318,6 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < scr.objLev.allRbs.Length; i++)
             scr.objLev.allRbs[i].constraints = RigidbodyConstraints2D.FreezeAll;
     }
-
-    /*public void LoadPractice()
-    {
-        scr.buf.isPractice = true;
-        scr.buf.SetData();
-        SceneManager.LoadScene("Level");
-
-        scr.objM.buttonsSource.Play();
-    }*/
 }
 
 

@@ -121,7 +121,7 @@ public class UniversalFunctions : MonoBehaviour
         
     public void ShowInterstitialAd()
     {
-        if (!IsMyDevice() && !scr.gM.isNoAds)
+        if (!IsMyDevice() && !GameManager.Instance.isNoAds)
         {
             if (GoogleMobileAd.IsInterstitialReady)
                 GoogleMobileAd.ShowInterstitialAd();
@@ -132,8 +132,7 @@ public class UniversalFunctions : MonoBehaviour
     {
         string android_id = "editor";
 
-        #if UNITY_EDITOR
-        #else
+        #if !UNITY_EDITOR
         AndroidJavaClass up = new AndroidJavaClass ("com.unity3d.player.UnityPlayer");
         AndroidJavaObject currentActivity = up.GetStatic<AndroidJavaObject> ("currentActivity");
         AndroidJavaObject contentResolver = currentActivity.Call<AndroidJavaObject> ("getContentResolver");  
@@ -149,13 +148,10 @@ public class UniversalFunctions : MonoBehaviour
         Debug.Log(Android_Id());
     }
 
-	public bool Int2Bool(int _int)
-	{
-        if (_int == 0)
-			return false;
-		else 
-			return true;
-	}
+	public bool Int2Bool(int _Value)
+    {
+        return _Value != 0;
+    }
 
 	public string CurrentTime(int hour, int minute, int second)
 	{
@@ -272,17 +268,11 @@ public class UniversalFunctions : MonoBehaviour
         return moneyString_0(money);
 	}
 
-    public string moneyString(float money)
-    {
-        int money_1 = (int)money;
-        return moneyString_0(money_1);
-    }
-
     private string moneyString_0(int money)
     {
-        string strNum1 = "";
-        string strNum2 = "";
-        string strNum3 = "";
+        string strNum1 = string.Empty;
+        string strNum2 = string.Empty;
+        string strNum3 = string.Empty;
 
         string moneyStr = money.ToString("D");
 
@@ -292,7 +282,7 @@ public class UniversalFunctions : MonoBehaviour
         }
         else if (moneyStr.Length > 3 && moneyStr.Length <= 6)
         {
-            int num1 = Mathf.FloorToInt(money / 1000);
+            int num1 = Mathf.FloorToInt(money * 0.0001f);
             int num2 = money - num1 * 1000;
 
             if (num2 < 10)
@@ -307,18 +297,17 @@ public class UniversalFunctions : MonoBehaviour
         }
         else if (moneyStr.Length > 6 && moneyStr.Length <= 9)
         {
-            int num1 = Mathf.FloorToInt(money / 1000000);
-            int num2 = money - num1 * 1000000;
-            int num2_1 = Mathf.FloorToInt(num2 / 1000);
+            int num1 = Mathf.FloorToInt(money * 0.0000001f);
+            int num2 = Mathf.FloorToInt(money - num1 * 100);
 
-            if (num2_1 < 10)
-                strNum2 = "00" + num2_1.ToString("D");
-            else if (num2_1 >= 10 && num2_1 < 100)
-                strNum2 = "0" + num2_1.ToString("D");
+            if (num2 < 10)
+                strNum2 = "00" + num2.ToString("D");
+            else if (num2 >= 10 && num2 < 100)
+                strNum2 = "0" + num2.ToString("D");
             else
-                strNum2 = "" + num2_1.ToString("D");
+                strNum2 = "" + num2.ToString("D");
 
-            int num3 = money - num1 * 1000000 - num2_1 * 1000;
+            int num3 = money - num1 * 1000000 - num2 * 1000;
 
             if (num3 < 10)
                 strNum3 = "00" + num3.ToString("D");
@@ -330,119 +319,8 @@ public class UniversalFunctions : MonoBehaviour
             strNum1 = num1.ToString("D");
             return strNum1 + "," + strNum2 + "," + strNum3 + "C";
         }
-        else
-            return "";
+        return "";
     }
-
-
-    public string string_IMPERVUM_Number(int _num)
-	{
-        switch (_num)
-        {
-            case 1:
-                return "I";
-            case 2:
-                return "III";
-            case 3:
-                return "III";
-            case 4:
-                return "IV";
-            case 5:
-                return "V";
-            case 6:
-                return "VI";
-            case 7:
-                return "VII";
-            case 8:
-                return "VIII";
-            case 9:
-                return "IX";
-            case 10:
-                return "X";
-            case 11:
-                return "XI";
-            case 12:
-                return "XII";
-            case 13:
-                return "XIII";
-            case 14:
-                return "XIV";
-            case 15:
-                return "XV";
-            case 16:
-                return "XVI";
-            case 17:
-                return "XVII";
-            case 18:
-                return "XVIII";
-            case 19:
-                return "IXX";
-            case 20:
-                return "XX";
-            case 21:
-                return "XXI";
-            case 22:
-                return "XXII";
-            case 23:
-                return "XXIII";
-            case 24:
-                return "XXIV";
-            case 25:
-                return "XXV";
-            case 26:
-                return "XXVI";
-            case 27:
-                return "XXVII";
-            case 28:
-                return "XXVIII";
-            case 29:
-                return "XXIX";
-            case 30:
-                return "XXX";
-            case 31:
-                return "XLI";
-            case 32:
-                return "XLII";
-            case 33:
-                return "XLIII";
-            case 34:
-                return "XLIV";
-            case 35:
-                return "XLV";
-            case 36:
-                return "XLVI";
-            case 37:
-                return "XLVII";
-            case 38:
-                return "XLVIII";
-            case 39:
-                return "XLIX";
-            case 40:
-                return "XL";
-            case 41:
-                return "LI";
-            case 42:
-                return "LII";
-            case 43:
-                return "LIII";
-            case 44:
-                return "LIV";
-            case 45:
-                return "LV";
-            case 46:
-                return "LVI";
-            case 47:
-                return "LVII";
-            case 48:
-                return "LVIII";
-            case 49:
-                return "LIX";
-            case 50:
-                return "L";
-            default:
-                return "-";
-        }
-	}
 
     public int Stadium(int _game)
     {

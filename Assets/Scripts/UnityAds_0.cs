@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
+using UnityEngine.Advertisements;
 
 
 public class UnityAds_0 : MonoBehaviour 
@@ -26,7 +25,7 @@ public class UnityAds_0 : MonoBehaviour
 
     void Start ()
     {
-        string gameId = null;
+        string gameId = string.Empty;
 
         #if UNITY_ANDROID
         gameId = androidGameId;
@@ -70,11 +69,11 @@ public class UnityAds_0 : MonoBehaviour
         {
             case ShowResult.Finished:
                 if (scr.tM.matchPeriods == 0)
-                    scr.gM.LoadSimpleLevel();
+                    GameManager.Instance.LoadSimpleLevel();
                 else
                 {
                     if (!scr.bonObjMan.isVideoCalled)
-                        scr.gM.LoadSimpleLevel();
+                        GameManager.Instance.LoadSimpleLevel();
                     else
                         scr.bonObjMan.isVideoCalled = false;
                 }

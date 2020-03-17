@@ -15,12 +15,12 @@ public class Anim_VictoryText : MonoBehaviour
         if (scr.alPrScr.isRandGame == 0)
         {
             if (scr.alPrScr.game == 10)
-                scr.gM.GoToMenu();
+                GameManager.Instance.GoToMenu();
             else
                 scr.objLev.ContinueTournament();
         }
         else
-            scr.gM.GoToMenu();
+            GameManager.Instance.GoToMenu();
     }
 
     public void Call_Animation()

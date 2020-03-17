@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class Scripts : MonoBehaviour 
 {
     [Header("Menu and Level scenes:")]
     public AllPrefsScript alPrScr;
     public UniversalFunctions univFunc;
-    public GameManager gM;
+    
     public ProfileManager prMng;
     public AndroidAdMob_0 adMob;
     public Buffer buf;
@@ -52,12 +50,13 @@ public class Scripts : MonoBehaviour
     public Anim_Shield plShield;
     public Anim_Shield enShield;
 
+    
 
     void Awake()
     {
         if (alPrScr == null) alPrScr = FindObjectOfType<AllPrefsScript>();
         if (univFunc == null) univFunc = FindObjectOfType<UniversalFunctions>();
-        if (gM == null) gM = FindObjectOfType<GameManager> ();
+
         if (adMob == null) adMob = FindObjectOfType<AndroidAdMob_0>();
         if (buf == null) buf = FindObjectOfType<Buffer>();
 
@@ -65,7 +64,7 @@ public class Scripts : MonoBehaviour
         if (plL == null) plL = FindObjectOfType<PlayersList>();
         if (prMng == null) prMng = FindObjectOfType<ProfileManager>();
 
-        switch (SceneManager.GetActiveScene().buildIndex) 
+        switch (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex) 
         {
             case 1:
                 if (upgr == null) upgr = FindObjectOfType<Upgrades>();
@@ -101,7 +100,6 @@ public class Scripts : MonoBehaviour
                 if (ballTScr == null) ballTScr = FindObjectOfType<BallTouchScript>();
                 if (jScr == null) jScr = FindObjectOfType<JumpScript>();
                 if (skyScr == null) skyScr = FindObjectOfType<SkyScript>();
-                //if (enAlg == null) enAlg = FindObjectOfType<Enemy>();
                 break;
         }
     }

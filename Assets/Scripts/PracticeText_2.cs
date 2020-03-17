@@ -68,6 +68,6 @@ public class PracticeText_2 : MonoBehaviour
 
     public void LoadMenu()
     {
-        scr.gM.GoToMenu();
+        GameManager.Instance.GoToMenu();
     }*/
 }

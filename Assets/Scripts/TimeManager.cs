@@ -76,7 +76,7 @@ public class TimeManager : MonoBehaviour
 			isBetweenTimes = true;
 			scr.objLev.secondTimePanelAnim.gameObject.SetActive(true);
 			isNextTime = false;
-            scr.gM.currTimeScale = Time.timeScale;
+			GameManager.Instance.currTimeScale = Time.timeScale;
 			Time.timeScale = 0;
 		}
 	}
@@ -102,7 +102,7 @@ public class TimeManager : MonoBehaviour
         isBetweenTimes = false;
         scr.objLev.secondTimePanelAnim.SetTrigger(Animator.StringToHash("back"));
         scr.objLev.secondTimePanelAnim.gameObject.SetActive(false);
-        Time.timeScale = scr.gM.currTimeScale;
+        Time.timeScale = GameManager.Instance.currTimeScale;
         scr.timFr.isFreeze = false;
         time0 = beginTime + 1;
         scr.pMov.restart = true;
@@ -259,9 +259,9 @@ public class TimeManager : MonoBehaviour
             {
                 if (matchPeriods == 0)
                 {
-                    scr.gM.MenuResult();
+	                GameManager.Instance.MenuResult();
                     resOfGame = Score.score > Score.score1 ? 1 : 3;
-                    scr.gM.Rigidbodies_TimeScale_0();
+                    GameManager.Instance.Rigidbodies_TimeScale_0();
                     scr.objLev.controlsCanvas.enabled = false;
 
                     if (scr.alPrScr.isRandGame == 0)
@@ -270,7 +270,7 @@ public class TimeManager : MonoBehaviour
                         {
                             scr.alPrScr.wonGames[scr.alPrScr.game, scr.alPrScr.lg] = 1;
                             scr.alPrScr.game++;
-                            scr.gM.SetStadium();
+                            GameManager.Instance.SetStadium();
                             scr.alPrScr.doCh = true;  
                             scr.objLev.text_Result.gameObject.SetActive(false);
                             scr.objLev._anim_VictText.winState = 1;

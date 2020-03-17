@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Advertisements;
 
 public class TimeFreeze : MonoBehaviour
 {
@@ -56,7 +55,7 @@ public class TimeFreeze : MonoBehaviour
             freezeTime = !timFr ? freezeTime - Time.deltaTime : freezeTime;
 
             float freezeTime_1 = Time.timeScale > 0f ?
-                freezeTime / Time.timeScale : freezeTime / scr.gM.currTimeScale;
+                freezeTime / Time.timeScale : freezeTime / GameManager.Instance.currTimeScale;
 
             freezeTime_2 = Mathf.RoundToInt(freezeTime_1 * 10f);
 
