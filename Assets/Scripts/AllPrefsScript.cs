@@ -1,27 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using UnityStandardAssets.ImageEffects;
 
 
 public class AllPrefsScript : MonoBehaviour 
 {
+	public static AllPrefsScript Instance { get; private set; }
+	
     public Scripts scr;
-
-    public int pldG;
-
-    [Header("Players Indexes:")]
+    
+    
     public int playerIndex;
     public int playerIndexRand;
     public int buttonIndex;
     public int enemyIndex;
-	[Header("Money Count:")]
-	public int moneyCount;
-	[Header("Launches:")]
-	public int launches;
-	[Space(10)]
-	public int moneyWin;
-
+    public int moneyCount;
+    public int launches;
+    public int moneyWin;
     public int _camera;
     public int evrdReward;
     public int plLg, enLg;
@@ -35,18 +29,14 @@ public class AllPrefsScript : MonoBehaviour
     public int tribunes;
 	public int ballN;
     public int winsTotal;
-
     public float skill_Speed;
     public float skill_Kick;
     public float skill_Jump;
-
     public int[] openedPlayers;
     public int[] openedPlayers_2;
-
     public int[] opndLeagues = new int[6];
     public int[,] wonGames = new int[10,6];
     public int lg, game;
-
     public int upgrSpeed;
     public int upgrKick;
     public int upgrJump;
@@ -59,9 +49,31 @@ public class AllPrefsScript : MonoBehaviour
 	public bool doCh;
 	public bool setMoney;
 
-	
-	void Awake()
+	#region public methods
+
+	public static int GetPrefsInt(string _Key)
 	{
+		return PlayerPrefs.GetInt(_Key);
+	}
+
+	public static void SetPrefsInt(string _Key, int _Value)
+	{
+		PlayerPrefs.SetInt(_Key, _Value);
+	}
+	
+	#endregion
+	
+	#region engine methods
+	
+	private void Awake()
+	{
+		if (Instance != null)
+		{
+			DestroyImmediate(gameObject);
+			return;
+		}
+		Instance = this;
+		
         moneyCount = PlayerPrefs.GetInt ("MoneyCount");
 
         System.GC.Collect();
@@ -75,9 +87,8 @@ public class AllPrefsScript : MonoBehaviour
 
         PlayerPrefs.SetString("Version", Application.version);
 		launches = PlayerPrefs.GetInt("Launches");
-        pldG = PlayerPrefs.GetInt("PlayedGames");
 
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+		if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             if (launches == 0)
             {
@@ -113,8 +124,7 @@ public class AllPrefsScript : MonoBehaviour
             if (launches == 1)
                 PlayerPrefs.SetInt("SoundOn", 1);
 
-            PlayerPrefs.SetInt("PlayedGames", 
-                PlayerPrefs.GetInt("PlayedGames") + 1);
+            
 
             FindObjectOfType<TimeManager>().rigBodies = FindObjectsOfType<Rigidbody2D>();
             FindObjectOfType<TimeManager>().contrRidBodies = 
@@ -146,6 +156,9 @@ public class AllPrefsScript : MonoBehaviour
             setMoney = true;
         }
 	}
+	
+	#endregion
+	
 
     private void MoneyPurchase()
     {

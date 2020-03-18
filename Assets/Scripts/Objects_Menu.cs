@@ -72,7 +72,7 @@ public class Objects_Menu : MonoBehaviour
 
     void Start()
     {
-        if (scr.alPrScr.pldG > 20 &&
+        if (GameManager.Instance.PlayedGames > 20 &&
             PlayerPrefs.GetInt("Review_Done") == 0)
         {
             scr.allAw.CallAwardPanel_3();

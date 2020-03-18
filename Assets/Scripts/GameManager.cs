@@ -1,9 +1,80 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance { get; private set; }
+
+
+	private int m_PlayedGames;
+	
+
+	public int PlayedGames {
+		get { return m_PlayedGames; }
+		private set { m_PlayedGames = value; }
+	}
+	
+	
+	#region engine methods
+
+	private void Awake()
+	{
+		if (Instance != null)
+		{
+			DestroyImmediate(gameObject);
+			return;
+		}
+		Instance = this;
+		
+		PlayedGames = AllPrefsScript.GetPrefsInt("PLAYED_GAMES");
+		
+		isNoAds = scr.univFunc.Int2Bool(PlayerPrefs.GetInt("NoAds"));
+
+		switch (SceneManager.GetActiveScene().name) 
+		{
+			case "____Menu":
+				scr.alPrScr.game = 0;
+				scr.alPrScr.doCh = true;
+				PlayerPrefs.SetInt("CanRestart", 2);
+
+				scr.buf.isPractice = false;
+				scr.allAw.allAwPan.SetActive(false);
+				scr.alPrScr.isRandGame = 0;
+
+				Time.timeScale = 1f;
+
+				_menues = Menues.MainMenu;
+				DestroyImmediate (GameObject.Find ("ChampList"));
+				DestroyImmediate (GameObject.Find ("ChampListImage"));
+				break;
+			case "____Level":
+				PlayedGames++;
+				break;
+		}
+
+		scr.alPrScr.doCh = true;
+	}
+
+	private void Update()
+	{
+		if (SceneManager.GetActiveScene().buildIndex == 1)
+			Update_Menu();
+		else if (SceneManager.GetActiveScene().buildIndex == 2)
+			Update_Level();
+	}
+
+	private void OnDestroy()
+	{
+		AllPrefsScript.SetPrefsInt("PLAYED_GAMES", m_PlayedGames);
+	}
+
+	#endregion
+	
+	
+	
+	
 	
     public Scripts scr;
 
@@ -18,48 +89,7 @@ public class GameManager : MonoBehaviour
 	[Header("Loaded menues in main scene Menu")]
     public Menues _menues;
 
-	void Awake()
-	{
-		if (Instance != null)
-		{
-			DestroyImmediate(gameObject);
-			return;
-		}
-		Instance = this;
-		
-        isNoAds = scr.univFunc.Int2Bool(PlayerPrefs.GetInt("NoAds"));
-
-		switch (SceneManager.GetActiveScene().buildIndex) 
-		{
-            case 1:
-                scr.alPrScr.game = 0;
-                scr.alPrScr.doCh = true;
-                PlayerPrefs.SetInt("CanRestart", 2);
-
-                scr.buf.isPractice = false;
-                scr.allAw.allAwPan.SetActive(false);
-                scr.alPrScr.isRandGame = 0;
-
-                Time.timeScale = 1f;
-
-                _menues = Menues.MainMenu;
-    			DestroyImmediate (GameObject.Find ("ChampList"));
-    			DestroyImmediate (GameObject.Find ("ChampListImage"));
-    			break;
-    		case 2:
-    			break;
-		}
-
-		scr.alPrScr.doCh = true;
-	}
-
-	void Update()
-	{
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-            Update_Menu();
-        else if (SceneManager.GetActiveScene().buildIndex == 2)
-            Update_Level();
-	}
+    
 
     private void Update_Menu()
     {
@@ -318,6 +348,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < scr.objLev.allRbs.Length; i++)
             scr.objLev.allRbs[i].constraints = RigidbodyConstraints2D.FreezeAll;
     }
+    
+    
 }
 
 
