@@ -43,7 +43,7 @@ public class UnityAds_0 : MonoBehaviour
     {
         if (Advertisement.IsReady("video"))
         {
-            var options = new ShowOptions { resultCallback = HandleShowResult };
+            ShowOptions options = new ShowOptions { resultCallback = HandleShowResult };
             Advertisement.Show("video", options);
         }
     }

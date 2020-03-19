@@ -143,11 +143,10 @@ public class CareerManager : MonoBehaviour
     {
         scr.alPrScr.opndLeagues[_lg] = 1;
         scr.alPrScr.doCh = true;
-        scr.alPrScr.moneyCount -= lg_cost[_lg];
-        scr.alPrScr.setMoney = true;
+        PrefsManager.Instance.MoneyCount -= lg_cost[_lg];
 
         scr.topPanMng.moneyText.text = 
-            scr.univFunc.moneyString(scr.alPrScr.moneyCount);
+            scr.univFunc.moneyString(PrefsManager.Instance.MoneyCount);
         
         lg_UI_List[_lg].im_Cup.sprite = lg_UI_List[_lg].spr_CupGold;
         lg_UI_List[_lg].text_cupName_1.color = col_Gold;

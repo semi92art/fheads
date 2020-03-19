@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Text;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
@@ -8,12 +9,6 @@ public class AllPrefsScript : MonoBehaviour
 	
     public Scripts scr;
     
-    
-    public int playerIndex;
-    public int playerIndexRand;
-    public int buttonIndex;
-    public int enemyIndex;
-    public int moneyCount;
     public int launches;
     public int moneyWin;
     public int _camera;
@@ -47,19 +42,11 @@ public class AllPrefsScript : MonoBehaviour
 
 	[HideInInspector]
 	public bool doCh;
-	public bool setMoney;
 
-	#region public methods
+	#region static methods
+	
+	
 
-	public static int GetPrefsInt(string _Key)
-	{
-		return PlayerPrefs.GetInt(_Key);
-	}
-
-	public static void SetPrefsInt(string _Key, int _Value)
-	{
-		PlayerPrefs.SetInt(_Key, _Value);
-	}
 	
 	#endregion
 	
@@ -73,8 +60,6 @@ public class AllPrefsScript : MonoBehaviour
 			return;
 		}
 		Instance = this;
-		
-        moneyCount = PlayerPrefs.GetInt ("MoneyCount");
 
         System.GC.Collect();
 
@@ -147,14 +132,7 @@ public class AllPrefsScript : MonoBehaviour
             GetValues();
             doCh = false;
         }
-
-        if (setMoney) SetMoneyBank();
-
-        if (moneyCount < 0)
-        {
-            moneyCount = 0;
-            setMoney = true;
-        }
+        
 	}
 	
 	#endregion
@@ -162,22 +140,11 @@ public class AllPrefsScript : MonoBehaviour
 
     private void MoneyPurchase()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            if (PlayerPrefs.GetInt("MoneyPurchase") != 0)
-            {
-                moneyCount += PlayerPrefs.GetInt("MoneyPurchase");
-                PlayerPrefs.SetInt("MoneyPurchase", 0);
-            }
-
-            PlayerPrefs.SetInt("MoneyCount", moneyCount);
-        }
-    }
-
-    private void SetMoneyBank()
-    {
-        PlayerPrefs.SetInt("MoneyCount", moneyCount);
-        setMoney = false;
+        if (SceneManager.GetActiveScene().buildIndex != 1)
+			return;
+        
+        PrefsManager.Instance.MoneyCount += PrefsManager.Instance.PurchaseCoast;
+        PrefsManager.Instance.PurchaseCoast = 0;
     }
 
 
@@ -204,15 +171,12 @@ public class AllPrefsScript : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.D))
 			{
 				PlayerPrefs.DeleteAll();
-				moneyCount = 0;
-				setMoney = true;
+				PrefsManager.Instance.MoneyCount = 0;
 			}
 
 			if (Input.GetKeyDown(KeyCode.M))
-			{
-				moneyCount += 50000;
-				setMoney = true;
-			}
+				PrefsManager.Instance.MoneyCount += 50000;
+		
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
                 scr.allAw.CallAwardPanel_1();
@@ -301,8 +265,7 @@ public class AllPrefsScript : MonoBehaviour
         PlayerPrefs.SetFloat("Skill_Kick", skill_Kick);
         PlayerPrefs.SetFloat("Skill_Jump", skill_Jump);
         PlayerPrefs.SetInt("WinsNoConcGoals", winsNoConcGoals);
-        PlayerPrefs.SetInt("ButtonIndex", buttonIndex);
-		PlayerPrefs.SetInt("Controls", controls);
+        PlayerPrefs.SetInt("Controls", controls);
 		PlayerPrefs.SetInt("Game", game);
 		PlayerPrefs.SetInt("Award", award);
 		PlayerPrefs.SetInt("TaskGoals", tGoals);
@@ -328,9 +291,6 @@ public class AllPrefsScript : MonoBehaviour
 		PlayerPrefs.SetInt("Stadium", stadium);
         PlayerPrefs.SetInt("Tribunes", tribunes);
 		PlayerPrefs.SetInt("BallNumber", ballN);
-        PlayerPrefs.SetInt("PlayerIndexRandom", playerIndexRand);
-		PlayerPrefs.SetInt("PlayerIndex", playerIndex);
-		PlayerPrefs.SetInt("EnemyIndex", enemyIndex);
 		PlayerPrefs.SetInt("MoneyWin", moneyWin);
 	}
 
@@ -372,8 +332,7 @@ public class AllPrefsScript : MonoBehaviour
         plLg = PlayerPrefs.GetInt("PlayerLeague");
         enLg = PlayerPrefs.GetInt("EnemyLeague");
         winsNoConcGoals = PlayerPrefs.GetInt("WinsNoConcGoals");
-        buttonIndex = PlayerPrefs.GetInt("ButtonIndex");
-		controls = PlayerPrefs.GetInt("Controls");
+        controls = PlayerPrefs.GetInt("Controls");
 		game = PlayerPrefs.GetInt("Game");
 		award = PlayerPrefs.GetInt("Award");
 		tGoals = PlayerPrefs.GetInt("TaskGoals");
@@ -398,10 +357,7 @@ public class AllPrefsScript : MonoBehaviour
 		stadium = PlayerPrefs.GetInt("Stadium");
         tribunes = PlayerPrefs.GetInt("Tribunes");
 		ballN = PlayerPrefs.GetInt("BallNumber");
-        playerIndexRand = PlayerPrefs.GetInt("PlayerIndexRandom");
-		playerIndex = PlayerPrefs.GetInt("PlayerIndex");
-		enemyIndex = PlayerPrefs.GetInt("EnemyIndex");
-		
+
 		moneyWin = PlayerPrefs.GetInt("MoneyWin");
 	}
 }

@@ -4,8 +4,23 @@ using UnityStandardAssets.ImageEffects;
 
 public class CameraSize : MonoBehaviour
 {
+    private enum CameraType
+    {
+        Small,
+        Big
+    }
+
+    #region private fields
+    
+    private CameraType m_CameraType;
+    
+    #endregion
+    
     public Scripts scr;
 
+    
+    
+    
     public GameObject[] obj_CamButtons;
 
     public Image[] im_GameButtons;
@@ -91,36 +106,32 @@ public class CameraSize : MonoBehaviour
 
         float newX = 0.5f * (followTr.position.x + scr.ballScr.transform.position.x);
         float newY = 0f;
-        float newY0 = 0f;
 
-        if (scr.alPrScr._camera == 0) //Big Camera
-            newY0 = -14.78f * resMy0 + 34.3f;
-        else //Small Camera
+        switch (m_CameraType)
         {
-            newY = 0.5f * (followTr.position.y + scr.ballScr.transform.position.y);
-
-            if (newY > topCamEdge)
-                newY = topCamEdge;
-            else if (newY < 10f)
-                newY = 10f;
-            
-            newY0 = Mathf.Lerp(transform.position.y, newY, lerpX * Time.deltaTime * 5f);
+            case CameraType.Small:
+                newY = 0.5f * (followTr.position.y + scr.ballScr.transform.position.y);
+                newY = newY > topCamEdge ? topCamEdge : newY < 10f ? 10f : newY;
+                newY = Mathf.Lerp(transform.position.y, newY, lerpX * Time.deltaTime * 5f);
+                break;
+            case CameraType.Big:
+                newY = -14.78f * resMy0 + 34.3f;
+                break;
         }
 
-        if (newX < scr.ballScr.transform.position.x - cam.orthographicSize)
-            newX = scr.ballScr.transform.position.x - cam.orthographicSize;
-        else if (newX > scr.ballScr.transform.position.x + cam.orthographicSize)
-            newX = scr.ballScr.transform.position.x + cam.orthographicSize;
+        Vector3 position = scr.ballScr.transform.position;
+        float orthographicSize = cam.orthographicSize;
+        newX = Mathf.Clamp(newX, position.x - orthographicSize,
+            position.x + orthographicSize);
+        
+        newX = newX > rightCamEdge ? rightCamEdge : newX < leftCamEdge ? leftCamEdge : newX;
 
-        if (newX > rightCamEdge)
-            newX = rightCamEdge;
-        else if (newX < leftCamEdge)
-            newX = leftCamEdge;
-
-        transform.position = new Vector3(
-            Mathf.Lerp(transform.position.x, newX, lerpX * Time.deltaTime),
-            newY0,
-            transform.position.z);
+        Vector3 position1 = transform.position;
+        position1 = new Vector3(
+            Mathf.Lerp(position1.x, newX, lerpX * Time.deltaTime),
+            newY,
+            position1.z);
+        transform.position = position1;
     }
 
     public void SetGraphics(int fromAwake)

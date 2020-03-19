@@ -39,8 +39,7 @@ public class EverydayReward : MonoBehaviour
 
 	public void GetEverydayReward()
 	{
-        scr.alPrScr.moneyCount += reward;
-        scr.alPrScr.setMoney = true;
-		PlayerPrefs.SetInt ("Ready", 0);
+        PrefsManager.Instance.MoneyCount += reward;
+        PlayerPrefs.SetInt ("Ready", 0);
 	}
 }

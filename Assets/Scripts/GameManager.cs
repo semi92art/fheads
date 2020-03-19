@@ -6,16 +6,15 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance { get; private set; }
-
-
-	private int m_PlayedGames;
+	
 	
 
-	public int PlayedGames {
-		get { return m_PlayedGames; }
-		private set { m_PlayedGames = value; }
-	}
 	
+	#region private methods
+
+
+	
+	#endregion
 	
 	#region engine methods
 
@@ -27,8 +26,7 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 		Instance = this;
-		
-		PlayedGames = AllPrefsScript.GetPrefsInt("PLAYED_GAMES");
+
 		
 		isNoAds = scr.univFunc.Int2Bool(PlayerPrefs.GetInt("NoAds"));
 
@@ -50,7 +48,7 @@ public class GameManager : MonoBehaviour
 				DestroyImmediate (GameObject.Find ("ChampListImage"));
 				break;
 			case "____Level":
-				PlayedGames++;
+				PrefsManager.Instance.PlayedGames++;
 				break;
 		}
 
@@ -63,11 +61,6 @@ public class GameManager : MonoBehaviour
 			Update_Menu();
 		else if (SceneManager.GetActiveScene().buildIndex == 2)
 			Update_Level();
-	}
-
-	private void OnDestroy()
-	{
-		AllPrefsScript.SetPrefsInt("PLAYED_GAMES", m_PlayedGames);
 	}
 
 	#endregion

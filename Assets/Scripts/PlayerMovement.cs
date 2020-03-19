@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void Awake()
     {
-        text_Bank.text = scr.univFunc.moneyString(scr.alPrScr.moneyCount);
+        text_Bank.text = scr.univFunc.moneyString(PrefsManager.Instance.MoneyCount);
         _rb = GetComponent<Rigidbody2D>();
 		HJPlayerLegTr = HJPlayerLeg.transform;
 		plSprTr = plSpr.transform;
@@ -256,7 +256,7 @@ public class PlayerMovement : MonoBehaviour
                 if (goalCheck == -1)
                 {
                     
-                    text_Bank.text = scr.univFunc.moneyString(scr.alPrScr.moneyCount);
+                    text_Bank.text = scr.univFunc.moneyString(PrefsManager.Instance.MoneyCount);
                     //text_Money.text = "500$";
                     anim_PlusMoney.SetTrigger(Animator.StringToHash("0"));
                     scr.goalPanScr.RefereeAnimRight();
@@ -418,19 +418,11 @@ public class PlayerMovement : MonoBehaviour
 	{
 		scr.ballScr.transform.position = new Vector3 (scr.marks.midTr.position.x, -4, scr.ballScr.transform.position.z);
 		float rand = ballStartSpeedX * 0.3f * Mathf.Cos(Time.timeSinceLevelLoad);
-
-		/*if (scr.tM.time0 > 57) 
-        {
-            int side = scr.tM.matchPeriods == 2 ? -1 : 1;
-            scr.ballScr._rb.velocity = new Vector2(-ballStartSpeedX * side + rand, ballStartSpeedY);
-		} 
-        else */
-        //{
+		
         float bVx = ballStartSpeedX * ballImpulseSide;
             scr.ballScr._rb.velocity = new Vector2(bVx + rand, ballStartSpeedY);
-		//}
 
-        scr.ballScr._rb.constraints = RigidbodyConstraints2D.None;
+            scr.ballScr._rb.constraints = RigidbodyConstraints2D.None;
 	}
 
 	public void MoveLeft()

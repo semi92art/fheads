@@ -22,9 +22,7 @@ public class PlusMoney : MonoBehaviour
 
     public void Plus_Money()
     {
-        
-        scr.alPrScr.moneyCount += moneyForGoal;
-        scr.alPrScr.setMoney = true;
-        scr.pMov.text_Bank.text = scr.univFunc.moneyString(scr.alPrScr.moneyCount);
+        PrefsManager.Instance.MoneyCount += moneyForGoal;
+        scr.pMov.text_Bank.text = scr.univFunc.moneyString(PrefsManager.Instance.MoneyCount);
     }
 }

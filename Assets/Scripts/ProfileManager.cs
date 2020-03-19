@@ -53,8 +53,8 @@ public class ProfileManager : MonoBehaviour
             switch (PlayerPrefs.GetInt("PlayerLeague"))
             {
                 case 1:
-                    Preview(scr.alPrScr.playerIndex);
-                    cntr_0 = scr.cntrL.Countries[itemList[scr.alPrScr.playerIndex].cntrInd].country;
+                    Preview(PrefsManager.Instance.PlayerIndex);
+                    cntr_0 = scr.cntrL.Countries[itemList[PrefsManager.Instance.PlayerIndex].cntrInd].country;
 
                     for (int i = 0; i < cntrScrollList.Count; i++)
                     {
@@ -66,8 +66,8 @@ public class ProfileManager : MonoBehaviour
                     }
                     break;
                 case 2:
-                    Preview_2(scr.alPrScr.playerIndex);
-                    cntr_0 = scr.cntrL.Countries[itemList_2[scr.alPrScr.playerIndex].cntrInd].country;
+                    Preview_2(PrefsManager.Instance.PlayerIndex);
+                    cntr_0 = scr.cntrL.Countries[itemList_2[PrefsManager.Instance.PlayerIndex].cntrInd].country;
 
                     for (int i = 0; i < cntrScrollList.Count; i++)
                     {
@@ -257,16 +257,13 @@ public class ProfileManager : MonoBehaviour
             if (GameManager.Instance._menues == Menues.MenuPlayers)
                 moneyCoast1 = moneyCoast[butInd];
 
-            if (scr.alPrScr.moneyCount >= moneyCoast1 && scr.alPrScr.openedPlayers[butInd] == 0)
+            if (PrefsManager.Instance.MoneyCount >= moneyCoast1 && scr.alPrScr.openedPlayers[butInd] == 0)
             {
                 ProfileSampleButton but = profBut0[butInd].GetComponent<ProfileSampleButton>();
 
                 if (GameManager.Instance._menues == Menues.MenuPlayers)
-                {
-                    scr.alPrScr.moneyCount -= moneyCoast1;
-                    scr.alPrScr.setMoney = true;
-                }
-
+                    PrefsManager.Instance.MoneyCount -= moneyCoast1;
+                
                 but.isOpened = true;
                 but.moneyCoast.gameObject.SetActive(false);
                 but.im_MoneyCoastShowcase.gameObject.SetActive(false);
@@ -278,15 +275,13 @@ public class ProfileManager : MonoBehaviour
             if (GameManager.Instance._menues == Menues.MenuPlayers)
                 moneyCoast1 = moneyCoast_2[butInd];
 
-            if (scr.alPrScr.moneyCount >= moneyCoast1 && scr.alPrScr.openedPlayers_2[butInd] == 0)
+            if (PrefsManager.Instance.MoneyCount >= moneyCoast1 && scr.alPrScr.openedPlayers_2[butInd] == 0)
             {
                 ProfileSampleButton but = profBut0_2[butInd].GetComponent<ProfileSampleButton>();
 
                 if (GameManager.Instance._menues == Menues.MenuPlayers)
-                {
-                    scr.alPrScr.moneyCount -= moneyCoast1;
-                    scr.alPrScr.setMoney = true;
-                }
+                    PrefsManager.Instance.MoneyCount -= moneyCoast1;
+                
 
                 but.isOpened = true;
                 but.moneyCoast.gameObject.SetActive(false);
@@ -306,10 +301,9 @@ public class ProfileManager : MonoBehaviour
             if (scr.alPrScr.openedPlayers[butInd] == 1)
             {
                 scr.currPrPan.isChange = true;
-                scr.alPrScr.playerIndex = index;
-                scr.alPrScr.buttonIndex = butInd;
+                PrefsManager.Instance.PlayerIndex = index;
+                PrefsManager.Instance.ProfileIndex = butInd;
 
-                //Set Skills:
                 scr.alPrScr.skill_Speed = itemList[index].skill_Speed;
                 scr.alPrScr.skill_Kick = itemList[index].skill_Kick;
                 scr.alPrScr.skill_Jump = itemList[index].skill_Jump;
@@ -320,10 +314,9 @@ public class ProfileManager : MonoBehaviour
             if (scr.alPrScr.openedPlayers_2[butInd] == 1)
             {
                 scr.currPrPan.isChange = true;
-                scr.alPrScr.playerIndex = index;
-                scr.alPrScr.buttonIndex = butInd;
+                PrefsManager.Instance.PlayerIndex = index;
+                PrefsManager.Instance.ProfileIndex = butInd;
 
-                //Set Skills:
                 scr.alPrScr.skill_Speed = itemList_2[index].skill_Speed;
                 scr.alPrScr.skill_Kick = itemList_2[index].skill_Kick;
                 scr.alPrScr.skill_Jump = itemList_2[index].skill_Jump;
@@ -415,7 +408,7 @@ public class ProfileManager : MonoBehaviour
 
         if (scr.alPrScr.openedPlayers[butInd] == 0)
 		{
-			if (scr.alPrScr.moneyCount >= coast)
+			if (PrefsManager.Instance.MoneyCount >= coast)
 			{
                 buyPlayerString = "Do you want to buy this head for " + scr.univFunc.moneyString(coast) + "?";
 				scr.allAw.yesButObj.SetActive(true);
@@ -441,8 +434,7 @@ public class ProfileManager : MonoBehaviour
 
 	public void SetPlayerShowcaseInProfile()
 	{
-        int ind = scr.alPrScr.playerIndex;
-        profShowcase[ind].GetComponent<Image>().color = scr.objM.col_Orange;
+        profShowcase[PrefsManager.Instance.PlayerIndex].GetComponent<Image>().color = scr.objM.col_Orange;
 	}
 
     private string buyPlayerStr_1(bool isEnoughMoney)
@@ -468,7 +460,7 @@ public class ProfileManager : MonoBehaviour
             if (audS.enabled)
                 audS.Play();
 
-            if (scr.alPrScr.moneyCount >= coast)
+            if (PrefsManager.Instance.MoneyCount >= coast)
             {
                 buyPlayerString = "Do you want to buy this head for " + scr.univFunc.moneyString(coast) + "?";
                 scr.allAw.yesButObj.SetActive(true);

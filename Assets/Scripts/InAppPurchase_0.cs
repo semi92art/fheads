@@ -102,20 +102,11 @@ public class InAppPurchase_0 : MonoBehaviour
     private static void OnProcessingConsumeProduct (GooglePurchaseTemplate purchase)
     {
         if (purchase.SKU == SKU_MoneyPack_1)
-        {
-            FindObjectOfType<AllPrefsScript>().moneyCount += 500000;
-            FindObjectOfType<AllPrefsScript>().setMoney = true;
-        }
+            PrefsManager.Instance.MoneyCount += 500000;
         else if (purchase.SKU == SKU_MoneyPack_2)
-        {
-            FindObjectOfType<AllPrefsScript>().moneyCount += 2000000;
-            FindObjectOfType<AllPrefsScript>().setMoney = true;
-        }
+            PrefsManager.Instance.MoneyCount += 2000000;
         else if (purchase.SKU == SKU_MoneyPack_3)
-        {
-            FindObjectOfType<AllPrefsScript>().moneyCount += 10000000;
-            FindObjectOfType<AllPrefsScript>().setMoney = true;
-        }
+            PrefsManager.Instance.MoneyCount += 10000000;
     }
 
     public void Purchase_NoAds()

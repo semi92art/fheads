@@ -88,7 +88,7 @@ public class AllAwardsScript : MonoBehaviour
 
         if (GameManager.Instance._menues == Menues.MenuCareer)
         {
-            if (scr.alPrScr.moneyCount >= scr.carMng.lg_cost[scr.carMng._lgPrev])
+            if (PrefsManager.Instance.MoneyCount >= scr.carMng.lg_cost[scr.carMng._lgPrev])
             {
                 yesButObj.SetActive(true);
                 prevText.text = "Do you want to unlock this league for " +

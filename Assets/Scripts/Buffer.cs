@@ -111,7 +111,7 @@ public class Buffer : MonoBehaviour
     public void Set_Tournament_Data(int _game, int _lg)
     {
         plInd = scr.alPrScr.isRandGame == 0 ?
-            scr.alPrScr.playerIndex : scr.alPrScr.playerIndexRand;
+            PrefsManager.Instance.PlayerIndex : 0;
 
         SetPlayerData(plInd, scr.alPrScr.plLg);
         Set_Tournament_Data_0(_game, _lg);
