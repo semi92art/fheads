@@ -314,8 +314,8 @@ public class PlayerMovement : MonoBehaviour
                 if (!kOvH)
                 {
                     JointAngleLimits2D limits = HJPlayerLeg.limits;
-                    limits.min = 270f;
-                    limits.max = 360f;
+                    limits.min = -90f;
+                    limits.max = 0f;
                     HJPlayerLeg.limits = limits;
 
                     JointMotor2D motor = HJPlayerLeg.motor;
@@ -329,8 +329,8 @@ public class PlayerMovement : MonoBehaviour
                 if (!kOvH)
                 {
                     JointAngleLimits2D limits = HJPlayerLeg.limits;
-                    limits.min = 270;
-                    limits.max = 271;
+                    limits.min = -89;
+                    limits.max = -90;
                     HJPlayerLeg.limits = limits;
 
                     JointMotor2D motor1 = HJPlayerLeg.motor;
