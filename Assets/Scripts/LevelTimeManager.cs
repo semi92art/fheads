@@ -268,8 +268,7 @@ public class LevelTimeManager : MonoBehaviour
                     {
                         if (resOfGame == 1)
                         {
-                            scr.alPrScr.wonGames[scr.alPrScr.game, scr.alPrScr.lg] = 1;
-                            scr.alPrScr.game++;
+	                        PrefsManager.Instance.Game++;
                             GameManager.Instance.SetStadium();
                             scr.objLev.text_Result.gameObject.SetActive(false);
                             scr.objLev._anim_VictText.winState = 1;

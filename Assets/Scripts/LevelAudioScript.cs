@@ -184,7 +184,7 @@ public class LevelAudioScript : MonoBehaviour
 		    Animator.StringToHash(isAwake + (isSoundOn ? "1" : "0")));
 
 	    if (isAwake == 0)
-		    PlayerPrefs.SetInt("SoundOn", isSoundOn ? 1 : 0);
+		    PrefsManager.Instance.SoundOn = isSoundOn;
 
 	    for (int i = 0; i < audSources.Length; i++)
 		    audSources[i].mute = !isSoundOn;

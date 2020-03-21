@@ -121,7 +121,7 @@ public class ProfileManager : MonoBehaviour
                     button.showcase_2.color = opnd ? scr.objM.col_Blue : scr.objM.col_Gray;
                     button.im_MoneyCoastShowcase.color = opnd ?
                         Color.clear : scr.objM.col_Gray;
-                    button.moneyCoast.text = scr.univFunc.moneyString(moneyCoast[i]);
+                    button.moneyCoast.text = scr.univFunc.Money(moneyCoast[i]);
                     button.moneyCoast.gameObject.SetActive(true);
                     button.plInd = j;
                     button.buttonInd = i;

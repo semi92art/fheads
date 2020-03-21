@@ -8,6 +8,31 @@ using System.Collections.Generic;
 
 public class CareerManager : MonoBehaviour
 {
+    [System.Serializable]
+    public class League_UI_Elements
+    {
+        public Image im_CirclePercent;
+        public Image im_Cup;
+        public Image[] im_Wins;
+        public Sprite spr_CupGold;
+        public Sprite spr_CupGray;
+        public Text text_cupName_1;
+        public Text text_cupName_2;
+        public Button _button;
+    }
+    
+    [System.Serializable]
+    public class CareerOpponentMain
+    {
+        public Names.PlayerName oppName;
+    }
+
+    [System.Serializable]
+    public class CareerGame
+    {
+        public List<CareerOpponentMain> oppsMain;
+    }
+    
     [SerializeField]
     private Scripts scr;
 
@@ -52,13 +77,8 @@ public class CareerManager : MonoBehaviour
 
             for (int j = 0; j < 10; j++)
             {
-                if (scr.alPrScr.wonGames[j, i] == 1)
-                {
-                    wins++;
-                    lg_UI_List[i].im_Wins[j].color = col_Gold;
-                }
-                else
-                    lg_UI_List[i].im_Wins[j].color = col_Gray;
+                wins++;
+                lg_UI_List[i].im_Wins[j].color = col_Gold;
             }
 
             winsTotal += wins;
@@ -73,8 +93,8 @@ public class CareerManager : MonoBehaviour
     {
         scr.objM.Button_Sound();
 
-        scr.alPrScr.game = 0;
-        scr.alPrScr.lg = _lg;
+        PrefsManager.Instance.Game = 0;
+        PrefsManager.Instance.League = _lg;
         SetLeagueData(_lg);
         scr.buf.Set_Tournament_Data(0, _lg);
         PlayerPrefs.SetInt("CanRestart", 3);
@@ -120,7 +140,7 @@ public class CareerManager : MonoBehaviour
         PrefsManager.Instance.MoneyCount -= lg_cost[_lg];
 
         scr.topPanMng.moneyText.text = 
-            scr.univFunc.moneyString(PrefsManager.Instance.MoneyCount);
+            scr.univFunc.Money(PrefsManager.Instance.MoneyCount);
         
         lg_UI_List[_lg].im_Cup.sprite = lg_UI_List[_lg].spr_CupGold;
         lg_UI_List[_lg].text_cupName_1.color = col_Gold;

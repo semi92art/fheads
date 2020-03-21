@@ -14,8 +14,8 @@ public class BonusObject : MonoBehaviour
 
     void Awake()
     {
-        pl_Porog = !PrefsManager.Instance.IsRandomOpponent ? scr.alPrScr.upgrShield * 5f * .01f : .5f;
-        en_Porog = !PrefsManager.Instance.IsRandomOpponent ? scr.alPrScr.game * 10f / .01f : .5f;
+        pl_Porog = !PrefsManager.Instance.IsRandomOpponent ? PrefsManager.Instance.UpgradeShield * 5f * .01f : .5f;
+        en_Porog = !PrefsManager.Instance.IsRandomOpponent ? PrefsManager.Instance.Game * 10f / .01f : .5f;
         
         ballColl = scr.ballScr.GetComponent<CircleCollider2D>();
     }

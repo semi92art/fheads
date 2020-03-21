@@ -28,7 +28,6 @@ public class CameraSize : MonoBehaviour
     public LineRenderer ballLineR;
     public GameObject obj_FireTrail;
     public RectTransform rTr_Circle;
-    private int graph;
 
 
     public Transform roofTr, roof1Tr;
@@ -57,8 +56,6 @@ public class CameraSize : MonoBehaviour
     void Awake()
     {
         _cam = GetComponent<Camera>();
-
-        graph = PlayerPrefs.GetInt("Graph");
         cam = GetComponent<Camera>();
 
         followTr = scr.pMov.transform;
@@ -141,10 +138,9 @@ public class CameraSize : MonoBehaviour
 
         if (fromAwake == 0)
         {
-            graph = graph == 2 ? 0 : graph + 1;
-            PlayerPrefs.SetInt("Graph", graph);
-            graph_1 = Animator.StringToHash(graph.ToString());
-            rTr_Circle.GetComponent<Animator>().SetTrigger(graph_1);
+            PrefsManager.Instance.GraphicsQuality++;
+            rTr_Circle.GetComponent<Animator>().SetTrigger(
+                PrefsManager.Instance.GraphicsQuality.ToString());
         }
         else
         {
@@ -153,7 +149,7 @@ public class CameraSize : MonoBehaviour
                 rTr_Circle.anchoredPosition.y);
         }
 
-        SetGraphics_0(graph);
+        SetGraphics_0(PrefsManager.Instance.GraphicsQuality);
 
         if (scr.rainMan.isRain)
             scr.rainMan.SetRain_On();

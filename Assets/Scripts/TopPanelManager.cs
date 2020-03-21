@@ -12,8 +12,8 @@ public class TopPanelManager : MonoBehaviour
 
     private void Awake()
     {
-        moneyText.text = scr.univFunc.moneyString(PrefsManager.Instance.MoneyCount);
+        moneyText.text = scr.univFunc.Money(PrefsManager.Instance.MoneyCount);
         PrefsManager.Instance.OnMoneyCountChanged += (_Sender, _Args) =>
-            moneyText.text = scr.univFunc.moneyString(PrefsManager.Instance.MoneyCount);
+            moneyText.text = scr.univFunc.Money(PrefsManager.Instance.MoneyCount);
     }
 }

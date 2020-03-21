@@ -25,10 +25,9 @@ public class Buffer : MonoBehaviour
     public Sprite enSpr;
     public Sprite enBoot;
     public Color enCol1, enCol2, enColStad;
-    public OpponentType oppType;
 
-    public List<CareerGame> _careerGames;
-    public CareerGame _careerGame;
+    public List<CareerManager.CareerGame> _careerGames;
+    public CareerManager.CareerGame _careerGame;
 
     [HideInInspector]
     public bool is2Enemies;
@@ -106,7 +105,6 @@ public class Buffer : MonoBehaviour
 
     private int EnemyIndex()
     {
-        oppType = _careerGame.oppsMain[0].oppType;
         Names.PlayerName oppName = _careerGame.oppsMain[0].oppName;
         
         int _index = 0;
@@ -126,8 +124,6 @@ public class Buffer : MonoBehaviour
         int ind = Mathf.FloorToInt((50 - 0.01f) * Random.value);
 
         SetPlayerData(ind);
-        oppType = Random.value > 0.5f ? OpponentType.Bycicle : OpponentType.Classic;
-
         SetEnemyData();
     }
 }

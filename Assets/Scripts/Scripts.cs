@@ -3,7 +3,6 @@
 public class Scripts : MonoBehaviour 
 {
     [Header("Menu and Level scenes:")]
-    public AllPrefsScript alPrScr;
     public UniversalFunctions univFunc;
     
     public ProfileManager prMng;
@@ -54,7 +53,6 @@ public class Scripts : MonoBehaviour
 
     void Awake()
     {
-        if (alPrScr == null) alPrScr = FindObjectOfType<AllPrefsScript>();
         if (univFunc == null) univFunc = FindObjectOfType<UniversalFunctions>();
 
         if (adMob == null) adMob = FindObjectOfType<AndroidAdMob_0>();

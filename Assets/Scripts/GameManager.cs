@@ -26,6 +26,22 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 		Instance = this;
+		
+		
+		if (PrefsManager.Instance.LaunchesCount == 0 && SceneManager.GetActiveScene().buildIndex == 0)
+		{
+			PrefsManager.Instance.GraphicsQuality = 1;
+			PrefsManager.Instance.Tilt = true;
+			PrefsManager.Instance.ButtonsSize = 2;
+			PrefsManager.Instance.SoundOn = true;
+			PrefsManager.Instance.PlayerIndex = 35;
+			PrefsManager.Instance.ControlsType = 1;
+			PrefsManager.Instance.Game = 1;
+		}
+		
+		if (SceneManager.GetActiveScene().buildIndex == 0)
+			PrefsManager.Instance.LaunchesCount++;
+		
 
 		
 		isNoAds = scr.univFunc.Int2Bool(PlayerPrefs.GetInt("NoAds"));
@@ -33,7 +49,7 @@ public class GameManager : MonoBehaviour
 		switch (SceneManager.GetActiveScene().name) 
 		{
 			case "____Menu":
-				scr.alPrScr.game = 0;
+				PrefsManager.Instance.Game = 0;
 				PlayerPrefs.SetInt("CanRestart", 2);
 
 				scr.allAw.allAwPan.SetActive(false);
@@ -240,10 +256,10 @@ public class GameManager : MonoBehaviour
 	{
         PrefsManager.Instance.Stadium = PrefsManager.Instance.IsRandomOpponent ? 
             Mathf.FloorToInt(Random.value * (18 - 0.01f)) : 
-            scr.univFunc.Stadium(scr.alPrScr.game);
+            scr.univFunc.Stadium(PrefsManager.Instance.Game);
 
         PrefsManager.Instance.Tribunes = !PrefsManager.Instance.IsRandomOpponent ? 
-            scr.alPrScr.lg : Mathf.FloorToInt(1f + (5 - 0.1f) * Random.value);
+	        PrefsManager.Instance.League : Mathf.FloorToInt(1f + (5 - 0.1f) * Random.value);
 	}
         
 	public void LoadSimpleLevel()
@@ -335,7 +351,22 @@ public class GameManager : MonoBehaviour
             scr.objLev.allRbs[i].constraints = RigidbodyConstraints2D.FreezeAll;
     }
     
-    
+    public void RestartLevel()
+    {
+	    if (!PrefsManager.Instance.IsRandomOpponent)
+		    FindObjectOfType<UnityAds_0>().ShowRewardedAd();
+	    else
+	    {
+		    if (scr.tM.matchPeriods == 0)
+			    SceneManager.LoadScene(2);
+		    else
+		    {
+			    if (!scr.tM.isBetweenTimes)
+				    SceneManager.LoadScene(2);
+		    }
+                
+	    }  
+    }
 }
 
 

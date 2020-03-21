@@ -30,7 +30,7 @@ public class TimeFreeze : MonoBehaviour
 
     void Awake()
     {
-        freezeTime = (freezeTime + (float)scr.alPrScr.upgrSlowdown) * frTimeScale;
+        freezeTime = freezeTime * frTimeScale;
         timFr = scr.univFunc.Int2Bool(PlayerPrefs.GetInt("UnlimFreeze"));
         if (!timFr) freezeCount = 1;
         if (timFr || isHandleUnlim) EnableUnlimitedFreeze();

@@ -1,106 +1,19 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using System.Collections.Generic;
 
-
-[System.Serializable]
-public class League_UI_Elements
-{
-    public Image im_CirclePercent;
-    public Image im_Cup;
-    public Image[] im_Wins;
-    public Sprite spr_CupGold;
-    public Sprite spr_CupGray;
-    public Text text_cupName_1;
-    public Text text_cupName_2;
-    public Button _button;
-}
-
-[System.Serializable]
-public class CareerOpponentMain
-{
-    public OpponentType oppType;
-    public Names.PlayerName oppName;
-}
-
-[System.Serializable]
-public class CareerGame
-{
-    public List<CareerOpponentMain> oppsMain;
-}
-    
-public enum OpponentType
-{
-    Classic,
-    Bycicle,
-    Goalkeeper
-}
 
 public class UniversalFunctions : MonoBehaviour
 {
     public Scripts scr;
 
-    public Vector3 HSV_from_RGB(Color col)
-    {
-        float h_val, s_val, v_val;
-        Color.RGBToHSV(col, out h_val, out s_val, out v_val);
-        return new Vector3(h_val, s_val, v_val);
-    }
+    
 
-    public bool IsMyDevice()
-    {
-        Objects_Level objL = FindObjectOfType<Objects_Level>();
-        bool show = false;
-
-        for (int i = 0; i < objL.idForTesting.Length; i++)
-        {
-            if (Android_Id() == objL.idForTesting[i])
-            {
-                show = true;
-                break;
-            }
-        }
-
-        return show;
-    }
-
-    public void RestartLevel()
-    {
-        if (!PrefsManager.Instance.IsRandomOpponent)
-            RestartForVideo();
-        else
-        {
-            if (scr.tM.matchPeriods == 0)
-                RestartForFree();
-            else
-            {
-                if (!scr.tM.isBetweenTimes)
-                    RestartForFree();
-            }
-                
-        }  
-    }
-
-    private void RestartForVideo()
-    {
-        FindObjectOfType<UnityAds_0>().ShowRewardedAd();
-    }
-
-    private void RestartForFree()
-    {
-        SceneManager.LoadScene(2);
-    }
+    
         
     public void ShowInterstitialAd()
     {
-        if (!IsMyDevice() && !GameManager.Instance.isNoAds)
-        {
-            if (GoogleMobileAd.IsInterstitialReady)
-                GoogleMobileAd.ShowInterstitialAd();
-        }
+        if (!GameManager.Instance.isNoAds && GoogleMobileAd.IsInterstitialReady)
+            GoogleMobileAd.ShowInterstitialAd();
     }
 
     public string Android_Id()
@@ -128,171 +41,64 @@ public class UniversalFunctions : MonoBehaviour
         return _Value != 0;
     }
 
-	public string CurrentTime(int hour, int minute, int second)
+    public string Money(int _Count)
 	{
-		string _hour = null;
-		string _minute = null;
-		string _second = null;
-		string _time = null;
+		string strNum1 = string.Empty;
+		string strNum2 = string.Empty;
+		string strNum3 = string.Empty;
 
-		if (hour == 24)
-			hour = 0;
+		string moneyStr = _Count.ToString("D");
 
-		if (minute == 60)
-			minute = 0;
+		if (moneyStr.Length <= 3)
+		{
+			return moneyStr + "C";
+		}
+        
+		if (moneyStr.Length > 3 && moneyStr.Length <= 6)
+		{
+			int num1 = Mathf.FloorToInt(_Count * 0.0001f);
+			int num2 = _Count - num1 * 1000;
 
-		if (second == 60)
-			second = 0;
+			if (num2 < 10)
+				strNum2 = $"00{num2:D}";
+			else if (num2 >= 10 && num2 < 100)
+				strNum2 = $"0{num2:D}";
+			else
+				strNum2 = $"{num2:D}";
 
-		if (hour < 10) 
-			_hour = " " + hour.ToString ();
-		else
-			_hour = hour.ToString ();
+			strNum1 = num1.ToString("D");
+			return $"{strNum1},{strNum2}C";
+		}
+        
+		if (moneyStr.Length > 6 && moneyStr.Length <= 9)
+		{
+			int num1 = Mathf.FloorToInt(_Count * 0.0000001f);
+			int num2 = Mathf.FloorToInt(_Count - num1 * 100);
 
-		if (minute < 10) 
-			_minute = "0" + minute.ToString ();
-		else
-			_minute = minute.ToString ();
+			if (num2 < 10)
+				strNum2 = $"00{num2:D}";
+			else if (num2 >= 10 && num2 < 100)
+				strNum2 = $"0{num2:D}";
+			else
+				strNum2 = $"{num2:D}";
 
-		if (second < 10) 
-			_second = "0" + second.ToString ();
-		else
-			_second = second.ToString ();
+			int num3 = _Count - num1 * 1000000 - num2 * 1000;
 
-		_time = _hour + ":" + _minute + ":" + _second;
+			if (num3 < 10)
+				strNum3 = $"00{num3:D}";
+			else if (num3 >= 10 && num3 < 100)
+				strNum3 = $"0{num3:D}";
+			else
+				strNum3 = $"{num3:D}";
 
-		return _time;
+			strNum1 = num1.ToString("D");
+			return strNum1 + "," + strNum2 + "," + strNum3 + "C";
+		}
+        
+		return "";
 	}
 
-	public string TimeToGettingReward(int hour, int minute, int second)
-	{
-		string _hour = null;
-		string _minute = null;
-		string _second = null;
-		string _time = null;
-
-		hour = 24 - hour;
-		minute = 60 - minute;
-		second = 60 - second;
-
-		if (hour == 24)
-			hour = 0;
-
-		if (minute == 60)
-			minute = 0;
-
-		if (second == 60)
-			second = 0;
-
-		if (hour < 10) 
-			_hour = " " + hour.ToString ();
-		else
-			_hour = hour.ToString ();
-
-		if (minute < 10) 
-			_minute = "0" + minute.ToString ();
-		else
-			_minute = minute.ToString ();
-
-		if (second < 10) 
-			_second = "0" + second.ToString ();
-		else
-			_second = second.ToString ();
-
-		_time = _hour + ":" + _minute + ":" + _second;
-
-		return _time;
-	}
-
-	public void ExitGame()
-	{
-		Application.Quit();
-	}
-
-	public void PictureOff(Image image1)
-	{
-		Color color2 = image1.color;
-		color2.a = 0;
-		image1.color = color2;
-	}
-
-	public void PictureOn(Image image1)
-	{
-		Color color2 = image1.color;
-		color2.a = 1;
-		image1.color = color2;
-	}
-
-	public void PlayerLeagueOn (Animator AnimMenu)
-	{
-		AnimMenu.SetBool("call", true);
-	}
-
-	public void PlayerLeagueOff (Animator AnimMenu)
-	{
-		AnimMenu.SetBool("call", false);
-	}
-
-	public string moneyString(int money)
-	{
-        return moneyString_0(money);
-	}
-
-    private string moneyString_0(int money)
-    {
-        string strNum1 = string.Empty;
-        string strNum2 = string.Empty;
-        string strNum3 = string.Empty;
-
-        string moneyStr = money.ToString("D");
-
-        if (moneyStr.Length <= 3)
-        {
-            return moneyStr + "C";
-        }
-        else if (moneyStr.Length > 3 && moneyStr.Length <= 6)
-        {
-            int num1 = Mathf.FloorToInt(money * 0.0001f);
-            int num2 = money - num1 * 1000;
-
-            if (num2 < 10)
-                strNum2 = "00" + num2.ToString("D");
-            else if (num2 >= 10 && num2 < 100)
-                strNum2 = "0" + num2.ToString("D");
-            else
-                strNum2 = "" + num2.ToString("D");
-
-            strNum1 = num1.ToString("D");
-            return strNum1 + "," + strNum2 + "C";
-        }
-        else if (moneyStr.Length > 6 && moneyStr.Length <= 9)
-        {
-            int num1 = Mathf.FloorToInt(money * 0.0000001f);
-            int num2 = Mathf.FloorToInt(money - num1 * 100);
-
-            if (num2 < 10)
-                strNum2 = "00" + num2.ToString("D");
-            else if (num2 >= 10 && num2 < 100)
-                strNum2 = "0" + num2.ToString("D");
-            else
-                strNum2 = "" + num2.ToString("D");
-
-            int num3 = money - num1 * 1000000 - num2 * 1000;
-
-            if (num3 < 10)
-                strNum3 = "00" + num3.ToString("D");
-            else if (num3 >= 10 && num3 < 100)
-                strNum3 = "0" + num3.ToString("D");
-            else
-                strNum3 = "" + num3.ToString("D");
-
-            strNum1 = num1.ToString("D");
-            return strNum1 + "," + strNum2 + "," + strNum3 + "C";
-        }
-        return "";
-    }
-
-    public int Stadium(int _game)
+	public int Stadium(int _game)
     {
         switch (_game)
         {

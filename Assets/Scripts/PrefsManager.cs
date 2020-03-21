@@ -33,13 +33,23 @@ using UnityEngine;
          ProfileIndex,
          CameraType,
          MoneyCount,
-         PurchaseCoast,
          LaunchesCount,
          ControlsType,
          IsRandomOpponent,
          Stadium,
          Tribunes,
-         OpenedPlayers,
+         League,
+         Game,
+         UpgradeSpeed,
+         UpgradeJump,
+         UpgradeKick,
+         UpgradeShield,
+         UpgradeMoneyIncome,
+         BycicleKickEnabled,
+         GraphicsQuality,
+         Tilt,
+         ButtonsSize,
+         SoundOn
      }
 
      public class MoneyCountEventArgs : System.EventArgs
@@ -76,16 +86,24 @@ using UnityEngine;
      private int? m_ProfileIndex;
      private int? m_CameraType;
      private int? m_MoneyCount;
-     private int? m_PurchaseCoast;
      private int? m_LaunchesCount;
-     private bool? m_IsLegend;
      private int? m_ControlsType;
      private bool? m_IsRandomOpponent;
      private int? m_Stadium;
      private int? m_Tribunes;
-     [CanBeNull] private int[] m_OpenedPlayers;
-     [CanBeNull] private int[] m_OpenedRetroPlayers;
-     
+     private int? m_League;
+     private int? m_Game;
+     private int? m_UpgradeSpeed;
+     private int? m_UpgradeKick;
+     private int? m_UpgradeJump;
+     private int? m_UpgradeShield;
+     private int? m_UpgradeMoneyIncome;
+     private bool? m_BycicleKickEnabled;
+     private int? m_GraphicsQuality;
+     private bool? m_Tilt;
+     private int? m_ButtonsSize;
+     private bool? m_SoundOn;
+
      #endregion
      
      #region public methods
@@ -165,22 +183,7 @@ using UnityEngine;
              OnMoneyCountChanged?.Invoke(this, new MoneyCountEventArgs(value));
          }
      }
-     
-     public int PurchaseCoast
-     {
-         get
-         {
-             if (m_PurchaseCoast == null)
-                 m_PurchaseCoast = GetIntPref(PrefKey.PurchaseCoast);
-             return (int)m_PurchaseCoast;
-         }
-         set
-         {
-             m_PurchaseCoast = value;
-             SetPref(PrefKey.PurchaseCoast, Mathf.Max(0, value));
-         }
-     }
-     
+
      public int LaunchesCount
      {
          get
@@ -221,7 +224,7 @@ using UnityEngine;
          }
          set
          {
-             m_IsLegend = value;
+             m_IsRandomOpponent = value;
              SetPref(PrefKey.IsRandomOpponent, value ? 1 : 0);
          }
      }
@@ -255,8 +258,189 @@ using UnityEngine;
              SetPref(PrefKey.Tribunes, value);
          }
      }
+
+     public int League
+     {
+         get
+         {
+             if (m_League == null)
+                 m_League = GetIntPref(PrefKey.League);
+             return (int)m_League;
+         }
+         set
+         {
+             m_League = value;
+             SetPref(PrefKey.League, value);
+         }
+     }
      
+     public int Game
+     {
+         get
+         {
+             if (m_Game == null)
+                 m_Game = GetIntPref(PrefKey.Game);
+             return (int)m_Game;
+         }
+         set
+         {
+             m_Game = value;
+             SetPref(PrefKey.Game, value);
+         }
+     }
      
+     public int UpgradeSpeed
+     {
+         get
+         {
+             if (m_UpgradeSpeed == null)
+                 m_UpgradeSpeed = GetIntPref(PrefKey.UpgradeSpeed);
+             return (int)m_UpgradeSpeed;
+         }
+         set
+         {
+             m_UpgradeSpeed = value;
+             SetPref(PrefKey.UpgradeSpeed, value);
+         }
+     }
+     
+     public int UpgradeKick
+     {
+         get
+         {
+             if (m_UpgradeKick == null)
+                 m_UpgradeKick = GetIntPref(PrefKey.UpgradeKick);
+             return (int)m_UpgradeKick;
+         }
+         set
+         {
+             m_UpgradeKick = value;
+             SetPref(PrefKey.UpgradeKick, value);
+         }
+     }
+     
+     public int UpgradeJump
+     {
+         get
+         {
+             if (m_UpgradeJump == null)
+                 m_UpgradeJump = GetIntPref(PrefKey.UpgradeJump);
+             return (int)m_UpgradeJump;
+         }
+         set
+         {
+             m_UpgradeJump = value;
+             SetPref(PrefKey.UpgradeJump, value);
+         }
+     }
+     
+     public int UpgradeShield
+     {
+         get
+         {
+             if (m_UpgradeShield == null)
+                 m_UpgradeShield = GetIntPref(PrefKey.UpgradeShield);
+             return (int)m_UpgradeShield;
+         }
+         set
+         {
+             m_UpgradeShield = value;
+             SetPref(PrefKey.UpgradeShield, value);
+         }
+     }
+     
+     public int UpgradeMoneyIncome
+     {
+         get
+         {
+             if (m_UpgradeMoneyIncome == null)
+                 m_UpgradeMoneyIncome = GetIntPref(PrefKey.UpgradeMoneyIncome);
+             return (int)m_UpgradeMoneyIncome;
+         }
+         set
+         {
+             m_UpgradeMoneyIncome = value;
+             SetPref(PrefKey.UpgradeMoneyIncome, value);
+         }
+     }
+     
+     public bool BycicleKickEnabled
+     {
+         get
+         {
+             if (m_BycicleKickEnabled == null)
+                 m_BycicleKickEnabled = GetIntPref(PrefKey.BycicleKickEnabled) != 0;
+             return (bool)m_BycicleKickEnabled;
+         }
+         set
+         {
+             m_BycicleKickEnabled = value;
+             SetPref(PrefKey.BycicleKickEnabled, value ? 1 : 0);
+         }
+     }
+     
+     public int GraphicsQuality
+     {
+         get
+         {
+             if (m_GraphicsQuality == null)
+                 m_GraphicsQuality = GetIntPref(PrefKey.GraphicsQuality);
+             return (int)m_GraphicsQuality;
+         }
+         set
+         {
+             m_GraphicsQuality = value;
+             if (m_GraphicsQuality == 3)
+                 m_GraphicsQuality = 0;
+             SetPref(PrefKey.GraphicsQuality, (int)m_GraphicsQuality);
+         }
+     }
+     
+     public bool Tilt
+     {
+         get
+         {
+             if (m_Tilt == null)
+                 m_Tilt = GetIntPref(PrefKey.Tilt) != 0;
+             return (bool)m_Tilt;
+         }
+         set
+         {
+             m_Tilt = value;
+             SetPref(PrefKey.Tilt, value ? 1 : 0);
+         }
+     }
+     
+     public int ButtonsSize
+     {
+         get
+         {
+             if (m_ButtonsSize == null)
+                 m_ButtonsSize = GetIntPref(PrefKey.ButtonsSize);
+             return (int)m_ButtonsSize;
+         }
+         set
+         {
+             m_ButtonsSize = value;
+             SetPref(PrefKey.ButtonsSize, value);
+         }
+     }
+     
+     public bool SoundOn
+     {
+         get
+         {
+             if (m_SoundOn == null)
+                 m_SoundOn = GetIntPref(PrefKey.SoundOn) != 0;
+             return (bool)m_SoundOn;
+         }
+         set
+         {
+             m_SoundOn = value;
+             SetPref(PrefKey.SoundOn, value ? 1 : 0);
+         }
+     }
+
      #endregion
 
      #region events

@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void Awake()
     {
-        text_Bank.text = scr.univFunc.moneyString(PrefsManager.Instance.MoneyCount);
+        text_Bank.text = scr.univFunc.Money(PrefsManager.Instance.MoneyCount);
         _rb = GetComponent<Rigidbody2D>();
 		HJPlayerLegTr = HJPlayerLeg.transform;
 		plSprTr = plSpr.transform;
@@ -142,10 +142,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void SKJ_Upgrades()
     {
-        maxSpeed = maxSpeed * (100f + (float)scr.alPrScr.upgrSpeed * 1.5f) / 100f;
-        jumpForce = jumpForce * (100f + (float)scr.alPrScr.upgrJump * 2f) / 100f;
-        kickTorque = kickTorque * (100f + (float)scr.alPrScr.upgrKick * 2f) / 100f;
-        kickSpeed = kickSpeed * (100f + (float)scr.alPrScr.upgrKick * 2f) / 100f;
+        maxSpeed = maxSpeed * (100f + PrefsManager.Instance.UpgradeSpeed * 1.5f) / 100f;
+        jumpForce = jumpForce * (100f + PrefsManager.Instance.UpgradeJump * 2f) / 100f;
+        kickTorque = kickTorque * (100f + PrefsManager.Instance.UpgradeKick * 2f) / 100f;
+        kickSpeed = kickSpeed * (100f + PrefsManager.Instance.UpgradeKick * 2f) / 100f;
     }
 
 	private void Update()
@@ -255,7 +255,7 @@ public class PlayerMovement : MonoBehaviour
                 if (goalCheck == -1)
                 {
                     
-                    text_Bank.text = scr.univFunc.moneyString(PrefsManager.Instance.MoneyCount);
+                    text_Bank.text = scr.univFunc.Money(PrefsManager.Instance.MoneyCount);
                     //text_Money.text = "500$";
                     anim_PlusMoney.SetTrigger(Animator.StringToHash("0"));
                     scr.goalPanScr.RefereeAnimRight();

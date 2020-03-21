@@ -12,7 +12,7 @@ public class Anim_VictoryText : MonoBehaviour
 
     public void LoadNextGame()
     {
-        if (!PrefsManager.Instance.IsRandomOpponent && scr.alPrScr.game == 10)
+        if (!PrefsManager.Instance.IsRandomOpponent && PrefsManager.Instance.Game == 10)
             scr.objLev.ContinueTournament();
         else
             GameManager.Instance.GoToMenu();

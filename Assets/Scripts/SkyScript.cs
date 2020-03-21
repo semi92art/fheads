@@ -45,8 +45,6 @@ public class SkyScript : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.SetInt("MenuTrigger_1", 0);
-
         if (PrefsManager.Instance.Tribunes == 0)
         {
             bannersAnim.enabled = false;
