@@ -18,19 +18,13 @@ public class StadiumChooseScript : MonoBehaviour
 	void Awake()
 	{
 		for (int i = 0; i < stadiums.Length; i++)
-		{
-            bool isActive = i == scr.alPrScr.stadium ? true : false;
-            stadiums[i].SetActive(isActive);
-		}
+			stadiums[i].SetActive(i == PrefsManager.Instance.Stadium);
 	}
   
 	public void SetStadiumHandleByNumber(int number)
 	{
 		for (int i = 0; i < stadiums.Length; i++)
-		{
-            bool isActive = i == number ? true : false;
-            stadiums[i].SetActive(isActive);
-		}
+			stadiums[i].SetActive(i == number);
 	}
 
 	public void SetStadiumHandle()

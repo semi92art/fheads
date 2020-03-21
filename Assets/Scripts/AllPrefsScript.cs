@@ -5,31 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class AllPrefsScript : MonoBehaviour 
 {
-	public static AllPrefsScript Instance { get; private set; }
-	
-    public Scripts scr;
+	public Scripts scr;
     
-    public int launches;
-    public int moneyWin;
-    public int _camera;
-    public int evrdReward;
-    public int plLg, enLg;
-    public int winsNoConcGoals;
-	public int award, tGoals;
-	public int controls;
-	public int bestResult;
-	public int isRandGame;
-	public int isW;
-	public int stadium;
-    public int tribunes;
-	public int ballN;
-    public int winsTotal;
-    public float skill_Speed;
-    public float skill_Kick;
-    public float skill_Jump;
-    public int[] openedPlayers;
-    public int[] openedPlayers_2;
-    public int[] opndLeagues = new int[6];
     public int[,] wonGames = new int[10,6];
     public int lg, game;
     public int upgrSpeed;
@@ -40,46 +17,16 @@ public class AllPrefsScript : MonoBehaviour
     public int[] upgrBalls = new int[3];
     public int upgrMoney;
 
-	[HideInInspector]
-	public bool doCh;
-
-	#region static methods
-	
-	
-
-	
-	#endregion
-	
+    
 	#region engine methods
 	
 	private void Awake()
 	{
-		if (Instance != null)
-		{
-			DestroyImmediate(gameObject);
-			return;
-		}
-		Instance = this;
-
-        System.GC.Collect();
-
-        float ver = 0;
-        float.TryParse(PlayerPrefs.GetString("Version"), System.Globalization.NumberStyles.Any,
-                        new System.Globalization.CultureInfo("en-US"), out ver);
-
-        if (PlayerPrefs.GetString("Version") != Application.version)
-            PlayerPrefs.DeleteAll();
-
-        PlayerPrefs.SetString("Version", Application.version);
-		launches = PlayerPrefs.GetInt("Launches");
-
-		if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            if (launches == 0)
+            if (PrefsManager.Instance.LaunchesCount == 0)
             {
-                //Debug.Log("Launch 0");
                 PlayerPrefs.SetInt("UpgradeBall_0", 1);
-                //PlayerPrefs.SetFloat("FreezePercent", 1f);
                 PlayerPrefs.SetInt("OpenedLeague_0", 1);
                 PlayerPrefs.SetInt("Graph", 1);
                 PlayerPrefs.SetInt("Tilt", 1);
@@ -89,34 +36,29 @@ public class AllPrefsScript : MonoBehaviour
                 PlayerPrefs.SetInt("PlayerLeague", 1);
                 PlayerPrefs.SetInt("EnemyLeague", 1);
                 PlayerPrefs.SetInt("EverydayReward", 1000);
-                //48 - Piquet
                 PlayerPrefs.SetInt("PlayerIndex", 35);
                 PlayerPrefs.SetInt("Controls", 1);
                 PlayerPrefs.SetInt("Game", 1);
-                //PlayerPrefs.SetInt("League", 1);
                 PlayerPrefs.SetInt("OpenedPlayers_0", 1);
                 PlayerPrefs.SetInt("OpenedPlayers_1", 1);
                 PlayerPrefs.SetInt("OpenedGamesL1_0", 1);
                 PlayerPrefs.SetInt("OpenedGamesL2_0", 1);
                 PlayerPrefs.SetInt("OpenedChallenges_0", 1);
             }
-
-            PlayerPrefs.SetInt("Launches", launches + 1);  
+            
             PlayerPrefs.SetInt("MenuTrigger_1", 1);
+            PrefsManager.Instance.LaunchesCount++;
         }
         else if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            if (launches == 1)
+            if (PrefsManager.Instance.LaunchesCount == 1)
                 PlayerPrefs.SetInt("SoundOn", 1);
 
-            
-
-            FindObjectOfType<TimeManager>().rigBodies = FindObjectsOfType<Rigidbody2D>();
-            FindObjectOfType<TimeManager>().contrRidBodies = 
-                new Rigidbody2D[FindObjectOfType<TimeManager>().rigBodies.Length];
+            FindObjectOfType<LevelTimeManager>().rigBodies = FindObjectsOfType<Rigidbody2D>();
+            FindObjectOfType<LevelTimeManager>().contrRidBodies = 
+                new Rigidbody2D[FindObjectOfType<LevelTimeManager>().rigBodies.Length];
         }
-            
-		doCh = true;
+
         GetValues();
 	}
 
@@ -125,40 +67,16 @@ public class AllPrefsScript : MonoBehaviour
 #if UNITY_EDITOR
         InputFcn();
 #endif
-
-        if (doCh)
-        {
-            SetValues();
-            GetValues();
-            doCh = false;
-        }
-        
-	}
+    }
 	
 	#endregion
-	
-
-    private void MoneyPurchase()
-    {
-        if (SceneManager.GetActiveScene().buildIndex != 1)
-			return;
-        
-        PrefsManager.Instance.MoneyCount += PrefsManager.Instance.PurchaseCoast;
-        PrefsManager.Instance.PurchaseCoast = 0;
-    }
-
 
     private void ViewWonGames()
     {
         for (int j = 0; j < 6; j++)
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                Debug.Log("Game " + i.ToString() + 
-                    ", League " + j.ToString() + 
-                    ", Win = " + wonGames[i, j]);
-            }
-        }
+        for (int i = 0; i < 10; i++)
+            Debug.Log($"Game {i}, League {j}, Win = {wonGames[i, j].ToString()}");
+        
     }
 
 	private void InputFcn()
@@ -232,18 +150,11 @@ public class AllPrefsScript : MonoBehaviour
         {
             for (int j = 0; j < 6; j++)
             {
-                str = "Won_" + i.ToString() + "_" + j.ToString();
+                str = $"Won_{i}_{j}";
                 PlayerPrefs.SetInt(str, wonGames[i,j]);
             }
         }
 
-        for (int i = 0; i < opndLeagues.Length; i++)
-        {
-            str = "OpenedLeague_" + i.ToString();
-            PlayerPrefs.SetInt(str, opndLeagues[i]);
-        }
-
-        PlayerPrefs.SetInt("Camera", _camera);
         PlayerPrefs.SetInt("UpgradeSpeed", upgrSpeed);
         PlayerPrefs.SetInt("UpgradeKick", upgrKick);
         PlayerPrefs.SetInt("UpgradeJump", upgrJump);
@@ -253,46 +164,13 @@ public class AllPrefsScript : MonoBehaviour
 
         for (int i = 0; i < upgrBalls.Length; i++)
         {
-            str = "UpgradeBall_" + i.ToString();
+            str = $"UpgradeBall_{i}";
             PlayerPrefs.SetInt(str, upgrBalls[i]);
         }
 
         PlayerPrefs.SetInt("League", lg);
-        PlayerPrefs.SetInt("EverydayReward", evrdReward);
-        PlayerPrefs.SetInt("PlayerLeague", plLg);
-        PlayerPrefs.SetInt("EnemyLeague", enLg);
-        PlayerPrefs.SetFloat("Skill_Speed", skill_Speed);
-        PlayerPrefs.SetFloat("Skill_Kick", skill_Kick);
-        PlayerPrefs.SetFloat("Skill_Jump", skill_Jump);
-        PlayerPrefs.SetInt("WinsNoConcGoals", winsNoConcGoals);
-        PlayerPrefs.SetInt("Controls", controls);
-		PlayerPrefs.SetInt("Game", game);
-		PlayerPrefs.SetInt("Award", award);
-		PlayerPrefs.SetInt("TaskGoals", tGoals);
-		PlayerPrefs.SetInt("IsRandGame", isRandGame);
-		PlayerPrefs.SetInt("Launches", launches);
-		PlayerPrefs.SetInt("BestResult", bestResult);
-        PlayerPrefs.SetInt("WinsTotal", winsTotal);
-
-
-        for (int i = 0; i < openedPlayers.Length; i++)
-		{
-			str = "OpenedPlayers_" + i.ToString();
-			PlayerPrefs.SetInt(str, openedPlayers[i]); 
-		}
-
-        for (int i = 0; i < openedPlayers_2.Length; i++)
-        {
-            str = "OpenedPlayers_2_" + i.ToString();
-            PlayerPrefs.SetInt(str, openedPlayers_2[i]);
-        }
-
-		PlayerPrefs.SetInt("IsWin", isW);
-		PlayerPrefs.SetInt("Stadium", stadium);
-        PlayerPrefs.SetInt("Tribunes", tribunes);
-		PlayerPrefs.SetInt("BallNumber", ballN);
-		PlayerPrefs.SetInt("MoneyWin", moneyWin);
-	}
+        PlayerPrefs.SetInt("Game", game);
+    }
 
 	private void GetValues()
 	{
@@ -302,18 +180,11 @@ public class AllPrefsScript : MonoBehaviour
         {
             for (int j = 0; j < 6; j++)
             {
-                str = "Won_" + i.ToString() + "_" + j.ToString();
+                str = $"Won_{i}_{j}";
                 wonGames[i, j] = PlayerPrefs.GetInt(str);
             }
         }
-          
-        for (int i = 0; i < opndLeagues.Length; i++)
-        {
-            str = "OpenedLeague_" + i.ToString();
-            opndLeagues[i] = PlayerPrefs.GetInt(str);
-        }
 
-        _camera = PlayerPrefs.GetInt("Camera");
         upgrSpeed = PlayerPrefs.GetInt("UpgradeSpeed");
         upgrKick = PlayerPrefs.GetInt("UpgradeKick");
         upgrJump = PlayerPrefs.GetInt("UpgradeJump");
@@ -323,41 +194,11 @@ public class AllPrefsScript : MonoBehaviour
 
         for (int i = 0; i < upgrBalls.Length; i++)
         {
-            str = "UpgradeBall_" + i.ToString();
+            str = $"UpgradeBall_{i}";
             upgrBalls[i] = PlayerPrefs.GetInt(str);
         }
 
         lg = PlayerPrefs.GetInt("League");
-        evrdReward = PlayerPrefs.GetInt("EverydayReward");
-        plLg = PlayerPrefs.GetInt("PlayerLeague");
-        enLg = PlayerPrefs.GetInt("EnemyLeague");
-        winsNoConcGoals = PlayerPrefs.GetInt("WinsNoConcGoals");
-        controls = PlayerPrefs.GetInt("Controls");
-		game = PlayerPrefs.GetInt("Game");
-		award = PlayerPrefs.GetInt("Award");
-		tGoals = PlayerPrefs.GetInt("TaskGoals");
-		launches = PlayerPrefs.GetInt("Launches");
-		isRandGame = PlayerPrefs.GetInt("IsRandGame");
-		bestResult = PlayerPrefs.GetInt("BestResult");
-        winsTotal = PlayerPrefs.GetInt("WinsTotal");
-
-		for (int i = 0; i < openedPlayers.Length; i++)
-		{
-			str = "OpenedPlayers_" + i.ToString();
-			openedPlayers[i] = PlayerPrefs.GetInt(str);
-		}
-
-        for (int i = 0; i < openedPlayers_2.Length; i++)
-        {
-            str = "OpenedPlayers_2_" + i.ToString();
-            openedPlayers_2[i] = PlayerPrefs.GetInt(str);
-        }
-
-		isW = PlayerPrefs.GetInt("IsWin");
-		stadium = PlayerPrefs.GetInt("Stadium");
-        tribunes = PlayerPrefs.GetInt("Tribunes");
-		ballN = PlayerPrefs.GetInt("BallNumber");
-
-		moneyWin = PlayerPrefs.GetInt("MoneyWin");
-	}
+        game = PlayerPrefs.GetInt("Game");
+    }
 }

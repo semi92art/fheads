@@ -67,7 +67,7 @@ public class CameraSize : MonoBehaviour
         resMy0_1 = screenW / screenH;
         resMy0 = 14f / 10f;
 
-        SetCameraSize(scr.alPrScr._camera);
+        SetCameraType(PrefsManager.Instance.CameraType);
         SetGraphics(1);
 
         camDefRot = transform.localRotation.eulerAngles;
@@ -181,11 +181,11 @@ public class CameraSize : MonoBehaviour
         transform.rotation = Quaternion.Euler(camDefRot);
     }
 
-    public void SetCameraSize(int _size)
+    public void SetCameraType(int _Type)
     {
         for (int i = 0; i < obj_CamButtons.Length; i++)
         {
-            if (i == _size)
+            if (i == _Type)
                 obj_CamButtons[i].SetActive(true);
             else
                 obj_CamButtons[i].SetActive(false);
@@ -194,7 +194,7 @@ public class CameraSize : MonoBehaviour
         float newY = 0f;
         float newY0 = 0f;
 
-        if (_size == 0)
+        if (_Type == 0)
         {
             //newY0 = -14.78f * resMy0 + 34.3f;
             newY0 = 13.6f;
@@ -203,7 +203,7 @@ public class CameraSize : MonoBehaviour
             leftCamEdge = 27.78f * resMy0_1 - 99.22f;
             rightCamEdge = -27.78f * resMy0_1 + 59.17f;
         }
-        else if (_size == 1)
+        else if (_Type == 1)
         {
             //newY = 0.5f * (followTr.position.y + scr.ballScr.transform.position.y);
             //newY0 = Mathf.Lerp(transform.position.y, newY, lerpX * Time.deltaTime * 5f);
@@ -225,7 +225,6 @@ public class CameraSize : MonoBehaviour
 
         isFromButton = true;
 
-        scr.alPrScr._camera = _size;
-        scr.alPrScr.doCh = true;
+        PrefsManager.Instance.CameraType = _Type;
     }
 }

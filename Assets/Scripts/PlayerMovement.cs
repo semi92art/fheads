@@ -137,7 +137,6 @@ public class PlayerMovement : MonoBehaviour
             plSpr.sprite = scr.buf.plSpr;
             scr.objLev.plLegSprR.sprite = scr.buf.plBoot;
             scr.objLev.enLegSprR.sprite = scr.buf.enBoot;
-            scr.objLev.enLegSprR_1.sprite = scr.buf.enBoot_1;
         }
 	}
 
@@ -167,11 +166,11 @@ public class PlayerMovement : MonoBehaviour
                 enLegSt.x,
                 enLegSt.y,
                 scr.enAlg_1.legHJ.transform.localPosition.z);
-			
-			Time.timeScale = 0f;
-
-			scr.ballScr.transform.position = new Vector3 (scr.marks.midTr.position.x, -4, scr.ballScr.transform.position.z);
+            
+            scr.ballScr.transform.position = new Vector3 (scr.marks.midTr.position.x, -4, scr.ballScr.transform.position.z);
             scr.ballScr._rb.velocity = new Vector2(0, 0);
+            
+            TimeManager.Instance.PauseGame();
 		} 
 		else 
 		{
@@ -191,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
             GoalCheck();
 		}
 
-		if (!restart && !freezeOnStart && Time.timeScale > 0.1f)
+		if (!restart && !freezeOnStart && !TimeManager.Instance.GamePaused)
 		{
             if (scr.bonObjMan.isPlayerFast != 0)
             {
@@ -248,7 +247,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 scr.camSize.tim = 0;
                 scr.skyScr.isGoal = true;
-                if (scr.alPrScr.tribunes != 0)
+                if (PrefsManager.Instance.Tribunes != 0)
                 {
 	                scr.fwScr.SetActiveGoalFirework();
                 }
@@ -455,57 +454,61 @@ public class PlayerMovement : MonoBehaviour
 		
 	public void Left_JK_Button()
 	{
-		if (scr.alPrScr.controls == 1)
+		switch (PrefsManager.Instance.ControlsType)
 		{
-			Jump();
-			scr.objLev.leftButSprR.sprite = scr.objLev.jump2Spr;
-		}
-		else if (scr.alPrScr.controls == 2)
-		{
-			Kick();
-			scr.objLev.leftButSprR.sprite = scr.objLev.kick2Spr;
+			case 1:
+				Jump();
+				scr.objLev.leftButSprR.sprite = scr.objLev.jump2Spr;
+				break;
+			case 2:
+				Kick();
+				scr.objLev.leftButSprR.sprite = scr.objLev.kick2Spr;
+				break;
 		}
 	}
 
 	public void Left_JK_EndButton()
 	{
-		if (scr.alPrScr.controls == 1)
+		switch (PrefsManager.Instance.ControlsType)
 		{
-			JumpEnd();
-			scr.objLev.leftButSprR.sprite = scr.objLev.jump1Spr;
-		}
-		else if (scr.alPrScr.controls == 2)
-		{
-			KickEnd();
-			scr.objLev.leftButSprR.sprite = scr.objLev.kick1Spr;
+			case 1:
+				JumpEnd();
+				scr.objLev.leftButSprR.sprite = scr.objLev.jump1Spr;
+				break;
+			case 2:
+				KickEnd();
+				scr.objLev.leftButSprR.sprite = scr.objLev.kick1Spr;
+				break;
 		}
 	}
 
 	public void Right_JK_Button()
 	{
-		if (scr.alPrScr.controls == 1)
+		switch (PrefsManager.Instance.ControlsType)
 		{
-			Kick();
-			scr.objLev.rightButSprR.sprite = scr.objLev.kick2Spr;
-		}
-		else if (scr.alPrScr.controls == 2)
-		{
-			Jump();
-			scr.objLev.rightButSprR.sprite = scr.objLev.jump2Spr;
+			case 1:
+				Kick();
+				scr.objLev.rightButSprR.sprite = scr.objLev.kick2Spr;
+				break;
+			case 2:
+				Jump();
+				scr.objLev.rightButSprR.sprite = scr.objLev.jump2Spr;
+				break;
 		}
 	}
 
 	public void Right_JK_EndButton()
 	{
-		if (scr.alPrScr.controls == 1)
+		switch (PrefsManager.Instance.ControlsType)
 		{
-			KickEnd();
-			scr.objLev.rightButSprR.sprite = scr.objLev.kick1Spr;
-		}
-		else if (scr.alPrScr.controls == 2)
-		{
-			JumpEnd();
-			scr.objLev.rightButSprR.sprite = scr.objLev.jump1Spr;
+			case 1:
+				KickEnd();
+				scr.objLev.rightButSprR.sprite = scr.objLev.kick1Spr;
+				break;
+			case 2:
+				JumpEnd();
+				scr.objLev.rightButSprR.sprite = scr.objLev.jump1Spr;
+				break;
 		}
 	}
 

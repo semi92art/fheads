@@ -44,19 +44,9 @@ public class CareerManager : MonoBehaviour
 
         for (int i = 0; i < lg_UI_List.Count; i++)
         {
-            if (scr.alPrScr.opndLeagues[i] == 1)
-            {
-                lg_UI_List[i].im_Cup.sprite = lg_UI_List[i].spr_CupGold;
-                lg_UI_List[i].text_cupName_1.color = col_Gold;
-                lg_UI_List[i].text_cupName_2.color = col_Gold;
-            }
-            else
-            {
-                lg_UI_List[i].im_Cup.sprite = lg_UI_List[i].spr_CupGray;
-                lg_UI_List[i].text_cupName_1.color = col_Gray;
-                lg_UI_List[i].text_cupName_2.color = col_Gray;
-            }
-                
+            lg_UI_List[i].im_Cup.sprite = lg_UI_List[i].spr_CupGold;
+            lg_UI_List[i].text_cupName_1.color = col_Gold;
+            lg_UI_List[i].text_cupName_2.color = col_Gold;
 
             int wins = 0;
 
@@ -83,31 +73,17 @@ public class CareerManager : MonoBehaviour
     {
         scr.objM.Button_Sound();
 
-        if (scr.alPrScr.opndLeagues[_lg] == 1)
-        {
-            scr.alPrScr.game = 0;
-            scr.alPrScr.lg = _lg;
-            SetLeagueData(_lg);
-            scr.buf.Set_Tournament_Data(0, _lg);
-            PlayerPrefs.SetInt("CanRestart", 3);
-            scr.alPrScr.doCh = true;
-            anim_LeagueMenu.SetTrigger(Animator.StringToHash("l" + _lg.ToString()));
-            GameManager.Instance.SetStadium();
-        }
-            
-        else
-            PreviewLeague(_lg);    
+        scr.alPrScr.game = 0;
+        scr.alPrScr.lg = _lg;
+        SetLeagueData(_lg);
+        scr.buf.Set_Tournament_Data(0, _lg);
+        PlayerPrefs.SetInt("CanRestart", 3);
+        anim_LeagueMenu.SetTrigger(Animator.StringToHash("l" + _lg.ToString()));
+        GameManager.Instance.SetStadium();
     }
 
     [HideInInspector]
     public int _lgPrev;
-
-    private void PreviewLeague(int _lg)
-    {
-        _lgPrev = _lg;
-        scr.allAw.CallAwardPanel_2();
-
-    }
 
     public void LoadTournament (int _lg)
     {
@@ -141,8 +117,6 @@ public class CareerManager : MonoBehaviour
 
     public void UnlockLeague(int _lg)
     {
-        scr.alPrScr.opndLeagues[_lg] = 1;
-        scr.alPrScr.doCh = true;
         PrefsManager.Instance.MoneyCount -= lg_cost[_lg];
 
         scr.topPanMng.moneyText.text = 

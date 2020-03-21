@@ -37,7 +37,7 @@ public class Scripts : MonoBehaviour
     public GoalPanelScript goalPanScr;
     public Score scoreScr;
     public PlayerMovement pMov;
-    public TimeManager tM;
+    public LevelTimeManager tM;
     public BallScript ballScr;
     public BallTouchScript ballTScr;
     public GroundTrigger1 grTr;
@@ -91,7 +91,7 @@ public class Scripts : MonoBehaviour
                 if (objLev == null) objLev = FindObjectOfType<Objects_Level>();
                 if (scoreScr == null) scoreScr = FindObjectOfType<Score>();
                 if (pMov == null) pMov = FindObjectOfType<PlayerMovement>();
-                if (tM == null) tM = FindObjectOfType<TimeManager>();
+                if (tM == null) tM = FindObjectOfType<LevelTimeManager>();
                 if (ballScr == null) ballScr = FindObjectOfType<BallScript>();
                 if (grTr == null) grTr = FindObjectOfType<GroundTrigger1>();
                 if (congrPan == null) congrPan = FindObjectOfType<CongradulationsPanel>();

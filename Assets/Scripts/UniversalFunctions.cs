@@ -18,21 +18,6 @@ public class League_UI_Elements
     public Text text_cupName_2;
     public Button _button;
 }
-    
-public enum OpponentsNumAndAge
-{
-    Main,
-    Legend,
-    Main_Main,
-    Main_Legend,
-    Legend_Main,
-    Legend_Legend
-}
-
-public enum AgeType
-{
-    main, legend
-}
 
 [System.Serializable]
 public class CareerOpponentMain
@@ -42,19 +27,9 @@ public class CareerOpponentMain
 }
 
 [System.Serializable]
-public class CareerOpponentLegend
-{
-    public OpponentType oppType;
-    public Names.PlayerName_2 oppName_2;
-
-}
-
-[System.Serializable]
 public class CareerGame
 {
-    public OpponentsNumAndAge oppsNumAndAge;
     public List<CareerOpponentMain> oppsMain;
-    public List<CareerOpponentLegend> oppsLegend;
 }
     
 public enum OpponentType
@@ -94,7 +69,7 @@ public class UniversalFunctions : MonoBehaviour
 
     public void RestartLevel()
     {
-        if (scr.alPrScr.isRandGame == 0)
+        if (!PrefsManager.Instance.IsRandomOpponent)
             RestartForVideo();
         else
         {
@@ -258,11 +233,6 @@ public class UniversalFunctions : MonoBehaviour
 		AnimMenu.SetBool("call", false);
 	}
 
-	/// <summary>
-	/// Convert money count in integer format to string. Example: 10000 = 10,000$
-	/// </summary>
-	/// <returns>The string.</returns>
-	/// <param name="money">Money.</param>
 	public string moneyString(int money)
 	{
         return moneyString_0(money);

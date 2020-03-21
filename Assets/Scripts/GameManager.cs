@@ -34,14 +34,12 @@ public class GameManager : MonoBehaviour
 		{
 			case "____Menu":
 				scr.alPrScr.game = 0;
-				scr.alPrScr.doCh = true;
 				PlayerPrefs.SetInt("CanRestart", 2);
 
-				scr.buf.isPractice = false;
 				scr.allAw.allAwPan.SetActive(false);
-				scr.alPrScr.isRandGame = 0;
+				PrefsManager.Instance.IsRandomOpponent = false;
 
-				Time.timeScale = 1f;
+				TimeManager.Instance.UnPauseGame();
 
 				_menues = Menues.MainMenu;
 				DestroyImmediate (GameObject.Find ("ChampList"));
@@ -51,8 +49,6 @@ public class GameManager : MonoBehaviour
 				PrefsManager.Instance.PlayedGames++;
 				break;
 		}
-
-		scr.alPrScr.doCh = true;
 	}
 
 	private void Update()
@@ -88,7 +84,7 @@ public class GameManager : MonoBehaviour
     {
 #if UNITY_EDITOR
         if(Input.GetKey(KeyCode.R))
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("____Menu");
 #endif
 
         if (Input.GetKeyUp (KeyCode.Escape))
@@ -112,7 +108,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyUp (KeyCode.Escape)) 
         {
-            if (scr.tM.isBetweenTimes && Time.timeScale <= 0.1f)
+            if (scr.tM.isBetweenTimes && TimeManager.Instance.GamePaused)
             {
                 scr.tM.CallBackBetweenTimesPanel();
                 scr.levAudScr.Button_Sound();
@@ -148,7 +144,7 @@ public class GameManager : MonoBehaviour
 
 	public void StartGame()
 	{
-		Time.timeScale = 1f;
+		TimeManager.Instance.UnPauseGame();
 		scr.pMov.startGame = true;
 		scr.objLev.startPanelAnim.gameObject.SetActive(false);
 	}
@@ -194,9 +190,7 @@ public class GameManager : MonoBehaviour
 
 	public void GoToMenu()
 	{
-        scr.buf.is1stPractice = false;
-        SceneManager.LoadScene("Menu");
-        scr.alPrScr.doCh = true;
+		SceneManager.LoadScene("____Menu");
 	}
 	
 	public void GoToMenuNewGame (RectTransform tr)
@@ -206,7 +200,7 @@ public class GameManager : MonoBehaviour
 
 	public void IsInPause()
 	{
-		Time.timeScale = 1f;
+		TimeManager.Instance.UnPauseGame();
 	}
 	
 	public void WinGame1()
@@ -244,14 +238,12 @@ public class GameManager : MonoBehaviour
 
 	public void SetStadium()
 	{
-        scr.alPrScr.stadium = scr.alPrScr.isRandGame == 1 ? 
+        PrefsManager.Instance.Stadium = PrefsManager.Instance.IsRandomOpponent ? 
             Mathf.FloorToInt(Random.value * (18 - 0.01f)) : 
             scr.univFunc.Stadium(scr.alPrScr.game);
 
-        scr.alPrScr.tribunes = scr.alPrScr.isRandGame == 0 ? 
+        PrefsManager.Instance.Tribunes = !PrefsManager.Instance.IsRandomOpponent ? 
             scr.alPrScr.lg : Mathf.FloorToInt(1f + (5 - 0.1f) * Random.value);
-
-		scr.alPrScr.doCh = true;
 	}
         
 	public void LoadSimpleLevel()
@@ -261,7 +253,7 @@ public class GameManager : MonoBehaviour
         
 	public void LoadRandomLevel()
 	{
-        scr.alPrScr.isRandGame = 1;
+		PrefsManager.Instance.IsRandomOpponent = true;
         SetStadium();
         scr.buf.SetRandomData();
 		SceneManager.LoadScene(2);
@@ -287,8 +279,8 @@ public class GameManager : MonoBehaviour
         scr.objLev.pauseMenuAnim.gameObject.SetActive(true);
         scr.objLev.pauseMenuAnim.ResetTrigger(Animator.StringToHash("back"));
         scr.objLev.pauseMenuAnim.SetTrigger (Animator.StringToHash("call"));
-        currTimeScale = Time.timeScale;
-        Time.timeScale = 0f;
+        currTimeScale = TimeManager.Instance.TimeScale;
+        TimeManager.Instance.PauseGame();
         Rigidbodies_TimeScale(0);
 	}
 	
@@ -296,7 +288,7 @@ public class GameManager : MonoBehaviour
 	{
 		pauseInLevel = false;
         scr.objLev.pauseMenuAnim.SetTrigger(Animator.StringToHash("back"));
-        Time.timeScale = currTimeScale;
+        TimeManager.Instance.TimeScale = currTimeScale;
 		scr.objLev.pauseMenuAnim.gameObject.SetActive(false);
         Rigidbodies_TimeScale(1);
 	}
@@ -321,6 +313,7 @@ public class GameManager : MonoBehaviour
 	public void MenuResultBack()
 	{
 		scr.objLev.resultMenuAnim.SetBool ("call", false);
+		TimeManager.Instance.UnPauseGame();
 		Time.timeScale = 1f;
 		scr.objLev.resultMenuAnim.gameObject.SetActive(false);
 	}

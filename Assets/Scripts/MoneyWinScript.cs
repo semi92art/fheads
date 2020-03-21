@@ -123,6 +123,6 @@ public class MoneyWinScript : MonoBehaviour
     {
         moneyBankText.gameObject.SetActive(true);
         isMoneyToBank = true;
-        Time.timeScale = 1;
+        TimeManager.Instance.UnPauseGame();
     }
 }

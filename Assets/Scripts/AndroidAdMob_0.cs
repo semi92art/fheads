@@ -16,7 +16,7 @@ public class AndroidAdMob_0 : MonoBehaviour
 	{
 		GoogleMobileAd.OnInterstitialClosed += GoogleMobileAd_OnInterstitialClosed;
         GoogleMobileAd.Init ();
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("____Menu");
 	}
 
     public void ShowInterstitialAd()

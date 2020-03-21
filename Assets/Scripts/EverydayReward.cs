@@ -21,8 +21,7 @@ public class EverydayReward : MonoBehaviour
     {
         day = PlayerPrefs.GetInt ("Day");
 
-        if (day != System.DateTime.Today.Day &&
-            scr.alPrScr.launches != 1)
+        if (day != System.DateTime.Today.Day && PrefsManager.Instance.LaunchesCount != 1)
         {
             day = System.DateTime.Today.Day;
             PlayerPrefs.SetInt ("Day", day);

@@ -109,8 +109,6 @@ public class Upgrades : MonoBehaviour
             Set_KickPanel(1);
         else
             Upgrade_Choose(curr_ind);
-        
-        scr.alPrScr.doCh = true;
     }
 
     public void Refund()
@@ -161,8 +159,6 @@ public class Upgrades : MonoBehaviour
             Set_KickPanel(1);
         else
             Upgrade_Choose(curr_ind);
-        
-        scr.alPrScr.doCh = true;
     }
 
     public void Upgrade_Choose(int _ind)

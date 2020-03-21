@@ -18291,7 +18291,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 508482679}
-        m_MethodName: SetCameraSize
+        m_MethodName: SetCameraType
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34394,7 +34394,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 508482679}
-        m_MethodName: SetCameraSize
+        m_MethodName: SetCameraType
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

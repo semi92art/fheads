@@ -54,8 +54,8 @@ public class TimeFreeze : MonoBehaviour
             text_FreezeTime.enabled = freezeTime > 0f ? true : false;
             freezeTime = !timFr ? freezeTime - Time.deltaTime : freezeTime;
 
-            float freezeTime_1 = Time.timeScale > 0f ?
-                freezeTime / Time.timeScale : freezeTime / GameManager.Instance.currTimeScale;
+            float freezeTime_1 = !TimeManager.Instance.GamePaused ?
+                freezeTime / TimeManager.Instance.TimeScale : freezeTime / GameManager.Instance.currTimeScale;
 
             freezeTime_2 = Mathf.RoundToInt(freezeTime_1 * 10f);
 
@@ -108,7 +108,7 @@ public class TimeFreeze : MonoBehaviour
             sprRend_TimFrButton.sprite = spr_TimFr_1;
             isFreeze = true;
             Time.fixedDeltaTime = 0.01f * frTimeScale;
-            Time.timeScale = frTimeScale;
+            TimeManager.Instance.TimeScale = frTimeScale;
 
             scr.levAudScr.timeSlow_In.Play();
 
@@ -122,7 +122,7 @@ public class TimeFreeze : MonoBehaviour
         sprRend_TimFrButton.sprite = spr_TimFr_0;
         isFreeze = false;
         Time.fixedDeltaTime = 0.01f;
-        Time.timeScale = 1f;
+        TimeManager.Instance.TimeScale = 1f;
 
         scr.levAudScr.timeSlow_Out.Play();
 

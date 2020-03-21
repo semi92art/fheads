@@ -65,23 +65,14 @@ public class Enemy : MonoBehaviour
         enSprTr = enSpr.transform;
 
         kickSpeed = scr.pMov.kickSpeed0;
-
-        if (_enType != OpponentType.Goalkeeper)
-        {
-            _enType = scr.buf.oppType;
-            enSpr.sprite = scr.buf.enSpr;
-            maxSpeed = scr.pMov.maxSpeed0 * scr.buf.enSkillSpeed / 100f;
-            jumpForce = scr.pMov.jumpForce0 * scr.buf.enSkillJump / 100f;
-            kickTorque = scr.pMov.kickTorque0 * scr.buf.enSkillKick / 100f;
+        
+        _enType = scr.buf.oppType;
+        enSpr.sprite = scr.buf.enSpr;
+        maxSpeed = scr.pMov.maxSpeed0 * scr.buf.enSkillSpeed / 100f;
+        jumpForce = scr.pMov.jumpForce0 * scr.buf.enSkillJump / 100f;
+        kickTorque = scr.pMov.kickTorque0 * scr.buf.enSkillKick / 100f;
             
-        }
-        else
-        {
-            enSpr.sprite = scr.buf.enSpr_1;
-            maxSpeed = scr.pMov.maxSpeed0 * scr.buf.enSkillSpeed_1 / 100f;
-            jumpForce = scr.pMov.jumpForce0 * scr.buf.enSkillJump_1 / 100f;
-            kickTorque = scr.pMov.kickTorque0 * scr.buf.enSkillKick_1 / 100f;
-        }
+        
 
         SKJ_Upgrades();
 
@@ -100,11 +91,11 @@ public class Enemy : MonoBehaviour
 
     private void SKJ_Upgrades()
     {
-        float coeff_game = (100f + (float)scr.alPrScr.game * 0.01f) / 100f;
-        float coeff_lg = (100f + (float)scr.alPrScr.lg * 0.01f) / 100f;
-        float coeff_rand = (100f + Random.value * 0.1f) / 100f;
+        float coeff_game = (100f + scr.alPrScr.game * .01f) * .01f;
+        float coeff_lg = (100f + scr.alPrScr.lg * .01f) * .01f;
+        float coeff_rand = (100f + Random.value * .1f) * .01f;
 
-        if (scr.alPrScr.isRandGame == 0)
+        if (!PrefsManager.Instance.IsRandomOpponent)
         {
             maxSpeed = maxSpeed * coeff_game * coeff_lg * 1.015f;
             jumpForce = jumpForce * coeff_game * coeff_lg * 1.02f;

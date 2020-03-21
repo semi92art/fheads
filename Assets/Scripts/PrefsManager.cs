@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using UnityEngine;
 
  public class PrefsManager : MonoBehaviour
  {
@@ -32,7 +33,13 @@
          ProfileIndex,
          CameraType,
          MoneyCount,
-         PurchaseCoast
+         PurchaseCoast,
+         LaunchesCount,
+         ControlsType,
+         IsRandomOpponent,
+         Stadium,
+         Tribunes,
+         OpenedPlayers,
      }
 
      public class MoneyCountEventArgs : System.EventArgs
@@ -70,6 +77,14 @@
      private int? m_CameraType;
      private int? m_MoneyCount;
      private int? m_PurchaseCoast;
+     private int? m_LaunchesCount;
+     private bool? m_IsLegend;
+     private int? m_ControlsType;
+     private bool? m_IsRandomOpponent;
+     private int? m_Stadium;
+     private int? m_Tribunes;
+     [CanBeNull] private int[] m_OpenedPlayers;
+     [CanBeNull] private int[] m_OpenedRetroPlayers;
      
      #endregion
      
@@ -147,6 +162,7 @@
          {
              m_MoneyCount = value;
              SetPref(PrefKey.MoneyCount, Mathf.Max(0, value));
+             OnMoneyCountChanged?.Invoke(this, new MoneyCountEventArgs(value));
          }
      }
      
@@ -164,6 +180,82 @@
              SetPref(PrefKey.PurchaseCoast, Mathf.Max(0, value));
          }
      }
+     
+     public int LaunchesCount
+     {
+         get
+         {
+             if (m_LaunchesCount == null)
+                 m_LaunchesCount = GetIntPref(PrefKey.LaunchesCount);
+             return (int)m_LaunchesCount;
+         }
+         set
+         {
+             m_LaunchesCount = value;
+             SetPref(PrefKey.LaunchesCount, Mathf.Max(0, value));
+         }
+     }
+
+     public int ControlsType
+     {
+         get
+         {
+             if (m_ControlsType == null)
+                 m_ControlsType = GetIntPref(PrefKey.ControlsType);
+             return (int)m_ControlsType;
+         }
+         set
+         {
+             m_ControlsType = value;
+             SetPref(PrefKey.ControlsType, Mathf.Max(0, value));
+         }
+     }
+     
+     public bool IsRandomOpponent
+     {
+         get
+         {
+             if (m_IsRandomOpponent == null)
+                 m_IsRandomOpponent = GetIntPref(PrefKey.IsRandomOpponent) != 0;
+             return (bool)m_IsRandomOpponent;
+         }
+         set
+         {
+             m_IsLegend = value;
+             SetPref(PrefKey.IsRandomOpponent, value ? 1 : 0);
+         }
+     }
+     
+     public int Stadium
+     {
+         get
+         {
+             if (m_Stadium == null)
+                 m_Stadium = GetIntPref(PrefKey.Stadium);
+             return (int)m_Stadium;
+         }
+         set
+         {
+             m_Stadium = value;
+             SetPref(PrefKey.Stadium, value);
+         }
+     }
+     
+     public int Tribunes
+     {
+         get
+         {
+             if (m_Tribunes == null)
+                 m_Tribunes = GetIntPref(PrefKey.Tribunes);
+             return (int)m_Tribunes;
+         }
+         set
+         {
+             m_Tribunes = value;
+             SetPref(PrefKey.Tribunes, value);
+         }
+     }
+     
      
      #endregion
 

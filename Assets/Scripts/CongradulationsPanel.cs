@@ -17,21 +17,13 @@ public class CongradulationsPanel : MonoBehaviour
    
 	public void CongradulationsPanelCall()
 	{
-        if (TimeManager.resOfGame == 1)
-        {
-            scr.alPrScr.winsTotal++;
-
-            if (Score.score1 == 0)
-                scr.alPrScr.winsNoConcGoals++;
-        }
-            
-		scoreText.text = Score.score1 + ":" + Score.score;
+		
+		scoreText.text = $"{Score.score1.ToString()}:{Score.score.ToString()}";
 		congrPanel.SetActive(true);
         Enemy.gameStop = true;
         GameManager.Instance.MenuResultBack ();
 
         scr.camSize.SetCameraPositionForCongrPan();
-        scr.alPrScr.doCh = true;
 	}
 
 	public void DisableSomeObjects()

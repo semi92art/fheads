@@ -47,7 +47,7 @@ public class SkyScript : MonoBehaviour
     {
         PlayerPrefs.SetInt("MenuTrigger_1", 0);
 
-        if (scr.alPrScr.tribunes == 0)
+        if (PrefsManager.Instance.Tribunes == 0)
         {
             bannersAnim.enabled = false;
             bannerGroup1.SetActive(false);
@@ -64,7 +64,7 @@ public class SkyScript : MonoBehaviour
 
     void Update()
     {
-        if (isGoal && scr.alPrScr.tribunes != 0)
+        if (isGoal && PrefsManager.Instance.Tribunes != 0)
         {
             string call_str = "call";
             int call_int = Animator.StringToHash(call_str);
@@ -76,12 +76,9 @@ public class SkyScript : MonoBehaviour
         
     private void SetTribunes()
     {
-        /*float rand0 = ((float)tribunesSpr.Length - 0.1f) * Random.value;
-        int randStad = Mathf.FloorToInt(rand0);
-        stad = scr.alPrScr.isRandGame == 0 ? scr.alPrScr.game : randStad;*/
-        stadiumSprR.sprite = _tribunes[scr.alPrScr.tribunes].spr_tribunes;
+        stadiumSprR.sprite = _tribunes[PrefsManager.Instance.Tribunes].spr_tribunes;
 
-        int randC = Mathf.FloorToInt(((float)randCol.Length - 0.1f) * Random.value);
+        int randC = Mathf.FloorToInt((randCol.Length - 0.1f) * Random.value);
 
         for (int i = 0; i < wallSprs.Length; i++)
             wallSprs[i].color = randCol[randC];
@@ -89,7 +86,7 @@ public class SkyScript : MonoBehaviour
 
     public void SetWeather()
     {
-        switch (_tribunes[scr.alPrScr.tribunes]._weather)
+        switch (_tribunes[PrefsManager.Instance.Tribunes]._weather)
         {
             case Tribunes.Weather.clear:
                 scr.rainMan.isRainThisGame = false;

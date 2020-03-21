@@ -65,7 +65,6 @@ public class Objects_Level : MonoBehaviour
     [Header("From Player Movement:")]
     public SpriteRenderer plLegSprR;
     public SpriteRenderer enLegSprR;
-    public SpriteRenderer enLegSprR_1;
 
     [Header("Rigidbodies to control in timeScale = 0")]
     public Rigidbody2D[] allRbs;
@@ -81,7 +80,7 @@ public class Objects_Level : MonoBehaviour
 
 	void Awake()
 	{
-        if (scr.alPrScr.isRandGame == 1)
+        if (PrefsManager.Instance.IsRandomOpponent)
         {
             text_WatchVideo_0.gameObject.SetActive(false);
             text_WatchVideo_1.gameObject.SetActive(false);
@@ -89,39 +88,35 @@ public class Objects_Level : MonoBehaviour
         }
         else
         {
-            int gameNum = scr.alPrScr.game + 1;
-            text_GameNum.text = "GAME " + gameNum.ToString();
+            text_GameNum.text = $"GAME {(scr.alPrScr.game + 1).ToString()}";
             obj_RestartButon.SetActive(false);
-            int _canRestart = PlayerPrefs.GetInt("CanRestart");
-            scr.objLev.obj_RestartButon.SetActive(!scr.univFunc.Int2Bool(_canRestart));
+            scr.objLev.obj_RestartButon.SetActive(
+                !scr.univFunc.Int2Bool(PlayerPrefs.GetInt("CanRestart")));
         }
 
         startPanObjs.im_PlayerHead.sprite = scr.buf.plSpr;
         startPanObjs.im_PlayerLeg.sprite = scr.buf.plBoot;
         startPanObjs.im_EnemyHead_1.sprite = scr.buf.enSpr;
         startPanObjs.im_EnemyLeg_1.sprite = scr.buf.enBoot;
-
-        if (scr.buf.is2Enemies)
-        {
-            scr.enAlg_1.gameObject.SetActive(true);
-            startPanObjs.im_EnemyHead_2.sprite = scr.buf.enSpr_1;
-            startPanObjs.im_EnemyLeg_2.sprite = scr.buf.enBoot_1;
-        }
-        else
-            scr.enAlg_1.gameObject.SetActive(false);
+        
+        scr.enAlg_1.gameObject.SetActive(false);
         
         isTiltOn = scr.univFunc.Int2Bool(PlayerPrefs.GetInt("Tilt"));
         EnableTilt(1);
         scr.levAudScr.isSoundOn = 
             scr.univFunc.Int2Bool(PlayerPrefs.GetInt("SoundOn"));
-        //scr.levAudScr.EnableSound(1);
 
         ButtonsSize(-1);
 
-		if (scr.alPrScr.controls == 1)
-			SetControls_1();
-		else if (scr.alPrScr.controls == 2)
-			SetControls_2();
+        switch (PrefsManager.Instance.ControlsType)
+        {
+            case 1:
+                SetControls_1();
+                break;
+            case 2:
+                SetControls_2();
+                break;
+        }
 
 		scr.pMov.Left_JK_EndButton();
 		scr.pMov.Right_JK_EndButton();
@@ -141,15 +136,12 @@ public class Objects_Level : MonoBehaviour
     void Start()
     {
         DeactivateMenuesOnStart();
-        //scr.levAudScr.EnableSound(1);
         startPanObjs.im_PlayerHead.sprite = scr.buf.plSpr;
         startPanObjs.im_PlayerLeg.sprite = scr.buf.plBoot;
         startPanObjs.im_EnemyHead_1.sprite = scr.buf.enSpr;
         startPanObjs.im_EnemyLeg_1.sprite = scr.buf.enBoot;
-
-        int _trigger = scr.buf.is2Enemies ? 
-            Animator.StringToHash("1") : Animator.StringToHash("0");
-        startPanelAnim.SetTrigger(_trigger);
+        
+        startPanelAnim.SetTrigger("0");
         Destroy(scr.prMng.gameObject, 0.5f);
     }
 
@@ -159,19 +151,11 @@ public class Objects_Level : MonoBehaviour
 		secondTimePanelAnim.gameObject.SetActive(false);
 	}
 
-	public void DestroyGameObject(GameObject obj)
-	{
-		#if UNITY_EDITOR
-		DestroyImmediate(obj);
-		#endif
-	}
-
 	public void SetControls_1()
 	{
-		scr.alPrScr.controls = 1;
-		scr.alPrScr.doCh = true;
+        PrefsManager.Instance.ControlsType = 1;
 
-		c1RamkaIm.enabled = true;
+        c1RamkaIm.enabled = true;
 		c2RamkaIm.enabled = false;
 
 		leftButSprR.sprite = jump1Spr;
@@ -180,10 +164,9 @@ public class Objects_Level : MonoBehaviour
 
 	public void SetControls_2()
 	{
-		scr.alPrScr.controls = 2;
-		scr.alPrScr.doCh = true;
+        PrefsManager.Instance.ControlsType = 2;
 
-		c1RamkaIm.enabled = false;
+        c1RamkaIm.enabled = false;
 		c2RamkaIm.enabled = true;
 
 		leftButSprR.sprite = kick1Spr;
@@ -289,7 +272,7 @@ public class Objects_Level : MonoBehaviour
 
     public void FinishOrContinue()
     {
-        if (TimeManager.resOfGame == 1)
+        if (LevelTimeManager.resOfGame == 1)
             ContinueTournament();
         else
             FinishTournament();
@@ -298,7 +281,7 @@ public class Objects_Level : MonoBehaviour
     public void LevelRestartInLevel()
     {
         PlayerPrefs.SetInt("MenuTrigger_1", 1);
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene("____Level");
     }
 
 }
