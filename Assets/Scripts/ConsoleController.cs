@@ -11,7 +11,7 @@ public delegate void CommandHandler(string[] args);
 public class ConsoleController {
 	
 	#region Event declarations
-	// Used to communicate with ConsoleView
+	
 	public delegate void LogChangedHandler(string[] log);
 	public event LogChangedHandler logChanged;
 	
@@ -19,9 +19,7 @@ public class ConsoleController {
 	public event VisibilityChangedHandler visibilityChanged;
 	#endregion
 
-	/// 
-	/// Object to hold information about each command
-	/// 
+
 	class CommandRegistration {
 		public string command { get; private set; }
 		public CommandHandler handler { get; private set; }
@@ -34,11 +32,7 @@ public class ConsoleController {
 		}
 	}
 
-	/// 
-	/// How many log lines should be retained?
-	/// Note that strings submitted to appendLogLine with embedded newlines will be counted as a single line.
-	/// 
-	const int scrollbackSize = 20;
+	const int scrollbackSize = 100;
 
 	Queue<string> scrollback = new Queue<string>(scrollbackSize);
 	List commandHistory = new List();
@@ -146,7 +140,9 @@ public class ConsoleController {
 
 	void help(string[] args)
 	{
-		Debug.Log("no help for dyatel");
+		string msg = "no help for dyatel";
+		Debug.Log(msg);
+		appendLogLine(msg);
 	}
 
 	#endregion

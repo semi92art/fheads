@@ -44,6 +44,8 @@ public class ConsoleView : MonoBehaviour {
 
     void toggleVisibility() {
         setVisibility(!viewContainer.activeSelf);
+        inputField.ActivateInputField();
+        inputField.Select();
     }
 	
     void setVisibility(bool visible) {
@@ -65,13 +67,12 @@ public class ConsoleView : MonoBehaviour {
             logTextArea.text = string.Join("\n", newLog);
         }
     }
-
-    /// 
-    /// Event that should be called by anything wanting to submit the current input to the console.
-    /// 
+    
     public void runCommand() {
         console.runCommandString(inputField.text);
         inputField.text = "";
+        inputField.ActivateInputField();
+        inputField.Select();
     }
 
 }
