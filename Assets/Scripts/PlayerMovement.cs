@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void Awake()
     {
-        text_Bank.text = scr.univFunc.Money(PrefsManager.Instance.MoneyCount);
+        text_Bank.text = Customs.Money(PrefsManager.Instance.MoneyCount);
         _rb = GetComponent<Rigidbody2D>();
 		HJPlayerLegTr = HJPlayerLeg.transform;
 		plSprTr = plSpr.transform;
@@ -122,23 +122,20 @@ public class PlayerMovement : MonoBehaviour
 		goalImAnim.gameObject.SetActive(false);
         goalImAnim.enabled = false;
 
-        maxSpeed = maxSpeed0 * scr.buf.plSkillSpeed / 100f;
-        jumpForce = jumpForce0 * scr.buf.plSkillJump / 100f;
-        kickTorque = kickTorque0 * scr.buf.plSkillKick / 100f;
+        maxSpeed = maxSpeed0 * ProfileManager.Instance.itemList[PrefsManager.Instance.PlayerIndex].skill_Speed / 100f;
+        jumpForce = jumpForce0 * ProfileManager.Instance.itemList[PrefsManager.Instance.PlayerIndex].skill_Jump / 100f;
+        kickTorque = kickTorque0 * ProfileManager.Instance.itemList[PrefsManager.Instance.PlayerIndex].skill_Kick / 100f;
         kickSpeed = kickSpeed0;
         SKJ_Upgrades();
 
         jumpForceDef = jumpForce;
 		freezeOnStart = true;
 		NewStartPositions();
-
-        if (scr.buf != null)
-        {
-            plSpr.sprite = scr.buf.plSpr;
-            scr.objLev.plLegSprR.sprite = scr.buf.plBoot;
-            scr.objLev.enLegSprR.sprite = scr.buf.enBoot;
-        }
-	}
+		
+		plSpr.sprite = ProfileManager.Instance.itemList[PrefsManager.Instance.PlayerIndex].icon;
+		scr.objLev.plLegSprR.sprite = scr.cntrL.Countries[ProfileManager.Instance.itemList[PrefsManager.Instance.PlayerIndex].cntrInd].boot;
+		scr.objLev.enLegSprR.sprite = scr.cntrL.Countries[ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].cntrInd].boot;
+    }
 
     private void SKJ_Upgrades()
     {
@@ -255,7 +252,7 @@ public class PlayerMovement : MonoBehaviour
                 if (goalCheck == -1)
                 {
                     
-                    text_Bank.text = scr.univFunc.Money(PrefsManager.Instance.MoneyCount);
+                    text_Bank.text = Customs.Money(PrefsManager.Instance.MoneyCount);
                     //text_Money.text = "500$";
                     anim_PlusMoney.SetTrigger(Animator.StringToHash("0"));
                     scr.goalPanScr.RefereeAnimRight();

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class CountriesScrollItem
@@ -17,29 +18,36 @@ public class CountriesScrollItem
 
 public class ProfileManager : MonoBehaviour
 {
+    public static ProfileManager Instance { get; private set; }
+    
     public Scripts scr;
 
     public int[] moneyCoast;
-    public int[] moneyCoast_2;
-	public List<ProfileItem> itemList;
+    public List<ProfileItem> itemList;
 
     [HideInInspector]
     public int index, butInd;
 	private string buyPlayerString;
-
     public GameObject[] profBut0;
     public GameObject[] profBut0_2;
-
     public GameObject[] profShowcase;
     public GameObject[] profShowcase_0;
-    public GameObject[] profShowcase_2;
-    public GameObject[] profShowcase_2_0;
 
     public List<CountriesScrollItem> cntrScrollList;
     private bool is2ndLgOpnd;
 
 	void Awake () 
 	{
+        if (Instance != null)
+        {
+            DestroyImmediate(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        
+        
         SetPlayerIndexes();
         SetCountryIndexes();
 
@@ -121,7 +129,7 @@ public class ProfileManager : MonoBehaviour
                     button.showcase_2.color = opnd ? scr.objM.col_Blue : scr.objM.col_Gray;
                     button.im_MoneyCoastShowcase.color = opnd ?
                         Color.clear : scr.objM.col_Gray;
-                    button.moneyCoast.text = scr.univFunc.Money(moneyCoast[i]);
+                    button.moneyCoast.text = Customs.Money(moneyCoast[i]);
                     button.moneyCoast.gameObject.SetActive(true);
                     button.plInd = j;
                     button.buttonInd = i;
@@ -298,26 +306,22 @@ public class ProfileManager : MonoBehaviour
         }*/
     }
 
-    public int cntr_int0;
-
     public void ViewPlayersFromCountry(int cntr_int)
     {
         scr.objM.Button_Sound();
-
-        cntr_int0 = cntr_int;
         SetCountry(cntr_int);
 
         for (int i = 0; i < profBut0.Length; i++)
         {
             int cntrInd = profBut0[i].GetComponent<ProfileSampleButton>().cntrInd;
-            bool _bool = cntrInd == cntrInd_0 ? true : false;
+            bool _bool = cntrInd == cntrInd_0;
             profBut0[i].SetActive(_bool);
         }
 
         for (int i = 0; i < profBut0_2.Length; i++)
         {
             int cntrInd = profBut0_2[i].GetComponent<ProfileSampleButton>().cntrInd;
-            bool _bool = cntrInd == cntrInd_0 ? true : false;
+            bool _bool = cntrInd == cntrInd_0;
             profBut0_2[i].SetActive(_bool);
         }
     }
@@ -338,5 +342,23 @@ public class ProfileManager : MonoBehaviour
             if (cntr_0 == scr.cntrL.Countries[j].country)
                 cntrInd_0 = j;
         }
+    }
+
+    public int EnemyIndex => !PrefsManager.Instance.IsRandomOpponent ? 
+            GetEnemyIndex() : Mathf.FloorToInt((50 - 0.1f) * UnityEngine.Random.value);
+
+    private int GetEnemyIndex()
+    {
+        Names.PlayerName oppName = CareerManager.Instance.CurrentGame.oppsMain[0].oppName;
+        
+        int _index = 0;
+        
+        for (int i = 0; i < itemList.Count; i++)
+            if (oppName == itemList[i].player)
+            {
+                _index = i;
+                break;
+            }
+        return _index;
     }
 }

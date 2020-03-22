@@ -64,9 +64,6 @@ public class AllAwardsScript : MonoBehaviour
         allAwPan.SetActive(false);
     }
 
-    /// <summary>
-    /// Everyday Reward
-    /// </summary>
     public void CallAwardPanel_1()
     {
         allAwPan.SetActive(true);
@@ -74,12 +71,9 @@ public class AllAwardsScript : MonoBehaviour
         pansActive[0] = 1;
         //aw1MainText.alignment = TextAnchor.LowerCenter;
         aw0CountText.enabled = true;
-        aw0CountText.text = scr.univFunc.Money (scr.everyDayReward.reward);
+        aw0CountText.text = Customs.Money (scr.everyDayReward.reward);
     }
-
-    /// <summary>
-    /// Preview message.
-    /// </summary>
+    
     public void CallAwardPanel_2()
     {
         allAwPan.SetActive(true);
@@ -92,20 +86,17 @@ public class AllAwardsScript : MonoBehaviour
             {
                 yesButObj.SetActive(true);
                 prevText.text = "Do you want to unlock this league for " +
-                    scr.univFunc.Money(scr.carMng.lg_cost[scr.carMng._lgPrev]);
+                    Customs.Money(scr.carMng.lg_cost[scr.carMng._lgPrev]);
             }
             else
             {
                 yesButObj.SetActive(false);
                 prevText.text = "You have not enough money to unlock this league. " +
-                    "You need " + scr.univFunc.Money(scr.carMng.lg_cost[scr.carMng._lgPrev]);
+                    "You need " + Customs.Money(scr.carMng.lg_cost[scr.carMng._lgPrev]);
             }
         }
     }
 
-    /// <summary>
-    /// Call review panel.
-    /// </summary>
     public void CallAwardPanel_3()
     {
         allAwPan.SetActive(true);
@@ -118,9 +109,9 @@ public class AllAwardsScript : MonoBehaviour
         switch (GameManager.Instance._menues)
         {
             case Menues.MenuPlayers:
-                scr.prMng.Unlock();
-                scr.prMng.SetSkillsAndSprite();
-                scr.prMng.SetShowcase();
+                ProfileManager.Instance.Unlock();
+                ProfileManager.Instance.SetSkillsAndSprite();
+                ProfileManager.Instance.SetShowcase();
                 scr.allAw.CloseAllAwardsPanel(1);
                 break;
             case Menues.MenuCareer:

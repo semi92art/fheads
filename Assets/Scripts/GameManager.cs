@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 		
 
 		
-		isNoAds = scr.univFunc.Int2Bool(PlayerPrefs.GetInt("NoAds"));
+		isNoAds = Customs.Int2Bool(PlayerPrefs.GetInt("NoAds"));
 
 		switch (SceneManager.GetActiveScene().name) 
 		{
@@ -200,7 +200,7 @@ public class GameManager : MonoBehaviour
         }
             
         scr.objM.currPrPan.SetActive(false);
-        scr.prMng.SetOpenedPlayersCountryText(false);
+        ProfileManager.Instance.SetOpenedPlayersCountryText(false);
         _menues = Menues.MenuPlayers;
     }
 
@@ -255,8 +255,7 @@ public class GameManager : MonoBehaviour
 	public void SetStadium()
 	{
         PrefsManager.Instance.Stadium = PrefsManager.Instance.IsRandomOpponent ? 
-            Mathf.FloorToInt(Random.value * (18 - 0.01f)) : 
-            scr.univFunc.Stadium(PrefsManager.Instance.Game);
+            Mathf.FloorToInt(Random.value * (18 - 0.01f)) : Stadium(PrefsManager.Instance.Game);
 
         PrefsManager.Instance.Tribunes = !PrefsManager.Instance.IsRandomOpponent ? 
 	        PrefsManager.Instance.League : Mathf.FloorToInt(1f + (5 - 0.1f) * Random.value);
@@ -271,8 +270,7 @@ public class GameManager : MonoBehaviour
 	{
 		PrefsManager.Instance.IsRandomOpponent = true;
         SetStadium();
-        scr.buf.SetRandomData();
-		SceneManager.LoadScene(2);
+        SceneManager.LoadScene(2);
 	}
 
 	public void ExitGame()
@@ -366,6 +364,35 @@ public class GameManager : MonoBehaviour
 		    }
                 
 	    }  
+    }
+    
+    private int Stadium(int _game)
+    {
+	    switch (_game)
+	    {
+		    case 0:
+			    return 0;
+		    case 1:
+			    return 1;
+		    case 2:
+			    return 2;
+		    case 3:
+			    return 3;
+		    case 4:
+			    return 6;
+		    case 5:
+			    return 7;
+		    case 6:
+			    return 8;
+		    case 7:
+			    return 9;
+		    case 8:
+			    return 13;
+		    case 9:
+			    return 16;
+		    default:
+			    return 0;
+	    }
     }
 }
 

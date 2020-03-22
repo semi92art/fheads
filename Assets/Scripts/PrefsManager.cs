@@ -13,6 +13,7 @@ using UnityEngine;
 
      private void Awake()
      {
+         Debug.LogWarning("PrefsManagerAwake!");
          if (Instance != null)
          {
              DestroyImmediate(gameObject);
@@ -20,6 +21,7 @@ using UnityEngine;
          }
 
          Instance = this;
+         DontDestroyOnLoad(gameObject);
      }
      
      #endregion

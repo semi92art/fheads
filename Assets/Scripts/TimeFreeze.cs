@@ -23,7 +23,6 @@ public class TimeFreeze : MonoBehaviour
     private bool isStopFreezeTime;
     private int freezeCount;
     private bool isNoFreezes;
-    public bool timFr;
     private int freezeTime_2;
     private int checkFreezeTime_2;
 
@@ -31,19 +30,11 @@ public class TimeFreeze : MonoBehaviour
     void Awake()
     {
         freezeTime = freezeTime * frTimeScale;
-        timFr = scr.univFunc.Int2Bool(PlayerPrefs.GetInt("UnlimFreeze"));
-        if (!timFr) freezeCount = 1;
-        if (timFr || isHandleUnlim) EnableUnlimitedFreeze();
 
         float freezeTime_1 = freezeTime / frTimeScale;
         text_FreezeTime.text = freezeTime_1.ToString("N1") + "s";
     }
 
-    public void EnableUnlimitedFreeze()
-    {
-        timFr = true;
-        obj_getSlowdownButton.SetActive(false);
-    }
         
     private bool isTextDisabled;
 
@@ -51,8 +42,8 @@ public class TimeFreeze : MonoBehaviour
     {
         if (isFreeze)
         {
-            text_FreezeTime.enabled = freezeTime > 0f ? true : false;
-            freezeTime = !timFr ? freezeTime - Time.deltaTime : freezeTime;
+            text_FreezeTime.enabled = freezeTime > 0f;
+            freezeTime = freezeTime - Time.deltaTime;
 
             float freezeTime_1 = !TimeManager.Instance.GamePaused ?
                 freezeTime / TimeManager.Instance.TimeScale : freezeTime / GameManager.Instance.currTimeScale;
@@ -66,10 +57,10 @@ public class TimeFreeze : MonoBehaviour
             {
                 text_FreezeTime.enabled = false;
                 isStopFreezeTime = true;
-                isFreeze = false;   
+                isFreeze = false;
 
                 if (isTextDisabled)
-                    GetComponent<TimeFreeze>().enabled = false;
+                    enabled = false;
 
                 isTextDisabled = true;
             }
@@ -85,7 +76,6 @@ public class TimeFreeze : MonoBehaviour
             if (freezeCount == 0)
             {
                 isNoFreezes = true;
-                //sprRend_TimFrButton.color = Color.clear;
                 sprRend_TimFrButton.enabled = false;
             }
 
@@ -135,7 +125,7 @@ public class TimeFreeze : MonoBehaviour
         /*#if UNITY_EDITOR
         GetAdditionalFreeze(10f);
         #else
-        scr.univFunc.ShowRewardedVideoAd();
+        Customs.ShowRewardedVideoAd();
         #endif*/
     }
 

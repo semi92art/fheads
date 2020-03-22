@@ -2,13 +2,6 @@
 
 public class Scripts : MonoBehaviour 
 {
-    [Header("Menu and Level scenes:")]
-    public UniversalFunctions univFunc;
-    
-    public ProfileManager prMng;
-    public AndroidAdMob_0 adMob;
-    public Buffer buf;
-
     [Header("Menu scene:")]
     public Upgrades upgr;
     public CountriesList cntrL;
@@ -18,7 +11,6 @@ public class Scripts : MonoBehaviour
     public CurrentProfilePanel currPrPan;
     public EverydayReward everyDayReward;
     public Objects_Menu objM;
-    public TopPanelManager topPanMng;
 
     [Header("Level scene:")]
     public LighteningScript molnia;
@@ -53,21 +45,14 @@ public class Scripts : MonoBehaviour
 
     void Awake()
     {
-        if (univFunc == null) univFunc = FindObjectOfType<UniversalFunctions>();
-
-        if (adMob == null) adMob = FindObjectOfType<AndroidAdMob_0>();
-        if (buf == null) buf = FindObjectOfType<Buffer>();
-
         if (cntrL == null) cntrL = FindObjectOfType<CountriesList>();
         if (plL == null) plL = FindObjectOfType<PlayersList>();
-        if (prMng == null) prMng = FindObjectOfType<ProfileManager>();
 
         switch (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex) 
         {
             case 1:
                 if (upgr == null) upgr = FindObjectOfType<Upgrades>();
                 if (allAw == null) allAw = FindObjectOfType<AllAwardsScript>();
-                if (topPanMng == null) topPanMng = FindObjectOfType<TopPanelManager>();
                 if (objM == null) objM = FindObjectOfType<Objects_Menu>();
                 if (currPrPan == null) currPrPan = FindObjectOfType<CurrentProfilePanel>();
                 if (everyDayReward == null) everyDayReward = FindObjectOfType<EverydayReward>();

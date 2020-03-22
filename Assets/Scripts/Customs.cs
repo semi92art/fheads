@@ -2,21 +2,15 @@
 using UnityEngine.SceneManagement;
 
 
-public class UniversalFunctions : MonoBehaviour
+public static class Customs
 {
-    public Scripts scr;
-
-    
-
-    
-        
-    public void ShowInterstitialAd()
+	public static void ShowInterstitialAd()
     {
         if (!GameManager.Instance.isNoAds && GoogleMobileAd.IsInterstitialReady)
             GoogleMobileAd.ShowInterstitialAd();
     }
 
-    public string Android_Id()
+    public static string Android_Id()
     {
         string android_id = "editor";
 
@@ -31,17 +25,12 @@ public class UniversalFunctions : MonoBehaviour
         return android_id;
     }
 
-    public void ShowDeviceIdentifier()
-    {
-        Debug.Log(Android_Id());
-    }
-
-	public bool Int2Bool(int _Value)
+    public static bool Int2Bool(int _Value)
     {
         return _Value != 0;
     }
 
-    public string Money(int _Count)
+    public static string Money(int _Count)
 	{
 		string strNum1 = string.Empty;
 		string strNum2 = string.Empty;
@@ -97,33 +86,4 @@ public class UniversalFunctions : MonoBehaviour
         
 		return "";
 	}
-
-	public int Stadium(int _game)
-    {
-        switch (_game)
-        {
-            case 0:
-                return 0;
-            case 1:
-                return 1;
-            case 2:
-                return 2;
-            case 3:
-                return 3;
-            case 4:
-                return 6;
-            case 5:
-                return 7;
-            case 6:
-                return 8;
-            case 7:
-                return 9;
-            case 8:
-                return 13;
-            case 9:
-                return 16;
-            default:
-                return 0;
-        }
-    }
 }

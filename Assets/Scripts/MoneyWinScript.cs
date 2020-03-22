@@ -41,7 +41,7 @@ public class MoneyWinScript : MonoBehaviour
         if (!scr.objLev.isMoneyWinPopulate)
         {
             congrPan.SetActive (true);
-            moneyBankText.text = scr.univFunc.Money(bankMoney = PrefsManager.Instance.MoneyCount);
+            moneyBankText.text = Customs.Money(bankMoney = PrefsManager.Instance.MoneyCount);
             DestroyEditorButtons ();
             congrPan.SetActive (false);
         }
@@ -98,7 +98,7 @@ public class MoneyWinScript : MonoBehaviour
                         bankMoney += 1;
                     }
 
-                    moneyBankText.text = scr.univFunc.Money(bankMoney);
+                    moneyBankText.text = Customs.Money(bankMoney);
                 } 
                 else
                 {
@@ -111,7 +111,7 @@ public class MoneyWinScript : MonoBehaviour
 
                     /*if (!advertiseShown)
                     {
-                        scr.univFunc.ShowInterstitialAd();
+                        Customs.ShowInterstitialAd();
                         advertiseShown = true;
                     }*/
                 }

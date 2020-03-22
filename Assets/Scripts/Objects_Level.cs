@@ -91,13 +91,13 @@ public class Objects_Level : MonoBehaviour
             text_GameNum.text = $"GAME {(PrefsManager.Instance.Game + 1).ToString()}";
             obj_RestartButon.SetActive(false);
             scr.objLev.obj_RestartButon.SetActive(
-                !scr.univFunc.Int2Bool(PlayerPrefs.GetInt("CanRestart")));
+                !Customs.Int2Bool(PlayerPrefs.GetInt("CanRestart")));
         }
 
-        startPanObjs.im_PlayerHead.sprite = scr.buf.plSpr;
-        startPanObjs.im_PlayerLeg.sprite = scr.buf.plBoot;
-        startPanObjs.im_EnemyHead_1.sprite = scr.buf.enSpr;
-        startPanObjs.im_EnemyLeg_1.sprite = scr.buf.enBoot;
+        startPanObjs.im_PlayerHead.sprite = ProfileManager.Instance.itemList[PrefsManager.Instance.PlayerIndex].icon;
+        startPanObjs.im_PlayerLeg.sprite = scr.cntrL.Countries[ProfileManager.Instance.itemList[PrefsManager.Instance.PlayerIndex].cntrInd].boot;
+        startPanObjs.im_EnemyHead_1.sprite = ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].icon;
+        startPanObjs.im_EnemyLeg_1.sprite = scr.cntrL.Countries[ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].cntrInd].boot;
         
         scr.enAlg_1.gameObject.SetActive(false);
         
@@ -133,13 +133,13 @@ public class Objects_Level : MonoBehaviour
     void Start()
     {
         DeactivateMenuesOnStart();
-        startPanObjs.im_PlayerHead.sprite = scr.buf.plSpr;
-        startPanObjs.im_PlayerLeg.sprite = scr.buf.plBoot;
-        startPanObjs.im_EnemyHead_1.sprite = scr.buf.enSpr;
-        startPanObjs.im_EnemyLeg_1.sprite = scr.buf.enBoot;
+        startPanObjs.im_PlayerHead.sprite = ProfileManager.Instance.itemList[PrefsManager.Instance.PlayerIndex].icon;
+        startPanObjs.im_PlayerLeg.sprite = scr.cntrL.Countries[ProfileManager.Instance.itemList[PrefsManager.Instance.PlayerIndex].cntrInd].boot;
+        startPanObjs.im_EnemyHead_1.sprite = ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].icon;
+        startPanObjs.im_EnemyLeg_1.sprite = scr.cntrL.Countries[ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].cntrInd].boot;
         
         startPanelAnim.SetTrigger("0");
-        Destroy(scr.prMng.gameObject, 0.5f);
+        Destroy(ProfileManager.Instance.gameObject, 0.5f);
     }
 
 	private void DeactivateMenuesOnStart()
@@ -249,7 +249,7 @@ public class Objects_Level : MonoBehaviour
 
     public void ContinueTournament()
     {
-        scr.buf.Set_Tournament_Data_0(PrefsManager.Instance.Game, PrefsManager.Instance.League);
+        CareerManager.Instance.Set_Tournament_Data_0(PrefsManager.Instance.Game, PrefsManager.Instance.League);
         SceneManager.LoadScene(2);
     }
 

@@ -62,10 +62,10 @@ public class Enemy : MonoBehaviour
 
         kickSpeed = scr.pMov.kickSpeed0;
 
-        enSpr.sprite = scr.buf.enSpr;
-        maxSpeed = scr.pMov.maxSpeed0 * scr.buf.enSkillSpeed / 100f;
-        jumpForce = scr.pMov.jumpForce0 * scr.buf.enSkillJump / 100f;
-        kickTorque = scr.pMov.kickTorque0 * scr.buf.enSkillKick / 100f;
+        enSpr.sprite = ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].icon;
+        maxSpeed = scr.pMov.maxSpeed0 * ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].skill_Speed / 100f;
+        jumpForce = scr.pMov.jumpForce0 * ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].skill_Jump / 100f;
+        kickTorque = scr.pMov.kickTorque0 * ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].skill_Kick / 100f;
 
 
 

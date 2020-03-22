@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 7
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -25,6 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -38,41 +39,65 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 7
+  serializedVersion: 11
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
-    m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 4
+    serializedVersion: 12
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
-    m_TextureHeight: 1024
+    m_AtlasSize: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_DirectLightInLightProbes: 1
     m_FinalGather: 0
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
+    m_MixedBakeMode: 1
+    m_BakeBackend: 0
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 512
+    m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 512
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 0
+    m_PVRDenoiserTypeDirect: 0
+    m_PVRDenoiserTypeIndirect: 0
+    m_PVRDenoiserTypeAO: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVREnvironmentMIS: 0
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_RuntimeCPUUsage: 25
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -89,14 +114,19 @@ NavMeshSettings:
     minRegionArea: 2
     manualCellSize: 0
     cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &427322584
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 427322586}
   - component: {fileID: 427322585}
@@ -110,8 +140,9 @@ GameObject:
 --- !u!114 &427322585
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427322584}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -124,22 +155,1472 @@ MonoBehaviour:
 --- !u!4 &427322586
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427322584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &633609196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 633609198}
+  - component: {fileID: 633609197}
+  m_Layer: 0
+  m_Name: ProfileManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &633609197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633609196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894373aa02a855547900a969951089ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scr: {fileID: 0}
+  moneyCoast: 204e0000204e0000204e0000204e0000204e00003075000030750000307500003075000030750000409c0000409c0000409c0000409c0000409c000050c3000050c3000050c3000050c3000050c3000060ea000060ea000060ea000060ea000060ea000070110100701101007011010070110100701101008038010080380100803801008038010080380100905f0100905f0100905f0100905f0100905f0100a0860100a0860100a0860100a0860100a0860100400d0300400d0300e093040020a1070020a10700
+  itemList:
+  - name: Aguero
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: a88a615193233e24889d77aeab530aad, type: 3}
+    skill_Speed: 85
+    skill_Kick: 91
+    skill_Jump: 80
+    plInd: 0
+    cntrInd: 0
+    country: 1
+    player: 0
+  - name: Donnarumma
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: a4ac341629c5c4e45be5cdea7d0a71d6, type: 3}
+    skill_Speed: 65
+    skill_Kick: 70
+    skill_Jump: 80
+    plInd: 0
+    cntrInd: 0
+    country: 23
+    player: 1
+  - name: Bale
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: a012ec57fb9c04243bb680461328add5, type: 3}
+    skill_Speed: 100
+    skill_Kick: 85
+    skill_Jump: 80
+    plInd: 0
+    cntrInd: 0
+    country: 40
+    player: 2
+  - name: Benzema
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: f01bc15fc04f4634e8f1533a4741b922, type: 3}
+    skill_Speed: 90
+    skill_Kick: 80
+    skill_Jump: 70
+    plInd: 0
+    cntrInd: 0
+    country: 17
+    player: 3
+  - name: Buffon
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 786ad953838f92b4699b8e4ffc8cf24e, type: 3}
+    skill_Speed: 85
+    skill_Kick: 85
+    skill_Jump: 97
+    plInd: 0
+    cntrInd: 0
+    country: 23
+    player: 4
+  - name: Silva
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 5
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 18f4499e0b586514d993ac0628b09c14, type: 3}
+    skill_Speed: 90
+    skill_Kick: 84
+    skill_Jump: 80
+    plInd: 0
+    cntrInd: 0
+    country: 31
+    player: 5
+  - name: Casillias
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 6
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 31ba8489c125f6e4d948514b018bf15e, type: 3}
+    skill_Speed: 90
+    skill_Kick: 85
+    skill_Jump: 100
+    plInd: 0
+    cntrInd: 0
+    country: 31
+    player: 6
+  - name: de Bruyne
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 7
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 7d1f761d96485cb4fb446e4b3c5948ee, type: 3}
+    skill_Speed: 90
+    skill_Kick: 90
+    skill_Jump: 85
+    plInd: 0
+    cntrInd: 0
+    country: 4
+    player: 7
+  - name: Cavani
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 8
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: cb55e53d7d66ec0409e6730334bb92d5, type: 3}
+    skill_Speed: 85
+    skill_Kick: 75
+    skill_Jump: 90
+    plInd: 0
+    cntrInd: 0
+    country: 36
+    player: 8
+  - name: Cech
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 9
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 9392437ee85620348a6ef0deb477f3e5, type: 3}
+    skill_Speed: 88
+    skill_Kick: 85
+    skill_Jump: 95
+    plInd: 0
+    cntrInd: 0
+    country: 13
+    player: 9
+  - name: Costa
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 10
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 6d5957d31f588184ca1e8f8f3bc8cabb, type: 3}
+    skill_Speed: 85
+    skill_Kick: 90
+    skill_Jump: 90
+    plInd: 0
+    cntrInd: 0
+    country: 31
+    player: 10
+  - name: Courtois
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 11
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 86a39dbb2a3a26d47a1438f671862ef4, type: 3}
+    skill_Speed: 85
+    skill_Kick: 85
+    skill_Jump: 95
+    plInd: 0
+    cntrInd: 0
+    country: 4
+    player: 11
+  - name: de Jea
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 12
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 74dd6969dab38bb48bef9661843bf3b9, type: 3}
+    skill_Speed: 95
+    skill_Kick: 85
+    skill_Jump: 100
+    plInd: 0
+    cntrInd: 0
+    country: 31
+    player: 12
+  - name: Ramos
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 13
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 28656281adbb3ba47a8ab6493cc7ef7f, type: 3}
+    skill_Speed: 88
+    skill_Kick: 87
+    skill_Jump: 95
+    plInd: 0
+    cntrInd: 0
+    country: 31
+    player: 13
+  - name: di Maria
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 14
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: a8d1a335504854948a83e1b5db687924, type: 3}
+    skill_Speed: 85
+    skill_Kick: 75
+    skill_Jump: 85
+    plInd: 0
+    cntrInd: 0
+    country: 1
+    player: 14
+  - name: Reus
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 15
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 119623f95370f79479b652a3f791294b, type: 3}
+    skill_Speed: 90
+    skill_Kick: 89
+    skill_Jump: 92
+    plInd: 0
+    cntrInd: 0
+    country: 18
+    player: 15
+  - name: Dzeko
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 16
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: ddcf159b00cce69468a39c78768a4564, type: 3}
+    skill_Speed: 76
+    skill_Kick: 90
+    skill_Jump: 80
+    plInd: 0
+    cntrInd: 0
+    country: 5
+    player: 16
+  - name: Dzyuba
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 17
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 0824b4722b957654a99e82e2a4f3c13a, type: 3}
+    skill_Speed: 70
+    skill_Kick: 75
+    skill_Jump: 90
+    plInd: 0
+    cntrInd: 0
+    country: 30
+    player: 17
+  - name: Falcao
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 18
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 761cdd5e37b81ae43b2b043326c69cc1, type: 3}
+    skill_Speed: 85
+    skill_Kick: 87
+    skill_Jump: 80
+    plInd: 0
+    cntrInd: 0
+    country: 9
+    player: 18
+  - name: Getze
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 19
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 6ae4ae5e34c275040935b221878ddece, type: 3}
+    skill_Speed: 82
+    skill_Kick: 78
+    skill_Jump: 85
+    plInd: 0
+    cntrInd: 0
+    country: 18
+    player: 19
+  - name: Giroud
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 20
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 3f813e51b53e4104a89d37254562e50c, type: 3}
+    skill_Speed: 80
+    skill_Kick: 81
+    skill_Jump: 95
+    plInd: 0
+    cntrInd: 0
+    country: 17
+    player: 20
+  - name: Griezmann
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 21
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: d8e15db0a02b4814289c4ffc252445fe, type: 3}
+    skill_Speed: 93
+    skill_Kick: 87
+    skill_Jump: 95
+    plInd: 0
+    cntrInd: 0
+    country: 17
+    player: 21
+  - name: Hart
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 22
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 1f9badfed4f09104f8ca361bbc9315c7, type: 3}
+    skill_Speed: 80
+    skill_Kick: 76
+    skill_Jump: 94
+    plInd: 0
+    cntrInd: 0
+    country: 16
+    player: 22
+  - name: Hazard
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 23
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: a47b288091d3df44592d4b8c8027f51b, type: 3}
+    skill_Speed: 98
+    skill_Kick: 93
+    skill_Jump: 95
+    plInd: 0
+    cntrInd: 0
+    country: 4
+    player: 23
+  - name: Ibrahimovic
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 24
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 012485ee06cb74844afdd474040e36fa, type: 3}
+    skill_Speed: 85
+    skill_Kick: 93
+    skill_Jump: 95
+    plInd: 0
+    cntrInd: 0
+    country: 32
+    player: 24
+  - name: Iniesta
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 25
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 248d23c46af0331418d1382392e3fb99, type: 3}
+    skill_Speed: 90
+    skill_Kick: 95
+    skill_Jump: 89
+    plInd: 0
+    cntrInd: 0
+    country: 31
+    player: 25
+  - name: Kane
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 26
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 5791ebdebbc9e0042be6b2bf9a8d82f3, type: 3}
+    skill_Speed: 95
+    skill_Kick: 94
+    skill_Jump: 90
+    plInd: 0
+    cntrInd: 0
+    country: 16
+    player: 26
+  - name: Levandowski
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 27
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: b325fc937dc29ef4886cfd1a3559a809, type: 3}
+    skill_Speed: 86
+    skill_Kick: 98
+    skill_Jump: 87
+    plInd: 0
+    cntrInd: 0
+    country: 27
+    player: 27
+  - name: Luiz
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 28
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: d35651cf0f9618d408f3dcf4c9c1efb2, type: 3}
+    skill_Speed: 78
+    skill_Kick: 83
+    skill_Jump: 81
+    plInd: 0
+    cntrInd: 0
+    country: 6
+    player: 28
+  - name: Mandzukic
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 29
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: c6edae09df860b6489d1222308f9bd8d, type: 3}
+    skill_Speed: 76
+    skill_Kick: 78
+    skill_Jump: 83
+    plInd: 0
+    cntrInd: 0
+    country: 12
+    player: 29
+  - name: Messi
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 30
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: c0520798ffff30b4c983b774f8df4b04, type: 3}
+    skill_Speed: 100
+    skill_Kick: 100
+    skill_Jump: 98
+    plInd: 0
+    cntrInd: 0
+    country: 1
+    player: 30
+  - name: Muller
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 31
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: a4565100572e7e54d96ac63daa37fd50, type: 3}
+    skill_Speed: 87
+    skill_Kick: 89
+    skill_Jump: 88
+    plInd: 0
+    cntrInd: 0
+    country: 18
+    player: 31
+  - name: Neuer
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 32
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: da3aa94c67f0eb641863d77678c8b924, type: 3}
+    skill_Speed: 82
+    skill_Kick: 78
+    skill_Jump: 98
+    plInd: 0
+    cntrInd: 0
+    country: 18
+    player: 32
+  - name: Neymar
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 33
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 87b76a7ae62134b40b5d6a4e5597ee6d, type: 3}
+    skill_Speed: 95
+    skill_Kick: 98
+    skill_Jump: 97
+    plInd: 0
+    cntrInd: 0
+    country: 6
+    player: 33
+  - name: Ozil
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 34
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 45c2e3e986f8098448395816ddfdcb42, type: 3}
+    skill_Speed: 87
+    skill_Kick: 78
+    skill_Jump: 82
+    plInd: 0
+    cntrInd: 0
+    country: 18
+    player: 34
+  - name: Piquet
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 35
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: dc76dfa03beaef94aa1cc534b7f27a63, type: 3}
+    skill_Speed: 85
+    skill_Kick: 75
+    skill_Jump: 90
+    plInd: 0
+    cntrInd: 0
+    country: 31
+    player: 35
+  - name: Pogba
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 36
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 939a8641d8234244e8fc585b6591986d, type: 3}
+    skill_Speed: 91
+    skill_Kick: 95
+    skill_Jump: 83
+    plInd: 0
+    cntrInd: 0
+    country: 17
+    player: 36
+  - name: Rakitic
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 37
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: ef3fba72bee91e3429cb466dd9dbba57, type: 3}
+    skill_Speed: 95
+    skill_Kick: 87
+    skill_Jump: 89
+    plInd: 0
+    cntrInd: 0
+    country: 12
+    player: 37
+  - name: Ribery
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 38
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 5e157f31279bea14c947a2f5bf402b41, type: 3}
+    skill_Speed: 91
+    skill_Kick: 85
+    skill_Jump: 81
+    plInd: 0
+    cntrInd: 0
+    country: 17
+    player: 38
+  - name: Robben
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 39
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 806c7da3fa6307e4882303bd42db17d2, type: 3}
+    skill_Speed: 95
+    skill_Kick: 91
+    skill_Jump: 80
+    plInd: 0
+    cntrInd: 0
+    country: 25
+    player: 39
+  - name: Rodriguez
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 40
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: bc45e642b9b18ac4a8ba2875c2550ee4, type: 3}
+    skill_Speed: 87
+    skill_Kick: 85
+    skill_Jump: 81
+    plInd: 0
+    cntrInd: 0
+    country: 9
+    player: 40
+  - name: Ronaldo
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 41
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 6714a60c38363584d9fc80cd68378f4d, type: 3}
+    skill_Speed: 98
+    skill_Kick: 98
+    skill_Jump: 100
+    plInd: 0
+    cntrInd: 0
+    country: 28
+    player: 41
+  - name: Rooney
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 42
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: fbcf64d0af03d554d841133722937656, type: 3}
+    skill_Speed: 78
+    skill_Kick: 90
+    skill_Jump: 90
+    plInd: 0
+    cntrInd: 0
+    country: 16
+    player: 42
+  - name: Sanchez
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 43
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 74fc181f1c4de0f4a9a3fc297829c706, type: 3}
+    skill_Speed: 95
+    skill_Kick: 90
+    skill_Jump: 90
+    plInd: 0
+    cntrInd: 0
+    country: 8
+    player: 43
+  - name: Suarez
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 44
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: e44cb06b26f9d164fb6f8d33fc0b4245, type: 3}
+    skill_Speed: 95
+    skill_Kick: 98
+    skill_Jump: 93
+    plInd: 0
+    cntrInd: 0
+    country: 36
+    player: 44
+  - name: Modric
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 45
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 0ca8466c275c50d4d804078707d21c2d, type: 3}
+    skill_Speed: 93
+    skill_Kick: 80
+    skill_Jump: 85
+    plInd: 0
+    cntrInd: 0
+    country: 12
+    player: 45
+  - name: Terry
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 46
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: b252a240c47d5394da192f76ef814dc0, type: 3}
+    skill_Speed: 82
+    skill_Kick: 78
+    skill_Jump: 85
+    plInd: 0
+    cntrInd: 0
+    country: 16
+    player: 46
+  - name: Schweinsteiger
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 47
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: b7a3d4cc94bf6624c8c750af22032d31, type: 3}
+    skill_Speed: 85
+    skill_Kick: 78
+    skill_Jump: 78
+    plInd: 0
+    cntrInd: 0
+    country: 18
+    player: 47
+  - name: Vardi
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 48
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 09d56fe4e1999d04cba6f0af0fcf6bfc, type: 3}
+    skill_Speed: 84
+    skill_Kick: 75
+    skill_Jump: 85
+    plInd: 0
+    cntrInd: 0
+    country: 16
+    player: 48
+  - name: Vidal
+    toDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 633609197}
+          m_MethodName: Preview
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 49
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 7e8de7cf91569af449076f50d8ae029b, type: 3}
+    skill_Speed: 90
+    skill_Kick: 85
+    skill_Jump: 90
+    plInd: 0
+    cntrInd: 0
+    country: 8
+    player: 49
+  index: 0
+  butInd: 0
+  profBut0:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  profBut0_2:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  profShowcase:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  profShowcase_0:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  cntrScrollList:
+  - cntr_int: 0
+    cntr: 1
+  - cntr_int: 1
+    cntr: 4
+  - cntr_int: 2
+    cntr: 5
+  - cntr_int: 3
+    cntr: 6
+  - cntr_int: 4
+    cntr: 8
+  - cntr_int: 5
+    cntr: 9
+  - cntr_int: 6
+    cntr: 12
+  - cntr_int: 7
+    cntr: 13
+  - cntr_int: 8
+    cntr: 14
+  - cntr_int: 9
+    cntr: 16
+  - cntr_int: 10
+    cntr: 17
+  - cntr_int: 11
+    cntr: 18
+  - cntr_int: 12
+    cntr: 22
+  - cntr_int: 13
+    cntr: 23
+  - cntr_int: 14
+    cntr: 25
+  - cntr_int: 15
+    cntr: 42
+  - cntr_int: 16
+    cntr: 27
+  - cntr_int: 17
+    cntr: 28
+  - cntr_int: 18
+    cntr: 30
+  - cntr_int: 19
+    cntr: 31
+  - cntr_int: 20
+    cntr: 32
+  - cntr_int: 21
+    cntr: 35
+  - cntr_int: 22
+    cntr: 36
+  - cntr_int: 23
+    cntr: 38
+  - cntr_int: 24
+    cntr: 40
+--- !u!4 &633609198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633609196}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &742980301
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 742980303}
   - component: {fileID: 742980302}
@@ -153,33 +1634,39 @@ GameObject:
 --- !u!114 &742980302
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742980301}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02a0bd3017932c24f89d6460429dcb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  androidGameId: 
+  iosGameId: 
+  testMode: 0
 --- !u!4 &742980303
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742980301}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1047615724
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 1047615725}
   - component: {fileID: 1047615726}
@@ -193,33 +1680,79 @@ GameObject:
 --- !u!4 &1047615725
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047615724}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1047615726
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047615724}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24c966eef51dd73458230cdf9d194bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1186468440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1186468442}
+  - component: {fileID: 1186468441}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1186468441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186468440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748cc36c7e1e4c4db95033dfa0aa3986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1186468442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186468440}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1303623744
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 1303623746}
   - component: {fileID: 1303623745}
@@ -233,17 +1766,15 @@ GameObject:
 --- !u!114 &1303623745
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303623744}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2751e1a5f3c6fa24a92b46be82fe93b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLevelStarted: 0
-  is1stPractice: 0
-  isPractice: 0
   plInd: 0
   plCntrInd: 0
   plSkillSpeed: 0
@@ -264,167 +1795,109 @@ MonoBehaviour:
   enCol1: {r: 0, g: 0, b: 0, a: 0}
   enCol2: {r: 0, g: 0, b: 0, a: 0}
   enColStad: {r: 0, g: 0, b: 0, a: 0}
-  oppType: 0
-  enInd_1: 0
-  enCntrInd_1: 0
-  enSkillSpeed_1: 0
-  enSkillKick_1: 0
-  enSkillJump_1: 0
-  enSpr_1: {fileID: 0}
-  enBoot_1: {fileID: 0}
-  enCol1_1: {r: 0, g: 0, b: 0, a: 0}
-  enCol2_1: {r: 0, g: 0, b: 0, a: 0}
-  enColStad_1: {r: 0, g: 0, b: 0, a: 0}
-  oppType_1: 0
   _careerGames: []
   _careerGame:
-    oppsNumAndAge: 0
     oppsMain: []
-    oppsLegend: []
   is2Enemies: 0
 --- !u!4 &1303623746
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303623744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1454080855
-Prefab:
+PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 134218, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 2}
+    - target: {fileID: 134218, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 470000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 2}
-  m_IsPrefabParent: 0
---- !u!1 &1997449861
+  m_SourcePrefab: {fileID: 100100000, guid: 6fee6a44f08c6694cbdd709cb5310331, type: 3}
+--- !u!1 &1524086642
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
-  - component: {fileID: 1997449867}
-  - component: {fileID: 1997449866}
-  - component: {fileID: 1997449865}
-  - component: {fileID: 1997449864}
-  - component: {fileID: 1997449863}
+  - component: {fileID: 1524086643}
+  - component: {fileID: 1524086644}
   m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
+  m_Name: PrefsManager
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1997449863
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1997449861}
-  m_Enabled: 1
---- !u!124 &1997449864
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1997449861}
-  m_Enabled: 1
---- !u!92 &1997449865
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1997449861}
-  m_Enabled: 1
---- !u!20 &1997449866
-Camera:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1997449861}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 1
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
---- !u!4 &1997449867
+--- !u!4 &1524086643
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1997449861}
-  m_LocalRotation: {x: 0.11927039, y: 0, z: 0, w: 0.9928618}
-  m_LocalPosition: {x: 0, y: 1.11, z: -9.73}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524086642}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 13.7, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1524086644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524086642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c9339bf25b42a49b70505c2013c5ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

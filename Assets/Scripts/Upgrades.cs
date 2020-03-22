@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class BallUpgrade
 {
     public RectTransform _rectTr;
-    //public Sprite icon;
     public int price;
     public string description;
 }
@@ -58,7 +57,7 @@ public class Upgrades : MonoBehaviour
     public int curr_ind;
     [HideInInspector]
     public int curr_indBall;
-
+    private bool isBK_Chosen;
 
     public void Buy()
     {
@@ -136,9 +135,6 @@ public class Upgrades : MonoBehaviour
     {
         scr.objM.Button_Sound();
 
-        scr.topPanMng.moneyText.text = 
-            scr.univFunc.Money(PrefsManager.Instance.MoneyCount);
-
         curr_ind = _ind;
         text_UpgradeName.text = upgrNames[_ind];
         text_UpgrDescription.text = upgrDescriptions[_ind];
@@ -200,7 +196,7 @@ public class Upgrades : MonoBehaviour
                     }
 
                     text_BuyButton.text = "Upgrade: " +
-                        scr.univFunc.Money(prices_Speed[sticks]);
+                        Customs.Money(prices_Speed[sticks]);
 
                     if (PrefsManager.Instance.MoneyCount > prices_Speed[sticks])
                     {
@@ -246,7 +242,7 @@ public class Upgrades : MonoBehaviour
                     }
 
                     text_BuyButton.text = "Upgrade: " +
-                        scr.univFunc.Money(prices_Speed[sticks]);
+                        Customs.Money(prices_Speed[sticks]);
 
                     if (PrefsManager.Instance.MoneyCount > prices_Speed[sticks])
                     {
@@ -291,7 +287,7 @@ public class Upgrades : MonoBehaviour
                     }
 
                     text_BuyButton.text = "Upgrade: " +
-                        scr.univFunc.Money(prices_Speed[sticks]);
+                        Customs.Money(prices_Speed[sticks]);
 
                     if (PrefsManager.Instance.MoneyCount > prices_Speed[sticks])
                     {
@@ -337,7 +333,7 @@ public class Upgrades : MonoBehaviour
                     }
 
                     text_BuyButton.text = "Upgrade: " +
-                        scr.univFunc.Money(prices_Speed[sticks]);
+                        Customs.Money(prices_Speed[sticks]);
 
                     if (PrefsManager.Instance.MoneyCount > prices_Speed[sticks])
                     {
@@ -385,7 +381,7 @@ public class Upgrades : MonoBehaviour
                     }
 
                     text_BuyButton.text = "Upgrade: " +
-                        scr.univFunc.Money(prices_Speed[sticks]);
+                        Customs.Money(prices_Speed[sticks]);
 
                     if (PrefsManager.Instance.MoneyCount > prices_Speed[sticks])
                     {
@@ -435,7 +431,7 @@ public class Upgrades : MonoBehaviour
 
     }
 
-    private bool isBK_Chosen;
+    
 
     public void Set_KickPanel(int _ind)
     {
@@ -444,7 +440,7 @@ public class Upgrades : MonoBehaviour
             case 0: // Kick Button
                 Upgrade_Choose(1);
                 break;
-            case 1: // Becicke Kick Button
+            case 1: // Bycicle Kick Button
                 scr.objM.Button_Sound();
 
                 isBK_Chosen = true;
@@ -465,7 +461,7 @@ public class Upgrades : MonoBehaviour
                 }
                 else
                 {
-                    text_BuyButton.text = "Buy: " + scr.univFunc.Money(bkPrice);
+                    text_BuyButton.text = "Buy: " + Customs.Money(bkPrice);
                     text_BuyButton.color = col_Stick0;
                     but_Buy.interactable = true;
                     text_RefundButton.color = col_Stick1;
@@ -478,7 +474,7 @@ public class Upgrades : MonoBehaviour
         }
     }
 
-    public void Enable_BallPanel()
+    private void Enable_BallPanel()
     {
         for (int i = 0; i < obj_BallsPan.Length; i++)
             obj_BallsPan[i].SetActive(true);
@@ -487,7 +483,7 @@ public class Upgrades : MonoBehaviour
             obj_NotBallsPan[i].SetActive(false);
     }
 
-    public void Disable_BallPanel()
+    private void Disable_BallPanel()
     {
         for (int i = 0; i < obj_BallsPan.Length; i++)
             obj_BallsPan[i].SetActive(false);
@@ -495,6 +491,4 @@ public class Upgrades : MonoBehaviour
         for (int i = 0; i < obj_NotBallsPan.Length; i++)
             obj_NotBallsPan[i].SetActive(true);
     }
-
-
 }

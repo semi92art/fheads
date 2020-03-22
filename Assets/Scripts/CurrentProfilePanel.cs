@@ -33,8 +33,8 @@ public class CurrentProfilePanel : MonoBehaviour
     {
         ind = PrefsManager.Instance.PlayerIndex;
         
-        cntrInd = scr.prMng.itemList[ind].cntrInd;
-        playerImage.sprite = scr.prMng.itemList[ind].icon;
+        cntrInd = ProfileManager.Instance.itemList[ind].cntrInd;
+        playerImage.sprite = ProfileManager.Instance.itemList[ind].icon;
         
         legIm.sprite = scr.cntrL.Countries[cntrInd].boot;
         SetSkills();
@@ -43,13 +43,11 @@ public class CurrentProfilePanel : MonoBehaviour
     private void SetSkills()
     {
         float new_h_val;
-        float skill_Speed = 0f;
-        float skill_Kick = 0f;
-        float skill_Jump = 0f;
+        float skill_Speed, skill_Kick, skill_Jump;
 
-        skill_Speed = scr.prMng.itemList[ind].skill_Speed;
-        skill_Kick = scr.prMng.itemList[ind].skill_Kick;
-        skill_Jump = scr.prMng.itemList[ind].skill_Jump;
+        skill_Speed = ProfileManager.Instance.itemList[ind].skill_Speed;
+        skill_Kick = ProfileManager.Instance.itemList[ind].skill_Kick;
+        skill_Jump = ProfileManager.Instance.itemList[ind].skill_Jump;
         
         im_Speed.rectTransform.sizeDelta = new Vector2(
                 im_Speed.rectTransform.rect.width,
