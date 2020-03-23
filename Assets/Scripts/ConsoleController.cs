@@ -35,18 +35,18 @@ public class ConsoleController {
 	const int scrollbackSize = 100;
 
 	Queue<string> scrollback = new Queue<string>(scrollbackSize);
-	List commandHistory = new List();
+	public List commandHistory = new List();
 	Dictionary<string, CommandRegistration> commands = new Dictionary<string, CommandRegistration>();
 
-	public string[] log { get; private set; } //Copy of scrollback as an array for easier use by ConsoleView
-	
-	const string repeatCmdName = "!!"; //Name of the repeat command, constant since it needs to skip these if they are in the command history
+	public string[] log { get; private set; } 
 	
 	public ConsoleController() {
 		//When adding commands, you must add a call below to registerCommand() with its name, implementation method, and help text.
-		registerCommand("help", help, "Print this help.");
-		registerCommand("reload", reload, "Reload game.");
-		registerCommand("resetprefs", resetPrefs, "Reset & saves PlayerPrefs.");
+		registerCommand("help", help, "Print command list.");
+		registerCommand("restart",restart,"Restart game.");
+		registerCommand("load", load, "Reload specified level.");
+		registerCommand("reload",reload,"Reload current level.");
+		registerCommand("clc",clearConsole,"Clear console.");
 	}
 	
 	void registerCommand(string command, CommandHandler handler, string help) {
@@ -119,31 +119,115 @@ public class ConsoleController {
 		return (new string(parmCharsArr)).Split(new char[] {' '} , StringSplitOptions.RemoveEmptyEntries);
 	}
 
-	
 	#region Command handlers
 	//Implement new commands in this region of the file.
 
-	/// 
-	/// A test command to demonstrate argument checking/parsing.
-	/// Will repeat the given word a specified number of times.
-	///
-	///
-	
 	void reload(string[] args) {
-		Application.LoadLevel(Application.loadedLevel);
-	}
-	
-	void resetPrefs(string[] args) {
-		PlayerPrefs.DeleteAll();
-		PlayerPrefs.Save();
+		if (args.Length == 0)
+		{
+			Application.LoadLevel(Application.loadedLevel);
+		}
+		else
+		{
+			foreach (string arg in args)
+			{
+				if (arg == "-h")
+				{
+					appendLogLine("Reload current level.");
+					break;
+				}
+			}
+		}
 	}
 
 	void help(string[] args)
 	{
-		string msg = "no help for dyatel";
-		Debug.Log(msg);
-		appendLogLine(msg);
+		if (args.Length == 0)
+		{
+			Debug.Log("Print: command list");
+			appendLogLine("Current command list:");
+			foreach (KeyValuePair<string, CommandRegistration> kvp in commands)
+			{
+				appendLogLine($"{kvp.Key}: {kvp.Value.help}");
+			}
+		}
+		else
+		{
+			foreach (string arg in args)
+			{
+				if (arg == "woodpecker")
+				{
+					appendLogLine("Work is filled up, woodpeckers!");
+					break;
+				}
+			}
+		}
+	}
+	
+	void restart(string[] args)
+	{
+		if (args.Length == 0)
+		{
+			Application.LoadLevel("____Preload");
+		}
+		else
+		{
+			foreach (string arg in args)
+			{
+				if (arg == "-h")
+				{
+					appendLogLine("Reload game.");
+					break;
+				}
+			}
+		}
 	}
 
+	void load(string[] args)
+	{
+		if (args.Length == 0)
+		{
+			appendLogLine("Specify level");
+		}
+		else
+		{
+			foreach (string arg in args)
+			{
+				if (arg == "-h")
+				{
+					appendLogLine("Load level:");
+					appendLogLine("preload: restart game.");
+					appendLogLine("menu: load menu.");
+					appendLogLine("level: load field.");
+					break;
+				}
+				else
+				{
+					switch (arg)
+					{
+						case "preload":
+							Application.LoadLevel("____Preload");
+							break;
+						case "menu":
+							Application.LoadLevel("____Menu");
+							break;	
+						case "level":
+							Application.LoadLevel("____Level");
+							break;
+						default:
+							appendLogLine("No such level.");
+							break;
+					}
+				}
+			}
+		}
+	}
+
+	void clearConsole(string[] args)
+	{
+		Array.Clear(log,0,log.Length);
+		scrollback.Clear();
+		logChanged(log);
+	}
 	#endregion
 }
