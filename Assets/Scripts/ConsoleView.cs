@@ -8,56 +8,54 @@ using System.Runtime.CompilerServices;
 public class ConsoleView : MonoBehaviour {
     ConsoleController console = new ConsoleController();
 	
-    bool didShow = false;
-
     public GameObject viewContainer; //Container for console view, should be a child of this GameObject
     public Text logTextArea;
     public InputField inputField;
 
-    private Vector3 swipeFirstPosition;
-    private Vector3 swipeLastPosition;
-    private float swipeDragDistance;
+    private Vector3 m_SwipeFirstPosition;
+    private Vector3 m_SwipeLastPosition;
+    private float m_SwipeDragDistance;
     private List<Vector3> touchPositions = new List<Vector3>();
 
-    private int currentCommand;
-    private int index;
+    private int m_CurrentCommand;
+    private int m_Index;
 
     void Start() {
         if (console != null) {
-            console.visibilityChanged += onVisibilityChanged;
-            console.logChanged += onLogChanged;
+            console.VisibilityChanged += OnVisibilityChanged;
+            console.LogChanged += OnLogChanged;
         }
-        updateLogStr(console.log);
-        swipeDragDistance = Screen.width * 30 / 100;
+        UpdateLogStr(console.Log);
+        m_SwipeDragDistance = Screen.width * 30 / 100;
     }
 	
     ~ConsoleView() {
-        console.visibilityChanged -= onVisibilityChanged;
-        console.logChanged -= onLogChanged;
+        console.VisibilityChanged -= OnVisibilityChanged;
+        console.LogChanged -= OnLogChanged;
     }
 
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Return))
         {
-            runCommand();
+            RunCommand();
         }
         
         //Toggle visibility when tilde key pressed
         if (Input.GetKeyUp("`"))
         {
-            toggleVisibility();
+            ToggleVisibility();
         }
         
         //Arrow up in history
         if (Input.GetKeyUp(KeyCode.UpArrow))
         {
-            upCommand();
+            UpCommand();
         }
         
         if (Input.GetKeyUp(KeyCode.DownArrow))
         {
-            downCommand();
+            DownCommand();
         }
 
         //Toggle visibility when right swipe
@@ -70,19 +68,19 @@ public class ConsoleView : MonoBehaviour {
 
             if (touch.phase == TouchPhase.Ended)
             {
-                swipeFirstPosition = touchPositions[0];
-                swipeLastPosition = touchPositions[touchPositions.Count - 1];
+                m_SwipeFirstPosition = touchPositions[0];
+                m_SwipeLastPosition = touchPositions[touchPositions.Count - 1];
 
                 //if swipeDragDistance > 30% from screen edge
-                if (Mathf.Abs(swipeLastPosition.x - swipeFirstPosition.x) > swipeDragDistance)
+                if (Mathf.Abs(m_SwipeLastPosition.x - m_SwipeFirstPosition.x) > m_SwipeDragDistance)
                 {
-                    if ((swipeLastPosition.x < swipeFirstPosition.x)) 
+                    if ((m_SwipeLastPosition.x < m_SwipeFirstPosition.x)) 
                     {
-                        toggleVisibility();
+                        ToggleVisibility();
                     }
                     else
                     {
-                        toggleVisibility();
+                        ToggleVisibility();
                     }
                 }
             }
@@ -91,104 +89,104 @@ public class ConsoleView : MonoBehaviour {
         //Visibility on mouse swipe
         if(Input.GetMouseButtonDown(0))
         {
-            swipeFirstPosition = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
+            m_SwipeFirstPosition = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
         }
         if(Input.GetMouseButtonUp(0))
         {
-            swipeLastPosition = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
+            m_SwipeLastPosition = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
        
-            if (Mathf.Abs(swipeLastPosition.x - swipeFirstPosition.x) > swipeDragDistance)
+            if (Mathf.Abs(m_SwipeLastPosition.x - m_SwipeFirstPosition.x) > m_SwipeDragDistance)
             {
-                if ((swipeLastPosition.x < swipeFirstPosition.x)) 
+                if ((m_SwipeLastPosition.x < m_SwipeFirstPosition.x)) 
                 {
-                    toggleVisibility();
+                    ToggleVisibility();
                 }
                 else
                 {
-                    toggleVisibility();
+                    ToggleVisibility();
                 }
             }
         }
     }
 
-    public void upCommand()
+    public void UpCommand()
     {
-        currentCommand++;
-        index = console.commandHistory.Count - currentCommand;
-        if ((index >= 0) && (console.commandHistory.Count!=0))
+        m_CurrentCommand++;
+        m_Index = console.commandHistory.Count - m_CurrentCommand;
+        if ((m_Index >= 0) && (console.commandHistory.Count!=0))
         {
-            inputField.text = console.commandHistory[index].ToString();
+            inputField.text = console.commandHistory[m_Index].ToString();
         }
         else
         {
-            currentCommand = console.commandHistory.Count;
+            m_CurrentCommand = console.commandHistory.Count;
         }
         inputField.ActivateInputField();
         inputField.Select();
     }
 
-    public void downCommand()
+    public void DownCommand()
     {
-        currentCommand--;
-        index = console.commandHistory.Count - currentCommand ;
-        if (index < console.commandHistory.Count)
+        m_CurrentCommand--;
+        m_Index = console.commandHistory.Count - m_CurrentCommand ;
+        if (m_Index < console.commandHistory.Count)
         {
-            inputField.text = console.commandHistory[index].ToString();
+            inputField.text = console.commandHistory[m_Index].ToString();
         }
         else
         {
             inputField.text = "";
-            currentCommand = 0;
+            m_CurrentCommand = 0;
         }
         inputField.ActivateInputField();
         inputField.Select();
     }
 
-    void toggleVisibility()
+    void ToggleVisibility()
     {
-        setVisibility(!viewContainer.activeSelf);
+        SetVisibility(!viewContainer.activeSelf);
         inputField.ActivateInputField();
         inputField.Select();
     }
 
-    void setVisibility(bool visible)
+    void SetVisibility(bool _Visible)
     {
-        viewContainer.SetActive(visible);
+        viewContainer.SetActive(_Visible);
         if (inputField.text == "`")
         {
             inputField.text = "";
         }
     }
 
-    void onVisibilityChanged(bool visible)
+    void OnVisibilityChanged(bool _Visible)
     {
-        setVisibility(visible);
+        SetVisibility(_Visible);
     }
 
-    void onLogChanged(string[] newLog)
+    void OnLogChanged(string[] _NewLog)
     {
-        updateLogStr(newLog);
+        UpdateLogStr(_NewLog);
     }
 
-    void updateLogStr(string[] newLog)
+    void UpdateLogStr(string[] _NewLog)
     {
-        if (newLog == null)
+        if (_NewLog == null)
         {
             logTextArea.text = "";
         }
         else
         {
-            logTextArea.text = string.Join("\n", newLog);
+            logTextArea.text = string.Join("\n", _NewLog);
         }
     }
 
-    public void runCommand()
+    public void RunCommand()
     {
 
-        console.runCommandString(inputField.text);
+        console.RunCommandString(inputField.text);
         inputField.text = "";
         inputField.ActivateInputField();
         inputField.Select();
-        currentCommand = 0;
+        m_CurrentCommand = 0;
     }
 }

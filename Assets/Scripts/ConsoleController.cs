@@ -6,71 +6,72 @@ using System.Collections.Generic;
 using System.Text;
 using Boo.Lang;
 
-public delegate void CommandHandler(string[] args);
+public delegate void CommandHandler(string[] _Args);
 
 public class ConsoleController {
 	
 	#region Event declarations
 	
-	public delegate void LogChangedHandler(string[] log);
-	public event LogChangedHandler logChanged;
+	public delegate void LogChangedHandler(string[] _Log);
+	public event LogChangedHandler LogChanged;
 	
-	public delegate void VisibilityChangedHandler(bool visible);
-	public event VisibilityChangedHandler visibilityChanged;
+	public delegate void VisibilityChangedHandler(bool _Visible);
+	public event VisibilityChangedHandler VisibilityChanged;
 	#endregion
 
 
 	class CommandRegistration {
-		public string command { get; private set; }
-		public CommandHandler handler { get; private set; }
-		public string help { get; private set; }
-		
-		public CommandRegistration(string command, CommandHandler handler, string help) {
-			this.command = command;
-			this.handler = handler;
-			this.help = help;
+		public string Command { get; private set; }
+		public CommandHandler Handler { get; private set; }
+		public string Help { get; private set; }
+
+		public CommandRegistration(string _Command, CommandHandler _Handler, string _Help)
+		{
+			this.Command = _Command;
+			this.Handler = _Handler;
+			this.Help = _Help;
 		}
 	}
 
-	const int scrollbackSize = 100;
+	const int SCROLLBACK_SIZE = 100;
 
-	Queue<string> scrollback = new Queue<string>(scrollbackSize);
+	Queue<string> scrollback = new Queue<string>(SCROLLBACK_SIZE);
 	public List commandHistory = new List();
 	Dictionary<string, CommandRegistration> commands = new Dictionary<string, CommandRegistration>();
 
-	public string[] log { get; private set; } 
+	public string[] Log { get; private set; } 
 	
 	public ConsoleController() {
 		//When adding commands, you must add a call below to registerCommand() with its name, implementation method, and help text.
-		registerCommand("help", help, "Print command list.");
-		registerCommand("restart",restart,"Restart game.");
-		registerCommand("load", load, "Reload specified level.");
-		registerCommand("reload",reload,"Reload current level.");
-		registerCommand("clc",clearConsole,"Clear console.");
+		RegisterCommand("help", Help, "Print command list.");
+		RegisterCommand("restart",Restart,"Restart game.");
+		RegisterCommand("load", Load, "Reload specified level.");
+		RegisterCommand("reload",Reload,"Reload current level.");
+		RegisterCommand("clc",ClearConsole,"Clear console.");
 	}
 	
-	void registerCommand(string command, CommandHandler handler, string help) {
-		commands.Add(command, new CommandRegistration(command, handler, help));
+	void RegisterCommand(string _Command, CommandHandler _Handler, string _Help) {
+		commands.Add(_Command, new CommandRegistration(_Command, _Handler, _Help));
 	}
 	
-	public void appendLogLine(string line) {
-		Debug.Log(line);
+	public void AppendLogLine(string _Line) {
+		Debug.Log(_Line);
 		
-		if (scrollback.Count >= ConsoleController.scrollbackSize) {
+		if (scrollback.Count >= ConsoleController.SCROLLBACK_SIZE) {
 			scrollback.Dequeue();
 		}
-		scrollback.Enqueue(line);
+		scrollback.Enqueue(_Line);
 		
-		log = scrollback.ToArray();
-		if (logChanged != null) {
-			logChanged(log);
+		Log = scrollback.ToArray();
+		if (LogChanged != null) {
+			LogChanged(Log);
 		}
 	}
 	
-	public void runCommandString(string commandString) {
-		appendLogLine("$ " + commandString);
+	public void RunCommandString(string _CommandString) {
+		AppendLogLine("$ " + _CommandString);
 		
-		string[] commandSplit = parseArguments(commandString);
+		string[] commandSplit = ParseArguments(_CommandString);
 		string[] args = new string[0];
 		if (commandSplit.Length<=0)
 		{
@@ -80,26 +81,26 @@ public class ConsoleController {
 			args = new string[numArgs];
 			Array.Copy(commandSplit, 1, args, 0, numArgs);
 		}
-		runCommand(commandSplit[0].ToLower(), args);
-		commandHistory.Add(commandString);
+		RunCommand(commandSplit[0].ToLower(), args);
+		commandHistory.Add(_CommandString);
 	}
 	
-	public void runCommand(string command, string[] args) {
+	public void RunCommand(string _Command, string[] _Args) {
 		CommandRegistration reg = null;
-		if (!commands.TryGetValue(command, out reg)) {
-			appendLogLine(string.Format("Unknown command '{0}', type 'help' for list.", command));
+		if (!commands.TryGetValue(_Command, out reg)) {
+			AppendLogLine(string.Format("Unknown command '{0}', type 'help' for list.", _Command));
 		}  else {
-			if (reg.handler == null) {
-				appendLogLine(string.Format("Unable to process command '{0}', handler was null.", command));
+			if (reg.Handler == null) {
+				AppendLogLine(string.Format("Unable to process command '{0}', handler was null.", _Command));
 			}  else {
-				reg.handler(args);
+				reg.Handler(_Args);
 			}
 		}
 	}
 	
-	static string[] parseArguments(string commandString)
+	static string[] ParseArguments(string _CommandString)
 	{
-		LinkedList<char> parmChars = new LinkedList<char>(commandString.ToCharArray());
+		LinkedList<char> parmChars = new LinkedList<char>(_CommandString.ToCharArray());
 		bool inQuote = false;
 		var node = parmChars.First;
 		while (node != null)
@@ -122,83 +123,83 @@ public class ConsoleController {
 	#region Command handlers
 	//Implement new commands in this region of the file.
 
-	void reload(string[] args) {
-		if (args.Length == 0)
+	void Reload(string[] _Args) {
+		if (_Args.Length == 0)
 		{
 			Application.LoadLevel(Application.loadedLevel);
 		}
 		else
 		{
-			foreach (string arg in args)
+			foreach (string arg in _Args)
 			{
 				if (arg == "-h")
 				{
-					appendLogLine("Reload current level.");
+					AppendLogLine("Reload current level.");
 					break;
 				}
 			}
 		}
 	}
 
-	void help(string[] args)
+	void Help(string[] _Args)
 	{
-		if (args.Length == 0)
+		if (_Args.Length == 0)
 		{
 			Debug.Log("Print: command list");
-			appendLogLine("Current command list:");
+			AppendLogLine("Current command list:");
 			foreach (KeyValuePair<string, CommandRegistration> kvp in commands)
 			{
-				appendLogLine($"{kvp.Key}: {kvp.Value.help}");
+				AppendLogLine($"{kvp.Key}: {kvp.Value.Help}");
 			}
 		}
 		else
 		{
-			foreach (string arg in args)
+			foreach (string arg in _Args)
 			{
 				if (arg == "woodpecker")
 				{
-					appendLogLine("Work is filled up, woodpeckers!");
+					AppendLogLine("Work is filled up, woodpeckers!");
 					break;
 				}
 			}
 		}
 	}
 	
-	void restart(string[] args)
+	void Restart(string[] _Args)
 	{
-		if (args.Length == 0)
+		if (_Args.Length == 0)
 		{
 			Application.LoadLevel("____Preload");
 		}
 		else
 		{
-			foreach (string arg in args)
+			foreach (string arg in _Args)
 			{
 				if (arg == "-h")
 				{
-					appendLogLine("Reload game.");
+					AppendLogLine("Reload game.");
 					break;
 				}
 			}
 		}
 	}
 
-	void load(string[] args)
+	void Load(string[] _Args)
 	{
-		if (args.Length == 0)
+		if (_Args.Length == 0)
 		{
-			appendLogLine("Specify level");
+			AppendLogLine("Specify level");
 		}
 		else
 		{
-			foreach (string arg in args)
+			foreach (string arg in _Args)
 			{
 				if (arg == "-h")
 				{
-					appendLogLine("Load level:");
-					appendLogLine("preload: restart game.");
-					appendLogLine("menu: load menu.");
-					appendLogLine("level: load field.");
+					AppendLogLine("Load level:");
+					AppendLogLine("preload: restart game.");
+					AppendLogLine("menu: load menu.");
+					AppendLogLine("level: load field.");
 					break;
 				}
 				else
@@ -215,7 +216,7 @@ public class ConsoleController {
 							Application.LoadLevel("____Level");
 							break;
 						default:
-							appendLogLine("No such level.");
+							AppendLogLine("No such level.");
 							break;
 					}
 				}
@@ -223,11 +224,11 @@ public class ConsoleController {
 		}
 	}
 
-	void clearConsole(string[] args)
+	void ClearConsole(string[] _Args)
 	{
-		Array.Clear(log,0,log.Length);
+		Array.Clear(Log,0,Log.Length);
 		scrollback.Clear();
-		logChanged(log);
+		LogChanged(Log);
 	}
 	#endregion
 }
