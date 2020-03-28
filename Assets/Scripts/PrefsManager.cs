@@ -51,7 +51,8 @@ using UnityEngine;
          GraphicsQuality,
          Tilt,
          ButtonsSize,
-         SoundOn
+         SoundOn,
+         Language
      }
 
      public class MoneyCountEventArgs : System.EventArgs
@@ -105,6 +106,7 @@ using UnityEngine;
      private bool? m_Tilt;
      private int? m_ButtonsSize;
      private bool? m_SoundOn;
+     private int? m_Language;
 
      #endregion
      
@@ -440,6 +442,21 @@ using UnityEngine;
          {
              m_SoundOn = value;
              SetPref(PrefKey.SoundOn, value ? 1 : 0);
+         }
+     }
+     
+     public int Language
+     {
+         get
+         {
+             if (m_Language == null)
+                 m_Language = GetIntPref(PrefKey.Language);
+             return (int)m_Language;
+         }
+         set
+         {
+             m_Language = value;
+             SetPref(PrefKey.Language, value);
          }
      }
 

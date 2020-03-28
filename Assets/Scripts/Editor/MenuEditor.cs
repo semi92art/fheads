@@ -18,10 +18,11 @@ public class MenuEditor : Editor
 
         if (GUILayout.Button("Create Canvas"))
             m_Menu.CreateCanvas();
-        
-        if (GUILayout.Button("Create Background"))
-            m_Menu.CreateBackground();
 
+        if (GUILayout.Button("Create Play 1 on 1"))
+            m_Menu.CreatePlayOneOnOne();
+        
+        
         if (GUILayout.Button("Clear all"))
         {
             GameObject canvasObj = GameObject.Find("canvas");
@@ -31,6 +32,5 @@ public class MenuEditor : Editor
                 canvasObj = GameObject.Find("canvas");
             }
         }
-        
     }
 }

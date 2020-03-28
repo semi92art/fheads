@@ -1,16 +1,12 @@
-﻿using System.Text.RegularExpressions;
-using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
-using Button = UnityEngine.UI.Button;
-using Image = UnityEngine.UI.Image;
 
 public static class UIFactory
 {
     #region public methods
     
-    public static Canvas CreateCanvas(
+    public static Canvas UICanvas(
         string _ID,
         RenderMode _RenderMode,
         bool _PixelPerfect,
@@ -46,38 +42,36 @@ public static class UIFactory
 
         return canvas;
     }
-    
-    
-    public static Image CreateImage(
-        string _Image,
+
+    public static Image UIImage(
         RectTransform _Item,
-        Color _Color,
-        bool _RaycastTarget = false)
+        string _StyleName)
     {
-        Sprite sprite = Resources.Load<Sprite>($"Sprites/{_Image}");
+        UIStyleObject style = Resources.Load<UIStyleObject>($"Styles/{_StyleName}");
+        
         Image image = _Item.gameObject.AddComponent<Image>();
-        image.sprite = sprite;
-        image.color = _Color;
-        image.raycastTarget = _RaycastTarget;
+        image.sprite = style.Sprite;
+        image.color = style.Color;
+        image.raycastTarget = style.RaycastTarget;
 
         return image;
     }
-
-    public static Text CreateText(
+    
+    public static Text UIText(
         RectTransform _Item,
         string _Text,
-        Font _Font,
+        string _FontName,
         FontStyle _FontStyle,
-        int _FontSize,
-        float _LineSpacing,
-        bool _RichText,
-        TextAnchor _Alignment,
-        bool _AlignByGeometry,
-        HorizontalWrapMode _HorizontalOverflow,
-        VerticalWrapMode _VerticalOverflow,
-        bool _BestFit,
         Color _Color,
-        bool _RaycastTarget,
+        int _FontSize,
+        TextAnchor _Alignment,
+        HorizontalWrapMode _HorizontalOverflow = HorizontalWrapMode.Wrap,
+        VerticalWrapMode _VerticalOverflow = VerticalWrapMode.Truncate,
+        bool _RichText = false,
+        bool _AlignByGeometry = false,
+        float _LineSpacing = 1f,
+        bool _BestFit = false,
+        bool _RaycastTarget = false,
         Color? _ShadowEffectColor = null,
         Vector2? _ShadowEffectDistance = null,
         bool? _ShadowUseGraphicsAlpha = null
@@ -85,7 +79,9 @@ public static class UIFactory
     {
         Text text = _Item.gameObject.AddComponent<Text>();
         text.text = _Text;
-        text.font = _Font;
+        Font font = Resources.Load<Font>($"Fonts/{_FontName}");
+        if (font != null)
+            text.font = font;
         text.fontStyle = _FontStyle;
         text.fontSize = _FontSize;
         text.lineSpacing = _LineSpacing;
@@ -111,54 +107,58 @@ public static class UIFactory
         return text;
     }
 
-    public static Button CreateButton(
+    public static Button UIButton(
         RectTransform _Item,
-        string _Image,
-        Color _Color,
-        bool _Interactable,
-        Selectable.Transition _Transition,
+        UnityAction _OnClick,
         Navigation _Navigation,
-        Button.ButtonClickedEvent _OnClick,
-        bool _RaycastTarget = false
-        )
+        Selectable.Transition _Transition = Selectable.Transition.None,
+        bool _Interactable = true
+    )
     {
-        Image image = CreateImage(_Image, _Item, _Color, _RaycastTarget);
-        Button button = image.gameObject.AddComponent<Button>();
+        Image image = _Item.gameObject.AddComponent<Image>();
+        image.color = Utility.Transparent;
+        image.raycastTarget = true;
+        image.sprite = null;
+        Button button = _Item.gameObject.AddComponent<Button>();
         button.interactable = _Interactable;
         button.transition = _Transition;
         button.navigation = _Navigation;
-        button.onClick = _OnClick;
+        
+        Button.ButtonClickedEvent @event = new Button.ButtonClickedEvent();
+        @event.AddListener(_OnClick);
+        button.onClick = @event;
 
         return button;
     }
-    
-    public static RectTransform CreateRectTransform(
+
+    public static RectTransform UIRectTransform(
         RectTransform _Group,
         string _ID,
-        Vector2 _AnchorMin,
-        Vector2 _AnchorMax,
+        UIAnchor _Anchor,
         Vector2 _AnchoredPosition,
         Vector2 _Pivot,
         Vector2 _SizeDelta
     )
     {
-        GameObject gameObj = new GameObject(_ID);
-        RectTransform item = gameObj.AddComponent<RectTransform>();
+        GameObject gameObject = new GameObject(_ID);
+        RectTransform item = gameObject.AddComponent<RectTransform>();
         item.SetParent(_Group);
-        item.anchorMin = _AnchorMin;
-        item.anchorMax = _AnchorMax;
+        item.anchorMin = _Anchor.Min;
+        item.anchorMax = _Anchor.Max;
         item.anchoredPosition = _AnchoredPosition;
         item.pivot = _Pivot;
         item.sizeDelta = _SizeDelta;
         item.localScale = Vector3.one;
+        
+#if UNITY_EDITOR
+        if (gameObject.GetComponent<RectTranshormHelper>() == null)
+            gameObject.AddComponent<RectTranshormHelper>();
+#endif
         return item;
     }
 
-    #endregion
-    
-    #region private methods
-
     
 
     #endregion
+
 }
