@@ -4,42 +4,29 @@ using UnityEngine;
 
 public class EditorBuilder : EditorWindow
 {
-    //popup options
-    private string[] m_PlatformPopupOptions = new string[] {"Android", "iOS"};
-
-    private int m_PlatformPopupIndex = 0;
+    private readonly string[] m_PlatformPopupOptions = {"Android", "iOS"};
+    private int m_PlatformPopupIndex;
     
-    //Editor Window with building options
-    [MenuItem("Tools/EditorBuilder")]
-
+    [MenuItem("Tools/Builder")]
     public static void ShowWindow()
     {
-        EditorWindow.GetWindow<EditorBuilder>("EditorBuilder");
+        GetWindow<EditorBuilder>("EditorBuilder");
     }
 
-    void OnGUI()
+    private void OnGUI()
     {
         //Platform (Android/iOS) selection
         m_PlatformPopupIndex = EditorGUILayout.Popup(m_PlatformPopupIndex, m_PlatformPopupOptions);
         if (GUILayout.Button("Set"))
-        {
             PlatformSelector();
-        }
-        
-        //Developer Build
         if (GUILayout.Button("Developer Build"))
-        {
             LoadDeveloperBuild();
-        }
-        
-        //Release Build
         if (GUILayout.Button("Release Build"))
-        {
             LoadReleaseBuild();
-        }
+        
     }
 
-    void PlatformSelector()
+    private void PlatformSelector()
     {
         switch (m_PlatformPopupIndex)
         {
@@ -52,15 +39,13 @@ public class EditorBuilder : EditorWindow
         }
     }
 
-    void LoadDeveloperBuild()
+    private void LoadDeveloperBuild()
     {
-        //Loads project in debug mode with console and logging
         Debug.Log("Loading Developer Build");
     }
 
-    void LoadReleaseBuild()
+    private void LoadReleaseBuild()
     {
-        //Loads project in release mode without debug tools
         Debug.Log("Loading Release Build");
     }
 }
