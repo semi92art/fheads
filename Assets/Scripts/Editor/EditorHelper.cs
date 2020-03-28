@@ -3,16 +3,12 @@ using UnityEngine;
 
 public class EditorHelper : EditorWindow
 {
-    public int moneyCount;
-    
     [MenuItem("Tools/EditorHelper")]
-    
-    
     public static void ShowWindow()
     {
-        EditorWindow.GetWindow<EditorHelper>("EditorHelper");
-        
+        GetWindow<EditorHelper>("EditorHelper");
     }
+    
     void OnGUI()
     {
         if (GUILayout.Button("Clear PlayerPrefs"))
