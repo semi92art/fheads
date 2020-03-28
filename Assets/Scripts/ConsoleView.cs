@@ -11,6 +11,7 @@ public class ConsoleView : MonoBehaviour {
     public GameObject viewContainer; //Container for console view, should be a child of this GameObject
     public Text logTextArea;
     public InputField inputField;
+    public ScrollRect consoleScrollbar;
 
     private Vector3 m_SwipeFirstPosition;
     private Vector3 m_SwipeLastPosition;
@@ -145,6 +146,7 @@ public class ConsoleView : MonoBehaviour {
     void ToggleVisibility()
     {
         SetVisibility(!viewContainer.activeSelf);
+        consoleScrollbar.verticalNormalizedPosition = 0f;
         inputField.ActivateInputField();
         inputField.Select();
     }
@@ -182,7 +184,6 @@ public class ConsoleView : MonoBehaviour {
 
     public void RunCommand()
     {
-
         console.RunCommandString(inputField.text);
         inputField.text = "";
         inputField.ActivateInputField();
