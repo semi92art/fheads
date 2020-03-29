@@ -184,6 +184,7 @@ public class CameraSize : MonoBehaviour
 
         if (_Type == 0)
         {
+            m_CameraType = CameraType.Big;
             //newY0 = -14.78f * resMy0 + 34.3f;
             newY0 = 13.6f;
             cam.orthographicSize = 28.42f;
@@ -193,6 +194,7 @@ public class CameraSize : MonoBehaviour
         }
         else if (_Type == 1)
         {
+            m_CameraType = CameraType.Small;
             //newY = 0.5f * (followTr.position.y + scr.ballScr.transform.position.y);
             //newY0 = Mathf.Lerp(transform.position.y, newY, lerpX * Time.deltaTime * 5f);
             newY0 = 10.4f;
