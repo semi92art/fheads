@@ -1,71 +1,87 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class GameClient : MonoBehaviour
 {
-    private static GameClient m_Instance;
-    private Ping m_Ping;
+    #region public properties
     
+    public static GameClient Instance { get; private set; }
     public bool IsServerOnline { get; private set; }
-
-    public string serverIP;
-    public bool isPrintLog = true;
-    public float pingTime;
+    public bool IsPingingNow { get; private set; }
     
+    #endregion
+
+    #region private fields
+
+    private string m_SeverIP;
+    private bool m_IsPrintLog;
+    private float m_PingTime;
+    private bool m_StopPing;
+
+    #endregion
+
+    #region engine methods
+
     private void Awake()
     {
+        if (Instance != null)
+        {
+            DestroyImmediate(gameObject);
+            return;
+        }
+
+        Instance = this;
         DontDestroyOnLoad(gameObject);
-        this.CheckPing(serverIP);
+
+        m_SeverIP = "91.192.174.192";
+        m_IsPrintLog = true;
+        m_PingTime = 5f;
     }
 
-    protected GameClient()
+    #endregion
+    
+    #region public methods
+    
+    public void PermanentPingStart()
     {
+        IsPingingNow = true;
+        StartCoroutine(Coroutines.Action(() => PingServer(new Ping(m_SeverIP), false)));
+    }
+
+    public void PermanentPingStop()
+    {
+        IsPingingNow = false;
+    }
+
+    public void SinglePing(System.Action<bool> _Action)
+    {
+        StartCoroutine(Coroutines.Action(() => PingServer(new Ping(m_SeverIP), true, _Action)));
+    }
+    
+    #endregion
+
+    #region private methods
+    
+    private void PingServer(Ping _Ping, bool _Single, System.Action<bool> _Action = null)
+    {
+        bool isDone = _Ping.isDone;
+        IsServerOnline = isDone;
+        _Action?.Invoke(isDone);
+        if (m_IsPrintLog)
+            PrintLog(_Ping);
+
+        if (_Single || !IsPingingNow)
+            return;
         
-    }
-
-    public static GameClient getInstance()
-    {
-        if (m_Instance == null)
-        {
-            m_Instance= new GameClient();
-        }
-
-        return m_Instance;
-    }
-
-    public void CheckPing(string _IP)
-    {
-        m_Ping = new Ping(_IP);
-        StartCoroutine(PingServer(_IP));
-    }
-
-    IEnumerator PingServer(string _IP)
-    {
-        WaitForSeconds sec = new WaitForSeconds(pingTime);
-        yield return sec;
-        
-        if (m_Ping.isDone)
-        {
-            IsServerOnline = true;
-            PrintLog(m_Ping);
-            m_Ping = new Ping(_IP);
-        }
-        else
-        {
-            IsServerOnline = false;
-            PrintLog(m_Ping);
-        }
-        StartCoroutine(PingServer(_IP));
+        _Ping = new Ping(m_SeverIP);
+        StartCoroutine(Coroutines.Delay(() => PingServer(_Ping, false), m_PingTime));
     }
 
     private void PrintLog(Ping _Ping)
     {
-        if (isPrintLog)
-        {
-            Debug.Log(_Ping.ip + " : " + IsServerOnline);
-            Debug.Log(_Ping.time + " msec");
-        }
+        Debug.Log($"{_Ping.ip} : {IsServerOnline.ToString()}");
+        Debug.Log($"{_Ping.time.ToString()} msec");
     }
+    
+    #endregion
 }
