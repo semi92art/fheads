@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Boo.Lang;
 
-public delegate void CommandHandler(string[] _Args);
+
 
 public class ConsoleController
 {
@@ -20,6 +20,8 @@ public class ConsoleController
 	#endregion
 
 	#region types
+	
+	private delegate void CommandHandler(string[] _Args);
 	
 	private class CommandRegistration {
 		public string Command { get; }
