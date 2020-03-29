@@ -13,29 +13,20 @@ public class EditorHelper : EditorWindow
     {
         if (GUILayout.Button("Clear PlayerPrefs"))
         {
-            GameObject scrObj = GameObject.Find("Scripts");
-            Scripts scr = scrObj.GetComponent<Scripts>();
             PlayerPrefs.DeleteAll();
-            scr.alPrScr.moneyCount = 0;
-            scr.alPrScr.setMoney = true;
+            PrefsManager.Instance.MoneyCount = 0;
             Debug.Log("PlayerPrefs cleared");
         }
 
         if (GUILayout.Button("Add 10000$"))
         {
-            GameObject scrObj = GameObject.Find("Scripts");
-            Scripts scr = scrObj.GetComponent<Scripts>();
-            scr.alPrScr.moneyCount += 10000;
-            scr.alPrScr.setMoney = true;
+            PrefsManager.Instance.MoneyCount += 10000;
             Debug.Log("10000 added");
         }
 
         if (GUILayout.Button("Add 30% of current"))
         {
-            GameObject scrObj = GameObject.Find("Scripts");
-            Scripts scr = scrObj.GetComponent<Scripts>();
-            scr.alPrScr.moneyCount += Mathf.RoundToInt(0.3f * scr.alPrScr.moneyCount);
-            scr.alPrScr.setMoney = true;
+            PrefsManager.Instance.MoneyCount += Mathf.RoundToInt(0.3f * PrefsManager.Instance.MoneyCount);
             Debug.Log("30% added");
         }
 

@@ -58,7 +58,7 @@ public class Practice : MonoBehaviour
         }
             
 
-        if (scr.univFunc.sysLang() == 1 || scr.univFunc.sysLang() == 2 || scr.univFunc.sysLang() == 3)
+        if (Customs.sysLang() == 1 || Customs.sysLang() == 2 || Customs.sysLang() == 3)
         {
             text_Practice_0.font = scr.langScr.font_Second;
             text_Practice_1.font = scr.langScr.font_Second;
@@ -255,7 +255,7 @@ public class Practice : MonoBehaviour
 
     /*private void SetLanguageTexts()
     {
-        switch (scr.univFunc.sysLang())
+        switch (Customs.sysLang())
         {
             case 0: //English
                 str_TouchTopHalf = "Touch top half of screen to pause";

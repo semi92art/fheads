@@ -40,7 +40,7 @@ public class RainManager : MonoBehaviour
     {
         rainIntensity = 0.3f;
 
-        switch (PlayerPrefs.GetInt("Graph"))
+        switch (PrefsManager.Instance.GraphicsQuality)
         {
             case 0:
                 rainIntensity = 0.2f;
@@ -56,7 +56,7 @@ public class RainManager : MonoBehaviour
 
     public void SetRain_On()
     {
-        switch (PlayerPrefs.GetInt("Graph"))
+        switch (PrefsManager.Instance.GraphicsQuality)
         {
             case 0:
                 rainIntensity = 0.2f;

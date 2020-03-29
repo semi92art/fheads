@@ -4,8 +4,23 @@ using UnityStandardAssets.ImageEffects;
 
 public class CameraSize : MonoBehaviour
 {
+    private enum CameraType
+    {
+        Small,
+        Big
+    }
+
+    #region private fields
+    
+    private CameraType m_CameraType;
+    
+    #endregion
+    
     public Scripts scr;
 
+    
+    
+    
     public GameObject[] obj_CamButtons;
 
     public Image[] im_GameButtons;
@@ -13,7 +28,6 @@ public class CameraSize : MonoBehaviour
     public LineRenderer ballLineR;
     public GameObject obj_FireTrail;
     public RectTransform rTr_Circle;
-    private int graph;
 
 
     public Transform roofTr, roof1Tr;
@@ -42,8 +56,6 @@ public class CameraSize : MonoBehaviour
     void Awake()
     {
         _cam = GetComponent<Camera>();
-
-        graph = PlayerPrefs.GetInt("Graph");
         cam = GetComponent<Camera>();
 
         followTr = scr.pMov.transform;
@@ -52,7 +64,7 @@ public class CameraSize : MonoBehaviour
         resMy0_1 = screenW / screenH;
         resMy0 = 14f / 10f;
 
-        SetCameraSize(scr.alPrScr._camera);
+        SetCameraType(PrefsManager.Instance.CameraType);
         SetGraphics(1);
 
         camDefRot = transform.localRotation.eulerAngles;
@@ -75,13 +87,17 @@ public class CameraSize : MonoBehaviour
 
     private void CameraTransform()
     {
+        Vector3 position = transform.position;
+        Vector3 playerPosition = scr.pMov.transform.position;
+        Vector3 ballPosition = scr.ballScr.transform.position;
+        
         if (scr.objLev.isTiltOn)
         {
             angCoeff = scr.objLev.isTiltOn ? 0.03f : 0f;
             newAng = scr.pMov._rb.velocity.x * angCoeff;
 
-            if (scr.pMov.transform.position.x > scr.marks.rightTiltEdgeTr.position.x ||
-                scr.pMov.transform.position.x < scr.marks.leftTiltEdgeTr.position.x)
+            if (playerPosition.x > scr.marks.rightTiltEdgeTr.position.x ||
+                playerPosition.x < scr.marks.leftTiltEdgeTr.position.x)
                 newAng = 0;
 
             transform.rotation = Quaternion.AngleAxis(
@@ -89,38 +105,22 @@ public class CameraSize : MonoBehaviour
                 Vector3.forward);
         }
 
-        float newX = 0.5f * (followTr.position.x + scr.ballScr.transform.position.x);
+        float newX = Mathf.Clamp(0.5f * (followTr.position.x + ballPosition.x), leftCamEdge, rightCamEdge);
+        newX = Mathf.Lerp(position.x, newX, lerpX * Time.deltaTime);
+        
         float newY = 0f;
-        float newY0 = 0f;
-
-        if (scr.alPrScr._camera == 0) //Big Camera
-            newY0 = -14.78f * resMy0 + 34.3f;
-        else //Small Camera
+        switch (m_CameraType)
         {
-            newY = 0.5f * (followTr.position.y + scr.ballScr.transform.position.y);
-
-            if (newY > topCamEdge)
-                newY = topCamEdge;
-            else if (newY < 10f)
-                newY = 10f;
-            
-            newY0 = Mathf.Lerp(transform.position.y, newY, lerpX * Time.deltaTime * 5f);
+            case CameraType.Big:
+                newY = -14.78f * resMy0 + 34.3f;
+                break;
+            case CameraType.Small:
+                newY = Mathf.Clamp(0.5f * (followTr.position.y + ballPosition.y), 10f, topCamEdge);
+                newY = Mathf.Lerp(position.y, newY, lerpX * Time.deltaTime * 5f);
+                break;
         }
-
-        if (newX < scr.ballScr.transform.position.x - cam.orthographicSize)
-            newX = scr.ballScr.transform.position.x - cam.orthographicSize;
-        else if (newX > scr.ballScr.transform.position.x + cam.orthographicSize)
-            newX = scr.ballScr.transform.position.x + cam.orthographicSize;
-
-        if (newX > rightCamEdge)
-            newX = rightCamEdge;
-        else if (newX < leftCamEdge)
-            newX = leftCamEdge;
-
-        transform.position = new Vector3(
-            Mathf.Lerp(transform.position.x, newX, lerpX * Time.deltaTime),
-            newY0,
-            transform.position.z);
+        
+        transform.position = new Vector3(newX, newY, position.z);
     }
 
     public void SetGraphics(int fromAwake)
@@ -130,10 +130,9 @@ public class CameraSize : MonoBehaviour
 
         if (fromAwake == 0)
         {
-            graph = graph == 2 ? 0 : graph + 1;
-            PlayerPrefs.SetInt("Graph", graph);
-            graph_1 = Animator.StringToHash(graph.ToString());
-            rTr_Circle.GetComponent<Animator>().SetTrigger(graph_1);
+            PrefsManager.Instance.GraphicsQuality++;
+            rTr_Circle.GetComponent<Animator>().SetTrigger(
+                PrefsManager.Instance.GraphicsQuality.ToString());
         }
         else
         {
@@ -142,7 +141,7 @@ public class CameraSize : MonoBehaviour
                 rTr_Circle.anchoredPosition.y);
         }
 
-        SetGraphics_0(graph);
+        SetGraphics_0(PrefsManager.Instance.GraphicsQuality);
 
         if (scr.rainMan.isRain)
             scr.rainMan.SetRain_On();
@@ -170,11 +169,11 @@ public class CameraSize : MonoBehaviour
         transform.rotation = Quaternion.Euler(camDefRot);
     }
 
-    public void SetCameraSize(int _size)
+    public void SetCameraType(int _Type)
     {
         for (int i = 0; i < obj_CamButtons.Length; i++)
         {
-            if (i == _size)
+            if (i == _Type)
                 obj_CamButtons[i].SetActive(true);
             else
                 obj_CamButtons[i].SetActive(false);
@@ -183,8 +182,9 @@ public class CameraSize : MonoBehaviour
         float newY = 0f;
         float newY0 = 0f;
 
-        if (_size == 0)
+        if (_Type == 0)
         {
+            m_CameraType = CameraType.Big;
             //newY0 = -14.78f * resMy0 + 34.3f;
             newY0 = 13.6f;
             cam.orthographicSize = 28.42f;
@@ -192,8 +192,9 @@ public class CameraSize : MonoBehaviour
             leftCamEdge = 27.78f * resMy0_1 - 99.22f;
             rightCamEdge = -27.78f * resMy0_1 + 59.17f;
         }
-        else if (_size == 1)
+        else if (_Type == 1)
         {
+            m_CameraType = CameraType.Small;
             //newY = 0.5f * (followTr.position.y + scr.ballScr.transform.position.y);
             //newY0 = Mathf.Lerp(transform.position.y, newY, lerpX * Time.deltaTime * 5f);
             newY0 = 10.4f;
@@ -214,7 +215,6 @@ public class CameraSize : MonoBehaviour
 
         isFromButton = true;
 
-        scr.alPrScr._camera = _size;
-        scr.alPrScr.doCh = true;
+        PrefsManager.Instance.CameraType = _Type;
     }
 }

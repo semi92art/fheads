@@ -72,7 +72,7 @@ public class Objects_Menu : MonoBehaviour
 
     void Start()
     {
-        if (GameManager.Instance.PlayedGames > 20 &&
+        if (PrefsManager.Instance.PlayedGames > 20 &&
             PlayerPrefs.GetInt("Review_Done") == 0)
         {
             scr.allAw.CallAwardPanel_3();
@@ -87,24 +87,15 @@ public class Objects_Menu : MonoBehaviour
 
     public void EnableSound(bool isStart)
     {
-        int onInt = PlayerPrefs.GetInt("SoundOn");
-
-        int onInt_1 = onInt == 0 ? 1 : 0;
-
         if (!isStart)
-            PlayerPrefs.SetInt("SoundOn", onInt_1);
+            PrefsManager.Instance.SoundOn = !PrefsManager.Instance.SoundOn;
 
-        onInt = PlayerPrefs.GetInt("SoundOn");
-        mainThemeSource.mute = !scr.univFunc.Int2Bool(onInt);
-        buttonsSource.mute = !scr.univFunc.Int2Bool(onInt);
-        SoundImage(onInt);
+
+        mainThemeSource.mute = !PrefsManager.Instance.SoundOn;
+        buttonsSource.mute = !PrefsManager.Instance.SoundOn;
+        soundIm.sprite = PrefsManager.Instance.SoundOn ? spr_SoundOn : spr_SoundOff;
     }
 
-    private void SoundImage(int _on)
-    {
-        soundIm.sprite = _on == 0 ? spr_SoundOff : spr_SoundOn;
-    }
-       
     public void OpenGameInMarket()
     {
         Application.OpenURL("market://details?id=com.Artem.FootballHeads");

@@ -6,16 +6,15 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance { get; private set; }
-
-
-	private int m_PlayedGames;
+	
 	
 
-	public int PlayedGames {
-		get { return m_PlayedGames; }
-		private set { m_PlayedGames = value; }
-	}
 	
+	#region private methods
+
+
+	
+	#endregion
 	
 	#region engine methods
 
@@ -28,33 +27,44 @@ public class GameManager : MonoBehaviour
 		}
 		Instance = this;
 		
-		PlayedGames = AllPrefsScript.GetPrefsInt("PLAYED_GAMES");
 		
-		isNoAds = scr.univFunc.Int2Bool(PlayerPrefs.GetInt("NoAds"));
+		if (PrefsManager.Instance.LaunchesCount == 0 && SceneManager.GetActiveScene().buildIndex == 0)
+		{
+			PrefsManager.Instance.GraphicsQuality = 1;
+			PrefsManager.Instance.Tilt = true;
+			PrefsManager.Instance.ButtonsSize = 2;
+			PrefsManager.Instance.SoundOn = true;
+			PrefsManager.Instance.PlayerIndex = 35;
+			PrefsManager.Instance.ControlsType = 1;
+			PrefsManager.Instance.Game = 1;
+		}
+		
+		if (SceneManager.GetActiveScene().buildIndex == 0)
+			PrefsManager.Instance.LaunchesCount++;
+		
+
+		
+		isNoAds = Customs.Int2Bool(PlayerPrefs.GetInt("NoAds"));
 
 		switch (SceneManager.GetActiveScene().name) 
 		{
 			case "____Menu":
-				scr.alPrScr.game = 0;
-				scr.alPrScr.doCh = true;
+				PrefsManager.Instance.Game = 0;
 				PlayerPrefs.SetInt("CanRestart", 2);
 
-				scr.buf.isPractice = false;
 				scr.allAw.allAwPan.SetActive(false);
-				scr.alPrScr.isRandGame = 0;
+				PrefsManager.Instance.IsRandomOpponent = false;
 
-				Time.timeScale = 1f;
+				TimeManager.Instance.UnPauseGame();
 
 				_menues = Menues.MainMenu;
 				DestroyImmediate (GameObject.Find ("ChampList"));
 				DestroyImmediate (GameObject.Find ("ChampListImage"));
 				break;
 			case "____Level":
-				PlayedGames++;
+				PrefsManager.Instance.PlayedGames++;
 				break;
 		}
-
-		scr.alPrScr.doCh = true;
 	}
 
 	private void Update()
@@ -63,11 +73,6 @@ public class GameManager : MonoBehaviour
 			Update_Menu();
 		else if (SceneManager.GetActiveScene().buildIndex == 2)
 			Update_Level();
-	}
-
-	private void OnDestroy()
-	{
-		AllPrefsScript.SetPrefsInt("PLAYED_GAMES", m_PlayedGames);
 	}
 
 	#endregion
@@ -95,7 +100,7 @@ public class GameManager : MonoBehaviour
     {
 #if UNITY_EDITOR
         if(Input.GetKey(KeyCode.R))
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("____Menu");
 #endif
 
         if (Input.GetKeyUp (KeyCode.Escape))
@@ -119,7 +124,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyUp (KeyCode.Escape)) 
         {
-            if (scr.tM.isBetweenTimes && Time.timeScale <= 0.1f)
+            if (scr.tM.isBetweenTimes && TimeManager.Instance.GamePaused)
             {
                 scr.tM.CallBackBetweenTimesPanel();
                 scr.levAudScr.Button_Sound();
@@ -155,7 +160,7 @@ public class GameManager : MonoBehaviour
 
 	public void StartGame()
 	{
-		Time.timeScale = 1f;
+		TimeManager.Instance.UnPauseGame();
 		scr.pMov.startGame = true;
 		scr.objLev.startPanelAnim.gameObject.SetActive(false);
 	}
@@ -195,15 +200,13 @@ public class GameManager : MonoBehaviour
         }
             
         scr.objM.currPrPan.SetActive(false);
-        scr.prMng.SetOpenedPlayersCountryText(false);
+        ProfileManager.Instance.SetOpenedPlayersCountryText(false);
         _menues = Menues.MenuPlayers;
     }
 
 	public void GoToMenu()
 	{
-        scr.buf.is1stPractice = false;
-        SceneManager.LoadScene("Menu");
-        scr.alPrScr.doCh = true;
+		SceneManager.LoadScene("____Menu");
 	}
 	
 	public void GoToMenuNewGame (RectTransform tr)
@@ -213,7 +216,7 @@ public class GameManager : MonoBehaviour
 
 	public void IsInPause()
 	{
-		Time.timeScale = 1f;
+		TimeManager.Instance.UnPauseGame();
 	}
 	
 	public void WinGame1()
@@ -251,14 +254,11 @@ public class GameManager : MonoBehaviour
 
 	public void SetStadium()
 	{
-        scr.alPrScr.stadium = scr.alPrScr.isRandGame == 1 ? 
-            Mathf.FloorToInt(Random.value * (18 - 0.01f)) : 
-            scr.univFunc.Stadium(scr.alPrScr.game);
+        PrefsManager.Instance.Stadium = PrefsManager.Instance.IsRandomOpponent ? 
+            Mathf.FloorToInt(Random.value * (18 - 0.01f)) : Stadium(PrefsManager.Instance.Game);
 
-        scr.alPrScr.tribunes = scr.alPrScr.isRandGame == 0 ? 
-            scr.alPrScr.lg : Mathf.FloorToInt(1f + (5 - 0.1f) * Random.value);
-
-		scr.alPrScr.doCh = true;
+        PrefsManager.Instance.Tribunes = !PrefsManager.Instance.IsRandomOpponent ? 
+	        PrefsManager.Instance.League : Mathf.FloorToInt(1f + (5 - 0.1f) * Random.value);
 	}
         
 	public void LoadSimpleLevel()
@@ -268,10 +268,9 @@ public class GameManager : MonoBehaviour
         
 	public void LoadRandomLevel()
 	{
-        scr.alPrScr.isRandGame = 1;
+		PrefsManager.Instance.IsRandomOpponent = true;
         SetStadium();
-        scr.buf.SetRandomData();
-		SceneManager.LoadScene(2);
+        SceneManager.LoadScene(2);
 	}
 
 	public void ExitGame()
@@ -294,8 +293,8 @@ public class GameManager : MonoBehaviour
         scr.objLev.pauseMenuAnim.gameObject.SetActive(true);
         scr.objLev.pauseMenuAnim.ResetTrigger(Animator.StringToHash("back"));
         scr.objLev.pauseMenuAnim.SetTrigger (Animator.StringToHash("call"));
-        currTimeScale = Time.timeScale;
-        Time.timeScale = 0f;
+        currTimeScale = TimeManager.Instance.TimeScale;
+        TimeManager.Instance.PauseGame();
         Rigidbodies_TimeScale(0);
 	}
 	
@@ -303,7 +302,7 @@ public class GameManager : MonoBehaviour
 	{
 		pauseInLevel = false;
         scr.objLev.pauseMenuAnim.SetTrigger(Animator.StringToHash("back"));
-        Time.timeScale = currTimeScale;
+        TimeManager.Instance.TimeScale = currTimeScale;
 		scr.objLev.pauseMenuAnim.gameObject.SetActive(false);
         Rigidbodies_TimeScale(1);
 	}
@@ -328,6 +327,7 @@ public class GameManager : MonoBehaviour
 	public void MenuResultBack()
 	{
 		scr.objLev.resultMenuAnim.SetBool ("call", false);
+		TimeManager.Instance.UnPauseGame();
 		Time.timeScale = 1f;
 		scr.objLev.resultMenuAnim.gameObject.SetActive(false);
 	}
@@ -349,7 +349,51 @@ public class GameManager : MonoBehaviour
             scr.objLev.allRbs[i].constraints = RigidbodyConstraints2D.FreezeAll;
     }
     
+    public void RestartLevel()
+    {
+	    if (!PrefsManager.Instance.IsRandomOpponent)
+		    FindObjectOfType<UnityAds_0>().ShowRewardedAd();
+	    else
+	    {
+		    if (scr.tM.matchPeriods == 0)
+			    SceneManager.LoadScene(2);
+		    else
+		    {
+			    if (!scr.tM.isBetweenTimes)
+				    SceneManager.LoadScene(2);
+		    }
+                
+	    }  
+    }
     
+    private int Stadium(int _game)
+    {
+	    switch (_game)
+	    {
+		    case 0:
+			    return 0;
+		    case 1:
+			    return 1;
+		    case 2:
+			    return 2;
+		    case 3:
+			    return 3;
+		    case 4:
+			    return 6;
+		    case 5:
+			    return 7;
+		    case 6:
+			    return 8;
+		    case 7:
+			    return 9;
+		    case 8:
+			    return 13;
+		    case 9:
+			    return 16;
+		    default:
+			    return 0;
+	    }
+    }
 }
 
 

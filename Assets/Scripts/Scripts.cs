@@ -2,14 +2,6 @@
 
 public class Scripts : MonoBehaviour 
 {
-    [Header("Menu and Level scenes:")]
-    public AllPrefsScript alPrScr;
-    public UniversalFunctions univFunc;
-    
-    public ProfileManager prMng;
-    public AndroidAdMob_0 adMob;
-    public Buffer buf;
-
     [Header("Menu scene:")]
     public Upgrades upgr;
     public CountriesList cntrL;
@@ -19,7 +11,6 @@ public class Scripts : MonoBehaviour
     public CurrentProfilePanel currPrPan;
     public EverydayReward everyDayReward;
     public Objects_Menu objM;
-    public TopPanelManager topPanMng;
 
     [Header("Level scene:")]
     public LighteningScript molnia;
@@ -37,7 +28,7 @@ public class Scripts : MonoBehaviour
     public GoalPanelScript goalPanScr;
     public Score scoreScr;
     public PlayerMovement pMov;
-    public TimeManager tM;
+    public LevelTimeManager tM;
     public BallScript ballScr;
     public BallTouchScript ballTScr;
     public GroundTrigger1 grTr;
@@ -54,22 +45,14 @@ public class Scripts : MonoBehaviour
 
     void Awake()
     {
-        if (alPrScr == null) alPrScr = FindObjectOfType<AllPrefsScript>();
-        if (univFunc == null) univFunc = FindObjectOfType<UniversalFunctions>();
-
-        if (adMob == null) adMob = FindObjectOfType<AndroidAdMob_0>();
-        if (buf == null) buf = FindObjectOfType<Buffer>();
-
         if (cntrL == null) cntrL = FindObjectOfType<CountriesList>();
         if (plL == null) plL = FindObjectOfType<PlayersList>();
-        if (prMng == null) prMng = FindObjectOfType<ProfileManager>();
 
         switch (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex) 
         {
             case 1:
                 if (upgr == null) upgr = FindObjectOfType<Upgrades>();
                 if (allAw == null) allAw = FindObjectOfType<AllAwardsScript>();
-                if (topPanMng == null) topPanMng = FindObjectOfType<TopPanelManager>();
                 if (objM == null) objM = FindObjectOfType<Objects_Menu>();
                 if (currPrPan == null) currPrPan = FindObjectOfType<CurrentProfilePanel>();
                 if (everyDayReward == null) everyDayReward = FindObjectOfType<EverydayReward>();
@@ -91,7 +74,7 @@ public class Scripts : MonoBehaviour
                 if (objLev == null) objLev = FindObjectOfType<Objects_Level>();
                 if (scoreScr == null) scoreScr = FindObjectOfType<Score>();
                 if (pMov == null) pMov = FindObjectOfType<PlayerMovement>();
-                if (tM == null) tM = FindObjectOfType<TimeManager>();
+                if (tM == null) tM = FindObjectOfType<LevelTimeManager>();
                 if (ballScr == null) ballScr = FindObjectOfType<BallScript>();
                 if (grTr == null) grTr = FindObjectOfType<GroundTrigger1>();
                 if (congrPan == null) congrPan = FindObjectOfType<CongradulationsPanel>();

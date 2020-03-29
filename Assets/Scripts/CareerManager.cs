@@ -4,10 +4,38 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 
 public class CareerManager : MonoBehaviour
 {
+    public static CareerManager Instance { get; private set; }
+    
+    [System.Serializable]
+    public class League_UI_Elements
+    {
+        public Image im_CirclePercent;
+        public Image im_Cup;
+        public Image[] im_Wins;
+        public Sprite spr_CupGold;
+        public Sprite spr_CupGray;
+        public Text text_cupName_1;
+        public Text text_cupName_2;
+        public Button _button;
+    }
+    
+    [System.Serializable]
+    public class CareerOpponentMain
+    {
+        public Names.PlayerName oppName;
+    }
+
+    [System.Serializable]
+    public class CareerGame
+    {
+        public List<CareerOpponentMain> oppsMain;
+    }
+    
     [SerializeField]
     private Scripts scr;
 
@@ -32,9 +60,20 @@ public class CareerManager : MonoBehaviour
     [Header("Leagues UI Elemens:")]
     public List<League_UI_Elements> lg_UI_List;
 
+    private List<CareerGame> careerGames;
+    private CareerGame m_CurrentGame;
+
+    public CareerGame CurrentGame => m_CurrentGame;
 
     void Awake()
     {
+        if (Instance != null)
+        {
+            DestroyImmediate(gameObject);
+            return;
+        }
+        Instance = this;
+        
         SetLeague_UI();
     }
 
@@ -44,70 +83,41 @@ public class CareerManager : MonoBehaviour
 
         for (int i = 0; i < lg_UI_List.Count; i++)
         {
-            if (scr.alPrScr.opndLeagues[i] == 1)
-            {
-                lg_UI_List[i].im_Cup.sprite = lg_UI_List[i].spr_CupGold;
-                lg_UI_List[i].text_cupName_1.color = col_Gold;
-                lg_UI_List[i].text_cupName_2.color = col_Gold;
-            }
-            else
-            {
-                lg_UI_List[i].im_Cup.sprite = lg_UI_List[i].spr_CupGray;
-                lg_UI_List[i].text_cupName_1.color = col_Gray;
-                lg_UI_List[i].text_cupName_2.color = col_Gray;
-            }
-                
+            lg_UI_List[i].im_Cup.sprite = lg_UI_List[i].spr_CupGold;
+            lg_UI_List[i].text_cupName_1.color = col_Gold;
+            lg_UI_List[i].text_cupName_2.color = col_Gold;
 
             int wins = 0;
 
             for (int j = 0; j < 10; j++)
             {
-                if (scr.alPrScr.wonGames[j, i] == 1)
-                {
-                    wins++;
-                    lg_UI_List[i].im_Wins[j].color = col_Gold;
-                }
-                else
-                    lg_UI_List[i].im_Wins[j].color = col_Gray;
+                wins++;
+                lg_UI_List[i].im_Wins[j].color = col_Gold;
             }
 
             winsTotal += wins;
-            lg_UI_List[i].im_CirclePercent.fillAmount = (float)wins / 10f;
+            lg_UI_List[i].im_CirclePercent.fillAmount = wins / 10f;
         }
 
-        int winsTotal_1 = Mathf.RoundToInt(100f * (float)winsTotal / 60f); 
-        text_winPercent.text = winsTotal_1.ToString() + "%";
+        int winsTotal_1 = Mathf.RoundToInt(100f * winsTotal / 60f); 
+        text_winPercent.text = $"{winsTotal_1.ToString()}%";
     }
 
     public void LeagueButton(int _lg)
     {
         scr.objM.Button_Sound();
 
-        if (scr.alPrScr.opndLeagues[_lg] == 1)
-        {
-            scr.alPrScr.game = 0;
-            scr.alPrScr.lg = _lg;
-            SetLeagueData(_lg);
-            scr.buf.Set_Tournament_Data(0, _lg);
-            PlayerPrefs.SetInt("CanRestart", 3);
-            scr.alPrScr.doCh = true;
-            anim_LeagueMenu.SetTrigger(Animator.StringToHash("l" + _lg.ToString()));
-            GameManager.Instance.SetStadium();
-        }
-            
-        else
-            PreviewLeague(_lg);    
+        PrefsManager.Instance.Game = 0;
+        PrefsManager.Instance.League = _lg;
+        SetLeagueData(_lg);
+        Set_Tournament_Data_0(0, _lg);
+        PlayerPrefs.SetInt("CanRestart", 3);
+        anim_LeagueMenu.SetTrigger(Animator.StringToHash($"l{_lg.ToString()}"));
+        GameManager.Instance.SetStadium();
     }
 
     [HideInInspector]
     public int _lgPrev;
-
-    private void PreviewLeague(int _lg)
-    {
-        _lgPrev = _lg;
-        scr.allAw.CallAwardPanel_2();
-
-    }
 
     public void LoadTournament (int _lg)
     {
@@ -119,38 +129,37 @@ public class CareerManager : MonoBehaviour
         switch (_lg)
         {
             case 0:
-                scr.buf._careerGames = lg_1_games;
+                careerGames = lg_1_games;
                 break;
             case 1:
-                scr.buf._careerGames = lg_2_games;
+                careerGames = lg_2_games;
                 break;
             case 2:
-                scr.buf._careerGames = lg_3_games;
+                careerGames = lg_3_games;
                 break;
             case 3:
-                scr.buf._careerGames = lg_4_games;
+                careerGames = lg_4_games;
                 break;
             case 4:
-                scr.buf._careerGames = lg_5_games;
+                careerGames = lg_5_games;
                 break;
             case 5:
-                scr.buf._careerGames = lg_6_games;
+                careerGames = lg_6_games;
                 break;
         }
     }
 
     public void UnlockLeague(int _lg)
     {
-        scr.alPrScr.opndLeagues[_lg] = 1;
-        scr.alPrScr.doCh = true;
-        scr.alPrScr.moneyCount -= lg_cost[_lg];
-        scr.alPrScr.setMoney = true;
+        PrefsManager.Instance.MoneyCount -= lg_cost[_lg];
 
-        scr.topPanMng.moneyText.text = 
-            scr.univFunc.moneyString(scr.alPrScr.moneyCount);
-        
         lg_UI_List[_lg].im_Cup.sprite = lg_UI_List[_lg].spr_CupGold;
         lg_UI_List[_lg].text_cupName_1.color = col_Gold;
         lg_UI_List[_lg].text_cupName_2.color = col_Gold;
+    }
+    
+    public void Set_Tournament_Data_0(int _game, int _lg)
+    {
+        m_CurrentGame =  Instance.careerGames[_game];
     }
 }

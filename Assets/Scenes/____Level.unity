@@ -1625,52 +1625,6 @@ MonoBehaviour:
   - player: 33
   - player: 41
   - player: 30
-  Players_2:
-  - player: 6
-  - player: 10
-  - player: 14
-  - player: 27
-  - player: 21
-  - player: 13
-  - player: 37
-  - player: 16
-  - player: 32
-  - player: 8
-  - player: 4
-  - player: 12
-  - player: 25
-  - player: 33
-  - player: 19
-  - player: 5
-  - player: 7
-  - player: 22
-  - player: 29
-  - player: 30
-  - player: 23
-  - player: 18
-  - player: 1
-  - player: 34
-  - player: 0
-  - player: 15
-  - player: 28
-  - player: 36
-  - player: 38
-  - player: 31
-  - player: 2
-  - player: 35
-  - player: 24
-  - player: 17
-  - player: 39
-  - player: 20
-  - player: 3
-  - player: 9
-  - player: 23
-  - player: 26
-  - player: 44
-  - player: 48
-  - player: 42
-  - player: 41
-  - player: 40
 --- !u!114 &62723488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1685,7 +1639,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scr: {fileID: 82947578}
   moneyCoast: 204e0000204e0000204e0000204e0000204e00003075000030750000307500003075000030750000409c0000409c0000409c0000409c0000409c000050c3000050c3000050c3000050c3000050c3000060ea000060ea000060ea000060ea000060ea000070110100701101007011010070110100701101008038010080380100803801008038010080380100905f0100905f0100905f0100905f0100905f0100a0860100a0860100a0860100a0860100a0860100400d0300400d0300e093040020a1070020a10700
-  moneyCoast_2: 204e0000204e0000204e0000204e0000204e0000409c0000409c0000409c0000409c0000409c000060ea000060ea000060ea000060ea000060ea00008038010080380100803801008038010080380100a0860100a0860100a0860100a0860100a0860100f0490200f0490200f0490200f0490200f0490200400d0300400d0300400d0300400d0300400d0300e0930400e0930400e0930400e0930400e0930400801a0600801a060020a1070020a1070020a1070020a1070020a1070020a1070020a1070020a10700
   itemList:
   - name: Aguero
     toDo:
@@ -2837,1042 +2790,6 @@ MonoBehaviour:
     cntrInd: 0
     country: 8
     player: 49
-  itemList_2:
-  - name: Baggio
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: cfb7bdc6498ab354b9cecb7bd60c77b9, type: 3}
-    skill_Speed: 85
-    skill_Kick: 85
-    skill_Jump: 90
-    plInd: 0
-    cntrInd: 0
-    country: 23
-    player: 0
-  - name: Bartez
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: a54c8c205bd741141845af6b9324e7af, type: 3}
-    skill_Speed: 91
-    skill_Kick: 85
-    skill_Jump: 95
-    plInd: 0
-    cntrInd: 0
-    country: 17
-    player: 1
-  - name: Batistuta
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: ac7a2e4fba8715e438b99034e9e5fd8f, type: 3}
-    skill_Speed: 93
-    skill_Kick: 94
-    skill_Jump: 94
-    plInd: 0
-    cntrInd: 0
-    country: 1
-    player: 2
-  - name: Beckenbauer
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 33ffde17cef19e0499825df9ca34488b, type: 3}
-    skill_Speed: 97
-    skill_Kick: 95
-    skill_Jump: 89
-    plInd: 0
-    cntrInd: 0
-    country: 18
-    player: 3
-  - name: Beckham
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 4
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: a297f4e7d38834740abcd48f05be7fa7, type: 3}
-    skill_Speed: 94
-    skill_Kick: 97
-    skill_Jump: 93
-    plInd: 0
-    cntrInd: 0
-    country: 16
-    player: 4
-  - name: Bergkamp
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 5
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 282a293151be8e347a90f43e5cdebf25, type: 3}
-    skill_Speed: 89
-    skill_Kick: 95
-    skill_Jump: 100
-    plInd: 0
-    cntrInd: 0
-    country: 14
-    player: 5
-  - name: Totti
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 6
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 4f09b0f96c2e9c94491b65c40b26b695, type: 3}
-    skill_Speed: 97
-    skill_Kick: 89
-    skill_Jump: 91
-    plInd: 0
-    cntrInd: 0
-    country: 23
-    player: 6
-  - name: Davids
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 7
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: a09e0b73f0bfdc643a0898efca7532f2, type: 3}
-    skill_Speed: 91
-    skill_Kick: 87
-    skill_Jump: 95
-    plInd: 0
-    cntrInd: 0
-    country: 25
-    player: 7
-  - name: del Piero
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 8
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: a9c38e7f49b1a8f4dad6945ab07431c3, type: 3}
-    skill_Speed: 92
-    skill_Kick: 87
-    skill_Jump: 95
-    plInd: 0
-    cntrInd: 0
-    country: 23
-    player: 8
-  - name: di Stefano
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 9
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 4af505e76a10ea144a4d20515cd92600, type: 3}
-    skill_Speed: 100
-    skill_Kick: 100
-    skill_Jump: 97
-    plInd: 0
-    cntrInd: 0
-    country: 31
-    player: 9
-  - name: Drogba
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 10
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: f456c679eed17cf4cb37d03b73745508, type: 3}
-    skill_Speed: 95
-    skill_Kick: 96
-    skill_Jump: 94
-    plInd: 0
-    cntrInd: 0
-    country: 11
-    player: 10
-  - name: Eisebio
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 11
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 4397da47b3d6bf94689bc1f576137891, type: 3}
-    skill_Speed: 97
-    skill_Kick: 85
-    skill_Jump: 91
-    plInd: 0
-    cntrInd: 0
-    country: 28
-    player: 11
-  - name: Figo
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 12
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 56d5706e4b6c6b244800e971f01973ff, type: 3}
-    skill_Speed: 90
-    skill_Kick: 90
-    skill_Jump: 94
-    plInd: 0
-    cntrInd: 0
-    country: 28
-    player: 12
-  - name: Gerrard
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 13
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 7a9a05bdb2b7b6b49b1ef07e4340d6fb, type: 3}
-    skill_Speed: 89
-    skill_Kick: 91
-    skill_Jump: 95
-    plInd: 0
-    cntrInd: 0
-    country: 16
-    player: 13
-  - name: Giggs
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 14
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 2e4abcc7240ec4f4c9ab724fc8991485, type: 3}
-    skill_Speed: 85
-    skill_Kick: 94
-    skill_Jump: 89
-    plInd: 0
-    cntrInd: 0
-    country: 40
-    player: 14
-  - name: Gullit
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 15
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: c73d8c830e108e6488d57bf0b6bf6fcb, type: 3}
-    skill_Speed: 94
-    skill_Kick: 88
-    skill_Jump: 91
-    plInd: 0
-    cntrInd: 0
-    country: 25
-    player: 15
-  - name: Henry
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 16
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: ecd4886e16ae663428fead7f71e2c961, type: 3}
-    skill_Speed: 100
-    skill_Kick: 100
-    skill_Jump: 99
-    plInd: 0
-    cntrInd: 0
-    country: 17
-    player: 16
-  - name: Best
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 17
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: e272eca7c2a3096468e864a90bc7f20b, type: 3}
-    skill_Speed: 95
-    skill_Kick: 99
-    skill_Jump: 90
-    plInd: 0
-    cntrInd: 0
-    country: 42
-    player: 17
-  - name: Kahn
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 18
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 8afdae41655a6004584694da22221408, type: 3}
-    skill_Speed: 98
-    skill_Kick: 97
-    skill_Jump: 91
-    plInd: 0
-    cntrInd: 0
-    country: 18
-    player: 18
-  - name: Keane
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 19
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 7563bb19f8745db4b8f29ddd2a468525, type: 3}
-    skill_Speed: 91
-    skill_Kick: 87
-    skill_Jump: 90
-    plInd: 0
-    cntrInd: 0
-    country: 22
-    player: 19
-  - name: Krojf
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 20
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: c35f872245c7f234d812f51644294455, type: 3}
-    skill_Speed: 99
-    skill_Kick: 97
-    skill_Jump: 96
-    plInd: 0
-    cntrInd: 0
-    country: 25
-    player: 20
-  - name: Lampard
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 21
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 08139dd60efca8f45bab93d4d6a36302, type: 3}
-    skill_Speed: 93
-    skill_Kick: 100
-    skill_Jump: 95
-    plInd: 0
-    cntrInd: 0
-    country: 16
-    player: 21
-  - name: Maldini
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 22
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 945a188f97fd4b140911e0f5e3d66d31, type: 3}
-    skill_Speed: 97
-    skill_Kick: 89
-    skill_Jump: 93
-    plInd: 0
-    cntrInd: 0
-    country: 23
-    player: 22
-  - name: Maradonna
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 23
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 81ecf262cbbd56f46894bde9e4b2bbc2, type: 3}
-    skill_Speed: 100
-    skill_Kick: 100
-    skill_Jump: 100
-    plInd: 0
-    cntrInd: 0
-    country: 1
-    player: 23
-  - name: Matteus
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 24
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 964f8e2b68190fa4c8e82579dcc4a897, type: 3}
-    skill_Speed: 95
-    skill_Kick: 97
-    skill_Jump: 91
-    plInd: 0
-    cntrInd: 0
-    country: 18
-    player: 24
-  - name: Nedved
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 25
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: ad6ae4bf543b31a4fae052f462d4cf37, type: 3}
-    skill_Speed: 95
-    skill_Kick: 85
-    skill_Jump: 90
-    plInd: 0
-    cntrInd: 0
-    country: 27
-    player: 25
-  - name: Pele
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 26
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 3e2a23de3b9a7764b8026a3896b57099, type: 3}
-    skill_Speed: 100
-    skill_Kick: 100
-    skill_Jump: 100
-    plInd: 0
-    cntrInd: 0
-    country: 6
-    player: 26
-  - name: Pirlo
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 27
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 63d1fc9328f60654baa80b9519cabe24, type: 3}
-    skill_Speed: 90
-    skill_Kick: 87
-    skill_Jump: 95
-    plInd: 0
-    cntrInd: 0
-    country: 23
-    player: 27
-  - name: Platini
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 28
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: c8795eaa77e20bb49bda70baac7dfcfe, type: 3}
-    skill_Speed: 93
-    skill_Kick: 91
-    skill_Jump: 90
-    plInd: 0
-    cntrInd: 0
-    country: 23
-    player: 28
-  - name: Raul
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 29
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 1ab02445065d6ca4aa658cada79f8e44, type: 3}
-    skill_Speed: 91
-    skill_Kick: 87
-    skill_Jump: 88
-    plInd: 0
-    cntrInd: 0
-    country: 31
-    player: 29
-  - name: Ronaldo
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 30
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: b1e44da15b2f5324ebb094073cb4262e, type: 3}
-    skill_Speed: 100
-    skill_Kick: 91
-    skill_Jump: 90
-    plInd: 0
-    cntrInd: 0
-    country: 6
-    player: 30
-  - name: Romario
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 31
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: ee32592b2317ef7449c3df6288b37b04, type: 3}
-    skill_Speed: 94
-    skill_Kick: 90
-    skill_Jump: 97
-    plInd: 0
-    cntrInd: 0
-    country: 6
-    player: 31
-  - name: Ronaldinho
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 32
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 140010c6a2172614b9036210924a0a79, type: 3}
-    skill_Speed: 100
-    skill_Kick: 95
-    skill_Jump: 97
-    plInd: 0
-    cntrInd: 0
-    country: 6
-    player: 32
-  - name: Seedorf
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 33
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 12f864777038e744e8b14e6d1d81b832, type: 3}
-    skill_Speed: 87
-    skill_Kick: 89
-    skill_Jump: 90
-    plInd: 0
-    cntrInd: 0
-    country: 25
-    player: 33
-  - name: Shearer
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 34
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: deba40ff5e0e2564198d98d6bd08cc21, type: 3}
-    skill_Speed: 89
-    skill_Kick: 95
-    skill_Jump: 90
-    plInd: 0
-    cntrInd: 0
-    country: 16
-    player: 34
-  - name: Shevchenko
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 35
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 93f42451962a6a64ba162f5403a9def6, type: 3}
-    skill_Speed: 99
-    skill_Kick: 95
-    skill_Jump: 90
-    plInd: 0
-    cntrInd: 0
-    country: 35
-    player: 35
-  - name: van Basten
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 36
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: a5adf7c21a3e2114a8435f2a03a26db1, type: 3}
-    skill_Speed: 89
-    skill_Kick: 89
-    skill_Jump: 94
-    plInd: 0
-    cntrInd: 0
-    country: 25
-    player: 36
-  - name: Xavi
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 37
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: ac2f338384bc16d409d34fbf0999d175, type: 3}
-    skill_Speed: 97
-    skill_Kick: 96
-    skill_Jump: 87
-    plInd: 0
-    cntrInd: 0
-    country: 31
-    player: 37
-  - name: Yashin
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 38
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 41d8cb1e3b8674b47943f09ae4326085, type: 3}
-    skill_Speed: 97
-    skill_Kick: 94
-    skill_Jump: 100
-    plInd: 0
-    cntrInd: 0
-    country: 38
-    player: 38
-  - name: Zidane
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 39
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 0718d1ff880d22842993f25c7906b16f, type: 3}
-    skill_Speed: 95
-    skill_Kick: 100
-    skill_Jump: 95
-    plInd: 0
-    cntrInd: 0
-    country: 17
-    player: 39
-  - name: Mourinho
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 40
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 72a1662c112cba241be53137dfc8a201, type: 3}
-    skill_Speed: 100
-    skill_Kick: 100
-    skill_Jump: 100
-    plInd: 0
-    cntrInd: 0
-    country: 28
-    player: 40
-  - name: Gvardiola
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 41
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 95df5d0a421d53a419db75eeefc34176, type: 3}
-    skill_Speed: 100
-    skill_Kick: 100
-    skill_Jump: 100
-    plInd: 0
-    cntrInd: 0
-    country: 31
-    player: 41
-  - name: Wenger
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 42
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: cb2ceb9c3a50674469c3b1f0469e9ea8, type: 3}
-    skill_Speed: 100
-    skill_Kick: 100
-    skill_Jump: 100
-    plInd: 0
-    cntrInd: 0
-    country: 17
-    player: 42
-  - name: Klopp
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 44
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 7d8da70d01d1b4d4bae7e26fd935765d, type: 3}
-    skill_Speed: 100
-    skill_Kick: 100
-    skill_Jump: 100
-    plInd: 0
-    cntrInd: 0
-    country: 18
-    player: 44
-  - name: Conte
-    toDo:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 62723488}
-          m_MethodName: Preview_2
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 48
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 4039d6a5f589ad040bdd0fe6d353d8f1, type: 3}
-    skill_Speed: 100
-    skill_Kick: 100
-    skill_Jump: 100
-    plInd: 0
-    cntrInd: 0
-    country: 23
-    player: 48
   index: 0
   butInd: 0
   profBut0:
@@ -4074,98 +2991,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  profShowcase_2:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  profShowcase_2_0:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   cntrScrollList:
   - cntr_int: 0
     cntr: 1
@@ -4217,8 +3042,6 @@ MonoBehaviour:
     cntr: 38
   - cntr_int: 24
     cntr: 40
-  previewPlayerLg: 0
-  cntr_int0: 0
 --- !u!4 &62723489
 Transform:
   m_ObjectHideFlags: 0
@@ -4469,11 +3292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc18f992c325fc145a7e1c5872d1f01a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alPrScr: {fileID: 348629377}
-  univFunc: {fileID: 82947577}
-  prMng: {fileID: 62723488}
-  adMob: {fileID: 0}
-  buf: {fileID: 0}
   upgr: {fileID: 0}
   cntrL: {fileID: 62723486}
   plL: {fileID: 62723487}
@@ -4482,7 +3300,6 @@ MonoBehaviour:
   currPrPan: {fileID: 0}
   everyDayReward: {fileID: 0}
   objM: {fileID: 0}
-  topPanMng: {fileID: 0}
   molnia: {fileID: 340614257}
   practScr: {fileID: 1789705226}
   timFr: {fileID: 421196849}
@@ -7014,7 +5831,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -7023,7 +5840,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -7095,7 +5912,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -7104,7 +5921,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -7374,7 +6191,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -7383,7 +6200,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -7675,7 +6492,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -7684,7 +6501,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -8162,9 +6979,9 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: -1
           inSlope: 0
-          outSlope: 0
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -8172,7 +6989,7 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 0
+          inSlope: 2
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -8215,9 +7032,9 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: -1
           inSlope: 0
-          outSlope: 0
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -8225,7 +7042,7 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 0
+          inSlope: 2
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -9768,7 +8585,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 82947577}
+      - m_Target: {fileID: 668244410}
         m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
@@ -12653,13 +11470,22 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 0
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.83333325
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -12746,16 +11572,16 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
-        atime3: 0
-        atime4: 0
+        atime1: 9638
+        atime2: 38165
+        atime3: 65535
+        atime4: 65535
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -12795,8 +11621,17 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -12810,8 +11645,17 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.8235294
+          value: 0
           inSlope: 0
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -12901,7 +11745,7 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -12989,7 +11833,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -12998,7 +11842,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -13042,7 +11886,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -13051,7 +11895,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -13099,7 +11943,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -13108,7 +11952,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -13358,7 +12202,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -13367,7 +12211,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -13411,7 +12255,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -13420,7 +12264,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -13665,7 +12509,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -13674,7 +12518,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -13742,7 +12586,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -13751,7 +12595,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -14015,7 +12859,7 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 1
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -14029,7 +12873,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: -1
           inSlope: 0
           outSlope: 1
           tangentMode: 0
@@ -14082,7 +12926,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -14091,7 +12935,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -14134,13 +12978,22 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 0
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: -1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -14195,7 +13048,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -14301,7 +13154,7 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -14658,9 +13511,9 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: -1
           inSlope: 0
-          outSlope: 0
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -14668,7 +13521,7 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 0
+          inSlope: 2
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -14713,9 +13566,9 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: -1
           inSlope: 0
-          outSlope: 0
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -14823,9 +13676,9 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: -1
           inSlope: 0
-          outSlope: 0
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -14833,7 +13686,7 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 0
+          inSlope: 2
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -14907,7 +13760,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -14916,7 +13769,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -19934,7 +18787,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.5
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -20021,16 +18874,16 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
-        atime3: 0
-        atime4: 0
+        atime1: 9638
+        atime2: 38165
+        atime3: 65535
+        atime4: 65535
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -20070,8 +18923,17 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -20079,14 +18941,23 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 0
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.71999997
+          value: 0
           inSlope: 0
+          outSlope: 1
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -20114,7 +18985,7 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 0
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -20149,7 +19020,7 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 0
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -20281,7 +19152,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -20290,7 +19161,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -20338,7 +19209,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -20347,7 +19218,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -20597,7 +19468,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -20606,7 +19477,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -20896,7 +19767,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: -1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -20931,7 +19802,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: -1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -20951,7 +19822,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -21013,7 +19884,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -21022,7 +19893,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -21220,9 +20091,9 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -21230,7 +20101,7 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 1
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -21246,15 +20117,15 @@ ParticleSystem:
           time: 0
           value: 0
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
+          value: 0
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -21525,6 +20396,15 @@ ParticleSystem:
           time: 0
           value: 0
           inSlope: 0
+          outSlope: 2
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 2
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -21552,8 +20432,17 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: -1
           inSlope: 0
+          outSlope: 2
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 2
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -21607,7 +20496,7 @@ ParticleSystem:
           time: 0
           value: 0
           inSlope: 0
-          outSlope: 0
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -21682,7 +20571,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -21691,7 +20580,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -22032,7 +20921,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: -1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -22827,7 +21716,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -22836,7 +21725,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -22964,7 +21853,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -22973,7 +21862,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -23017,7 +21906,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -23026,7 +21915,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -23070,7 +21959,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -23079,7 +21968,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -23127,7 +22016,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -23136,7 +22025,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -23681,7 +22570,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -23690,7 +22579,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -25175,7 +24064,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 508482679}
-        m_MethodName: SetCameraSize
+        m_MethodName: SetCameraType
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26056,7 +24945,6 @@ MonoBehaviour:
   spr_TimFr_1: {fileID: 21300000, guid: f4fcd7eff54a02844bdf75d596f88fee, type: 3}
   isHandleUnlim: 0
   isFreeze: 0
-  timFr: 0
 --- !u!4 &421196850
 Transform:
   m_ObjectHideFlags: 0
@@ -28091,7 +26979,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -28100,7 +26988,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -34359,7 +33247,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 82947577}
+      - m_Target: {fileID: 668244410}
         m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
@@ -42913,7 +41801,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scr: {fileID: 82947578}
-  _enType: 2
   whenKick: 4
   distToBall: 3.5
   whenKick_State_1: 0
@@ -44554,7 +43441,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 508482679}
-        m_MethodName: SetCameraSize
+        m_MethodName: SetCameraType
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -45796,251 +44683,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1219393897
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1689132143}
-    m_Modifications:
-    - target: {fileID: 6739011660623168634, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 30.275
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011660623168634, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -60.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011660871602996, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 570.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011660871602996, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -1140.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011660871602996, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -123
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011660871602996, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 61.192
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661086432115, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -0.5999756
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661087431237, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_Name
-      value: Console
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661270232899, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 491.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661270232899, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -1113.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661270232899, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -300.30005
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661270232899, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -601.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661290576771, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661290576771, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661290576771, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.14828838
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661770286864, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 29.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011661770286864, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 61.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011662065129928, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 524.10004
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011662065129928, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -1048.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011662065129928, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -239.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011662065129928, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -599.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011662083718362, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -300.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011662083718362, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -601.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011662083718362, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 556.79987
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739011662083718362, guid: 302b725af59c27942abb2cc52411cb24,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -1113.6
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 302b725af59c27942abb2cc52411cb24, type: 3}
---- !u!224 &1219393898 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6739011661087431236, guid: 302b725af59c27942abb2cc52411cb24,
-    type: 3}
-  m_PrefabInstance: {fileID: 1219393897}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1222019764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49140,7 +47782,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -49149,7 +47791,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -49260,7 +47902,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: -1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -49313,7 +47955,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -49322,7 +47964,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -49935,9 +48577,9 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: -1
           inSlope: 0
-          outSlope: 0
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -49945,7 +48587,7 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 0
+          inSlope: 2
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -49995,9 +48637,9 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: -1
           inSlope: 0
-          outSlope: 0
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -50005,7 +48647,7 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 0
+          inSlope: 2
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -50048,9 +48690,9 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: -1
           inSlope: 0
-          outSlope: 0
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -50058,7 +48700,7 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 0
+          inSlope: 2
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -50125,7 +48767,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -50134,7 +48776,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -53436,13 +52078,22 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 0
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.8
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -53521,13 +52172,13 @@ ParticleSystem:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65535
-        ctime2: 0
-        ctime3: 0
-        ctime4: 0
-        ctime5: 0
-        ctime6: 0
-        ctime7: 0
+        ctime1: 16384
+        ctime2: 65535
+        ctime3: 65535
+        ctime4: 65535
+        ctime5: 65535
+        ctime6: 65535
+        ctime7: 65535
         atime0: 0
         atime1: 65535
         atime2: 0
@@ -53537,7 +52188,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 2
+        m_NumColorKeys: 3
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
@@ -53587,13 +52238,22 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 0
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.25
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -53622,7 +52282,7 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 0
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -53657,7 +52317,7 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 0
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -53692,7 +52352,7 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 0
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -53727,7 +52387,7 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 0
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -53753,7 +52413,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -53792,7 +52452,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -53801,7 +52461,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -54051,7 +52711,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -54060,7 +52720,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -54128,7 +52788,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -54137,7 +52797,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -54179,7 +52839,7 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 0
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -54238,7 +52898,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: -1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -54291,7 +52951,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -54300,7 +52960,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -54554,9 +53214,9 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -54564,7 +53224,7 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 1
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -54580,15 +53240,15 @@ ParticleSystem:
           time: 0
           value: 0
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
+          value: 0
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
@@ -54607,7 +53267,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -54616,7 +53276,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -54941,7 +53601,7 @@ ParticleSystem:
           time: 0
           value: 0
           inSlope: 0
-          outSlope: 0
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -55016,7 +53676,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -55025,7 +53685,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -55366,7 +54026,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: -1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -55864,7 +54524,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -55873,7 +54533,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -55924,7 +54584,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -55933,7 +54593,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -56161,7 +54821,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -56170,7 +54830,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -56404,7 +55064,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -56413,7 +55073,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -56514,7 +55174,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -56523,7 +55183,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -61918,7 +60578,6 @@ MonoBehaviour:
   totalPrice: 0
   plLegSprR: {fileID: 580839002}
   enLegSprR: {fileID: 1472390389}
-  enLegSprR_1: {fileID: 1087981546}
   allRbs:
   - {fileID: 67960599}
   - {fileID: 847647068}
@@ -64404,105 +63063,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1688908155}
   m_CullTransparentMesh: 0
---- !u!1 &1689132139
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1689132143}
-  - component: {fileID: 1689132142}
-  - component: {fileID: 1689132141}
-  - component: {fileID: 1689132140}
-  m_Layer: 5
-  m_Name: CanvasConsole
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1689132140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689132139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &1689132141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689132139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
---- !u!223 &1689132142
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689132139}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!224 &1689132143
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689132139}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 1219393898}
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1694527445
 GameObject:
   m_ObjectHideFlags: 0
@@ -64963,7 +63523,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scr: {fileID: 82947578}
-  _enType: 0
   whenKick: 4
   distToBall: 3.5
   whenKick_State_1: 0
@@ -71056,7 +69615,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051801552}
-  m_CullTransparentMesh: 0
+  m_CullTransparentMesh: 1
 --- !u!95 &2051801556
 Animator:
   serializedVersion: 3

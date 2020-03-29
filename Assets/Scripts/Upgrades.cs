@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class BallUpgrade
 {
     public RectTransform _rectTr;
-    //public Sprite icon;
     public int price;
     public string description;
 }
@@ -58,7 +57,7 @@ public class Upgrades : MonoBehaviour
     public int curr_ind;
     [HideInInspector]
     public int curr_indBall;
-
+    private bool isBK_Chosen;
 
     public void Buy()
     {
@@ -67,41 +66,25 @@ public class Upgrades : MonoBehaviour
         switch (curr_ind)
         {
             case 0: //Speed
-                scr.alPrScr.moneyCount -= prices_Speed[scr.alPrScr.upgrSpeed];
-                scr.alPrScr.upgrSpeed++;
+                PrefsManager.Instance.MoneyCount -= prices_Speed[PrefsManager.Instance.UpgradeSpeed++];
                 break;
             case 1: //Kick
                 if (!isBK_Chosen)
-                {
-                    scr.alPrScr.moneyCount -= prices_Speed[scr.alPrScr.upgrKick];
-                    scr.alPrScr.upgrKick++;
-                }
+                    PrefsManager.Instance.MoneyCount -= prices_Speed[PrefsManager.Instance.UpgradeKick++];
                 else
                 {
-                    PlayerPrefs.SetInt("BycicleKick", 1);
-                    scr.alPrScr.moneyCount -= bkPrice;
+                    PrefsManager.Instance.BycicleKickEnabled = true;
+                    PrefsManager.Instance.MoneyCount -= bkPrice;
                 }
                 break;
             case 2: //Jump
-                scr.alPrScr.moneyCount -= prices_Speed[scr.alPrScr.upgrJump];
-                scr.alPrScr.upgrJump++;
-                break;
-            case 3: //Slowdown
-                scr.alPrScr.moneyCount -= prices_Speed[scr.alPrScr.upgrSlowdown];
-                scr.alPrScr.upgrSlowdown++;
+                PrefsManager.Instance.MoneyCount -= prices_Speed[PrefsManager.Instance.UpgradeJump++];
                 break;
             case 4: //Shields
-                scr.alPrScr.moneyCount -= prices_Speed[scr.alPrScr.upgrShield];
-                scr.alPrScr.upgrShield++;
-                break;
-            case 5: //Balls
-                Debug.Log("Ball index = " + curr_indBall);
-                scr.alPrScr.upgrBalls[curr_indBall] = 1;
-                scr.alPrScr.moneyCount -= _ballUpgr[curr_indBall].price;
+                PrefsManager.Instance.MoneyCount -= prices_Speed[PrefsManager.Instance.UpgradeShield++];
                 break;
             case 6: //Money
-                scr.alPrScr.moneyCount -= prices_Speed[scr.alPrScr.upgrMoney];
-                scr.alPrScr.upgrMoney++;
+                PrefsManager.Instance.MoneyCount -= prices_Speed[PrefsManager.Instance.UpgradeMoneyIncome++];
                 break;
         }
 
@@ -109,9 +92,6 @@ public class Upgrades : MonoBehaviour
             Set_KickPanel(1);
         else
             Upgrade_Choose(curr_ind);
-        
-        scr.alPrScr.doCh = true;
-        scr.alPrScr.setMoney = true;
     }
 
     public void Refund()
@@ -121,40 +101,27 @@ public class Upgrades : MonoBehaviour
         switch (curr_ind)
         {
             case 0: //Speed
-                scr.alPrScr.moneyCount += prices_Speed[scr.alPrScr.upgrSpeed - 1];
-                scr.alPrScr.upgrSpeed--;
+                PrefsManager.Instance.MoneyCount += prices_Speed[--PrefsManager.Instance.UpgradeSpeed];
                 break;
             case 1: //Kick
                 if (!isBK_Chosen)
                 {
-                    scr.alPrScr.moneyCount += prices_Speed[scr.alPrScr.upgrKick - 1];
-                    scr.alPrScr.upgrKick--;
+                    PrefsManager.Instance.MoneyCount += prices_Speed[--PrefsManager.Instance.UpgradeKick];
                 }
                 else
                 {
-                    PlayerPrefs.SetInt("BycicleKick", 0);
-                    scr.alPrScr.moneyCount += bkPrice;
+                    PrefsManager.Instance.BycicleKickEnabled = false;
+                    PrefsManager.Instance.MoneyCount += bkPrice;
                 }
                 break;
             case 2: //Jump
-                scr.alPrScr.moneyCount += prices_Speed[scr.alPrScr.upgrJump - 1];
-                scr.alPrScr.upgrJump--;
-                break;
-            case 3: //Slowdown
-                scr.alPrScr.moneyCount += prices_Speed[scr.alPrScr.upgrSlowdown - 1];
-                scr.alPrScr.upgrSlowdown--;
+                PrefsManager.Instance.MoneyCount += prices_Speed[--PrefsManager.Instance.UpgradeJump];
                 break;
             case 4: //Shields
-                scr.alPrScr.moneyCount += prices_Speed[scr.alPrScr.upgrShield - 1];
-                scr.alPrScr.upgrShield--;
-                break;
-            case 5: //Balls
-                scr.alPrScr.upgrBalls[curr_indBall] = 0;
-                scr.alPrScr.moneyCount += _ballUpgr[curr_indBall].price;
+                PrefsManager.Instance.MoneyCount += prices_Speed[--PrefsManager.Instance.UpgradeShield];
                 break;
             case 6: //Money
-                scr.alPrScr.moneyCount += prices_Speed[scr.alPrScr.upgrMoney - 1];
-                scr.alPrScr.upgrMoney--;
+                PrefsManager.Instance.MoneyCount += prices_Speed[--PrefsManager.Instance.UpgradeMoneyIncome];
                 break;
         }
                 
@@ -162,17 +129,11 @@ public class Upgrades : MonoBehaviour
             Set_KickPanel(1);
         else
             Upgrade_Choose(curr_ind);
-        
-        scr.alPrScr.doCh = true;
-        scr.alPrScr.setMoney = true;
     }
 
     public void Upgrade_Choose(int _ind)
     {
         scr.objM.Button_Sound();
-
-        scr.topPanMng.moneyText.text = 
-            scr.univFunc.moneyString(scr.alPrScr.moneyCount);
 
         curr_ind = _ind;
         text_UpgradeName.text = upgrNames[_ind];
@@ -219,7 +180,7 @@ public class Upgrades : MonoBehaviour
         switch (_ind)
         {
             case 0: //Speed
-                sticks = scr.alPrScr.upgrSpeed;
+                sticks = PrefsManager.Instance.UpgradeSpeed;
 
                 if (sticks < 20)
                 {
@@ -235,9 +196,9 @@ public class Upgrades : MonoBehaviour
                     }
 
                     text_BuyButton.text = "Upgrade: " +
-                        scr.univFunc.moneyString(prices_Speed[sticks]);
+                        Customs.Money(prices_Speed[sticks]);
 
-                    if (scr.alPrScr.moneyCount > prices_Speed[sticks])
+                    if (PrefsManager.Instance.MoneyCount > prices_Speed[sticks])
                     {
                         text_BuyButton.color = col_Stick0;
                         but_Buy.interactable = true;
@@ -265,7 +226,7 @@ public class Upgrades : MonoBehaviour
                 break;
             case 1: //Kick
                 isBK_Chosen = false;
-                sticks = scr.alPrScr.upgrKick;
+                sticks = PrefsManager.Instance.UpgradeKick;
 
                 if (sticks < 20)
                 {
@@ -281,9 +242,9 @@ public class Upgrades : MonoBehaviour
                     }
 
                     text_BuyButton.text = "Upgrade: " +
-                        scr.univFunc.moneyString(prices_Speed[sticks]);
+                        Customs.Money(prices_Speed[sticks]);
 
-                    if (scr.alPrScr.moneyCount > prices_Speed[sticks])
+                    if (PrefsManager.Instance.MoneyCount > prices_Speed[sticks])
                     {
                         text_BuyButton.color = col_Stick0;
                         but_Buy.interactable = true;
@@ -310,7 +271,7 @@ public class Upgrades : MonoBehaviour
                 text_Percent.text = "Kick: " + perc.ToString() + "%";
                 break;
             case 2: //Jump
-                sticks = scr.alPrScr.upgrJump;
+                sticks = PrefsManager.Instance.UpgradeJump;
 
                 if (sticks < 20)
                 {
@@ -326,9 +287,9 @@ public class Upgrades : MonoBehaviour
                     }
 
                     text_BuyButton.text = "Upgrade: " +
-                        scr.univFunc.moneyString(prices_Speed[sticks]);
+                        Customs.Money(prices_Speed[sticks]);
 
-                    if (scr.alPrScr.moneyCount > prices_Speed[sticks])
+                    if (PrefsManager.Instance.MoneyCount > prices_Speed[sticks])
                     {
                         text_BuyButton.color = col_Stick0;
                         but_Buy.interactable = true;
@@ -354,53 +315,9 @@ public class Upgrades : MonoBehaviour
                 perc = 100 + sticks * 2;
                 text_Percent.text = "Jump: " + perc.ToString() + "%";
                 break;
-            case 3: //Slowdown
-                sticks = scr.alPrScr.upgrSlowdown;
-
-                if (sticks < 20)
-                {
-                    if (sticks == 0)
-                    {
-                        text_RefundButton.color = col_Stick1;
-                        but_Refund.interactable = false;
-                    }
-                    else
-                    {
-                        text_RefundButton.color = col_Stick0;
-                        but_Refund.interactable = true;
-                    }
-
-                    text_BuyButton.text = "Upgrade: " +
-                        scr.univFunc.moneyString(prices_Speed[sticks]);
-
-                    if (scr.alPrScr.moneyCount > prices_Speed[sticks])
-                    {
-                        text_BuyButton.color = col_Stick0;
-                        but_Buy.interactable = true;
-                    }
-                    else
-                    {
-                        text_BuyButton.color = col_Stick1;
-                        but_Buy.interactable = false;
-                    }
-                }
-                else
-                {
-                    text_BuyButton.text = "Maxed";
-                    text_BuyButton.color = col_Stick1;
-                    but_Buy.interactable = false;
-                    text_RefundButton.color = col_Stick0;
-                    but_Refund.interactable = true;
-                }
-
-                for (int i = 0; i < im_Sticks.Length; i++)
-                    im_Sticks[i].color = i < sticks ? col_Stick0 : col_Stick1;
-
-                perc = 3 + sticks;
-                text_Percent.text = "Slowdown for: " + perc.ToString() + "s";
-                break;
+            
             case 4: //Shields
-                sticks = scr.alPrScr.upgrShield;
+                sticks = PrefsManager.Instance.UpgradeShield;
 
                 if (sticks < 20)
                 {
@@ -416,9 +333,9 @@ public class Upgrades : MonoBehaviour
                     }
 
                     text_BuyButton.text = "Upgrade: " +
-                        scr.univFunc.moneyString(prices_Speed[sticks]);
+                        Customs.Money(prices_Speed[sticks]);
 
-                    if (scr.alPrScr.moneyCount > prices_Speed[sticks])
+                    if (PrefsManager.Instance.MoneyCount > prices_Speed[sticks])
                     {
                         text_BuyButton.color = col_Stick0;
                         but_Buy.interactable = true;
@@ -448,7 +365,7 @@ public class Upgrades : MonoBehaviour
                 Ball_Choose(curr_indBall);
                 break;
             case 6: //Money
-                sticks = scr.alPrScr.upgrMoney;
+                sticks = PrefsManager.Instance.UpgradeMoneyIncome;
 
                 if (sticks < 20)
                 {
@@ -464,9 +381,9 @@ public class Upgrades : MonoBehaviour
                     }
 
                     text_BuyButton.text = "Upgrade: " +
-                        scr.univFunc.moneyString(prices_Speed[sticks]);
+                        Customs.Money(prices_Speed[sticks]);
 
-                    if (scr.alPrScr.moneyCount > prices_Speed[sticks])
+                    if (PrefsManager.Instance.MoneyCount > prices_Speed[sticks])
                     {
                         text_BuyButton.color = col_Stick0;
                         but_Buy.interactable = true;
@@ -494,7 +411,7 @@ public class Upgrades : MonoBehaviour
                 break;
         }
     }
-        
+
     public void Ball_Choose(int _ind)
     {
         curr_indBall = _ind;
@@ -505,36 +422,16 @@ public class Upgrades : MonoBehaviour
         _ballUpgr[_ind]._rectTr.sizeDelta = new Vector2(170, 170);
         text_Percent.text = _ballUpgr[_ind].description;
 
-        if (scr.alPrScr.upgrBalls[_ind] == 1)
-        {
-            text_BuyButton.text = "Already got";
-            text_BuyButton.color = col_Stick1;
-            but_Buy.interactable = false;
-            text_RefundButton.color = _ind == 0 ? col_Stick1 : col_Stick0;
-            but_Refund.interactable = _ind == 0 ? false : true;
-        }
-        else
-        {
-            text_BuyButton.text = "Buy: " + 
-                scr.univFunc.moneyString(_ballUpgr[_ind].price);
 
-            if (scr.alPrScr.moneyCount > _ballUpgr[_ind].price)
-            {
-                text_BuyButton.color = col_Stick0;
-                but_Buy.interactable = true;
-            }
-            else
-            {
-                text_BuyButton.color = col_Stick1;
-                but_Buy.interactable = false;
-            }
+        text_BuyButton.text = "Already got";
+        text_BuyButton.color = col_Stick1;
+        but_Buy.interactable = false;
+        text_RefundButton.color = _ind == 0 ? col_Stick1 : col_Stick0;
+        but_Refund.interactable = _ind != 0;
 
-            text_RefundButton.color = col_Stick1;
-            but_Refund.interactable = false;
-        }
     }
 
-    private bool isBK_Chosen;
+    
 
     public void Set_KickPanel(int _ind)
     {
@@ -543,7 +440,7 @@ public class Upgrades : MonoBehaviour
             case 0: // Kick Button
                 Upgrade_Choose(1);
                 break;
-            case 1: // Becicke Kick Button
+            case 1: // Bycicle Kick Button
                 scr.objM.Button_Sound();
 
                 isBK_Chosen = true;
@@ -553,9 +450,8 @@ public class Upgrades : MonoBehaviour
                 text_UpgrDescription.text = "Bycicle kick.";
                 text_Percent.alignment = TextAnchor.UpperLeft;
                 text_Percent.text = str_BK;
-                bool isBkOpened = scr.univFunc.Int2Bool(PlayerPrefs.GetInt("BycicleKick"));
-
-                if (isBkOpened)
+                
+                if (PrefsManager.Instance.BycicleKickEnabled)
                 {
                     text_BuyButton.text = "Already got";
                     text_BuyButton.color = col_Stick1;
@@ -565,7 +461,7 @@ public class Upgrades : MonoBehaviour
                 }
                 else
                 {
-                    text_BuyButton.text = "Buy: " + scr.univFunc.moneyString(bkPrice);
+                    text_BuyButton.text = "Buy: " + Customs.Money(bkPrice);
                     text_BuyButton.color = col_Stick0;
                     but_Buy.interactable = true;
                     text_RefundButton.color = col_Stick1;
@@ -578,7 +474,7 @@ public class Upgrades : MonoBehaviour
         }
     }
 
-    public void Enable_BallPanel()
+    private void Enable_BallPanel()
     {
         for (int i = 0; i < obj_BallsPan.Length; i++)
             obj_BallsPan[i].SetActive(true);
@@ -587,7 +483,7 @@ public class Upgrades : MonoBehaviour
             obj_NotBallsPan[i].SetActive(false);
     }
 
-    public void Disable_BallPanel()
+    private void Disable_BallPanel()
     {
         for (int i = 0; i < obj_BallsPan.Length; i++)
             obj_BallsPan[i].SetActive(false);
@@ -595,6 +491,4 @@ public class Upgrades : MonoBehaviour
         for (int i = 0; i < obj_NotBallsPan.Length; i++)
             obj_NotBallsPan[i].SetActive(true);
     }
-
-
 }

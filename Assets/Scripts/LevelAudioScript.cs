@@ -68,7 +68,7 @@ public class LevelAudioScript : MonoBehaviour
     
     private void SetTribunesSource()
     {
-	    int trib = scr.alPrScr.tribunes;
+	    int trib = PrefsManager.Instance.Tribunes;
 	    _tribunes[0].enabled = trib == 3;
 	    _tribunes[1].enabled = trib == 1 || trib == 4;
 	    _tribunes[2].enabled = trib == 2 || trib == 5;
@@ -121,12 +121,12 @@ public class LevelAudioScript : MonoBehaviour
     
     private void Attenuation_TribunesSound()
     {
-	    if (!scr.tM.isGoldenGoal && TimeManager.resOfGame == 0)
+	    if (!scr.tM.isGoldenGoal && LevelTimeManager.resOfGame == 0)
 	    {
 		    if (_tribunes[tribInd].volume < maxTribVolume)
 			    _tribunes[tribInd].volume *= 1.001f;
 	    }
-	    else if (!scr.tM.isGoldenGoal && TimeManager.resOfGame != 0)
+	    else if (!scr.tM.isGoldenGoal && LevelTimeManager.resOfGame != 0)
 	    {
 		    if (_tribunes[tribInd].volume > 0.05f)
 			    _tribunes[tribInd].volume *= 0.99f;
@@ -184,12 +184,12 @@ public class LevelAudioScript : MonoBehaviour
 		    Animator.StringToHash(isAwake + (isSoundOn ? "1" : "0")));
 
 	    if (isAwake == 0)
-		    PlayerPrefs.SetInt("SoundOn", isSoundOn ? 1 : 0);
+		    PrefsManager.Instance.SoundOn = isSoundOn;
 
 	    for (int i = 0; i < audSources.Length; i++)
 		    audSources[i].mute = !isSoundOn;
 
-	    if (scr.alPrScr.tribunes == 1 || scr.alPrScr.tribunes == 5)
+	    if (PrefsManager.Instance.Tribunes == 1 || PrefsManager.Instance.Tribunes == 5)
 	    {
 		    AudioSource[] audS = scr.rainMan.rainScr.gameObject.GetComponents<AudioSource>();
 		    for (int i = 0; i < audS.Length; i++)

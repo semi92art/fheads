@@ -32,15 +32,12 @@ public class JumpScript : MonoBehaviour
 	{
         if (Time.timeSinceLevelLoad > PlayerMovement.restartDelay1 + 1)
         {
-            if (enAlg._enType == OpponentType.Classic || enAlg._enType == OpponentType.Bycicle)
-            {
-                if (transform.rotation.eulerAngles.z < zMin)
-                    sign = 1.0f;
-                else if (transform.rotation.eulerAngles.z > zMax)
-                    sign = -1.0f;
+            if (transform.rotation.eulerAngles.z < zMin)
+                sign = 1.0f;
+            else if (transform.rotation.eulerAngles.z > zMax)
+                sign = -1.0f;
 
-                transform.Rotate(0, 0, sign * rotC * Time.deltaTime);
-            }
+            transform.Rotate(0, 0, sign * rotC * Time.deltaTime);
             
             if (scr.pMov.restart) 
                 isRestart = true;
@@ -91,19 +88,7 @@ public class JumpScript : MonoBehaviour
                 }
             }
 
-            // Real jump of Enemy:
-            switch (enAlg._enType)
-            {
-                case OpponentType.Classic:
-                    isEnemyGrounded = scr.grTr.isEnemyGrounded;
-                    break;
-                case OpponentType.Bycicle:
-                    isEnemyGrounded = scr.grTr.isEnemyGrounded;
-                    break;
-                case OpponentType.Goalkeeper:
-                    isEnemyGrounded = scr.grTr.isEnemy1Grounded;
-                    break;
-            }
+            isEnemyGrounded = scr.grTr.isEnemyGrounded;
 
             if (isRealJump && isEnemyGrounded && !isMolniya)
             {

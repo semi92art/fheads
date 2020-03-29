@@ -4,38 +4,35 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField]
-    private Scripts scr;
+    [SerializeField] private Scripts scr;
 
-    public OpponentType _enType;
     public float whenKick;
     public float distToBall;
     public float whenKick_State_1;
     public float moveForce;
 
     public float
-    maxSpeed,
-    jumpForce,
-    kickTorque,
-    kickSpeed;
+        maxSpeed,
+        jumpForce,
+        kickTorque,
+        kickSpeed;
 
     public Collider2D headColl1;
     public HingeJoint2D legHJ;
     public SpriteRenderer enSpr;
 
-    [HideInInspector]
-    public bool isKick;
-    [HideInInspector]
-    public Vector2 fVectEn;
+    [HideInInspector] public bool isKick;
+    [HideInInspector] public Vector2 fVectEn;
 
     public static bool gameStop;
 
     private Transform enSprTr;
-    [SerializeField]
-    private float Force;
+    [SerializeField] private float Force;
     private int timer;
     private bool chDir2;
+
     private int jumpTimer;
+
     //[SerializeField]
     private float enX, enY, bX, bY, plX;
     private float timerSprAnim;
@@ -51,8 +48,7 @@ public class Enemy : MonoBehaviour
     private float defPosX;
     private float dTim, lim;
     public Rigidbody2D _rb;
-    [HideInInspector]
-    public Transform _tr;
+    [HideInInspector] public Transform _tr;
     public Collider2D col_body;
     private bool isGrounded;
 
@@ -66,22 +62,12 @@ public class Enemy : MonoBehaviour
 
         kickSpeed = scr.pMov.kickSpeed0;
 
-        if (_enType != OpponentType.Goalkeeper)
-        {
-            _enType = scr.buf.oppType;
-            enSpr.sprite = scr.buf.enSpr;
-            maxSpeed = scr.pMov.maxSpeed0 * scr.buf.enSkillSpeed / 100f;
-            jumpForce = scr.pMov.jumpForce0 * scr.buf.enSkillJump / 100f;
-            kickTorque = scr.pMov.kickTorque0 * scr.buf.enSkillKick / 100f;
-            
-        }
-        else
-        {
-            enSpr.sprite = scr.buf.enSpr_1;
-            maxSpeed = scr.pMov.maxSpeed0 * scr.buf.enSkillSpeed_1 / 100f;
-            jumpForce = scr.pMov.jumpForce0 * scr.buf.enSkillJump_1 / 100f;
-            kickTorque = scr.pMov.kickTorque0 * scr.buf.enSkillKick_1 / 100f;
-        }
+        enSpr.sprite = ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].icon;
+        maxSpeed = scr.pMov.maxSpeed0 * ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].skill_Speed / 100f;
+        jumpForce = scr.pMov.jumpForce0 * ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].skill_Jump / 100f;
+        kickTorque = scr.pMov.kickTorque0 * ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].skill_Kick / 100f;
+
+
 
         SKJ_Upgrades();
 
@@ -100,11 +86,11 @@ public class Enemy : MonoBehaviour
 
     private void SKJ_Upgrades()
     {
-        float coeff_game = (100f + (float)scr.alPrScr.game * 0.01f) / 100f;
-        float coeff_lg = (100f + (float)scr.alPrScr.lg * 0.01f) / 100f;
-        float coeff_rand = (100f + Random.value * 0.1f) / 100f;
+        float coeff_game = (100f + PrefsManager.Instance.Game * .01f) * .01f;
+        float coeff_lg = (100f + PrefsManager.Instance.League * .01f) * .01f;
+        float coeff_rand = (100f + Random.value * .1f) * .01f;
 
-        if (scr.alPrScr.isRandGame == 0)
+        if (!PrefsManager.Instance.IsRandomOpponent)
         {
             maxSpeed = maxSpeed * coeff_game * coeff_lg * 1.015f;
             jumpForce = jumpForce * coeff_game * coeff_lg * 1.02f;
@@ -122,23 +108,8 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        switch (_enType)
-        {
-            case OpponentType.Classic:
-                isGrounded = scr.grTr.isEnemyGrounded;
-                defPosX = bX < scr.marks.midTr.position.x ?
-                    scr.marks.gkStateTr.position.x : scr.marks.defPosTr.position.x;
-                break;
-            case OpponentType.Bycicle:
-                isGrounded = scr.grTr.isEnemyGrounded;
-                defPosX = bX < scr.marks.midTr.position.x ?
-                    scr.marks.gkStateTr.position.x : scr.marks.defPosTr.position.x;
-                break;
-            case OpponentType.Goalkeeper:
-                isGrounded = scr.grTr.isEnemy1Grounded;
-                defPosX = scr.marks.gkStateTr.position.x + 12f * (0.5f + 1f * Mathf.Sin(Time.time)) + 3f;
-                break;
-        }
+        isGrounded = scr.grTr.isEnemyGrounded;
+        defPosX = bX < scr.marks.midTr.position.x ? scr.marks.gkStateTr.position.x : scr.marks.defPosTr.position.x;
 
         if (scr.pMov.startGame && !scr.pMov.startGameCheck)
             startTime = Time.timeSinceLevelLoad;
@@ -153,7 +124,7 @@ public class Enemy : MonoBehaviour
         {
             if (sprAnimVal != -1)
             {
-                switch ((int)Force)
+                switch ((int) Force)
                 {
                     case -1:
                         sprAnimVal = transform.position.x > defPosX + 1 ? 1 : 3;
@@ -208,11 +179,7 @@ public class Enemy : MonoBehaviour
         EnemyMovementControl();
         MaxSpeedControl();
         KickControl();
-
-        if (_enType == OpponentType.Goalkeeper)
-            GoalkeeperJump();
-        else if (_enType == OpponentType.Bycicle)
-            KickOverHeadFcn();
+        KickOverHeadFcn();
     }
 
     private void KickControl()
@@ -230,7 +197,7 @@ public class Enemy : MonoBehaviour
         else
             isKick = false;
 
-        if (scr.jScr.isMolniya && _enType != OpponentType.Goalkeeper)
+        if (scr.jScr.isMolniya)
             isKick = false;
 
         JointMotor2D motor = legHJ.motor;
@@ -240,29 +207,11 @@ public class Enemy : MonoBehaviour
 
         JointAngleLimits2D limits = legHJ.limits;
 
-        switch (_enType)
-        {
-            case OpponentType.Classic:
-                limits.min = -180f;
-                limits.max = -90f;
-                legHJ.limits = limits;
-                break;
-            case OpponentType.Bycicle:
-                if (!kOvH)
-                {
-                    limits.min = -180f;
-                    limits.max = -90f;
-                    legHJ.limits = limits;
-                }
-                break;
-            case OpponentType.Goalkeeper:
-                limits.min = -180f;
-                limits.max = -90f;
-                legHJ.limits = limits;
-                break;
-        }
+        limits.min = -180f;
+        limits.max = -90f;
+        legHJ.limits = limits;
     }
-    
+
     private void EnemyBored()
     {
         boredTimer += Time.deltaTime;
@@ -288,7 +237,7 @@ public class Enemy : MonoBehaviour
 
         boredTimer = boredTimer > 200 ? 0 : boredTimer;
     }
-    
+
     private void Defend()
     {
         if (bX < scr.marks.midTr.position.x)
@@ -338,19 +287,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void GoalKeeper()
-    {
-        if (bX < transform.position.x)
-            Force = -1;
-        else
-        {
-            if (transform.position.x < defPosX)
-                Force = 1;
-            else
-                Force = -1;
-        }
-    }
-    
     private void Attack()
     {
         if (enX > bX - distToBall)
@@ -415,61 +351,56 @@ public class Enemy : MonoBehaviour
         enY = transform.position.y;
         enX = transform.position.x;
 
-        if (_enType == OpponentType.Goalkeeper)
-            GoalKeeper();
-        else
+        if (prevScoreDiff != Score.score - Score.score1)
         {
+            timDef = 0f;
 
-            if (prevScoreDiff != Score.score - Score.score1)
-            {
-                timDef = 0f;
+            if (Score.score - Score.score1 < 3)
+                isTimDef = true;
+        }
 
-                if (Score.score - Score.score1 < 3)
-                    isTimDef = true;
-            }
-            
-            if (!gameStop && !scr.pMov.restart && !scr.pMov.freezeOnStart)
+        if (!gameStop && !scr.pMov.restart && !scr.pMov.freezeOnStart)
+        {
+            float timLim = scr.tM.matchPeriods == 2 ? 35f : (float) prevScoreDiff / 2f + 1f;
+            if (isTimDef)
             {
-                float timLim = scr.tM.matchPeriods == 2 ?
-                    35f : (float)prevScoreDiff / 2f + 1f;
-                if (isTimDef)
+                timDef += Time.fixedDeltaTime;
+
+                if (timDef > timLim)
                 {
-                    timDef += Time.fixedDeltaTime;
-
-                    if (timDef > timLim)
-                    {
-                        timDef = 0f;
-                        isTimDef = false;
-                    }
+                    timDef = 0f;
+                    isTimDef = false;
                 }
-                if (enX > plX && enX < bX - distToBall_1)
-                    Force = 1;
+            }
+
+            if (enX > plX && enX < bX - distToBall_1)
+                Force = 1;
+            else
+            {
+                if (Score.score < Score.score1)
+                    Defend();
                 else
                 {
-                    if (Score.score < Score.score1)
-                        Defend();
-                    else
+                    if (!scr.tM.isGoldenGoal)
                     {
-                        if (!scr.tM.isGoldenGoal)
-                        {
-                            if (Score.score - Score.score1 >= 3)
-                                Attack();
-                            else
-                            {
-                                if (isTimDef)
-                                    Defend();
-                                else
-                                    Attack();
-                            }
-                        }
+                        if (Score.score - Score.score1 >= 3)
+                            Attack();
                         else
-                            Defend();
+                        {
+                            if (isTimDef)
+                                Defend();
+                            else
+                                Attack();
+                        }
                     }
+                    else
+                        Defend();
                 }
             }
-
-            prevScoreDiff = Score.score - Score.score1;
         }
+
+        prevScoreDiff = Score.score - Score.score1;
+
     }
 
     private void MaxSpeedControl()
@@ -511,8 +442,7 @@ public class Enemy : MonoBehaviour
     private int offGroundTimer;
     private bool isRealJump;
 
-    [Header("Kick Overhead Objects:")]
-    public bool kOvH;
+    [Header("Kick Overhead Objects:")] public bool kOvH;
     private float kOvHTorque;
 
     public EdgeCollider2D col_EdgeSlide;
@@ -534,7 +464,7 @@ public class Enemy : MonoBehaviour
     private void KickOverHeadFcn()
     {
         kOvH = isKickOverHead();
-        
+
         if (kOvH)
         {
             if (!scr.jScr.isMolniya)
@@ -621,21 +551,4 @@ public class Enemy : MonoBehaviour
                 jumpForce);
         }
     }
-
-    private void GoalkeeperJump()
-    {
-        if (Time.timeSinceLevelLoad > PlayerMovement.restartDelay1 + 1)
-        {
-            if (Mathf.Abs(bX - enX) < 10f)
-            {
-                if (Mathf.Abs(bY - enY) < 20f)
-                    jump = true;
-            }
-            else
-                jump = false;
-
-            Single_Jump();
-        }
-    }
-
 }
