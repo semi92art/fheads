@@ -87,13 +87,17 @@ public class CameraSize : MonoBehaviour
 
     private void CameraTransform()
     {
+        Vector3 position = transform.position;
+        Vector3 playerPosition = scr.pMov.transform.position;
+        Vector3 ballPosition = scr.ballScr.transform.position;
+        
         if (scr.objLev.isTiltOn)
         {
             angCoeff = scr.objLev.isTiltOn ? 0.03f : 0f;
             newAng = scr.pMov._rb.velocity.x * angCoeff;
 
-            if (scr.pMov.transform.position.x > scr.marks.rightTiltEdgeTr.position.x ||
-                scr.pMov.transform.position.x < scr.marks.leftTiltEdgeTr.position.x)
+            if (playerPosition.x > scr.marks.rightTiltEdgeTr.position.x ||
+                playerPosition.x < scr.marks.leftTiltEdgeTr.position.x)
                 newAng = 0;
 
             transform.rotation = Quaternion.AngleAxis(
@@ -101,34 +105,22 @@ public class CameraSize : MonoBehaviour
                 Vector3.forward);
         }
 
-        float newX = 0.5f * (followTr.position.x + scr.ballScr.transform.position.x);
+        float newX = Mathf.Clamp(0.5f * (followTr.position.x + ballPosition.x), leftCamEdge, rightCamEdge);
+        newX = Mathf.Lerp(position.x, newX, lerpX * Time.deltaTime);
+        
         float newY = 0f;
-
         switch (m_CameraType)
         {
-            case CameraType.Small:
-                newY = 0.5f * (followTr.position.y + scr.ballScr.transform.position.y);
-                newY = newY > topCamEdge ? topCamEdge : newY < 10f ? 10f : newY;
-                newY = Mathf.Lerp(transform.position.y, newY, lerpX * Time.deltaTime * 5f);
-                break;
             case CameraType.Big:
                 newY = -14.78f * resMy0 + 34.3f;
                 break;
+            case CameraType.Small:
+                newY = Mathf.Clamp(0.5f * (followTr.position.y + ballPosition.y), 10f, topCamEdge);
+                newY = Mathf.Lerp(position.y, newY, lerpX * Time.deltaTime * 5f);
+                break;
         }
-
-        Vector3 position = scr.ballScr.transform.position;
-        float orthographicSize = cam.orthographicSize;
-        newX = Mathf.Clamp(newX, position.x - orthographicSize,
-            position.x + orthographicSize);
         
-        newX = newX > rightCamEdge ? rightCamEdge : newX < leftCamEdge ? leftCamEdge : newX;
-
-        Vector3 position1 = transform.position;
-        position1 = new Vector3(
-            Mathf.Lerp(position1.x, newX, lerpX * Time.deltaTime),
-            newY,
-            position1.z);
-        transform.position = position1;
+        transform.position = new Vector3(newX, newY, position.z);
     }
 
     public void SetGraphics(int fromAwake)

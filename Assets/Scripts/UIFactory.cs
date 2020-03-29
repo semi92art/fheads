@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditorInternal;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -47,61 +48,52 @@ public static class UIFactory
         RectTransform _Item,
         string _StyleName)
     {
-        UIStyleObject style = Resources.Load<UIStyleObject>($"Styles/{_StyleName}");
-        
         Image image = _Item.gameObject.AddComponent<Image>();
-        image.sprite = style.Sprite;
-        image.color = style.Color;
-        image.raycastTarget = style.RaycastTarget;
-
+        UIStyleObject style = Resources.Load<UIStyleObject>($"Styles/{_StyleName}");
+        if (style == null)
+            return image;
+        
+        image.sprite = style.sprite;
+        image.color = style.imageColor;
+        image.raycastTarget = style.raycastImageTarget;
+        image.useSpriteMesh = style.useSpriteMesh;
+        image.preserveAspect = style.preserveAspect;
+        image.pixelsPerUnitMultiplier = style.pixelsPerUnityMultyply;
+        image.type = style.imageType;
+        image.fillMethod = style.fillMethod;
+        image.fillOrigin = style.fillOrigin;
+        image.fillClockwise = style.fillClockwise;
         return image;
     }
     
     public static Text UIText(
         RectTransform _Item,
-        string _Text,
-        string _FontName,
-        FontStyle _FontStyle,
-        Color _Color,
-        int _FontSize,
-        TextAnchor _Alignment,
-        HorizontalWrapMode _HorizontalOverflow = HorizontalWrapMode.Wrap,
-        VerticalWrapMode _VerticalOverflow = VerticalWrapMode.Truncate,
-        bool _RichText = false,
-        bool _AlignByGeometry = false,
-        float _LineSpacing = 1f,
-        bool _BestFit = false,
-        bool _RaycastTarget = false,
-        Color? _ShadowEffectColor = null,
-        Vector2? _ShadowEffectDistance = null,
-        bool? _ShadowUseGraphicsAlpha = null
+        string _StyleName
         )
     {
         Text text = _Item.gameObject.AddComponent<Text>();
-        text.text = _Text;
-        Font font = Resources.Load<Font>($"Fonts/{_FontName}");
-        if (font != null)
-            text.font = font;
-        text.fontStyle = _FontStyle;
-        text.fontSize = _FontSize;
-        text.lineSpacing = _LineSpacing;
-        text.supportRichText = _RichText;
-        text.alignment = _Alignment;
-        text.alignByGeometry = _AlignByGeometry;
-        text.horizontalOverflow = _HorizontalOverflow;
-        text.verticalOverflow = _VerticalOverflow;
-        text.resizeTextForBestFit = _BestFit;
-        text.color = _Color;
-        text.raycastTarget = _RaycastTarget;
+        UIStyleObject style = Resources.Load<UIStyleObject>($"Styles/{_StyleName}");
+        
+        text.text = style.textID;
+        text.font = style.font;
+        text.fontStyle = style.fontStyle;
+        text.fontSize = style.fontSize;
+        text.lineSpacing = style.lineSpacing;
+        text.supportRichText = style.richText;
+        text.alignment = style.alignment;
+        text.alignByGeometry = style.alignByGeometry;
+        text.horizontalOverflow = style.horizontalOverflow;
+        text.verticalOverflow = style.verticalOverflow;
+        text.resizeTextForBestFit = style.bestFit;
+        text.color = style.textColor;
+        text.raycastTarget = style.raycastTextTarget;
 
-        if (_ShadowEffectColor != null)
+        if (style.shadowOn)
         {
             Shadow shadow = _Item.gameObject.AddComponent<Shadow>();
-            shadow.effectColor = (Color)_ShadowEffectColor;
-            if (_ShadowEffectDistance != null)
-                shadow.effectDistance = (Vector2)_ShadowEffectDistance;
-            if (_ShadowUseGraphicsAlpha != null)
-                shadow.useGraphicAlpha = (bool)_ShadowUseGraphicsAlpha;
+            shadow.effectColor = style.shadowEffectColor;
+            shadow.effectDistance = style.shadowEffectDistance;
+            shadow.useGraphicAlpha = style.shadowUseGraphicsAlpha;
         }
 
         return text;
@@ -109,20 +101,48 @@ public static class UIFactory
 
     public static Button UIButton(
         RectTransform _Item,
+        string _StyleName,
         UnityAction _OnClick,
-        Navigation _Navigation,
-        Selectable.Transition _Transition = Selectable.Transition.None,
-        bool _Interactable = true
+        Image targetGraphic
     )
     {
         Image image = _Item.gameObject.AddComponent<Image>();
-        image.color = Utility.Transparent;
-        image.raycastTarget = true;
         image.sprite = null;
+        image.color = new Color(0f, 0f, 0f, 0f);
+        image.raycastTarget = true;
+        
         Button button = _Item.gameObject.AddComponent<Button>();
-        button.interactable = _Interactable;
-        button.transition = _Transition;
-        button.navigation = _Navigation;
+        UIStyleObject style = Resources.Load<UIStyleObject>($"Styles/{_StyleName}");
+        
+        button.transition = style.transition;
+        button.interactable = style.interactable;
+        button.targetGraphic = targetGraphic;
+        switch (style.transition)
+        {
+            case Selectable.Transition.ColorTint:
+                ColorBlock colorBlock = new ColorBlock();
+                colorBlock.normalColor = style.normalState.Color;
+                colorBlock.highlightedColor = style.highlightedState.Color;
+                colorBlock.pressedColor = style.pressedState.Color;
+                colorBlock.selectedColor = style.selectedState.Color;
+                colorBlock.disabledColor = style.disabledState.Color;
+                colorBlock.colorMultiplier = style.colorMultiplyer;
+                colorBlock.fadeDuration = style.fadeDuration;
+                button.colors = colorBlock;
+                break;
+            case Selectable.Transition.SpriteSwap:
+                SpriteState state = new SpriteState();
+                state.highlightedSprite = style.highlightedState.Sprite;
+                state.pressedSprite = style.pressedState.Sprite;
+                state.selectedSprite = style.selectedState.Sprite;
+                state.disabledSprite = style.disabledState.Sprite;
+                button.spriteState = state;
+                break;
+            case Selectable.Transition.Animation:
+                break;
+            case Selectable.Transition.None:
+                break;
+        }
         
         Button.ButtonClickedEvent @event = new Button.ButtonClickedEvent();
         @event.AddListener(_OnClick);

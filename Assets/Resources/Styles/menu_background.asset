@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468e944abfa45acb225248bbb574236, type: 3}
+  m_Name: menu_background
+  m_EditorClassIdentifier: 
+  interactable: 0
+  transition: 0
+  normalState:
+    sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+  highlightedState:
+    sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+  pressedState:
+    sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+  selectedState:
+    sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+  disabledState:
+    sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+  colorMultiplyer: 1
+  fadeDuration: 0
+  sprite: {fileID: 21300000, guid: 3119fb39c6938a74bbc2bebd589d4c83, type: 3}
+  imageColor: {r: 1, g: 1, b: 1, a: 1}
+  raycastImageTarget: 0
+  imageType: 0
+  useSpriteMesh: 0
+  preserveAspect: 0
+  pixelsPerUnityMultyply: 0
+  fillMethod: 0
+  fillOrigin: 0
+  fillClockwise: 1
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+  raycastTextTarget: 0
+  textID: 
+  font: {fileID: 0}
+  fontStyle: 0
+  fontSize: 10
+  alignment: 4
+  horizontalOverflow: 0
+  verticalOverflow: 0
+  richText: 0
+  alignByGeometry: 0
+  lineSpacing: 1
+  bestFit: 0
+  shadowOn: 0
+  shadowEffectColor: {r: 0, g: 0, b: 0, a: 1}
+  shadowEffectDistance: {x: 0, y: 0}
+  shadowUseGraphicsAlpha: 0

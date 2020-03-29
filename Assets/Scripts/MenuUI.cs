@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Menu : MonoBehaviour
+public class MenuUI : MonoBehaviour
 {
     #region attributes
     
@@ -24,8 +24,9 @@ public class Menu : MonoBehaviour
                 Utility.HalfOne,
                 Vector2.zero
             ),
-            "menu_background_2",
-            new Color(0.1f, 0.8f, 0.1f));
+            "menu_background");
+
+        CreatePlayOneOnOne();
     }
     
     #endregion
@@ -58,9 +59,8 @@ public class Menu : MonoBehaviour
                 Utility.HalfOne,
                 new Vector2(340f, 230f)
             ),
-            "play_one_on_one",
-            Color.red).rectTransform;
-
+            "play1on1_container").rectTransform;
+        
         UIFactory.UIText(
             UIFactory.UIRectTransform(
                 playNow,
@@ -69,14 +69,9 @@ public class Menu : MonoBehaviour
                 new Vector2(0, 26.3f),
                 Utility.HalfOne,
                 new Vector2(0, 52.6f)),
-            "Play 1 on 1",
-            "menu_text_1",
-            FontStyle.Bold,
-            Color.white,
-            44,
-            TextAnchor.MiddleCenter);
-
-        UIFactory.UIImage(
+            "play1on1");
+        
+       UIFactory.UIImage(
             UIFactory.UIRectTransform(
                 playNow,
                 "icon",
@@ -84,9 +79,8 @@ public class Menu : MonoBehaviour
                 new Vector2(0, -88.7f), 
                 Utility.HalfOne,
                 new Vector2(0, 177.4f)),
-            "empty",
-            Color.white);
-
+            "play1on1");
+        
         UIFactory.UIButton(
             UIFactory.UIRectTransform(
                 playNow,
@@ -95,10 +89,12 @@ public class Menu : MonoBehaviour
                 Vector2.zero,
                 Utility.HalfOne,
                 Vector2.zero),
+            "play1on1",
             () =>
             {
+                Debug.Log("Play1on1 Button");
                 GameManager.Instance.LoadRandomLevel();
             },
-            Navigation.defaultNavigation);
+            playNow.GetComponent<Image>());
     }
 }
