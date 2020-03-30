@@ -31,9 +31,9 @@ public class BallShoot : MonoBehaviour
     {
         if (isPlayer)
         {
-            if (isBall && scr.pMov.kick1)
+            if (isBall && Player.Instance.kick1)
             {
-                if (scr.levAudScr.isSoundOn)
+                if (scr.levAudScr.SoundOn)
 				    scr.levAudScr.kickSource.Play();
 
                 shotAnim.SetTrigger(_call);
@@ -43,9 +43,9 @@ public class BallShoot : MonoBehaviour
         }
         else
         {
-            if (isBall && scr.enAlg.isKick)
+            if (isBall && Enemy.Instance.isKick)
             {
-                if (scr.levAudScr.isSoundOn)
+                if (scr.levAudScr.SoundOn)
                     scr.levAudScr.kickSource.Play();
 
                 shotAnim.SetTrigger(_call);

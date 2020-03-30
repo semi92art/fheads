@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    public static Enemy Instance { get; private set; }
+    
     [SerializeField] private Scripts scr;
 
     public float whenKick;
@@ -55,17 +57,25 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
+        if (Instance != null)
+        {
+            DestroyImmediate(gameObject);
+            return;
+        }
+
+        Instance = this;
+        
         gameStop = false;
         _tr = transform;
         whenKick_State_1 = scr.bonObjMan.whenKick_State_1_Norm;
         enSprTr = enSpr.transform;
 
-        kickSpeed = scr.pMov.kickSpeed0;
+        kickSpeed = Player.Instance.kickSpeed0;
 
         enSpr.sprite = ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].icon;
-        maxSpeed = scr.pMov.maxSpeed0 * ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].skill_Speed / 100f;
-        jumpForce = scr.pMov.jumpForce0 * ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].skill_Jump / 100f;
-        kickTorque = scr.pMov.kickTorque0 * ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].skill_Kick / 100f;
+        maxSpeed = Player.Instance.maxSpeed0 * ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].skill_Speed / 100f;
+        jumpForce = Player.Instance.jumpForce0 * ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].skill_Jump / 100f;
+        kickTorque = Player.Instance.kickTorque0 * ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].skill_Kick / 100f;
 
 
 
@@ -111,11 +121,11 @@ public class Enemy : MonoBehaviour
         isGrounded = scr.grTr.isEnemyGrounded;
         defPosX = bX < scr.marks.midTr.position.x ? scr.marks.gkStateTr.position.x : scr.marks.defPosTr.position.x;
 
-        if (scr.pMov.startGame && !scr.pMov.startGameCheck)
+        if (MatchManager.Instance.GameStarted && !Player.Instance.startGameCheck)
             startTime = Time.timeSinceLevelLoad;
-        else if (scr.pMov.startGame && scr.pMov.startGameCheck)
+        else if (MatchManager.Instance.GameStarted && Player.Instance.startGameCheck)
         {
-            if (Time.timeSinceLevelLoad > startTime + PlayerMovement.restartDelay1 &&
+            if (Time.timeSinceLevelLoad > startTime + Player.restartDelay1 &&
                 !isKickControl)
                 isKickControl = true;
         }
@@ -347,7 +357,7 @@ public class Enemy : MonoBehaviour
         //Debug.Log("Enemy Alive -6!");
         bX = scr.ballScr.transform.position.x;
         bY = scr.ballScr.transform.position.y;
-        plX = scr.pMov.transform.position.x;
+        plX = Player.Instance.transform.position.x;
         enY = transform.position.y;
         enX = transform.position.x;
 
@@ -359,7 +369,7 @@ public class Enemy : MonoBehaviour
                 isTimDef = true;
         }
 
-        if (!gameStop && !scr.pMov.restart && !scr.pMov.freezeOnStart)
+        if (!gameStop && !MatchManager.Instance.Restart && !Player.Instance.freezeOnStart)
         {
             float timLim = scr.tM.matchPeriods == 2 ? 35f : (float) prevScoreDiff / 2f + 1f;
             if (isTimDef)
@@ -405,7 +415,7 @@ public class Enemy : MonoBehaviour
 
     private void MaxSpeedControl()
     {
-        if (!scr.pMov.restart && !gameStop && !scr.pMov.freezeOnStart)
+        if (!MatchManager.Instance.Restart && !gameStop && !Player.Instance.freezeOnStart)
         {
             if (Mathf.Abs(_rb.velocity.x) < maxSpeed)
             {

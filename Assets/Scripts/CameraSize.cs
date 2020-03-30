@@ -58,29 +58,31 @@ public class CameraSize : MonoBehaviour
         _cam = GetComponent<Camera>();
         cam = GetComponent<Camera>();
 
-        followTr = scr.pMov.transform;
-        float screenW = (float)Screen.width;
-        float screenH = (float)Screen.height;
-        resMy0_1 = screenW / screenH;
+        float height = Screen.height;
+        resMy0_1 = Screen.width / height;
         resMy0 = 14f / 10f;
 
         SetCameraType(PrefsManager.Instance.CameraType);
         SetGraphics(1);
 
         camDefRot = transform.localRotation.eulerAngles;
+
+        StartCoroutine(Coroutines.WaitWhile(
+            () => followTr = Player.Instance.transform,
+            () => Player.Instance == null
+        ));
     }
 
     void Update()
     {
         tim += Time.deltaTime;
 
-        if (tim > PlayerMovement.restartDelay2 &&
-            tim < PlayerMovement.restartDelay1)
+        if (tim > Player.restartDelay2 &&
+            tim < Player.restartDelay1)
             transform.position = camDefPos;
         else
         {
-            if ((!scr.pMov.restart && tim > PlayerMovement.restartDelay1) ||
-                scr.pMov.restart)
+            if (!MatchManager.Instance.Restart && tim > Player.restartDelay1 || MatchManager.Instance.Restart)
                 CameraTransform();
         }
     }
@@ -88,13 +90,13 @@ public class CameraSize : MonoBehaviour
     private void CameraTransform()
     {
         Vector3 position = transform.position;
-        Vector3 playerPosition = scr.pMov.transform.position;
+        Vector3 playerPosition = Player.Instance.transform.position;
         Vector3 ballPosition = scr.ballScr.transform.position;
         
         if (scr.objLev.isTiltOn)
         {
             angCoeff = scr.objLev.isTiltOn ? 0.03f : 0f;
-            newAng = scr.pMov._rb.velocity.x * angCoeff;
+            newAng = Player.Instance._rb.velocity.x * angCoeff;
 
             if (playerPosition.x > scr.marks.rightTiltEdgeTr.position.x ||
                 playerPosition.x < scr.marks.leftTiltEdgeTr.position.x)

@@ -7,7 +7,7 @@ public class GroundTrigger1 : MonoBehaviour
 	private Scripts scr;
 
     public float ballDrag, ballDragGrounded;
-	public bool isPlayerGrounded, isEnemyGrounded, isEnemy1Grounded;
+	public bool isPlayerGrounded, isEnemyGrounded;
 	public bool isBallGrounded;
 	public Collider2D playerCollider1;
 	
@@ -59,11 +59,10 @@ public class GroundTrigger1 : MonoBehaviour
 	void Update()
 	{
         isPlayerGrounded = IsPlayerGrounded();
-        isEnemyGrounded = IsEnemyGrounded(scr.enAlg);
-        isEnemy1Grounded = IsEnemyGrounded(scr.enAlg_1);
+        isEnemyGrounded = IsEnemyGrounded(Enemy.Instance);
         isBallGrounded = IsBallGrounded();
 
-		if (!scr.pMov.restart)
+		if (!MatchManager.Instance.Restart)
             scr.ballScr._rb.drag = isBallGrounded ? 
                 ballDragGrounded : ballDrag;
 	}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e468e944abfa45acb225248bbb574236, type: 3}
-  m_Name: play1on1
+  m_Name: tournaments
   m_EditorClassIdentifier: 
   interactable: 1
   transition: 1
@@ -43,7 +43,7 @@ MonoBehaviour:
   fillClockwise: 1
   textColor: {r: 1, g: 1, b: 1, a: 1}
   raycastTextTarget: 0
-  textID: Play 1 on 1
+  textID: Tournaments
   font: {fileID: 12800000, guid: 332043ddb7c72674cab606f5556ecb4b, type: 3}
   fontStyle: 0
   fontSize: 45

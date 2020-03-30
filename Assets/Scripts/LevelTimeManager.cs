@@ -56,29 +56,8 @@ public class LevelTimeManager : MonoBehaviour
         timeShadow = timeText.GetComponent<Shadow>();
 		secondPerButton.interactable = false;
 
-		scr.objLev.secontTimePanelText.color = new Vector4(
-			scr.objLev.secontTimePanelText.color.r,
-			scr.objLev.secontTimePanelText.color.g,
-			scr.objLev.secontTimePanelText.color.b,
-			1);
-
 		periodsOnBegin = matchPeriods;  
         periodsText.text = "PERIOD " + "1/" + periodsOnBegin;
-        scr.objLev.secontTimePanelText.text = "END OF FIRST PERIOD";
-
-	}
-
-	private void CallBetweenTimesPanel()
-	{
-		if (isNextTime)
-		{
-			scr.objLev.mainCanvas.enabled = true;
-			isBetweenTimes = true;
-			scr.objLev.secondTimePanelAnim.gameObject.SetActive(true);
-			isNextTime = false;
-			GameManager.Instance.currTimeScale = Time.timeScale;
-			Time.timeScale = 0;
-		}
 	}
 
 	public void CallBackBetweenTimesPanel()
@@ -100,12 +79,9 @@ public class LevelTimeManager : MonoBehaviour
         System.GC.Collect();
         scr.camSize.tim = 0;
         isBetweenTimes = false;
-        scr.objLev.secondTimePanelAnim.SetTrigger(Animator.StringToHash("back"));
-        scr.objLev.secondTimePanelAnim.gameObject.SetActive(false);
         Time.timeScale = GameManager.Instance.currTimeScale;
-        scr.timFr.isFreeze = false;
         time0 = beginTime + 1;
-        scr.pMov.restart = true;
+        MatchManager.Instance.Restart = true;
         tim = 0;
         tim1 = 0;
         int currentPeriod = periodsOnBegin - matchPeriods + 1;
@@ -113,16 +89,10 @@ public class LevelTimeManager : MonoBehaviour
         scr.objLev.mainCanvas.enabled = false;
         scr.bonObjMan.WatchVideo(2);
     }
-
-	private void SetNameOfCurrentPeriod()
-	{
-		//int currentPeriod = periodsOnBegin - matchPeriods + 1;
-        scr.objLev.secontTimePanelText.text = "START SECOND PERIOD";
-	}
-        
+ 
 	void Update ()
 	{
-        if (!timeFreeze && scr.pMov.startGame)
+        if (!timeFreeze && MatchManager.Instance.GameStarted)
             TimeUpdate();
     }	
 
@@ -138,14 +108,6 @@ public class LevelTimeManager : MonoBehaviour
                 {
                     isTim3End = true;
                     secondPerButton.interactable = true;
-
-                    scr.objLev.secontTimePanelText.color = new Vector4(
-                        scr.objLev.secontTimePanelText.color.r,
-                        scr.objLev.secontTimePanelText.color.g,
-                        scr.objLev.secontTimePanelText.color.b,
-                        1);
-
-                    SetNameOfCurrentPeriod();  
                 }
 			}
 		}
@@ -250,7 +212,7 @@ public class LevelTimeManager : MonoBehaviour
 		    scr.congrPan.congrPanel.SetActive(true);
 			scr.objLev.mainCanvas.enabled = true;
 
-            if (scr.levAudScr.isSoundOn)
+            if (scr.levAudScr.SoundOn)
 			    scr.levAudScr.longWhistle.Play();
 
             timeText.text = "0:00";
@@ -306,7 +268,6 @@ public class LevelTimeManager : MonoBehaviour
                 else
                 {
                     isNextTime = true;
-                    CallBetweenTimesPanel();
                 }
 
                 tim1++;

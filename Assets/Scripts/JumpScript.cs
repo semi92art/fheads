@@ -30,7 +30,7 @@ public class JumpScript : MonoBehaviour
 
 	void Update()
 	{
-        if (Time.timeSinceLevelLoad > PlayerMovement.restartDelay1 + 1)
+        if (Time.timeSinceLevelLoad > Player.restartDelay1 + 1)
         {
             if (transform.rotation.eulerAngles.z < zMin)
                 sign = 1.0f;
@@ -39,7 +39,7 @@ public class JumpScript : MonoBehaviour
 
             transform.Rotate(0, 0, sign * rotC * Time.deltaTime);
             
-            if (scr.pMov.restart) 
+            if (MatchManager.Instance.Restart) 
                 isRestart = true;
 
             if (isRestart) 
@@ -59,7 +59,7 @@ public class JumpScript : MonoBehaviour
 
 	void FixedUpdate()
 	{
-        if (Time.timeSinceLevelLoad > PlayerMovement.restartDelay1 + 1)
+        if (Time.timeSinceLevelLoad > Player.restartDelay1 + 1)
         {
             // Jump "trigger" says, that we need to jump:
             if (jump)
@@ -104,7 +104,7 @@ public class JumpScript : MonoBehaviour
 
 	void OnTriggerStay2D (Collider2D other)
 	{
-        if (Time.timeSinceLevelLoad > PlayerMovement.restartDelay1 + 1)
+        if (Time.timeSinceLevelLoad > Player.restartDelay1 + 1)
         {
             if (!isRestart) 
             {
@@ -150,7 +150,7 @@ public class JumpScript : MonoBehaviour
 
 	void OnTriggerExit2D(Collider2D other)
 	{
-        if (Time.timeSinceLevelLoad > PlayerMovement.restartDelay1 + 1)
+        if (Time.timeSinceLevelLoad > Player.restartDelay1 + 1)
         {
             if (!isRestart)
             {

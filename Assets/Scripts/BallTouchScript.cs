@@ -33,7 +33,7 @@ public class BallTouchScript : MonoBehaviour
 		if (tr.position.y < -8)
 			isStart = true;
 
-		if (scr.pMov.startGame && isStart)
+		if (MatchManager.Instance.GameStarted && isStart)
 		{
 			timer++;
 

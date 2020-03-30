@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour 
+public class Player : MonoBehaviour 
 {
+	public static Player Instance { get; private set; }
+	
     public Scripts scr;
 
     [Header("Kick Overhead Objects:")]
@@ -56,7 +58,6 @@ public class PlayerMovement : MonoBehaviour
 	public int Force, ForceCh;
     [HideInInspector]
     public bool freezeOnStart = true;
-	public bool restart, restartCheck;
     [HideInInspector]
 	public float restartTimer;
 	private int scoreDiff;
@@ -91,8 +92,7 @@ public class PlayerMovement : MonoBehaviour
     public bool kick1;
 
     private int goal;
-	[HideInInspector]
-	public bool startGame;
+
 	[HideInInspector]
 	public bool startGameCheck;
 	
@@ -112,8 +112,15 @@ public class PlayerMovement : MonoBehaviour
     public Text text_Money;
     private float jumpForceDef;
 
-	void Awake()
+	private void Awake()
     {
+	    if (Instance != null)
+	    {
+		    DestroyImmediate(gameObject);
+		    return;
+	    }
+	    Instance = this;
+	    
         text_Bank.text = Customs.Money(PrefsManager.Instance.MoneyCount);
         _rb = GetComponent<Rigidbody2D>();
 		HJPlayerLegTr = HJPlayerLeg.transform;
@@ -147,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
 	{
-		if (!startGame) 
+		if (!MatchManager.Instance.GameStarted) 
 		{
             transform.position = scr.marks.plStartTr.position;
 
@@ -155,28 +162,24 @@ public class PlayerMovement : MonoBehaviour
                 plLegSt.x, 
                 plLegSt.y, 
 				HJPlayerLegTr.localPosition.z);
-            scr.enAlg.legHJ.transform.localPosition = new Vector3(
+			Enemy.Instance.legHJ.transform.localPosition = new Vector3(
                 enLegSt.x,
                 enLegSt.y,
-                scr.enAlg.legHJ.transform.localPosition.z);
-            scr.enAlg_1.legHJ.transform.localPosition = new Vector3(
-                enLegSt.x,
-                enLegSt.y,
-                scr.enAlg_1.legHJ.transform.localPosition.z);
-            
+                Enemy.Instance.legHJ.transform.localPosition.z);
+
             scr.ballScr.transform.position = new Vector3 (scr.marks.midTr.position.x, -4, scr.ballScr.transform.position.z);
             scr.ballScr._rb.velocity = new Vector2(0, 0);
             
-            TimeManager.Instance.PauseGame();
+            //TimeManager.Instance.PauseGame();
 		} 
 		else 
 		{
             delta_Pl_Ball = plHead.transform.position.x - plHead.radius * 
                 transform.localScale.x - scr.ballScr.transform.position.x;
-            delta_En_Ball = -enHead.transform.position.x - enHead.radius *
-                scr.enAlg.transform.localScale.x + scr.ballScr.transform.position.x;
+            delta_En_Ball = -enHead.transform.position.x - enHead.radius * 
+                            Enemy.Instance.transform.localScale.x + scr.ballScr.transform.position.x;
             delta_Pl_En = plHead.transform.position.x - plHead.radius * transform.localScale.x -
-                enHead.transform.position.x - enHead.radius * scr.enAlg.transform.localScale.x;
+                enHead.transform.position.x - enHead.radius * Enemy.Instance.transform.localScale.x;
 
             if (delta_Pl_En < 0.3f && delta_Pl_En > 0f)
                 scr.jScr.jump = true;
@@ -187,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
             GoalCheck();
 		}
 
-		if (!restart && !freezeOnStart && !TimeManager.Instance.GamePaused)
+		if (!MatchManager.Instance.Restart && !freezeOnStart && !TimeManager.Instance.GamePaused)
 		{
             if (scr.bonObjMan.isPlayerFast != 0)
             {
@@ -219,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void GoalCheck()
     {
-        if (!restart)
+        if (!MatchManager.Instance.Restart)
         {
             if (scr.ballScr.transform.position.x <= enGatesTrigg.position.x
                 && scr.ballScr.transform.position.y <= enGatesTrigg.position.y)
@@ -237,7 +240,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 goalCheck += goal;
                 goalCheck1++;
-                restart = true;
+                MatchManager.Instance.Restart = true;
             }
 
             if (goalCheck1 == 1)
@@ -277,9 +280,9 @@ public class PlayerMovement : MonoBehaviour
                 goalImAnim.enabled = true;
                 scr.goalPanScr.PlayStarsAnim();
 
-                if (scr.levAudScr.isSoundOn)
+                if (scr.levAudScr.SoundOn)
                 {
-                    scr.levAudScr.goalSource.Play();
+                    scr.levAudScr.PlayGoal();
                     scr.levAudScr.refereeWhistleSource.Play();
                 }
                 
@@ -292,9 +295,9 @@ public class PlayerMovement : MonoBehaviour
 	{
         KickOverHeadFcn ();
 
-		if (startGame) 
+		if (MatchManager.Instance.GameStarted) 
 		{
-			if (!restart && !freezeOnStart) 
+			if (!MatchManager.Instance.Restart && !freezeOnStart) 
 			{
                 scoreDiff = Score.score - Score.score1;
                 float velX = Force != 0 ? Force * maxSpeed : _rb.velocity.x;
@@ -302,7 +305,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if (jump) jump = false;
 
-                scr.pMov._rb.velocity = new Vector2(velX, velY);
+                _rb.velocity = new Vector2(velX, velY);
 			} 
 
             if (kick1)
@@ -336,36 +339,37 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            if (Mathf.Abs(scr.pMov._rb.velocity.x) > 5)
-                scr.pMov._rb.AddForce(
-                    new Vector2(-Mathf.Sign(scr.pMov._rb.velocity.x) * airResistForce, 0));
+            if (Mathf.Abs(_rb.velocity.x) > 5)
+                _rb.AddForce(
+                    new Vector2(-Mathf.Sign(_rb.velocity.x) * airResistForce, 0));
 		}
 
-		startGameCheck = startGame;
-		restartCheck = restart;
+		startGameCheck = MatchManager.Instance.GameStarted;
 	}
 
 	private void NewStartPositions()
 	{
-        scr.pMov._rb.velocity = new Vector2(0, 0);
+        _rb.velocity = new Vector2(0, 0);
 		scr.ballScr.transform.position = new Vector3 (scr.marks.midTr.position.x, -4f, scr.ballScr.transform.position.z);
         scr.ballScr._rb.velocity = new Vector2(0, 0);
         scr.ballScr._rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        scr.enAlg._rb.velocity = new Vector2(0, 0);
-        
 
         transform.position = scr.marks.plStartTr.position;
-        scr.enAlg.transform.position = scr.marks.enStartTr.position;
-        scr.enAlg_1.transform.position = new Vector3(
-            scr.marks.enStartTr.transform.position.x - 10f,
-            scr.marks.enStartTr.transform.position.y,
-            scr.marks.enStartTr.transform.position.z);
 
         if (scr.tM.time0 > scr.tM.beginTime - 1f && scr.tM.time0 < scr.tM.beginTime)
         {
-            if (scr.levAudScr.isSoundOn)
+            if (scr.levAudScr.SoundOn)
                 scr.levAudScr.refereeWhistleSource.Play();
         }
+
+        StartCoroutine(Coroutines.WaitWhile(
+	        () =>
+	        {
+		        Enemy.Instance._rb.velocity = new Vector2(0, 0);
+		        Enemy.Instance.transform.position = scr.marks.enStartTr.position;
+	        },
+	        () => Enemy.Instance == null
+        ));
 	}
 	
     private bool isNewStartPos_0;
@@ -383,7 +387,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-		if (restart)
+		if (MatchManager.Instance.Restart)
 		{
             plSprTr.localRotation = Quaternion.Euler(0, 0, 0);	
             jump = false;
@@ -394,8 +398,8 @@ public class PlayerMovement : MonoBehaviour
 			{
                 if (restartTimer < restartDelay2)
                 {
-                    scr.pMov._rb.velocity = new Vector2(0, scr.pMov._rb.velocity.y);
-                    scr.enAlg._rb.velocity = new Vector2(0, scr.enAlg._rb.velocity.y);
+                    _rb.velocity = new Vector2(0, _rb.velocity.y);
+                    Enemy.Instance._rb.velocity = new Vector2(0, Enemy.Instance._rb.velocity.y);
                 }
                 else
                     NewStartPositions();	
@@ -403,7 +407,7 @@ public class PlayerMovement : MonoBehaviour
 			else 
 			{
 				BallStartImpulse();
-				restart = false;
+				MatchManager.Instance.Restart = false;
 				restartTimer = 0;
 				goalCheck1 = 0;
 			}
@@ -528,7 +532,7 @@ public class PlayerMovement : MonoBehaviour
 		
 	public void Kick ()
 	{
-		if (!restart && !freezeOnStart) 
+		if (!MatchManager.Instance.Restart && !freezeOnStart) 
 			kick1 = true;
 	}
 
@@ -631,7 +635,7 @@ public class PlayerMovement : MonoBehaviour
             tr_GeneralLeg.localPosition = new Vector3 (genTr_x, genTr_y, 0f);
             tr_GeneralLeg.localRotation = Quaternion.Euler (0f, 0f, genTr_rot);
 
-            scr.pMov._rb.freezeRotation = false;
+            _rb.freezeRotation = false;
             timH += Time.deltaTime;
 
             transform.localScale = new Vector3(
@@ -640,7 +644,7 @@ public class PlayerMovement : MonoBehaviour
                 transform.localScale.z);
 
             kOvHTorque = timH < torqTime ? kickOvHTorq_0 : kOvHTorque / 2f;
-            scr.pMov._rb.AddTorque(kOvHTorque);
+            _rb.AddTorque(kOvHTorque);
 
             if (scr.grTr.isPlayerGrounded)
             {
@@ -663,8 +667,8 @@ public class PlayerMovement : MonoBehaviour
 
             timH = 0.0f;
             kOvHTorque = kickOvHTorq_0;
-            scr.pMov._rb.freezeRotation = true;
-            scr.pMov.transform.rotation = Quaternion.Euler(0, 0, 0);
+            _rb.freezeRotation = true; 
+            transform.rotation = Quaternion.Euler(0, 0, 0);
 
             transform.localScale = new Vector3(
                 Mathf.Abs(transform.localScale.x),

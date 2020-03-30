@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 public static class Utility
 {
@@ -56,4 +57,9 @@ public static class Utility
     
     public static Vector2 HalfOne => Vector2.one * .5f;
     public static Color Transparent => new Color(0f, 0f, 0f, 0f);
+    public static AudioClip LoadAudioClip(string _Name) => Resources.Load<AudioClip>($"Audio/{_Name}");
+    public static AudioMixer LoadAudioMixer(string _Name) => Resources.Load<AudioMixer>($"Audio/{_Name}");
+    
+    //public static AudioSource CreateAudioSource()
+    
 }
