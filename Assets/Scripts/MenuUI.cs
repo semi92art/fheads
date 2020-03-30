@@ -27,6 +27,7 @@ public class MenuUI : MonoBehaviour
             "menu_background");
 
         CreatePlayOneOnOne();
+        CreateTournaments();
     }
     
     #endregion
@@ -97,4 +98,55 @@ public class MenuUI : MonoBehaviour
             },
             playNow.GetComponent<Image>());
     }
+    
+    public void CreateTournaments()
+    {
+        RectTransform playNow = UIFactory.UIImage(
+            UIFactory.UIRectTransform(
+                m_Canvas.rectTransform(),
+                "tournaments",
+                UIAnchor.Create(Vector2.one, Vector2.one),
+                new Vector2(-180f, -383f),
+                Utility.HalfOne,
+                new Vector2(340f, 230f)
+            ),
+            "tournaments_container").rectTransform;
+        
+        UIFactory.UIText(
+            UIFactory.UIRectTransform(
+                playNow,
+                "text",
+                UIAnchor.Create(Vector2.zero, Vector2.right),
+                new Vector2(0, 26.3f),
+                Utility.HalfOne,
+                new Vector2(0, 52.6f)),
+            "tournaments");
+        
+        UIFactory.UIImage(
+            UIFactory.UIRectTransform(
+                playNow,
+                "icon",
+                UIAnchor.Create(Vector2.up, Vector2.one),
+                new Vector2(0, -88.7f), 
+                Utility.HalfOne,
+                new Vector2(0, 177.4f)),
+            "tournaments");
+        
+        UIFactory.UIButton(
+            UIFactory.UIRectTransform(
+                playNow,
+                "button",
+                UIAnchor.Create(Vector2.zero, Vector2.one),
+                Vector2.zero,
+                Utility.HalfOne,
+                Vector2.zero),
+            "tournaments",
+            () =>
+            {
+                Debug.Log("Tournaments Button Pushed");
+                //Button functionality
+            },
+            playNow.GetComponent<Image>());
+    }
+
 }
