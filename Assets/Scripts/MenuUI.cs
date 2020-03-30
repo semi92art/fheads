@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using Lean.Localization;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuUI : MonoBehaviour
@@ -27,6 +29,7 @@ public class MenuUI : MonoBehaviour
             "menu_background");
 
         CreatePlayOneOnOne();
+        CreateLocalization();
     }
     
     #endregion
@@ -48,6 +51,46 @@ public class MenuUI : MonoBehaviour
             GraphicRaycaster.BlockingObjects.All);
     }
 
+    public void CreateLocalization()
+    {
+        //Create main localization object
+        GameObject localizationObject = new GameObject("localizationObject");
+        LeanLocalization localization = localizationObject.AddComponent<LeanLocalization>();
+        //add languages in list
+        string[] cultres= new string[2]{"en", "en-GB"};
+        localization.AddLanguage("English", cultres);
+        cultres= new string[2]{"ru", "ru-RUS"};
+        localization.AddLanguage("Russian", cultres);
+        cultres= new string[2]{"ger", "ger-GER"};
+        localization.AddLanguage("German", cultres);
+        
+        //Create readers from localization files
+        GameObject englishCSV = new GameObject("englishCSV");
+        englishCSV.transform.SetParent(localizationObject.transform);
+        LeanLanguageCSV engCSV = englishCSV.AddComponent<LeanLanguageCSV>();
+        engCSV.Source = Resources.Load<TextAsset>("Texts/English");
+        engCSV.Language = "English";
+        
+        GameObject russianCSV = new GameObject("russianCSV");
+        russianCSV.transform.SetParent(localizationObject.transform);
+        LeanLanguageCSV rusCSV = russianCSV.AddComponent<LeanLanguageCSV>();
+        rusCSV.Source = Resources.Load<TextAsset>("Texts/Russian");
+        rusCSV.Language = "Russian";
+        
+        GameObject germanCSV = new GameObject("germanCSV");
+        germanCSV.transform.SetParent(localizationObject.transform);
+        LeanLanguageCSV gerCSV=germanCSV.AddComponent<LeanLanguageCSV>();
+        gerCSV.Source = Resources.Load<TextAsset>("Texts/German");
+        gerCSV.Language = "German";
+        
+        localization.SetCurrentLanguage("English");
+        
+        //ATTENTION! This component need to be added to existed button text (in factory)
+        GameObject buttonText = GameObject.Find("play_one_on_one").transform.Find("text").gameObject;
+        LeanLocalizedText locComponent = buttonText.AddComponent<LeanLocalizedText>();
+        locComponent.TranslationName = "Play1on1";
+
+    }
     public void CreatePlayOneOnOne()
     {
         RectTransform playNow = UIFactory.UIImage(
