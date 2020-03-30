@@ -105,17 +105,14 @@ public class PlayerMovement : MonoBehaviour
     public float delta_Pl_En;
     [HideInInspector]
     public Rigidbody2D _rb;
-    [Header("Money Bar:")]
-    public Animator anim_PlusMoney;
-
-    public Text text_Bank;
-    public Text text_Money;
+    
+    
+    
     private float jumpForceDef;
 
 	void Awake()
     {
-        text_Bank.text = Customs.Money(PrefsManager.Instance.MoneyCount);
-        _rb = GetComponent<Rigidbody2D>();
+	    _rb = GetComponent<Rigidbody2D>();
 		HJPlayerLegTr = HJPlayerLeg.transform;
 		plSprTr = plSpr.transform;
 
@@ -251,11 +248,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if (goalCheck == -1)
                 {
-                    
-                    text_Bank.text = Customs.Money(PrefsManager.Instance.MoneyCount);
-                    //text_Money.text = "500$";
-                    anim_PlusMoney.SetTrigger(Animator.StringToHash("0"));
-                    scr.goalPanScr.RefereeAnimRight();
+	                scr.goalPanScr.RefereeAnimRight();
                     Score.score++;
 
                     if (!scr.practScr.isPractice)
