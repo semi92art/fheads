@@ -8,8 +8,8 @@ public class MaxHeight : MonoBehaviour
 
 	public float minVel;
 	public float downForce;
-	public Collider2D enemyColl, enemy1Coll, playerColl;
-	public bool toDoPl, toDoEn, toDoEn1;
+	public Collider2D enemyColl, playerColl;
+	public bool toDoPl, toDoEn;
 
     [SerializeField]
 	private BoxCollider2D maxHColl;
@@ -19,21 +19,15 @@ public class MaxHeight : MonoBehaviour
 	{
 		if (toDoPl)
 		{
-            if (scr.pMov._rb.velocity.y > minVel)
-                scr.pMov._rb.AddForce(new Vector2(0, downForce));
+            if (Player.Instance._rb.velocity.y > minVel)
+	            Player.Instance._rb.AddForce(new Vector2(0, downForce));
 		}
 
 		if (toDoEn)
 		{
-			if (scr.enAlg._rb.velocity.y > minVel)
-                scr.enAlg._rb.AddForce(new Vector2(0, downForce));
+			if (Enemy.Instance._rb.velocity.y > minVel)
+				Enemy.Instance._rb.AddForce(new Vector2(0, downForce));
 		}
-
-        if (toDoEn1)
-        {
-            if (scr.enAlg_1._rb.velocity.y > minVel)
-                scr.enAlg_1._rb.AddForce(new Vector2(0, downForce));
-        }
 	}
 		
 	void OnTriggerStay2D(Collider2D coll)
@@ -42,19 +36,14 @@ public class MaxHeight : MonoBehaviour
 
 		if (coll == playerColl)
 		{
-			if (scr.pMov.transform.position.y > boundY)
+			if (Player.Instance.transform.position.y > boundY)
 				toDoPl = true;
 		}
 		else if (coll == enemyColl)
 		{
-			if (scr.enAlg.transform.position.y > boundY)
+			if (Enemy.Instance.transform.position.y > boundY)
 				toDoEn = true;
 		}
-        else if (coll == enemy1Coll)
-        {
-            if (scr.enAlg_1.transform.position.y > boundY)
-                toDoEn1 = true;
-        }
 	}
 
 	void OnTriggerExit2D(Collider2D coll)
@@ -63,7 +52,5 @@ public class MaxHeight : MonoBehaviour
 			toDoPl = false;
 		else if (coll == enemyColl)
 			toDoEn = false;
-        else if (coll == enemy1Coll)
-            toDoEn1 = false;
 	}
 }

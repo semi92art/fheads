@@ -6,7 +6,8 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance { get; private set; }
-	
+	public Animator anim_SoundOn;
+
 	
 
 	
@@ -131,7 +132,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (!gamePaused && scr.pMov.startGame)
+                if (!gamePaused && MatchManager.Instance.GameStarted)
                 {
                     scr.levAudScr.Button_Sound();
 
@@ -153,7 +154,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            if (!scr.pMov.startGame || scr.tM.isBetweenTimes)
+            if (!MatchManager.Instance.GameStarted || scr.tM.isBetweenTimes)
                 StartGame();
         }
     }
@@ -161,7 +162,7 @@ public class GameManager : MonoBehaviour
 	public void StartGame()
 	{
 		TimeManager.Instance.UnPauseGame();
-		scr.pMov.startGame = true;
+		MatchManager.Instance.GameStarted = true;
 		scr.objLev.startPanelAnim.gameObject.SetActive(false);
 	}
 
@@ -317,9 +318,8 @@ public class GameManager : MonoBehaviour
 	public void MenuResult()
 	{
 		gamePaused = true;
-        scr.enAlg.enabled = false;
-        scr.enAlg_1.enabled = false;
-        scr.pMov.enabled = false;
+		Enemy.Instance.enabled = false;
+        Player.Instance.enabled = false;
         scr.bonObjMan.enabled = false;
 		scr.objLev.resultMenuAnim.gameObject.SetActive(true);
 	}
@@ -393,6 +393,12 @@ public class GameManager : MonoBehaviour
 		    default:
 			    return 0;
 	    }
+    }
+
+    public void SoundButtonAnimate(int _IsAwake)
+    {
+	    anim_SoundOn.SetTrigger(
+		    Animator.StringToHash($"{_IsAwake}{(scr.levAudScr.SoundOn ? "1" : "0")}"));
     }
 }
 

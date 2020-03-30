@@ -138,7 +138,7 @@ public class BallScript : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if (scr.pMov.startGame)
+		if (MatchManager.Instance.GameStarted)
 		{
 			tailTimer ++;
 
@@ -153,9 +153,9 @@ public class BallScript : MonoBehaviour
                     ballLineR.SetPosition(i,newTailVect[i]);
 			}
 
-			if (scr.pMov.restart) 
+			if (MatchManager.Instance.Restart) 
 			{
-                if (scr.pMov.restartTimer > PlayerMovement.restartDelay2 - 0.1f)
+                if (Player.Instance.restartTimer > Player.restartDelay2 - 0.1f)
                 {
                     ballLineR.startColor = Color.clear;
                     ballLineR.endColor = Color.clear;
@@ -171,51 +171,19 @@ public class BallScript : MonoBehaviour
 			}
 		}
 
-		restartCheck = scr.pMov.restart;
+		restartCheck = MatchManager.Instance.Restart;
 	}
 
     private void GetSomeValues()
     {
-        enX = scr.enAlg._tr.position.x;
-        enY = scr.enAlg._tr.position.y;
+        enX = Enemy.Instance._tr.position.x;
+        enY = Enemy.Instance._tr.position.y;
         bX = transform.position.x;
         bY = transform.position.y;
-        plX = scr.pMov.transform.position.x;
-        plY = scr.pMov.transform.position.y;
+        plX = Player.Instance.transform.position.x;
+        plY = Player.Instance.transform.position.y;
         cSize = scr.camSize._cam.orthographicSize;
     }
-
-	/*private void EnemyArrow()
-	{
-		float ang0 = Mathf.Atan((bX - enX) / (bY - enY));
-		float ang = (-ang0 - 0.5f * Mathf.PI) * 180 / Mathf.PI;
-
-		if (enX < camTr.position.x - cSize * 2.0f || 
-            enX > camTr.position.x + cSize * 2.0f)
-		{
-            float ang1 = bY > enY ? ang : ang + 180f;
-            enArrBoxTr.rotation = Quaternion.AngleAxis(ang1, Vector3.forward);
-			enArr.SetActive(true);	
-		}
-		else
-			enArr.SetActive(false);
-	}*/
-
-	/*private void PlayerArrow()
-	{
-		float ang0 = Mathf.Atan((bX - plX) / (bY - plY));
-		float ang = (-ang0 - 0.5f * Mathf.PI) * 180 / Mathf.PI;
-
-		if (plX < camTr.position.x - cSize * 2.0f || 
-            plX > camTr.position.x + cSize * 2.0f)
-		{
-            float ang_1 = bY > plY ? ang + 180f : ang;
-            plArrBoxTr.rotation = Quaternion.AngleAxis(ang_1, Vector3.forward);
-			plArr.SetActive(true);	
-		}
-		else
-			plArr.SetActive(false);
-	}*/
 
     public void SetBonusBall(int _ind)
     {

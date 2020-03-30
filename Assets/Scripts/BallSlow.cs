@@ -14,7 +14,7 @@ public class BallSlow : MonoBehaviour
 	{
 		if (other == bCol1) 
 		{
-			if (scr.pMov.restart)
+			if (MatchManager.Instance.Restart)
                 scr.ballScr._rb.drag = drag;	
 		}
 	}
@@ -23,7 +23,7 @@ public class BallSlow : MonoBehaviour
 	{
 		if (other == bCol1) 
 		{
-			if (scr.pMov.restart)
+			if (MatchManager.Instance.Restart)
                 scr.ballScr._rb.drag = 0;	
 		}
 	}

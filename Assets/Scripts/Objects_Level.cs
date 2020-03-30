@@ -11,8 +11,6 @@ public class StartPanelObjects
     public Image im_PlayerLeg;
     public Image im_EnemyHead_1;
     public Image im_EnemyLeg_1;
-    public Image im_EnemyHead_2;
-    public Image im_EnemyLeg_2;
 }
 
 public class Objects_Level : MonoBehaviour
@@ -27,40 +25,31 @@ public class Objects_Level : MonoBehaviour
 
     public RectTransform tr_Controls_1;
     public RectTransform tr_Controls_2;
-    public Animator secondTimePanelAnim, quitPanAmim;
+    public Animator quitPanAmim;
     public Animator pauseMenuAnim, resultMenuAnim;
     public Animator startPanelAnim;
 
     public GameObject obj_QuitPan;
     public GameObject obj_BK_But1;
-
-    public Animator anim_VictoryText;
+    
     public Animator anim_TiltOn;
 
     public bool isTiltOn;
-	public GameObject stadiumsObj;
-	public GameObject quitPanel;
+    public GameObject quitPanel;
     public GameObject obj_RestartButon, obj_RestartButon1;
 
     public Text text_Victory;
     public Text text_GameNum;
     public Text text_Result;
-	public Text touchToBeginText;
-	public Text quitText;
-	public Text secontTimePanelText;
-	public Canvas mainCanvas, controlsCanvas;
-	public Button startGameButton;
+    public Text quitText;
+    public Canvas mainCanvas, controlsCanvas;
 
-	public Image c1RamkaIm, c2RamkaIm;
+    public Image c1RamkaIm, c2RamkaIm;
 	public Image leftButSprR, rightButSprR;
 	public Sprite jump1Spr, jump2Spr, kick1Spr, kick2Spr;
 
-    public string[] idForTesting;
-
-	[HideInInspector]
+    [HideInInspector]
 	public bool isMoneyWinPopulate;
-	[HideInInspector]
-	public int totalPrice;
 
     [Header("From Player Movement:")]
     public SpriteRenderer plLegSprR;
@@ -98,12 +87,10 @@ public class Objects_Level : MonoBehaviour
         startPanObjs.im_PlayerLeg.sprite = scr.cntrL.Countries[ProfileManager.Instance.itemList[PrefsManager.Instance.PlayerIndex].cntrInd].boot;
         startPanObjs.im_EnemyHead_1.sprite = ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].icon;
         startPanObjs.im_EnemyLeg_1.sprite = scr.cntrL.Countries[ProfileManager.Instance.itemList[ProfileManager.Instance.EnemyIndex].cntrInd].boot;
-        
-        scr.enAlg_1.gameObject.SetActive(false);
-        
+
         isTiltOn = PrefsManager.Instance.Tilt;
         EnableTilt(1);
-        scr.levAudScr.isSoundOn = PrefsManager.Instance.SoundOn;
+        
 
         ButtonsSize(-1);
 
@@ -117,8 +104,8 @@ public class Objects_Level : MonoBehaviour
                 break;
         }
 
-		scr.pMov.Left_JK_EndButton();
-		scr.pMov.Right_JK_EndButton();
+        Player.Instance.Left_JK_EndButton();
+        Player.Instance.Right_JK_EndButton();
 		mainCanvas.enabled = true;
 		controlsCanvas.enabled = true;
 		quitPanel.SetActive (false);
@@ -145,8 +132,7 @@ public class Objects_Level : MonoBehaviour
 	private void DeactivateMenuesOnStart()
 	{
 		resultMenuAnim.gameObject.SetActive(false);
-		secondTimePanelAnim.gameObject.SetActive(false);
-	}
+    }
 
 	public void SetControls_1()
 	{
@@ -260,7 +246,6 @@ public class Objects_Level : MonoBehaviour
         controlsCanvas.enabled = false;
         scr.congrPan.CongradulationsPanelCall();
         scr.congrPan.DisableSomeObjects();
-        scr.monWin.SetMoneyWin();
     }
 
     public void FinishOrContinue()

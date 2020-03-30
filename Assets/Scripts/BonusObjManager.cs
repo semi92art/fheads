@@ -475,8 +475,8 @@ public class BonusObjManager : MonoBehaviour
         ballScale_0 = ballTr.localScale;
         plScale_0 = plTr.localScale;
         enScale_0 = enTr.localScale;
-        plSpeed_0 = scr.pMov.maxSpeed;
-        enSpeed_0 = scr.enAlg.maxSpeed;
+        plSpeed_0 = Player.Instance.maxSpeed;
+        enSpeed_0 = Enemy.Instance.maxSpeed;
     }
 
     public void BallBig(int step)
@@ -550,7 +550,7 @@ public class BonusObjManager : MonoBehaviour
             bonStat[2] = 1;
 
             plTr.localScale = plScale_0 * 1.5f;
-            scr.pMov.kickOvHTorq_0 = kickOverHeadTorque_Big;
+            Player.Instance.kickOvHTorq_0 = kickOverHeadTorque_Big;
             isPlayerBig = 1;
             anim_Bonuses[2].enabled = false;
         }
@@ -560,14 +560,14 @@ public class BonusObjManager : MonoBehaviour
             bonStat[3] = 1;
 
             plTr.localScale = plScale_0 / 1.3f;
-            scr.pMov.kickOvHTorq_0 = kickOverHeadTorque_Small;
+            Player.Instance.kickOvHTorq_0 = kickOverHeadTorque_Small;
             isPlayerBig = 2;
             anim_Bonuses[3].enabled = false;
         }
         else if (step == 0)
         {
             plTr.localScale = plScale_0;
-            scr.pMov.kickOvHTorq_0 = kickOverHeadTorque_Norm;
+            Player.Instance.kickOvHTorq_0 = kickOverHeadTorque_Norm;
             isPlayerBig = 0;
         }
         else if (step == -1)
@@ -592,8 +592,8 @@ public class BonusObjManager : MonoBehaviour
             bonStat[4] = 1;
 
             enTr.localScale = enScale_0 * 1.5f;
-            scr.enAlg.kickOvHTorq_0 = -kickOverHeadTorque_Big;
-            scr.enAlg.whenKick_State_1 = whenKick_State_1_Big;
+            Enemy.Instance.kickOvHTorq_0 = -kickOverHeadTorque_Big;
+            Enemy.Instance.whenKick_State_1 = whenKick_State_1_Big;
             isEnemyBig = 1;
             anim_Bonuses[4].enabled = false;
         }
@@ -602,16 +602,16 @@ public class BonusObjManager : MonoBehaviour
             enSmallTr.position = startBonTrs[5];
             bonStat[5] = 1;
 
-            scr.enAlg.kickOvHTorq_0 = -kickOverHeadTorque_Small;
-            scr.enAlg.whenKick_State_1 = whenKick_State_1_Small;
+            Enemy.Instance.kickOvHTorq_0 = -kickOverHeadTorque_Small;
+            Enemy.Instance.whenKick_State_1 = whenKick_State_1_Small;
             enTr.localScale = enScale_0 / 1.3f;
             isEnemyBig = 2;
             anim_Bonuses[5].enabled = false;
         }
         else if (step == 0)
         {
-            scr.enAlg.kickOvHTorq_0 = -kickOverHeadTorque_Norm;
-            scr.enAlg.whenKick_State_1 = whenKick_State_1_Norm;
+            Enemy.Instance.kickOvHTorq_0 = -kickOverHeadTorque_Norm;
+            Enemy.Instance.whenKick_State_1 = whenKick_State_1_Norm;
             enTr.localScale = enScale_0;
             isEnemyBig = 0;
         }
@@ -720,15 +720,15 @@ public class BonusObjManager : MonoBehaviour
             plSpDownTr.position = startBonTrs[10];
             bonStat[10] = 1;
             scr.levAudScr.molniya.Play();
-            scr.pMov.maxSpeed = 0f;
-            scr.molnia.target = scr.pMov.gameObject;
+            Player.Instance.maxSpeed = 0f;
+            scr.molnia.target = Player.Instance.gameObject;
             isMolnia = true;
             isPlayerFast = 2;
             anim_Bonuses[10].enabled = false;
         }
         else if (step == 0)
         {
-            scr.pMov.maxSpeed = plSpeed_0;
+            Player.Instance.maxSpeed = plSpeed_0;
             isPlayerFast = 0;
         }
         else if (step == -1)
@@ -747,9 +747,9 @@ public class BonusObjManager : MonoBehaviour
             enSpDownTr.position = startBonTrs[11];
             bonStat[11] = 1;
             scr.levAudScr.molniya.Play();
-            scr.enAlg.maxSpeed = 0f;
+            Enemy.Instance.maxSpeed = 0f;
             scr.jScr.isMolniya = true;
-            scr.molnia.target = scr.enAlg.gameObject;
+            scr.molnia.target = Enemy.Instance.gameObject;
             isMolnia = true;
             isEnemyFast = 2;
             anim_Bonuses[11].enabled = false;
@@ -757,8 +757,7 @@ public class BonusObjManager : MonoBehaviour
         else if (step == 0)
         {
             scr.jScr.isMolniya = false;
-            scr.enAlg.maxSpeed = enSpeed_0;
-            scr.enAlg_1.maxSpeed = enSpeed_0;
+            Enemy.Instance.maxSpeed = enSpeed_0;
             isEnemyFast = 0;
         }
         else if (step == -1)

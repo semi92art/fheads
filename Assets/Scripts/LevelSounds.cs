@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 
-public class LevelAudioScript : MonoBehaviour 
+public class LevelSounds : MonoBehaviour 
 {
 	#region public fields
-	
-	public Animator anim_SoundOn;
 	
 	public AudioSource goalSource;
 	public AudioSource playerJumpSource, enemyJumpSource;
@@ -17,18 +15,10 @@ public class LevelAudioScript : MonoBehaviour
 	public AudioSource kickSource;
 	public AudioSource bonus_1, bonus_2;
 	public AudioSource molniya;
-	public AudioSource timeSlow_In, timeSlow_Out;
 	public AudioSource[] _tribunes;
-	public AudioClip goalClip1;
-	public AudioClip goalClip2;
-	
-	public bool isSoundOn;
-	[HideInInspector]
-	public bool goal;
-	[HideInInspector]
-	public bool isPlayingGoalClip;
-	[HideInInspector]
-	public bool isPlayingJumpClipPlayer, isPlayingJumpClipEnemy;
+
+	public bool SoundOn { get; set; }
+
 
 	#endregion
 	
@@ -47,6 +37,31 @@ public class LevelAudioScript : MonoBehaviour
     private int tribInd;
     
     #endregion
+    
+    #region constructors
+
+    // public static LevelSounds Create(Audio _GoalSource,
+	   //  string _JumpSource,
+	   //  string _BallTouchSource,
+	   //  string _MenuButtonsSource,
+	   //  string _MoneyWinSource,
+	   //  string _TicTocSource,
+	   //  string _WhistleSource,
+	   //  string _LongWhistleSource,
+	   //  string _KickSource,
+	   //  string _Bonus1Source,
+	   //  string _Bonus2Source,
+	   //  string _LightningSource,
+	   //  string _TribuneSource1,
+	   //  string _TribuneSource2,
+	   //  string _TribuneSource3,
+	   //  string _MixerSource
+	   //  )
+    // {
+	   //  
+    // }
+    
+    #endregion
 
     #region engine methods
     
@@ -59,6 +74,8 @@ public class LevelAudioScript : MonoBehaviour
     void Update()
     {
 	    BallTouchSound();
+	    JumpSoundPlayer();
+	    JumpSoundEnemy();
 	    Attenuation_TribunesSound();
     }
     
@@ -81,10 +98,10 @@ public class LevelAudioScript : MonoBehaviour
 		
     private void JumpSoundPlayer()
     {
-	    if (scr.pMov.jump)
+	    if (Player.Instance.jump)
 	    {
 		    timerJumpPlayer++;
-		    if (timerJumpPlayer == 1 && isSoundOn)
+		    if (timerJumpPlayer == 1 && SoundOn)
 			    playerJumpSource.Play();
 		    else if (timerJumpPlayer != 0)
 			    timerJumpPlayer = timerJumpPlayer > 20 ? 0 : timerJumpPlayer + 1;
@@ -102,7 +119,7 @@ public class LevelAudioScript : MonoBehaviour
 	    if (scr.jScr.jump)
 	    {
 		    timerJumpEnemy++;
-		    if (timerJumpEnemy == 1 && isSoundOn)
+		    if (timerJumpEnemy == 1 && SoundOn)
 			    enemyJumpSource.Play();
 		    else if (timerJumpEnemy != 0)
 		    {
@@ -156,7 +173,7 @@ public class LevelAudioScript : MonoBehaviour
 			    {
 				    ballTouchSource.volume = scr.ballTScr.velMagnitude > 20 ? 
 					    1 + 0.2f : scr.ballTScr.velMagnitude * 0.02f * (1 + 0.2f);
-				    if (isSoundOn)
+				    if (SoundOn)
 					    ballTouchSource.Play();
 			    }
 			    else if (timerBallTouch != 0)
@@ -178,22 +195,19 @@ public class LevelAudioScript : MonoBehaviour
     public void EnableSound(int isAwake)
     {
 	    audSources = FindObjectsOfType<AudioSource>();
-	    isSoundOn = isAwake == 1 ? isSoundOn : !isSoundOn;
-
-	    anim_SoundOn.SetTrigger(
-		    Animator.StringToHash(isAwake + (isSoundOn ? "1" : "0")));
-
+	    SoundOn = isAwake == 1 ? SoundOn : !SoundOn;
+	    
 	    if (isAwake == 0)
-		    PrefsManager.Instance.SoundOn = isSoundOn;
+		    PrefsManager.Instance.SoundOn = SoundOn;
 
 	    for (int i = 0; i < audSources.Length; i++)
-		    audSources[i].mute = !isSoundOn;
+		    audSources[i].mute = !SoundOn;
 
 	    if (PrefsManager.Instance.Tribunes == 1 || PrefsManager.Instance.Tribunes == 5)
 	    {
 		    AudioSource[] audS = scr.rainMan.rainScr.gameObject.GetComponents<AudioSource>();
 		    for (int i = 0; i < audS.Length; i++)
-			    audS[i].mute = !isSoundOn;
+			    audS[i].mute = !SoundOn;
 	    }
     }
 
@@ -205,4 +219,9 @@ public class LevelAudioScript : MonoBehaviour
     
     #endregion
 
+
+    public void PlayGoal()
+    {
+	    goalSource.Play();
+    }
 }
