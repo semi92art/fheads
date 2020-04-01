@@ -196,11 +196,11 @@ public class Enemy : MonoBehaviour
     {
         if (Mathf.Abs(bY - enY) < 5f)
         {
-            if (bX - enX > 1 && bX - enX < whenKick + 3f && legHJ.jointAngle >= -1f)
+            if (bX - enX > 1 && bX - enX < whenKick + 3f && legHJ.jointAngle <= -1f)
                 isKick = true;
             else
             {
-                if (isKick && legHJ.jointAngle <= -90f)
+                if (isKick && legHJ.jointAngle >= -90f)
                     isKick = false;
             }
         }
@@ -423,6 +423,8 @@ public class Enemy : MonoBehaviour
                     _rb.AddForce(new Vector2(Force * moveForce, 0));
                 else
                 {
+                    //that let player to move left
+                    _rb.AddForce(new Vector2(-moveForce, 0));
                     if (transform.position.x > -20)
                     {
                         if (scr.tM.matchPeriods == 2)
