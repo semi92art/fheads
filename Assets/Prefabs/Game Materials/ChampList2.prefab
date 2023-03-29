@@ -1,0 +1,184 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &146794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 421200}
+  - 114: {fileID: 11498318}
+  - 114: {fileID: 11469602}
+  m_Layer: 0
+  m_Name: ChampList2
+  m_TagString: ChampList
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &421200
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146794}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1008.04779, y: -164.2341, z: -.125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11469602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c880db4e8ada674fa0556760ed5e045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemList:
+  - imageSprite: {fileID: 0}
+    Name: 
+  - imageSprite: {fileID: 21300000, guid: 48bc15e0a038bbb48bfe5959dc342882, type: 3}
+    Name: 
+  - imageSprite: {fileID: 21300000, guid: b51fff0528d9854448dadc579dc4dbdb, type: 3}
+    Name: 
+  - imageSprite: {fileID: 21300000, guid: 5e491f6ce78c27844bba14f1d9147019, type: 3}
+    Name: 
+  - imageSprite: {fileID: 21300000, guid: d6eb03709fb8b2f429b58f337fcc0c73, type: 3}
+    Name: 
+  - imageSprite: {fileID: 21300000, guid: 165736824a5c76c48a537edbab802e02, type: 3}
+    Name: 
+  - imageSprite: {fileID: 21300000, guid: 1575950b0402e3748aabbf25058413fe, type: 3}
+    Name: 
+  - imageSprite: {fileID: 21300000, guid: 61ad2df574aedda429e8d9aadff8fbe1, type: 3}
+    Name: 
+  - imageSprite: {fileID: 21300000, guid: 5113266d0ac42734c86b418c601b9cad, type: 3}
+    Name: 
+  - imageSprite: {fileID: 21300000, guid: 043b0057005befc4daacef3f8902f334, type: 3}
+    Name: 
+--- !u!114 &11498318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c44f83b8183104aa14a660a950ce8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  num_teams1: 10
+  myPlayerColor: {r: .926470578, g: .708477497, b: .136245698, a: 1}
+  champPlayer: {fileID: 147082, guid: 939ae805a4d4c93468dfd602f28dc33c, type: 2}
+  itemList:
+  - imageSprite: {fileID: 0}
+    Name: 
+    Wins: 0
+    Ties: 0
+    Loses: 0
+    GoalsDiff: 0
+    Points: 0
+    indexOf: 0
+    summSkill: 1
+  - imageSprite: {fileID: 21300000, guid: 48bc15e0a038bbb48bfe5959dc342882, type: 3}
+    Name: Sanchez
+    Wins: 0
+    Ties: 0
+    Loses: 0
+    GoalsDiff: 0
+    Points: 0
+    indexOf: 0
+    summSkill: 2
+  - imageSprite: {fileID: 21300000, guid: b51fff0528d9854448dadc579dc4dbdb, type: 3}
+    Name: Bale
+    Wins: 0
+    Ties: 0
+    Loses: 0
+    GoalsDiff: 0
+    Points: 0
+    indexOf: 0
+    summSkill: 3
+  - imageSprite: {fileID: 21300000, guid: 5e491f6ce78c27844bba14f1d9147019, type: 3}
+    Name: 
+    Wins: 0
+    Ties: 0
+    Loses: 0
+    GoalsDiff: 0
+    Points: 0
+    indexOf: 0
+    summSkill: 4
+  - imageSprite: {fileID: 21300000, guid: d6eb03709fb8b2f429b58f337fcc0c73, type: 3}
+    Name: 
+    Wins: 0
+    Ties: 0
+    Loses: 0
+    GoalsDiff: 0
+    Points: 0
+    indexOf: 0
+    summSkill: 5
+  - imageSprite: {fileID: 21300000, guid: 165736824a5c76c48a537edbab802e02, type: 3}
+    Name: 
+    Wins: 0
+    Ties: 0
+    Loses: 0
+    GoalsDiff: 0
+    Points: 0
+    indexOf: 0
+    summSkill: 6
+  - imageSprite: {fileID: 21300000, guid: 1575950b0402e3748aabbf25058413fe, type: 3}
+    Name: 
+    Wins: 0
+    Ties: 0
+    Loses: 0
+    GoalsDiff: 0
+    Points: 0
+    indexOf: 0
+    summSkill: 7
+  - imageSprite: {fileID: 21300000, guid: 61ad2df574aedda429e8d9aadff8fbe1, type: 3}
+    Name: 
+    Wins: 0
+    Ties: 0
+    Loses: 0
+    GoalsDiff: 0
+    Points: 0
+    indexOf: 0
+    summSkill: 8
+  - imageSprite: {fileID: 21300000, guid: 5113266d0ac42734c86b418c601b9cad, type: 3}
+    Name: 
+    Wins: 0
+    Ties: 0
+    Loses: 0
+    GoalsDiff: 0
+    Points: 0
+    indexOf: 0
+    summSkill: 9
+  - imageSprite: {fileID: 21300000, guid: 043b0057005befc4daacef3f8902f334, type: 3}
+    Name: 
+    Wins: 0
+    Ties: 0
+    Loses: 0
+    GoalsDiff: 0
+    Points: 0
+    indexOf: 0
+    summSkill: 10
+  contentPanel: {fileID: 0}
+  thisRound: -1
+  isSecondTour: 0
+  endOfChamp: 0
+  games: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 146794}
+  m_IsPrefabParent: 1

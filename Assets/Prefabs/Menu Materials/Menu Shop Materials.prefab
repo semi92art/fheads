@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &184790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 464820}
+  - 114: {fileID: 11437886}
+  m_Layer: 0
+  m_Name: Menu Shop Materials
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &464820
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184790}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 714.628967, y: 60.1985474, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11437886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc669f1804381549b74ce78dc0508a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scr: {fileID: 0}
+  showcaseUp: {fileID: 21300000, guid: 80e6c9bb4fc36e7479f83e8c7d941e7c, type: 3}
+  showcaseDown: {fileID: 21300000, guid: ed340fa5e3de1854f944c4a6c2260e0b, type: 3}
+  showcase1Up: {fileID: 21300000, guid: cbd68c453a4808a409c05081e1f22802, type: 3}
+  showcase1Down: {fileID: 21300000, guid: c5362d68fd5890947a6a76996f581f33, type: 3}
+  anCareer: {fileID: 0}
+  anChall: {fileID: 0}
+  anFP: {fileID: 0}
+  anProfile: {fileID: 0}
+  anPrPlayers: {fileID: 0}
+  anPrStadiums: {fileID: 0}
+  anPrExtras: {fileID: 0}
+  anMoney: {fileID: 0}
+  sampleButton: {fileID: 139592, guid: 2afa31cb87d75e946b8250c67720df24, type: 2}
+  contentPanel: {fileID: 0}
+  itemList:
+  - isNoAds: 0
+    name: 1,500,000$
+    icon: {fileID: 21300000, guid: d71f8a5688f7ff24fbb68b19b2078f39, type: 3}
+    price: 0.99 usd
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: BuyItem_1
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isNoAds: 1
+    name: 2,000,000$
+    icon: {fileID: 21300000, guid: d71f8a5688f7ff24fbb68b19b2078f39, type: 3}
+    price: 1.99 usd
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: BuyItem_2
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isNoAds: 1
+    name: 10,000,000$
+    icon: {fileID: 21300000, guid: d71f8a5688f7ff24fbb68b19b2078f39, type: 3}
+    price: 2.99 usd
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: BuyItem_3
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 184790}
+  m_IsPrefabParent: 1

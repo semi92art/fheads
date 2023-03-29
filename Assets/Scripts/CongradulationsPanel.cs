@@ -4,41 +4,60 @@ using UnityEngine.UI;
 
 public class CongradulationsPanel : MonoBehaviour 
 {
-    [SerializeField]
-	private Scripts scr;
-    [Space(5)]
-    public Animator anim_CongrPan;
-    public GameObject obj_Conffeti;
+	public Scripts scr;
+
 	public GameObject congrPanel;
 	public Rigidbody2D ballRb;
+	public Animator nextButton;
+	public Image playerImage, enemyImage;
+	public Image playerFlag, enemyFlag;
+	public Text playerName, enemyName;
 	public Text scoreText;
-	public GameObject[] objsToDis;
+	public Canvas mainCanvas;
+	
+	private int timer;
 
-   
-	public void CongradulationsPanelCall()
+	[HideInInspector]
+	public bool isLoadPanel;
+
+	void Awake()
 	{
-        if (TimeManager.resOfGame == 1)
-        {
-            scr.alPrScr.winsTotal++;
-
-            if (Score.score1 == 0)
-                scr.alPrScr.winsNoConcGoals++;
-        }
-            
-		scoreText.text = Score.score1 + ":" + Score.score;
-		congrPanel.SetActive(true);
-        Enemy.gameStop = true;
-		scr.gM.MenuResultBack ();
-
-        scr.camSize.SetCameraPositionForCongrPan();
-        scr.alPrScr.doCh = true;
+		congrPanel.SetActive(false);
 	}
 
-	public void DisableSomeObjects()
+	void Start()
 	{
-		for (int i = 0; i < objsToDis.Length; i++)
-			objsToDis[i].SetActive(false);
+		playerImage.sprite = scr.alScr.playerSprite;
+		enemyImage.sprite = scr.alScr.enemySprite;
+		playerFlag.sprite = scr.alScr.playerFlag;
+		enemyFlag.sprite = scr.alScr.enemyFlag;
+		playerName.text = scr.alScr.playerName0;
+		enemyName.text = scr.alScr.enemyName0;
+	}
+		
+	void Update()
+	{
+		/*if (scr.gM.exitBool)
+		{
+			scr.gM.GoToMenu();
+			scoreText.text = Score.score1 + ":" + Score.score;
+			scr.gM.exitBool = false;
+		}*/
+	}
 
-		scr.camSize.enabled = false;
+
+
+	public void CongradulationsPanelCall()
+	{
+		scoreText.text = Score.score1 + ":" + Score.score;
+		congrPanel.SetActive(true);
+		ballRb.constraints = RigidbodyConstraints2D.FreezeAll;
+		scr.enAlg.gameStop = true;
+		scr.gM.MenuResultBack ();
+	}
+
+	public void CallLoadingPanel() 
+	{
+		mainCanvas.enabled = false;
 	}
 }

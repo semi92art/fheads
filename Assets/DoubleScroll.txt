@@ -1,0 +1,696 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using System.Collections;
+using System.Collections.Generic;
+
+
+
+[System.Serializable]
+public class posItemList
+{
+	public float anchPos;
+	public int numOfPlayers;
+}
+
+
+public class DoubleScroll : MonoBehaviour 
+{
+	public Scripts scr;
+
+	public GameObject playButton;
+
+	public RectTransform plFlagContPan;
+	public RectTransform enFlagContPan;
+	public RectTransform playerContPan;
+	public RectTransform enemyContPan;
+
+	public ScrollRect plFlagContScr;
+	public ScrollRect enFlagContScr;
+	public ScrollRect playerContScr;
+	public ScrollRect enemyContScr;
+
+	public Image plFlArrPrev, plFlArrNext;
+	public Image enFlArrPrev, enFlArrNext;
+	public Image playerArrPrev, playerArrNext;
+	public Image enemyArrPrev, enemyArrNext;
+
+	public GameObject countrySampBut;
+	public GameObject playerSampBut;
+
+	public Sprite orangeArrow;
+	public Sprite magentaArrow;
+	public Sprite grayArrow;
+
+	public Sprite[] countries;
+
+	public List<posItemList>plItemList;
+
+	private int plFlagIndex;
+	private int enFlagIndex;
+
+	private int playerIndex;
+	private int enemyIndex;
+
+	public Sprite currPlFlag;
+	public Sprite currEnFlag;
+
+	private Sprite checkFlagSpr;
+
+	private GameObject[] playersFP;
+	private GameObject[] enemiesFP;
+
+	public int currPlayerIndexFP;
+	public int currEnemyIndexFP;
+
+	private bool isChange;
+	private bool isFreePlay;
+
+	private int index1 = -1;
+
+	
+	void Awake()
+	{
+		isFreePlay = true;
+
+		plFlArrPrev.sprite = grayArrow;
+		plFlArrPrev.GetComponent<Button> ().interactable = false;
+		enFlArrPrev.sprite = grayArrow;
+		enFlArrPrev.GetComponent<Button> ().interactable = false;
+		playerArrPrev.sprite = grayArrow;
+		playerArrPrev.GetComponent<Button> ().interactable = false;
+		enemyArrPrev.sprite = grayArrow;
+		enemyArrPrev.GetComponent<Button> ().interactable = false;
+		playerArrNext.sprite = grayArrow;
+		playerArrNext.GetComponent<Button> ().interactable = false;
+		enemyArrNext.sprite = grayArrow;
+		enemyArrNext.GetComponent<Button> ().interactable = false;
+
+		DestroyEditorButtons ();
+
+		PopulateListPlayerFlag ();
+		PopulateListEnemyFlag ();
+
+		PopulateListPlayer ();
+		PopulateListEnemy ();
+
+		playersFP = GameObject.FindGameObjectsWithTag("FreePlayPlayer");
+		enemiesFP = GameObject.FindGameObjectsWithTag("FreePlayEnemy");
+
+	}
+	
+	void Update()
+	{
+		if (scr.gM.MainMenuBools.menuFreePlay)
+		{
+			if (isChange)
+			{
+				float xPos = playerContPan.anchoredPosition.x;
+				float scrRectWidth = playerContScr.GetComponent<RectTransform>().rect.width;
+				int playerIndex1 = (int)(-xPos/scrRectWidth);
+				
+				float xPos1 = enemyContPan.anchoredPosition.x;
+				float scrRectWidth1 = enemyContScr.GetComponent<RectTransform>().rect.width;
+				int enemyIndex1 = (int)(-xPos1/scrRectWidth1);
+				
+				for (int i = 0; i < scr.prScrL.itemList.Count; i++)
+				{
+					Sprite plSpr = playersFP[playerIndex1].GetComponent<PlayerSampleButton>().playerIm.sprite;
+					Sprite enSpr = playersFP[enemyIndex1].GetComponent<PlayerSampleButton>().playerIm.sprite;
+
+					if (plSpr == scr.prScrL.itemList[i].icon)
+					{
+						if (scr.prScrL.itemList[i].isOpened == 0)
+						{
+							playButton.SetActive(false);
+							playersFP[playerIndex1].GetComponent<PlayerSampleButton>().playerIm.color = Color.black;
+						}
+						else
+						{
+							scr.alScr.playerFlag = scr.prScrL.itemList[i].flag;
+							scr.alScr.playerName = scr.prScrL.itemList[i].name;
+							scr.alScr.playerName0 = scr.prScrL.itemList[i].name0;
+							scr.alScr.playerSprite = scr.prScrL.itemList[i].icon;
+
+							playButton.SetActive(true);
+						}
+					}
+					if (enSpr == scr.prScrL.itemList[i].icon)
+					{
+						if (scr.prScrL.itemList[i].isOpened == 0)
+						{
+							playButton.SetActive(false);
+							enemiesFP[enemyIndex1].GetComponent<PlayerSampleButton>().playerIm.color = Color.black;
+						}
+						else
+						{
+							scr.alScr.enemyFlag = scr.prScrL.itemList[i].flag;
+							scr.alScr.enemyName = scr.prScrL.itemList[i].name;
+							scr.alScr.enemyName0 = scr.prScrL.itemList[i].name0;
+							scr.alScr.enemySprite = scr.prScrL.itemList[i].icon;
+						}
+					}
+				}
+
+				isChange = false;
+			}
+		}
+
+		if (isFreePlay)
+		{
+			if (index1 < 1)
+			{
+				index1++;
+			}
+			else if (index1 == 1)
+			{
+				index1++;
+				SetCurrentFreePlay();
+				isFreePlay = false;
+			} 
+			else
+			{
+				isFreePlay = false;
+			}
+		}
+	}
+
+	public void EnableFreePlay()
+	{
+		isFreePlay = true;
+	}
+
+	void SetCurrentFreePlay()
+	{
+		int plFlagIndex1;
+		int enFlagIndex1;
+		int playerIndex1;
+		int enemyIndex1;
+
+		if (scr.alPrScr.launches == 1)
+		{
+			plFlagIndex1 = 12;
+			enFlagIndex1 = 2;
+			playerIndex1 = 0;
+			enemyIndex1 = 0;
+		}
+		else
+		{
+			plFlagIndex1 = PlayerPrefs.GetInt ("PlayerFlagIndex");
+			enFlagIndex1 = PlayerPrefs.GetInt ("EnemyFlagIndex");
+			playerIndex1 = PlayerPrefs.GetInt ("PlayerIndexFP");
+			enemyIndex1 = PlayerPrefs.GetInt ("EnemyIndexFP");
+		}
+		
+		//Debug.Log ("PlayerFlagIndex = " + plFlagIndex1);
+		//Debug.Log ("EnemyFlagIndex = " + enFlagIndex1);
+		//Debug.Log ("PlayerIndexFP = " + playerIndex1);
+		//Debug.Log ("EnemyIndexFP = " + plFlagIndex1);
+
+		for (int i = 0; i < plFlagIndex1; i++) 
+		{
+			NextElement(plFlagContPan);
+		}
+		for (int i = 0; i < enFlagIndex1; i++) 
+		{
+			NextElement(enFlagContPan);
+		}
+		for (int i = 0; i < playerIndex1; i++) 
+		{
+			NextElement(playerContPan);
+		}
+		for (int i = 0; i < enemyIndex1; i++) 
+		{
+			NextElement(enemyContPan);
+		}
+
+		isChange = true;
+	}
+
+	void DestroyEditorButtons(){
+		GameObject[] editorButtons = GameObject.FindGameObjectsWithTag("FreePlayFlag");
+		foreach (var item in editorButtons)
+		{
+			DestroyImmediate(item);
+		}
+
+		GameObject[] editorButtons1 = GameObject.FindGameObjectsWithTag("FreePlayPlayer");
+		foreach (var item in editorButtons1)
+		{
+			DestroyImmediate(item);
+		}
+	}
+
+	void PopulateListPlayerFlag()
+	{
+		for (int i = 0; i < countries.Length; i++) 
+		{
+			for (int j = 0; j < scr.prScrL.itemList.Count; j++)
+			{
+				if (countries[i] == scr.prScrL.itemList[j].flag)
+				{
+					GameObject newButton = Instantiate(countrySampBut) as GameObject;
+					FlagSampleButton button = newButton.GetComponent<FlagSampleButton>();
+					button.flagIm.sprite = scr.prScrL.itemList[j].flag;
+					button.countryName.text = scr.prScrL.itemList[j].name0;
+
+					newButton.transform.SetParent (plFlagContPan);
+					break;
+				}
+			}
+		}
+	}
+
+	void PopulateListEnemyFlag()
+	{
+		for (int i = 0; i < countries.Length; i++) 
+		{
+			for (int j = 0; j < scr.prScrL.itemList.Count; j++)
+			{
+				if (countries[i] == scr.prScrL.itemList[j].flag)
+				{
+					GameObject newButton = Instantiate(countrySampBut) as GameObject;
+					FlagSampleButton button = newButton.GetComponent<FlagSampleButton>();
+					button.flagIm.sprite = scr.prScrL.itemList[j].flag;
+					button.countryName.text = scr.prScrL.itemList[j].name0;
+					
+					newButton.transform.SetParent (enFlagContPan);
+					break;
+				}
+			}
+		}
+	}
+
+	void PopulateListPlayer()
+	{
+		for (int i = 0; i < countries.Length; i++) 
+		{
+			for (int j = 0; j < scr.prScrL.itemList.Count; j++)
+			{
+				if (countries[i] == scr.prScrL.itemList[j].flag)
+				{
+					GameObject newButton = Instantiate(playerSampBut) as GameObject;
+					PlayerSampleButton button = newButton.GetComponent<PlayerSampleButton>();
+					button.playerIm.sprite = scr.prScrL.itemList[j].icon;
+					
+					newButton.transform.SetParent (playerContPan);
+
+					GameObject[] playersFP = GameObject.FindGameObjectsWithTag("FreePlayPlayer");
+					if (countries[i] != checkFlagSpr)
+					{
+
+						float width = (float)playerContScr.GetComponent<RectTransform>().rect.width;
+						plItemList[i].anchPos = width * playersFP.Length;
+					}
+					plItemList[i].numOfPlayers ++;
+
+					checkFlagSpr = countries[i];
+				}
+			}
+		}
+
+		for (int i = 0; i < countries.Length; i++) 
+		{
+			if (i < plItemList.Count)
+			{
+				if ((int)plItemList[i].anchPos == 0)
+				{
+					plItemList.RemoveAt(i);
+				}
+			}
+		}
+	}
+	
+	void PopulateListEnemy()
+	{
+		for (int i = 0; i < countries.Length; i++) 
+		{
+			for (int j = 0; j < scr.prScrL.itemList.Count; j++)
+			{
+				if (countries[i] == scr.prScrL.itemList[j].flag)
+				{
+					GameObject newButton = Instantiate(playerSampBut) as GameObject;
+					PlayerSampleButton button = newButton.GetComponent<PlayerSampleButton>();
+					button.playerIm.sprite = scr.prScrL.itemList[j].icon;
+					button.tag = "FreePlayEnemy";
+
+					newButton.transform.SetParent (enemyContPan);
+				}
+			}
+		}
+	}
+
+	public void NextElement(RectTransform cPan)
+	{
+		float elWidth = 0;
+
+		if (cPan == plFlagContPan) 
+		{
+			elWidth = plFlagContScr.GetComponent<RectTransform> ().rect.width;
+			float xPos = plFlagContPan.anchoredPosition.x;
+			float yPos = plFlagContPan.anchoredPosition.y;
+
+			if ((int)xPos <= (int)(-cPan.rect.width + 2 * elWidth))
+			{
+				plFlArrNext.sprite = grayArrow;
+				plFlArrNext.GetComponent<Button>().interactable = false;
+			}
+
+			if (xPos > -cPan.rect.width + elWidth)
+			{
+				playerIndex = 0;
+				plFlagContPan.anchoredPosition = new Vector3 (xPos - elWidth, yPos, 0);
+				plFlagIndex ++;
+
+				float yPos1 = playerContPan.anchoredPosition.y;
+				float xWidth = enemyContScr.GetComponent<RectTransform>().rect.width;
+
+				playerContPan.anchoredPosition = new Vector3 
+					(-plItemList[plFlagIndex].anchPos + xWidth, yPos1, 0);
+
+				playerArrPrev.sprite = grayArrow;
+				playerArrPrev.GetComponent<Button>().interactable = false;
+				if (plItemList[plFlagIndex].numOfPlayers == 1)
+				{
+					playerArrNext.sprite = grayArrow;
+					playerArrNext.GetComponent<Button>().interactable = false;
+				}
+				else
+				{
+					playerArrNext.sprite = orangeArrow;
+					playerArrNext.GetComponent<Button>().interactable = true;
+				}
+
+				isChange = true;
+
+				PlayerPrefs.SetInt("PlayerFlagIndex", plFlagIndex);
+				PlayerPrefs.SetInt("PlayerIndexFP", 0);
+			}
+
+			if (plFlArrPrev.sprite == grayArrow)
+			{
+				plFlArrPrev.sprite = orangeArrow;
+				plFlArrPrev.GetComponent<Button>().interactable = true;
+			}
+
+			//Debug.Log("Player Flag Index = " + plFlagIndex);
+			//Debug.Log("Player Index = " + playerIndex);
+		} 
+		else if (cPan == enFlagContPan) 
+		{
+			elWidth = enFlagContScr.GetComponent<RectTransform> ().rect.width;
+			float xPos = enFlagContPan.anchoredPosition.x;
+			float yPos = enFlagContPan.anchoredPosition.y;
+
+			if ((int)xPos <= (int)(-cPan.rect.width + 2 * elWidth))
+			{
+				enFlArrNext.sprite = grayArrow;
+				enFlArrNext.GetComponent<Button>().interactable = false;
+			}
+
+			if (xPos > -cPan.rect.width + elWidth)
+			{
+				enemyIndex = 0;
+				enFlagContPan.anchoredPosition = new Vector3 (xPos - elWidth, yPos, 0);
+				enFlagIndex ++;
+
+				float yPos1 = enemyContPan.anchoredPosition.y;
+				float xWidth = enemyContScr.GetComponent<RectTransform>().rect.width;
+				
+				enemyContPan.anchoredPosition = new Vector3 
+					(-plItemList[enFlagIndex].anchPos + xWidth, yPos1, 0);
+
+				enemyArrPrev.sprite = grayArrow;
+				enemyArrPrev.GetComponent<Button>().interactable = false;
+
+				if (plItemList[enFlagIndex].numOfPlayers == 1)
+				{
+					enemyArrNext.sprite = grayArrow;
+					enemyArrNext.GetComponent<Button>().interactable = false;
+				}
+				else
+				{
+					enemyArrNext.sprite = orangeArrow;
+					enemyArrNext.GetComponent<Button>().interactable = true;
+				}
+
+				isChange = true;
+
+				PlayerPrefs.SetInt("EnemyFlagIndex", enFlagIndex);
+				PlayerPrefs.SetInt("EnemyIndexFP", 0);
+			}
+
+			if (enFlArrPrev.sprite == grayArrow)
+			{
+				enFlArrPrev.sprite = orangeArrow;
+				enFlArrPrev.GetComponent<Button>().interactable = true;
+			}
+
+			//Debug.Log("Enemy Flag Index = " + enFlagIndex);
+			//Debug.Log("Enemy Index = " + enemyIndex);
+		}
+		else if (cPan == playerContPan) 
+		{
+			elWidth = playerContScr.GetComponent<RectTransform> ().rect.width;
+			float xPos = playerContPan.anchoredPosition.x;
+			float yPos = playerContPan.anchoredPosition.y;
+
+			if (playerIndex < plItemList[plFlagIndex].numOfPlayers - 1)
+			{
+				playerIndex ++;
+				playerContPan.anchoredPosition = new Vector3 (xPos - elWidth, yPos, 0);
+
+				isChange = true;
+
+				PlayerPrefs.SetInt("PlayerIndexFP", playerIndex);
+			}
+
+			if (playerIndex > plItemList[plFlagIndex].numOfPlayers - 2)
+			{
+				playerArrNext.sprite = grayArrow;
+				playerArrNext.GetComponent<Button>().interactable = false;
+			}
+
+			if (playerArrPrev.sprite == grayArrow)
+			{
+				playerArrPrev.sprite = orangeArrow;
+				playerArrPrev.GetComponent<Button>().interactable = true;
+			}
+
+			Debug.Log("Player Index = " + playerIndex);
+		} 
+		else if (cPan == enemyContPan) 
+		{
+			elWidth = enemyContScr.GetComponent<RectTransform> ().rect.width;
+			float xPos = enemyContPan.anchoredPosition.x;
+			float yPos = enemyContPan.anchoredPosition.y;
+		
+			if (enemyIndex < plItemList[enFlagIndex].numOfPlayers - 1)
+			{
+				enemyIndex ++;
+				enemyContPan.anchoredPosition = new Vector3 (xPos - elWidth, yPos, 0);
+
+				isChange = true;
+
+				PlayerPrefs.SetInt("EnemyIndexFP", enemyIndex);
+			}
+
+			if (enemyIndex > plItemList[enFlagIndex].numOfPlayers - 2)
+			{
+				enemyArrNext.sprite = grayArrow;
+				enemyArrNext.GetComponent<Button>().interactable = false;
+			}
+
+			if (enemyArrPrev.sprite == grayArrow)
+			{
+				enemyArrPrev.sprite = orangeArrow;
+				enemyArrPrev.GetComponent<Button>().interactable = true;
+			}
+
+			Debug.Log("Enemy Index = " + enemyIndex);
+		}
+	}
+
+	public void PrevElement(RectTransform cPan)
+	{
+		float elWidth = 0;
+		
+		if (cPan == plFlagContPan) 
+		{
+			elWidth = plFlagContScr.GetComponent<RectTransform> ().rect.width;
+			float xPos = plFlagContPan.anchoredPosition.x;
+			float yPos = plFlagContPan.anchoredPosition.y;
+
+			if ((int)xPos >= (int)-elWidth)
+			{
+				plFlArrPrev.sprite = grayArrow;
+				plFlArrPrev.GetComponent<Button>().interactable = false;
+			}
+
+			if (xPos < 0)
+			{
+				playerIndex = 0;
+				plFlagContPan.anchoredPosition = new Vector3 (xPos + elWidth, yPos, 0);
+				plFlagIndex --;
+
+				float xWidth = enemyContScr.GetComponent<RectTransform>().rect.width;
+				float yPos1 = playerContPan.anchoredPosition.y;
+				
+				playerContPan.anchoredPosition = new Vector3 
+					(-plItemList[plFlagIndex].anchPos + xWidth, yPos1, 0);
+				playerArrPrev.sprite = grayArrow;
+				playerArrPrev.GetComponent<Button>().interactable = false;
+
+				if (plItemList[plFlagIndex].numOfPlayers == 1)
+				{
+					playerArrNext.sprite = grayArrow;
+					playerArrNext.GetComponent<Button>().interactable = false;
+				}
+				else
+				{
+					playerArrNext.sprite = orangeArrow;
+					playerArrNext.GetComponent<Button>().interactable = true;
+				}
+
+				isChange = true;
+
+				PlayerPrefs.SetInt("PlayerFlagIndex", plFlagIndex);
+				PlayerPrefs.SetInt("PlayerIndexFP", 0);
+			}
+
+			if (plFlArrNext.sprite == grayArrow)
+			{
+				plFlArrNext.sprite = orangeArrow;
+				plFlArrNext.GetComponent<Button>().interactable = true;
+			}
+
+			Debug.Log("Player Flag Index = " + plFlagIndex);
+			Debug.Log("Player Index = " + playerIndex);
+		} 
+		else if (cPan == enFlagContPan) 
+		{
+			elWidth = enFlagContScr.GetComponent<RectTransform> ().rect.width;
+			float xPos = enFlagContPan.anchoredPosition.x;
+			float yPos = enFlagContPan.anchoredPosition.y;
+
+			if ((int)xPos >= (int)-elWidth)
+			{
+				enFlArrPrev.sprite = grayArrow;
+				enFlArrPrev.GetComponent<Button>().interactable = false;
+			}
+
+			if (xPos < 0)
+			{
+				enemyIndex = 0;
+				enFlagContPan.anchoredPosition = new Vector3 (xPos + elWidth, yPos, 0);
+				enFlagIndex --;
+				Debug.Log("Enemy Flag Index = " + enFlagIndex);
+
+				float xWidth = enemyContScr.GetComponent<RectTransform>().rect.width;
+				float yPos1 = enemyContPan.anchoredPosition.y;
+				
+				enemyContPan.anchoredPosition = new Vector3 
+					(-plItemList[enFlagIndex].anchPos +xWidth, yPos1, 0);
+
+				enemyArrPrev.sprite = grayArrow;
+				enemyArrPrev.GetComponent<Button>().interactable = false;
+
+				if (plItemList[enFlagIndex].numOfPlayers == 1)
+				{
+					enemyArrNext.sprite = grayArrow;
+					enemyArrNext.GetComponent<Button>().interactable = false;
+				}
+				else
+				{
+					enemyArrNext.sprite = orangeArrow;
+					enemyArrNext.GetComponent<Button>().interactable = true;
+				}
+
+				isChange = true;
+
+				PlayerPrefs.SetInt("EnemyFlagIndex", enFlagIndex);
+				PlayerPrefs.SetInt("EnemyIndexFP", 0);
+			}
+
+			if (enFlArrNext.sprite == grayArrow)
+			{
+				enFlArrNext.sprite = orangeArrow;
+				enFlArrNext.GetComponent<Button>().interactable = true;
+			}
+
+			Debug.Log("Enemy Flag Index = " + enFlagIndex);
+			Debug.Log("Enemy Index = " + enemyIndex);
+		}
+		else if (cPan == playerContPan) 
+		{
+			elWidth = playerContScr.GetComponent<RectTransform> ().rect.width;
+			float xPos = playerContPan.anchoredPosition.x;
+			float yPos = playerContPan.anchoredPosition.y;
+
+			if (playerIndex > 0)
+			{
+				playerIndex --;
+				playerContPan.anchoredPosition = new Vector3 (xPos + elWidth, yPos, 0);
+
+				isChange = true;
+
+				PlayerPrefs.SetInt("PlayerIndexFP", playerIndex);
+			}
+
+			if (playerIndex < 1)
+			{
+				playerArrPrev.sprite = grayArrow;
+				playerArrPrev.GetComponent<Button>().interactable = false;
+			}
+
+			if (playerArrNext.sprite == grayArrow)
+			{
+				playerArrNext.sprite = orangeArrow;
+				playerArrNext.GetComponent<Button>().interactable = true;
+			}
+
+			Debug.Log("Player Index = " + playerIndex);
+		} 
+		else if (cPan == enemyContPan) 
+		{
+			elWidth = enemyContScr.GetComponent<RectTransform> ().rect.width;
+			float xPos = enemyContPan.anchoredPosition.x;
+			float yPos = enemyContPan.anchoredPosition.y;
+
+			if (enemyIndex > 0)
+			{
+				enemyIndex --;
+				enemyContPan.anchoredPosition = new Vector3 (xPos + elWidth, yPos, 0);
+
+				isChange = true;
+
+				PlayerPrefs.SetInt("EnemyIndexFP", enemyIndex);
+			}
+
+			if (enemyIndex < 1)
+			{
+				enemyArrPrev.sprite = grayArrow;
+				enemyArrPrev.GetComponent<Button>().interactable = false;
+			}
+
+			if (enemyArrNext.sprite == grayArrow)
+			{
+				enemyArrNext.sprite = orangeArrow;
+				enemyArrNext.GetComponent<Button>().interactable = true;
+			}
+
+			Debug.Log("Enemy Index = " + enemyIndex);
+		}
+	}	
+
+	public void SetPlayerNotFP()
+	{
+		int i = scr.alPrScr.playerIndex;
+
+		scr.alScr.playerFlag = scr.prScrL.itemList[i].flag;
+		scr.alScr.playerName = scr.prScrL.itemList[i].name;
+		scr.alScr.playerName0 = scr.prScrL.itemList[i].name0;
+		scr.alScr.playerSprite = scr.prScrL.itemList[i].icon;
+	}
+}
+

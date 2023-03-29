@@ -3,19 +3,17 @@
 
 public class BallSlow : MonoBehaviour
 {
-    [SerializeField]
-	private Scripts scr;
+	public Scripts scr;
 
 	public float drag;
 	public CircleCollider2D bCol1;
-
 
 	void OnTriggerStay2D(Collider2D other)
 	{
 		if (other == bCol1) 
 		{
-			if (scr.pMov.restart)
-                scr.ballScr._rb.drag = drag;	
+			if (scr.pMov.restart) 
+				scr.objLev.ballRb.drag = drag;		
 		}
 	}
 
@@ -23,8 +21,8 @@ public class BallSlow : MonoBehaviour
 	{
 		if (other == bCol1) 
 		{
-			if (scr.pMov.restart)
-                scr.ballScr._rb.drag = 0;	
+			if (scr.pMov.restart) 
+				scr.objLev.ballRb.drag = 0;	
 		}
 	}
 }

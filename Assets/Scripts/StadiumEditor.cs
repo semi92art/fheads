@@ -5,24 +5,21 @@ using UnityEditor;
 #endif
 
 #if UNITY_EDITOR
-
 [CustomEditor(typeof(StadiumChooseScript))]
-public class StadiumEditor : Editor 
-{
-	public override void OnInspectorGUI()
-	{
+public class StadiumEditor : Editor {
+	public override void OnInspectorGUI() {
 		DrawDefaultInspector();
 		StadiumChooseScript myScript = (StadiumChooseScript)target;
-		if(GUILayout.Button("Next Stadium")) 
+		if(GUILayout.Button("Next Stadium")) {
 			myScript.SetStadiumHandle();
-		else if(GUILayout.Button("Previous Stadium"))
+		} else if(GUILayout.Button("Previous Stadium")) {
 			myScript.SetStadiumBackHandle();
-		else if(GUILayout.Button("Set Background"))
+		} else if(GUILayout.Button("Set Black Background")) {
 			myScript.SetBlackBackground();
-		else if(GUILayout.Button("Disable Backround"))
+		} else if(GUILayout.Button("Disable Black Backround")) {
 			myScript.DisableBlackBackground();
+		}
 	}
 }
-
 #endif
 

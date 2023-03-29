@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="C:/dev/rmazor/Client/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/dev/rmazor/Client/Assets/Prefabs/Fonts/japaneese-symbols.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/dev/rmazor/Client/Assets/Prefabs/Fonts/korean-symbols.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/dev/rmazor/Client/Assets/Scripts/Common/Helpers/GlobalGameSettings.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/dev/rmazor/Client/Assets/Scripts/Common/Managers/Advertising/AdsManager.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/dev/rmazor/Client/Assets/Scripts/Common/Managers/Advertising/AdsProviders/AdMobAdsProvider.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/Managers/RemoteConfigManager.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/UI/PanelItems/Customoze Character Panel Items/CustomizeCharacterPanelItemBase.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/UI/PanelItems/Main Menu Panel Items/MainMenuPanelButtonPlayBase.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/Views/Characters/ViewParticleBase.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/Views/Common/Additional Background/ViewMazeAdditionalBackground.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/Views/Controllers/ViewInputCommandsPlayer.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/Views/UI/Game Logo/ViewUIGameLogoBladyMaze2.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/Views/Utils/ViewLevelStageSwitcherUtils.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Plugins/Reign/Platforms/Shared/ImageTools/Common/Helpers/Extensions.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Reporter/Reporter.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/Achievements.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/AndroidAdMob.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/ApplicationInitializer.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/BluetoothScript.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/Level/EnemyAlgoritm.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/Mono Installers/MonoInstallerImplBase.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/Mono Installers/PreloadMonoInstaller.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/MultiplayerScr.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/Objects_Start.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/SceneObjects/Objects_Level.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/Scripts.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/Scroll Lists/CareerScrollList.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/SecretButtonsScript.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/SkyScript.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/SunEmitationInGame.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/_Universal/AllLevelsScript.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/_Universal/AllPrefsScript.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/_Universal/GameManager.cs">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

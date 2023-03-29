@@ -1,0 +1,595 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &185512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 450530}
+  - 114: {fileID: 11475088}
+  m_Layer: 0
+  m_Name: Menu Career Materials
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &450530
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 714.62897, y: 60.198547, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11475088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c73f23296647e14a8b2b5896898a3ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scr: {fileID: 0}
+  careerScrollRect: {fileID: 0}
+  careerScrollRectRetro: {fileID: 0}
+  carPrevAnim: {fileID: 0}
+  carPrevAnimRetro: {fileID: 0}
+  lockText: {fileID: 0}
+  lockTextRetro: {fileID: 0}
+  sampleButton: {fileID: 148098, guid: 3f1ad0e55458aa242bfcad9e5b2038f5, type: 2}
+  sampleButtonRetro: {fileID: 104470, guid: 3535839b1dd92314ca86129d13ac2dd3, type: 2}
+  contentPanel: {fileID: 0}
+  contentPanelRetro: {fileID: 0}
+  itemList:
+  - nameRus: "\u043A\u0443\u0431\u043E\u043A\n\u043B\u0438\u0433\u0438 vi"
+    name: 'league vi
+
+      cup'
+    icon: {fileID: 21300000, guid: ac9e5525ef7aa8e47bee9ee81fffb945, type: 3}
+    lockedIcon: {fileID: 21300000, guid: 0deaa1b4550c74f4cae6fb8bd716eee9, type: 3}
+    isLocked: 0
+    isGalochka: 0
+    award: 20000
+    awardStr: 20,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: CupStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u0447\u0435\u043C\u043F\u0438\u043E\u043D\u0430\u0442\n\u043B\u0438\u0433\u0438
+      vi"
+    name: 'league vi
+
+      championship'
+    icon: {fileID: 21300000, guid: 81363d8e357007848ada10bdf74ff17d, type: 3}
+    lockedIcon: {fileID: 21300000, guid: c4cb21683f7779246b96419df8161133, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 40000
+    awardStr: 40,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: ChampStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u043A\u0443\u0431\u043E\u043A\n\u043B\u0438\u0433\u0438 v"
+    name: 'league v
+
+      cup'
+    icon: {fileID: 21300000, guid: 4d9729cc7bf17e14daf51263136abd9c, type: 3}
+    lockedIcon: {fileID: 21300000, guid: eaf62d348e320d24ebc947f96d489210, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 60000
+    awardStr: 60,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: CupStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u0447\u0435\u043C\u043F\u0438\u043E\u043D\u0430\u0442\n\u043B\u0438\u0433\u0438
+      v"
+    name: 'league v
+
+      championship'
+    icon: {fileID: 21300000, guid: 776a0e2ca0c63fb47afc06ddbb8067f6, type: 3}
+    lockedIcon: {fileID: 21300000, guid: 1b29e75959c534642b70d86ec62cd1bb, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 80000
+    awardStr: 80,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: ChampStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u043A\u0443\u0431\u043E\u043A\n\u043B\u0438\u0433\u0438 iv"
+    name: 'league iv
+
+      cup'
+    icon: {fileID: 21300000, guid: 044a1bc372e6f7245b40503e93ff9c86, type: 3}
+    lockedIcon: {fileID: 21300000, guid: 1f2dfc998e7e23d42ad137ec1752bf06, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 100000
+    awardStr: 100,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: CupStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u0447\u0435\u043C\u043F\u0438\u043E\u043D\u0430\u0442\n\u043B\u0438\u0433\u0438
+      iv"
+    name: 'league iv
+
+      championship'
+    icon: {fileID: 21300000, guid: 49e23932ec87f1a4ab972d4751504c2e, type: 3}
+    lockedIcon: {fileID: 21300000, guid: f423f720aca735345a1f1e2e9529dd1e, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 200000
+    awardStr: 200,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: ChampStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 5
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u043A\u0443\u0431\u043E\u043A\n\u043B\u0438\u0433\u0438 iii"
+    name: 'league iii
+
+      cup'
+    icon: {fileID: 21300000, guid: c99f624d31ceff44b9534ca5aa88f941, type: 3}
+    lockedIcon: {fileID: 21300000, guid: 7e428e95d9d2f224eaaceb2d7c53b30c, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 300000
+    awardStr: 300,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: CupStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 6
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u0447\u0435\u043C\u043F\u0438\u043E\u043D\u0430\u0442\n\u043B\u0438\u0433\u0438
+      iii"
+    name: 'league iii
+
+      championship'
+    icon: {fileID: 21300000, guid: e90eb60c24819284bac3982df210b49c, type: 3}
+    lockedIcon: {fileID: 21300000, guid: 626a94a0eb1022a4c9ca550237d080f7, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 400000
+    awardStr: 400,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: ChampStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 7
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u043A\u0443\u0431\u043E\u043A\n\u043B\u0438\u0433\u0438 ii"
+    name: 'league ii
+
+      cup'
+    icon: {fileID: 21300000, guid: 7cb8c1b47451de341ab8c46d5939a340, type: 3}
+    lockedIcon: {fileID: 21300000, guid: 1e55d02772a38754caebb3ca8b8eba34, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 500000
+    awardStr: 500,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: CupStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 8
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u0447\u0435\u043C\u043F\u0438\u043E\u043D\u0430\u0442\n\u043B\u0438\u0433\u0438
+      ii"
+    name: 'league ii
+
+      championship'
+    icon: {fileID: 21300000, guid: 0b7e46d2c86f1a5439e15d9708eafa9f, type: 3}
+    lockedIcon: {fileID: 21300000, guid: 7696f68710f514b46976ce657444d66c, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 650000
+    awardStr: 650,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: ChampStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 9
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u043A\u0443\u0431\u043E\u043A\n\u043B\u0438\u0433\u0438 i"
+    name: 'league i
+
+      cup'
+    icon: {fileID: 21300000, guid: 1095189bad576804d822a2f89ef7add5, type: 3}
+    lockedIcon: {fileID: 21300000, guid: babecfc834550dc41b6352019e2e910f, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 850000
+    awardStr: 850,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: CupStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 10
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u0447\u0435\u043C\u043F\u0438\u043E\u043D\u0430\u0442\n\u043B\u0438\u0433\u0438
+      i"
+    name: 'league i
+
+      championship'
+    icon: {fileID: 21300000, guid: 43ff95fce722cf7408590f90f7de0234, type: 3}
+    lockedIcon: {fileID: 21300000, guid: 3db50d407ca1d304091c00c5b44f87ba, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 1000000
+    awardStr: 1,000,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: ChampStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 11
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  itemListRetro:
+  - nameRus: "\u043A\u0443\u0431\u043E\u043A \n\u043B\u0438\u0433\u0438 iv"
+    name: 'league iv
+
+      cup'
+    icon: {fileID: 21300000, guid: 044a1bc372e6f7245b40503e93ff9c86, type: 3}
+    lockedIcon: {fileID: 21300000, guid: 1f2dfc998e7e23d42ad137ec1752bf06, type: 3}
+    isLocked: 0
+    isGalochka: 0
+    award: 100000
+    awardStr: 100,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: CupStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u0447\u0435\u043C\u043F\u0438\u043E\u043D\u0430\u0442 \n\u043B\u0438\u0433\u0438
+      iv"
+    name: 'league iv
+
+      championship'
+    icon: {fileID: 21300000, guid: 49e23932ec87f1a4ab972d4751504c2e, type: 3}
+    lockedIcon: {fileID: 21300000, guid: f423f720aca735345a1f1e2e9529dd1e, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 200000
+    awardStr: 200,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: ChampStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u043A\u0443\u0431\u043E\u043A \n\u043B\u0438\u0433\u0438 iii"
+    name: 'league iii
+
+      cup'
+    icon: {fileID: 21300000, guid: c99f624d31ceff44b9534ca5aa88f941, type: 3}
+    lockedIcon: {fileID: 21300000, guid: 7e428e95d9d2f224eaaceb2d7c53b30c, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 300000
+    awardStr: 300,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: CupStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u0447\u0435\u043C\u043F\u0438\u043E\u043D\u0430\u0442 \n\u043B\u0438\u0433\u0438
+      iii"
+    name: 'league iii
+
+      championship'
+    icon: {fileID: 21300000, guid: e90eb60c24819284bac3982df210b49c, type: 3}
+    lockedIcon: {fileID: 21300000, guid: 626a94a0eb1022a4c9ca550237d080f7, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 400000
+    awardStr: 400,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: ChampStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u043A\u0443\u0431\u043E\u043A \n\u043B\u0438\u0433\u0438 ii"
+    name: 'league ii
+
+      cup'
+    icon: {fileID: 21300000, guid: 7cb8c1b47451de341ab8c46d5939a340, type: 3}
+    lockedIcon: {fileID: 21300000, guid: 1e55d02772a38754caebb3ca8b8eba34, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 0
+    awardStr: 
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: CupStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u0447\u0435\u043C\u043F\u0438\u043E\u043D\u0430\u0442\n\u043B\u0438\u0433\u0438
+      ii"
+    name: 'league ii
+
+      champioship'
+    icon: {fileID: 21300000, guid: 0b7e46d2c86f1a5439e15d9708eafa9f, type: 3}
+    lockedIcon: {fileID: 21300000, guid: 7696f68710f514b46976ce657444d66c, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 500000
+    awardStr: 500,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: ChampStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 5
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u043A\u0443\u0431\u043E\u043A\n\u043B\u0438\u0433\u0438 i"
+    name: 'league i
+
+      cup'
+    icon: {fileID: 21300000, guid: 1095189bad576804d822a2f89ef7add5, type: 3}
+    lockedIcon: {fileID: 21300000, guid: babecfc834550dc41b6352019e2e910f, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 850000
+    awardStr: 850,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: CupStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 6
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - nameRus: "\u0447\u0435\u043C\u043F\u0438\u043E\u043D\u0430\u0442\n\u043B\u0438\u0433\u0438
+      i"
+    name: 'league i
+
+      championship'
+    icon: {fileID: 21300000, guid: 43ff95fce722cf7408590f90f7de0234, type: 3}
+    lockedIcon: {fileID: 21300000, guid: 3db50d407ca1d304091c00c5b44f87ba, type: 3}
+    isLocked: 1
+    isGalochka: 0
+    award: 1000000
+    awardStr: 1,000,000
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11475088}
+          m_MethodName: ChampStart
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 7
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 185512}
+  m_IsPrefabParent: 1

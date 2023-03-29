@@ -4,105 +4,234 @@ using UnityEngine.SceneManagement;
 
 public class Scripts : MonoBehaviour 
 {
-    [Header("Menu and Level scenes:")]
-    public AllPrefsScript alPrScr;
-    public UniversalFunctions univFunc;
-    public GameManager gM;
-    public ProfileManager prMng;
-    public AndroidAdMob_0 adMob;
-    public Buffer buf;
+	// Scripts in all scenes.
+	[HideInInspector]
+	public AllPrefsScript alPrScr;
+	[HideInInspector]
+	public AllLevelsScript alScr;
+	[HideInInspector]
+	public GameManager gM;
 
-    [Header("Menu scene:")]
-    public Upgrades upgr;
-    public CountriesList cntrL;
-    public PlayersList plL;
-    public AllAwardsScript allAw;
-    public CareerManager carMng;
-    public CurrentProfilePanel currPrPan;
-    public EverydayReward everyDayReward;
-    public Objects_Menu objM;
-    public TopPanelManager topPanMng;
+	[HideInInspector]
+	public DoubleScroll dblScr;
+	[HideInInspector]
+	public CareerScrollList carScrL;
+	[HideInInspector]
+	public ProfileScrollList prScrL;
+	[HideInInspector]
+	public ShopScrollList shScrL;
+	[HideInInspector]
+	public CupPlayerList cupL;
+	[HideInInspector]
+	public CupListImage cupLIm;
+	[HideInInspector]
+	public PlayoffPlayerList plfL;
+	[HideInInspector]
+	public PlayoffPlayerListSave plfLS;
+	[HideInInspector]
+	public ChampList chL;
+	[HideInInspector]
+	public ChampListImage chLIm;
+	[HideInInspector]
+	public ChampInfoPanelManager infM;
+	[HideInInspector]
+	public ChampManager chMan;
+	[HideInInspector]
+	public LostCup lostC;
+	[HideInInspector]
+	public CurrentProfilePanel currPrPan;
+	[HideInInspector]
+	public ChallengesScrollList chScrL;
+	[HideInInspector]
+	public ChallengesManager chalMan;
+	[HideInInspector]
+	public ContinueTournScript contTrnScr;
+	[HideInInspector]
+	public StadiumsScrollList stScrL;
+	[HideInInspector]
+	public PlayoffManager plfMan;
+	[HideInInspector]
+	public ChangableTextScript changTextScr;
+	[HideInInspector]
+	public LanguageScript langScr;
+	[HideInInspector]
+	public EverydayReward everyDayReward;
+	[HideInInspector]
+	public PlayVideoZoneButton videoZoneBut;
+	[HideInInspector]
+	public LotteryScript lotteryScr;
 
-    [Header("Level scene:")]
-    public LighteningScript molnia;
-    public Practice practScr;
-    public TimeFreeze timFr;
-    public RainManager rainMan;
-    public BonusObjManager bonObjMan;
-    public EnableOrDisable enOrDis;
-    public Objects_Level objLev;
-    public Enemy enAlg, enAlg_1;
-    public MoneyWinScript monWin;
-    public CameraSize camSize;
-    public ColorCorrectionControl colCorr;
-    public Markers marks;
-    public GoalPanelScript goalPanScr;
-    public Score scoreScr;
-    public PlayerMovement pMov;
-    public TimeManager tM;
-    public BallScript ballScr;
-    public BallTouchScript ballTScr;
-    public GroundTrigger1 grTr;
-    public CongradulationsPanel congrPan;
-    public LevelAudioScript levAudScr;
-    public StadiumChooseScript stChScr;
-    public JumpScript jScr;
-    public SkyScript skyScr;
-    public FireworkScript fwScr;
-    public Anim_Shield plShield;
-    public Anim_Shield enShield;
+	// Scene "Level".
+	[Header("Scene 'Level':")]
+	[HideInInspector]
+	public Score scoreScr;
+	[HideInInspector]
+	public PlayerMovement pMov;
+	[HideInInspector]
+	public TimeManager tM;
+	[HideInInspector]
+	public BallScript ballScr;
+	[HideInInspector]
+	public BallTouchScript ballTScr;
+	[HideInInspector]
+	public EnemyCollisionScript enCollScr;
+	[HideInInspector]
+	public GroundTrigger1 grTr;
+	[HideInInspector]
+	public CongradulationsPanel congrPan;
+	[HideInInspector]
+	public LevelAudioScript levAudScr;
+	[HideInInspector]
+	public StadiumChooseScript stChScr;
+	[HideInInspector]
+	public JumpScript jScr;
+	[HideInInspector]
+	public Hints hints;
+	[HideInInspector]
+	public FlagPanel flagPan;
+	[HideInInspector]
+	public PlayersLegColor plLegCol;
+	[HideInInspector]
+	public SunEmitationInGame sunEmit;
+	[HideInInspector]
+	public SkyScript skyScr;
+	[HideInInspector]
+	public EnemyAlgoritm enAlg;
+	[HideInInspector]
+	public ControlOptionsScript controlOptScr;
+
+	// Objects scripts.
+	[Header("Objects GameObject")]
+	public GameObject obj;
+
+	[HideInInspector]
+	public Objects_MainMemu objM;
+	[HideInInspector]
+	public Objects_Level objLev;
+	[HideInInspector]
+	public Objects_Cup objCup;
+	[HideInInspector]
+	public Objects_Playoff objPlf;
+	[HideInInspector]
+	public Objects_Championship objCh;
+	[HideInInspector]
+	public Objects_Start objSt;
 
 
-    void Awake()
-    {
-        if (alPrScr == null) alPrScr = FindObjectOfType<AllPrefsScript>();
-        if (univFunc == null) univFunc = FindObjectOfType<UniversalFunctions>();
-        if (gM == null) gM = FindObjectOfType<GameManager> ();
-        if (adMob == null) adMob = FindObjectOfType<AndroidAdMob_0>();
-        if (buf == null) buf = FindObjectOfType<Buffer>();
 
-        if (cntrL == null) cntrL = FindObjectOfType<CountriesList>();
-        if (plL == null) plL = FindObjectOfType<PlayersList>();
-        if (prMng == null) prMng = FindObjectOfType<ProfileManager>();
+	void Awake()
+	{
+		alPrScr = FindObjectOfType<AllPrefsScript> ();
+		alScr = FindObjectOfType<AllLevelsScript> ();
+		prScrL = FindObjectOfType<ProfileScrollList> ();
+		gM = FindObjectOfType<GameManager> ();
+		langScr = FindObjectOfType<LanguageScript> ();
+		switch (SceneManager.GetActiveScene().name) 
+		{
+		case "MainMenu":
+			dblScr = FindObjectOfType<DoubleScroll> ();
+			objM = obj.GetComponent<Objects_MainMemu> ();
+			carScrL = FindObjectOfType<CareerScrollList> ();
+			shScrL = FindObjectOfType<ShopScrollList> ();
+			currPrPan = FindObjectOfType<CurrentProfilePanel> ();
+			chScrL = FindObjectOfType<ChallengesScrollList> ();
+			chalMan = FindObjectOfType<ChallengesManager> ();
+			stScrL = FindObjectOfType<StadiumsScrollList> ();
+			contTrnScr = FindObjectOfType<ContinueTournScript> ();
+			changTextScr = FindObjectOfType<ChangableTextScript> ();
+			everyDayReward = FindObjectOfType<EverydayReward> ();
+			plLegCol = FindObjectOfType<PlayersLegColor> ();
+			videoZoneBut = FindObjectOfType<PlayVideoZoneButton> ();
+			lotteryScr = FindObjectOfType<LotteryScript> ();
+			break;
+		case "Cup":
+			objCup = obj.GetComponent<Objects_Cup> ();
+			lostC = FindObjectOfType<LostCup> ();
+			cupL = FindObjectOfType<CupPlayerList> ();
+			cupLIm = FindObjectOfType<CupListImage> ();
+			gM.ChooseLastMenuProfileMaterials ();
+			prScrL = FindObjectOfType<ProfileScrollList> ();
+			break;
+		case "Playoff":
+			objPlf = obj.GetComponent<Objects_Playoff>();
+			gM.ChooseLastPlayoffListSave ();
+			alPrScr = FindObjectOfType<AllPrefsScript> ();
+			alScr = FindObjectOfType<AllLevelsScript> ();
+			plfL = FindObjectOfType<PlayoffPlayerList> ();
+			plfLS = FindObjectOfType<PlayoffPlayerListSave> ();
+			lostC = FindObjectOfType<LostCup> ();
+			gM.ChooseLastMenuProfileMaterials ();
+			prScrL = FindObjectOfType<ProfileScrollList> ();
+			plfMan = FindObjectOfType<PlayoffManager> ();
+			break;
+		case "Championship":
+			objCh = obj.GetComponent<Objects_Championship>();
+			chMan = FindObjectOfType<ChampManager>();
+			chMan.var1 = alPrScr.trn - 6;
 
-        switch (SceneManager.GetActiveScene().buildIndex) 
-        {
-            case 1:
-                if (upgr == null) upgr = FindObjectOfType<Upgrades>();
-                if (allAw == null) allAw = FindObjectOfType<AllAwardsScript>();
-                if (topPanMng == null) topPanMng = FindObjectOfType<TopPanelManager>();
-                if (objM == null) objM = FindObjectOfType<Objects_Menu>();
-                if (currPrPan == null) currPrPan = FindObjectOfType<CurrentProfilePanel>();
-                if (everyDayReward == null) everyDayReward = FindObjectOfType<EverydayReward>();
-                if (carMng == null) carMng = FindObjectOfType<CareerManager>();
-                break;
-            case 2:
-                if (fwScr == null) fwScr = FindObjectOfType<FireworkScript>();
-                if (molnia == null) molnia = FindObjectOfType<LighteningScript>();
-                if (practScr == null) practScr = FindObjectOfType<Practice>();
-                if (timFr == null) timFr = FindObjectOfType<TimeFreeze>();
-                if (rainMan == null) rainMan = FindObjectOfType<RainManager>();
-                if (bonObjMan == null) bonObjMan = FindObjectOfType<BonusObjManager>();
-                if (enOrDis == null) enOrDis = FindObjectOfType<EnableOrDisable>();
-                if (monWin == null) monWin = FindObjectOfType<MoneyWinScript>();
-                if (camSize == null) camSize = FindObjectOfType<CameraSize>();
-                if (colCorr == null) colCorr = FindObjectOfType<ColorCorrectionControl>();
-                if (marks == null) marks = FindObjectOfType<Markers>();
-                if (goalPanScr == null) goalPanScr = FindObjectOfType<GoalPanelScript>();
-                if (objLev == null) objLev = FindObjectOfType<Objects_Level>();
-                if (scoreScr == null) scoreScr = FindObjectOfType<Score>();
-                if (pMov == null) pMov = FindObjectOfType<PlayerMovement>();
-                if (tM == null) tM = FindObjectOfType<TimeManager>();
-                if (ballScr == null) ballScr = FindObjectOfType<BallScript>();
-                if (grTr == null) grTr = FindObjectOfType<GroundTrigger1>();
-                if (congrPan == null) congrPan = FindObjectOfType<CongradulationsPanel>();
-                if (levAudScr == null) levAudScr = FindObjectOfType<LevelAudioScript>();
-                if (stChScr == null) stChScr = FindObjectOfType<StadiumChooseScript>();
-                if (ballTScr == null) ballTScr = FindObjectOfType<BallTouchScript>();
-                if (jScr == null) jScr = FindObjectOfType<JumpScript>();
-                if (skyScr == null) skyScr = FindObjectOfType<SkyScript>();
-                //if (enAlg == null) enAlg = FindObjectOfType<Enemy>();
-                break;
-        }
-    }
+
+			gM.ChooseLastMenuProfileMaterials ();
+			chMan.ChooseLastChampList();
+			chMan.ChooseLastChampListImage();
+			chL = FindObjectOfType<ChampList> ();
+			chLIm = FindObjectOfType<ChampListImage> ();
+			infM = FindObjectOfType<ChampInfoPanelManager>();
+			lostC = FindObjectOfType<LostCup>();
+			congrPan = FindObjectOfType<CongradulationsPanel>();
+			break;
+		case "Level":
+			objLev = obj.GetComponent<Objects_Level> ();
+			scoreScr = FindObjectOfType<Score> ();
+			pMov = FindObjectOfType<PlayerMovement> ();
+			tM = FindObjectOfType<TimeManager> ();
+			ballScr = FindObjectOfType<BallScript> ();
+			enCollScr = FindObjectOfType<EnemyCollisionScript> ();
+			grTr = FindObjectOfType<GroundTrigger1> ();
+			congrPan = FindObjectOfType<CongradulationsPanel> ();
+			levAudScr = FindObjectOfType<LevelAudioScript> ();
+			stChScr = FindObjectOfType<StadiumChooseScript> ();
+			ballTScr = FindObjectOfType<BallTouchScript> ();
+			jScr = FindObjectOfType<JumpScript> ();
+			hints = FindObjectOfType<Hints> ();
+			flagPan = FindObjectOfType<FlagPanel> ();
+			plLegCol = FindObjectOfType<PlayersLegColor> ();
+			sunEmit = FindObjectOfType<SunEmitationInGame> ();
+			skyScr = FindObjectOfType<SkyScript> ();
+			enAlg = FindObjectOfType<EnemyAlgoritm> ();
+			controlOptScr = FindObjectOfType<ControlOptionsScript> ();
+			
+			switch (alPrScr.finishTourn)
+			{
+			case "":
+
+				break;
+			case "Finished":
+
+				break;
+			case "FinishedCup":
+
+				break;
+			case "CupGoes":
+
+				break;
+			case "PlayoffGoes":
+				if (alPrScr.freePlay == 0)
+					plfLS = FindObjectOfType<PlayoffPlayerListSave> ();
+				
+				break;
+			case "ChampGoes":
+				if (alPrScr.freePlay == 0)
+				{
+					chL = FindObjectOfType<ChampList> ();
+					chLIm = FindObjectOfType<ChampListImage> ();
+				}
+				break;
+			}
+				
+			break;
+		case "Start":
+			objSt = obj.GetComponent<Objects_Start>();
+			break;
+		}
+	}
 }

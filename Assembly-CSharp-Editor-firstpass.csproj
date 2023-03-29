@@ -1,478 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+    <LangVersion>9.0</LangVersion>
+    <_TargetFrameworkDirectories>non_empty_path_generated_by_unity.rider.package</_TargetFrameworkDirectories>
+    <_FullFrameworkReferenceAssemblyPaths>non_empty_path_generated_by_unity.rider.package</_FullFrameworkReferenceAssemblyPaths>
+    <DisableHandlePackageFileConflicts>true</DisableHandlePackageFileConflicts>
+  </PropertyGroup>
+  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DE1EDE2A-DD03-556A-43EA-2FA884813EF6}</ProjectGuid>
+    <ProjectGuid>{2ade1ede-03dd-6a55-43ea-2fa884813ef6}</ProjectGuid>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <BaseDirectory>Assets</BaseDirectory>
+    <BaseDirectory>.</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_0;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;ENABLE_DUCK_TYPING</DefineConstants>
+    <OutputPath>Temp\Bin\Debug\Unity.Rider.Editor\</OutputPath>
+    <DefineConstants>UNITY_EDITOR</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <NoWarn>0169</NoWarn>
+    <NoWarn>0169,0649</NoWarn>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>Temp\bin\Release\</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0169</NoWarn>
+  <PropertyGroup>
+    <NoConfig>true</NoConfig>
+    <NoStdLib>true</NoStdLib>
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+    <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
+    <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.XML" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Scripts\Editor\AndroidNativeInit.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Scripts\Editor\AndroidNativeMenu.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Scripts\Editor\AndroidNativePostProcess.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Scripts\Editor\AndroidNativeSettingsEditor.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Scripts\Editor\Enum\AN_API_NAME.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Scripts\Editor\Enum\AN_Bool.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Scripts\Editor\Social\SocialPlatfromInit.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Scripts\Editor\Social\SocialPlatfromSettingsEditor.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Scripts\Editor\Social\SocialPlatfromSettingsHelper.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Scripts\Editor\GoogleMobileAdInit.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Scripts\Editor\GoogleMobileAdMenu.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Scripts\Editor\GoogleMobileAdPostProcess.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Scripts\Editor\GoogleMobileAdSettingsEditor.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Scripts\Editor\ScarletPostProcessor.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\IOSDeploy\Scripts\Editor\ISD_Menu.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\IOSDeploy\Scripts\Editor\ISD_PostProcess.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\IOSDeploy\Scripts\Editor\ISD_SettingsEditor.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\ManifestManager\Editor\AMM_AddPermissionDialog.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\ManifestManager\Editor\AMM_AddPropertyDialog.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\ManifestManager\Editor\AMM_AddValueDialog.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\ManifestManager\Editor\AMM_ManifestManagerMenu.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Modules\ManifestManager\Editor\AMM_ManifestManagerWindow.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Support\Common\Editor\Scripts\SA_Bool.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Support\Common\Editor\Scripts\SA_Instalation.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Support\Common\Editor\Scripts\SA_RemoveTool.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Support\Common\Editor\Scripts\SA_Tools.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Support\Common\Editor\Scripts\SA_VersionsManager.cs" />
-     <Compile Include="Assets\Plugins\StansAssets\Support\Common\Editor\Scripts\SA_YesNo.cs" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Horizontal\Gradient-Palette-Horizontal-AlphaBlend.shader" />
-     <None Include="Assets\Luke Peek\VFX\Realistic Snow\README.txt" />
-     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Angular\Two Colors\Gradient-NoTexture-Angular-TwoColors-InvertedUV-SolidBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Angular\Gradient-MultiPalette-Angular-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\2DDL\2DLight\Shaders\StencilObject.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
-     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\social\an_social.jar.txt" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box4\Gradient-SingleTexture-Box4-SolidBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-plus.jar.txt" />
-     <None Include="Assets\Luke Peek\Extensions\Particle Scaler Utility\README.txt" />
-     <None Include="Assets\2DDL\2DLight\Shaders\DefaultTexturized.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond\Two Colors\Gradient-NoTexture-Diamond-TwoColors-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-gcm.jar.txt" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Vertical\Two Colors\Gradient-NoTexture-Vertical-TwoColors-AlphaBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-iid.txt" />
-     <None Include="Assets\Gradient Shaders\Vertex Color Gradient\Readme.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Horizontal\Two Colors\Gradient-NoTexture-Horizontal-TwoColors-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond\Two Colors\Gradient-NoTexture-Diamond-TwoColors-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Angular\Single Color\Gradient-NoTexture-Angular-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Plugins\Android\AN_Res\res\values\version.xml" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Radial\Gradient-Palette-Radial-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Radial\Two Colors\Gradient-NoTexture-Radial-TwoColors-InvertedUV-SolidBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\AN_Res\res\values\analytics.xml" />
-     <None Include="Assets\Gradient Shaders\Fixed Color with Texture\Gradient-FixedColor-SingleTexture-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Texture Only\Gradient-TextureOnly-SolidBlend.shader" />
-     <None Include="Assets\2DDL\Bugs\READ FIRST.txt" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond\Single Color\Gradient-NoTexture-Diamond-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\firebase\firebase-common.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-appinvite.txt" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Box4\Gradient-MultiPalette-Box4-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box4\Gradient-SingleTexture-Box4-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
-     <None Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Documentation\ReadMe.txt" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box3\Gradient-SingleTexture-Box3-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceAmbientObscurance.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-analytics.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-games.jar.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\GMA_SA_Lib_Proxy.mm.txt" />
-     <None Include="Assets\Gradient Shaders\Fixed Color\Gradient-FixedColor-SolidBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\NFAA.shader" />
-     <None Include="Assets\StreamingAssets\build_info.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\GMA_SA_Lib.m.txt" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Two Colors\Gradient-SingleTexture-Radial-TwoColors-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Angular\Two Colors\Gradient-NoTexture-Angular-TwoColors-RegularUV-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Angular\Single Color\Gradient-NoTexture-Angular-SingleColor-ToTransparent-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
-     <None Include="Assets\Scripts\Scripts.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\libs\support-v4-24.1.1.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\libs\android-support-v4.txt" />
-     <None Include="Assets\2DDL\2DLight\Shaders\occluded.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Vertical\Two Colors\Gradient-NoTexture-Vertical-TwoColors-SolidBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
-     <None Include="Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularSmooth.shader" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Vertical\Gradient-Palette-Vertical-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\Projectors\Guidelines.txt" />
-     <None Include="Assets\2DDL\2DLight\Shaders\RadialGradientAlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Angular\Two Colors\Gradient-NoTexture-Angular-TwoColors-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Readme.txt" />
-     <None Include="Assets\2DDL\2DLight\Shaders\DepthMask.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond\Single Color\Gradient-SingleTexture-Diamond-SingleColor-ToTransparent-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\MotionBlur.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBloom.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\libs\image-chooser-library-1.6.0.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-games.txt" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Radial\Two Colors\Gradient-NoTexture-Radial-TwoColors-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Scripts\CareerManager.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\MinMaxReduction.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\SSAA.shader" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Box3\Gradient-MultiPalette-Box3-SolidBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\fitness\play-services-fitness.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />
-     <None Include="Assets\Gradient Shaders\Readme.txt" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box6\Gradient-SingleTexture-Box6-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond\Single Color\Gradient-NoTexture-Diamond-SingleColor-ToTransparent-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Single Color\Gradient-SingleTexture-Radial-SingleColor-ToTransparent-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\2DDL\2DLight\Shaders\CGTexturizing.shader" />
-     <None Include="Assets\Scripts\TopPanelManager.txt" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Vertical\Gradient-MultiPalette-Vertical-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ContrastComposite.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
-     <None Include="Assets\Movinarc\PackageUninstaller\README.txt" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Angular\Gradient-MultiPalette-Angular-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-drive.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
-     <None Include="Assets\Plugins\Android\AN_Res\AndroidManifest.xml" />
-     <None Include="Assets\lightening\readme.txt" />
-     <None Include="Assets\Fireworks\Scripts\Simple Particle Scaler\Simple Particle Scaler - Readme.txt" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular\Two Colors\Gradient-SingleTexture-Angular-TwoColors-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Diamond\Gradient-Palette-Diamond-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\Versions\MSP_VersionInfo.txt" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Vertical\Gradient-Palette-Vertical-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box6\Gradient-SingleTexture-Box6-SolidBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\Versions\AN_VersionInfo.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
-     <None Include="Assets\Gradient Shaders\Vertex Color Gradient with Texture\Gradient-VertexColor-SingleTexture-AlphaBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\GMA_SA_Lib.h.txt" />
-     <None Include="Assets\Gradient Shaders\Vertex Color Gradient\Gradient-VertexColor-SolidBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\fitness\play-services-fitness.jar.txt" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Horizontal\Two Colors\Gradient-NoTexture-Horizontal-TwoColors-AlphaBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Modules\ManifestManager\default.xml" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box6\Gradient-NoTexture-Box6-SolidBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Documentation\AN_VersionNotes.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-analytics.jar.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Radial\Two Colors\Gradient-NoTexture-Radial-TwoColors-RegularUV-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Vertex Color Gradient with Texture\Gradient-Palette-Angular-InvertedUV-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Horizontal\Two Colors\Gradient-SingleTexture-Horizontal-TwoColors-SolidBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\billing\an_billing.jar.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\firebase\firebase-analytics-impl.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-gcm.txt" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Radial\Gradient-MultiPalette-Radial-RegularUV-SolidBlend.shader" />
-     <None Include="Assets\Plugins\Android\AN_Res\res\values\ids.xml" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Horizontal\Gradient-Palette-Horizontal-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond\Two Colors\Gradient-NoTexture-Diamond-TwoColors-InvertedUV-SolidBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Documentation\ReadMe.txt" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular\Two Colors\Gradient-SingleTexture-Angular-TwoColors-InvertedUV-SolidBlend.shader" />
-     <None Include="Assets\2DDL\2DLight\Shaders\OffsetShader.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-auth.jar.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\Versions\GMA_VersionInfo.txt" />
-     <None Include="Assets\2DDL\2DLight\Shaders\DefaultTexturizedAdditive.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\androidnative.jar.txt" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Radial\Gradient-Palette-Radial-RegularUV-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Radial\Gradient-Palette-Radial-InvertedUV-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Horizontal\Two Colors\Gradient-SingleTexture-Horizontal-TwoColors-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Diamond\Gradient-Palette-Diamond-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\_.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
-     <None Include="Assets\Confetti Particles\Confetti - Readme.txt" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Angular\Two Colors\Gradient-NoTexture-Angular-TwoColors-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-drive.jar.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\AndroidManifest.txt" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Vertical\Single Color\Gradient-SingleTexture-Vertical-SingleColor-ToTransparent-AlphaBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-ads-lite.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\firebase\firebase-analytics.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-base.txt" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box9\Gradient-SingleTexture-Box9-AlphaBlend.shader" />
-     <None Include="Assets\RainMaker\Prefab\RainShader.shader" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Diamond\Gradient-Palette-Diamond-InvertedUV-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box3\Gradient-SingleTexture-Box3-SolidBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\androidnative.txt" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Radial\Gradient-MultiPalette-Radial-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Angular\Gradient-Palette-Angular-InvertedUV-SolidBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Diamond\Gradient-MultiPalette-Diamond-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box9\Gradient-NoTexture-Box9-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Horizontal\Single Color\Gradient-SingleTexture-Horizontal-SingleColor-ToTransparent-AlphaBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-auth-base.jar.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ConvertDepth.shader" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Angular\Gradient-Palette-Angular-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Angular\Gradient-MultiPalette-Angular-RegularUV-SolidBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurvesSimple.shader" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Angular\Gradient-Palette-Angular-RegularUV-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond\Single Color\Gradient-SingleTexture-Diamond-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Radial\Two Colors\Gradient-NoTexture-Radial-TwoColors-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Vertical\Two Colors\Gradient-SingleTexture-Vertical-TwoColors-SolidBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\social\an_social.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\app_licensing\an_licensing_library.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box9\Gradient-SingleTexture-Box9-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box4\Gradient-NoTexture-Box4-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box3\Gradient-NoTexture-Box3-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Angular\Gradient-Palette-Angular-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Radial\Single Color\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
-     <None Include="Assets\Gradient Shaders\Fixed Color with Texture\Readme.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\AN_Res\AndroidManifest.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\an_googleplay.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
-     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular\Single Color\Gradient-SingleTexture-Angular-SingleColor-ToTransparent-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Luminance.shader" />
-     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-basement.txt" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Radial\Gradient-MultiPalette-Radial-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
-     <None Include="Assets\2DDL\2DLight\Shaders\DefaultTexturizedWithAlpha.shader" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Angular\Gradient-MultiPalette-Angular-InvertedUV-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Fixed Color\Readme.txt" />
-     <None Include="Assets\2DDL\2DLight\Shaders\StencilMask.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\billing\an_billing.txt" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Box3\Gradient-Palette-Box3-AlphaBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\firebase\firebase-iid.txt" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond\Two Colors\Gradient-SingleTexture-Diamond-TwoColors-InvertedUV-SolidBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Modules\IOSDeploy\Documentation\ReadMe.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular\Two Colors\Gradient-SingleTexture-Angular-TwoColors-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Radial\Gradient-MultiPalette-Radial-InvertedUV-SolidBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-basement.jar.txt" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Box3\Gradient-Palette-Box3-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box6\Gradient-NoTexture-Box6-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Diamond\Gradient-Palette-Diamond-RegularUV-SolidBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\an_googleplay.jar.txt" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Two Colors\Gradient-SingleTexture-Radial-TwoColors-InvertedUV-SolidBlend.shader" />
-     <None Include="Assets\2DDL\2DLight\Shaders\VertexColor.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\social\twitter4j-core-4.0.4.txt" />
-     <None Include="Assets\Scripts\MoneyWinScript.txt" />
-     <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-analytics-impl.txt" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular\Single Color\Gradient-SingleTexture-Angular-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-auth-base.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box4\Gradient-NoTexture-Box4-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />
-     <None Include="Assets\Plugins\Android\AN_Res\res\values\analytics.xml" />
-     <None Include="Assets\Gradient Shaders\Texture Only\Gradient-TextureOnly-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Readme.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-plus.txt" />
-     <None Include="Assets\Gradient Shaders\Texture Only\Readme.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-ads.jar.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-ads.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\libs\an_sa_soomla.txt" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond\Two Colors\Gradient-SingleTexture-Diamond-TwoColors-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
-     <None Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Documentation\GMA_VersionNotes.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-appinvite.jar.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Radial\Gradient-Palette-Radial-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\2DDL\2DLight\Shaders\Gradient-ZFighting.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\MotionBlurClear.shader" />
-     <None Include="Assets\Scripts\Objects_Menu.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionEffect.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\GrayscaleEffect.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SepiaToneEffect.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\TwirlEffect.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\VortexEffect.shader" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Box3\Gradient-MultiPalette-Box3-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Adaptation.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Vertical\Single Color\Gradient-NoTexture-Vertical-SingleColor-ToTransparent-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Readme.txt" />
-     <None Include="Assets\Scripts\GameManager.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-iid.jar.txt" />
-     <None Include="Assets\Scripts\MultiplayerScr.txt" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Vertical\Two Colors\Gradient-SingleTexture-Vertical-TwoColors-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrain.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Two Colors\Gradient-SingleTexture-Radial-TwoColors-RegularUV-SolidBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-ads-lite.jar.txt" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Single Color\Gradient-SingleTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\VignettingShader.shader" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Diamond\Gradient-MultiPalette-Diamond-RegularUV-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond\Two Colors\Gradient-SingleTexture-Diamond-TwoColors-RegularUV-SolidBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
-     <None Include="Assets\Gradient Shaders\Vertex Color Gradient\Gradient-VertexColor-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
-     <None Include="Assets\Scripts\PlayerMovement.txt" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\fitness\an_fitness.txt" />
-     <None Include="Assets\Gradient Shaders\Fixed Color\Gradient-FixedColor-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
-     <None Include="Assets\RainMaker\Readme.txt" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond\Two Colors\Gradient-NoTexture-Diamond-TwoColors-RegularUV-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular\Two Colors\Gradient-SingleTexture-Angular-TwoColors-RegularUV-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Horizontal\Single Color\Gradient-NoTexture-Horizontal-SingleColor-ToTransparent-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Diamond\Gradient-MultiPalette-Diamond-RegularUV-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Fixed Color with Texture\Gradient-FixedColor-SingleTexture-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Radial\Single Color\Gradient-NoTexture-Radial-SingleColor-ToTransparent-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\AN_Res\res\values\version.xml" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Horizontal\Gradient-MultiPalette-Horizontal-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Two Colors\Gradient-SingleTexture-Radial-TwoColors-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Readme.txt" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box9\Gradient-NoTexture-Box9-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-base.jar.txt" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Box4\Gradient-Palette-Box4-SolidBlend.shader" />
-     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\fitness\an_fitness.jar.txt" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\AN_Res\res\xml\file_paths.xml" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\AN_Res\res\values\ids.xml" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Diamond\Gradient-MultiPalette-Diamond-InvertedUV-SolidBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-auth.txt" />
-     <None Include="Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
-     <None Include="Assets\2DDL\2DLight\Shaders\occluder.shader" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Box4\Gradient-MultiPalette-Box4-SolidBlend.shader" />
-     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box3\Gradient-NoTexture-Box3-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Horizontal\Gradient-MultiPalette-Horizontal-SolidBlend.shader" />
-     <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-analytics-impl.jar.txt" />
-     <None Include="Assets\Gradient Shaders\Vertex Color Gradient with Texture\Readme.txt" />
-     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Vertical\Gradient-MultiPalette-Vertical-SolidBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
-     <None Include="Assets\Plugins\Android\AN_Res\res\xml\file_paths.xml" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
-     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond\Two Colors\Gradient-SingleTexture-Diamond-TwoColors-InvertedUV-AlphaBlend.shader" />
-     <None Include="Assets\Gradient Shaders\Palette Gradient\Box4\Gradient-Palette-Box4-AlphaBlend.shader" />
-     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
- <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/Artem/Desktop/FH/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
- </Reference>
- <Reference Include="nunit.framework">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.EditorTestsRunner">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Networking">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.PlaymodeTestsRunner">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/Editor/UnityEditor.PlaymodeTestsRunner.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.PlaymodeTestsRunner">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.TreeEditor">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.HoloLens">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.HoloLens">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.VR">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.VR">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
- </Reference>
- <Reference Include="BugReportUtils">
- <HintPath>C:/Users/Artem/Desktop/FH/Assets/2DDL/2DLight/BugReport/Editor/BugReportUtils.dll</HintPath>
- </Reference>
- <Reference Include="Resources2DDL">
- <HintPath>C:/Users/Artem/Desktop/FH/Assets/2DDL/2DLight/Utils/Resources2DDL.dll</HintPath>
- </Reference>
- <Reference Include="SharpCompress.3.5">
- <HintPath>C:/Users/Artem/Desktop/FH/Assets/Movinarc/PackageUninstaller/Editor/SharpCompress.3.5.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Advertisements.Editor">
- <HintPath>C:/Users/Artem/Desktop/FH/Assets/UnityAds/UnityEngine.Advertisements.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Graphs">
- <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Android.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.WSA.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.WSA.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.WindowsStandalone.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="Mono.Cecil">
- <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
- </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{112076A5-CCC3-F911-8E6A-483257D67690}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+     <Folder Include="Assets\Plugins\ConsoleE\Editor\Internal" />
+     <Folder Include="Assets\Plugins\ConsoleE\Editor" />
+     <Reference Include="UnityEngine">
+     <HintPath>C:\Program Files\Unity\Editor\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.CoreModule">
+     <HintPath>C:\Program Files\Unity\Editor\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor">
+     <HintPath>C:\Program Files\Unity\Editor\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEditor.dll</HintPath>
+     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
   </Target>
   -->
-  
 </Project>

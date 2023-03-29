@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class SampleBonus : MonoBehaviour 
 {
-    public string name0;
 	public Text _name;
 	public int award;
 	public Text awardText;
+	public string meaning;
 
 	void Start()
 	{

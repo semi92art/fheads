@@ -4,22 +4,28 @@ using UnityEngine.UI;
 
 public class CurrentProfilePanel : MonoBehaviour
 {
-    public Scripts scr;
+	public Scripts scr;
 
-	public Image legIm;
-	public Image playerImage;
-    // Skills:
-    public Image im_Speed;
-    public Image im_Kick;
-    public Image im_Jump;
-
+	public GameObject enemy;
+	public Text profileText, enemyText;
+	public Image flagIm, flagEnemyIm;
+	public Animator topPanelAnim;
+	public Image playerImage, enemyImage;
 	[HideInInspector]
-	public bool isChange;
+	public bool isChange, isChangeEnemy;
 
-    private int 
-        ind,
-        ind1,
-        cntrInd;
+
+	void Awake()
+	{
+		ChangeCurrentProfile ();
+		ChangeEnemyProfile ();
+		enemy.SetActive (false);
+
+		scr.alScr.enemySprite = scr.prScrL.itemList[scr.alPrScr.enemyIndexFP].icon;
+		scr.alScr.enemyName = scr.prScrL.itemList[scr.alPrScr.enemyIndexFP].name;
+		scr.alScr.enemyName0 = scr.prScrL.itemList[scr.alPrScr.enemyIndexFP].name0;
+		scr.alScr.enemyFlag = scr.prScrL.itemList[scr.alPrScr.enemyIndexFP].flag;
+	}
 
 	void Update()
 	{
@@ -28,77 +34,100 @@ public class CurrentProfilePanel : MonoBehaviour
 			ChangeCurrentProfile();
 			isChange = false;
 		}
+
+		if (isChangeEnemy) 
+		{
+			ChangeEnemyProfile ();
+			isChangeEnemy = false;
+		}
 	}
+
+	private void ChangeEnemyProfile()
+	{
+		if (scr.gM.MainMenuBools.menuProfile || scr.gM.MainMenuBools.mainMenu) 
+		{
+			enemyImage.sprite = scr.prScrL.itemList [scr.alPrScr.enemyIndexFP].icon;
+			flagEnemyIm.sprite = scr.prScrL.itemList [scr.alPrScr.enemyIndexFP].flag;
+			enemyText.text = scr.prScrL.itemList [scr.alPrScr.enemyIndexFP].name0;
+		} 
+	}
+
 
 	private void ChangeCurrentProfile() 
 	{
-        ind = scr.alPrScr.playerIndex;
-
-        if (scr.prMng.previewPlayerLg == 1)
-        {
-            cntrInd = scr.prMng.itemList[ind].cntrInd;
-            playerImage.sprite = scr.prMng.itemList[ind].icon;
-            ind1 = 50 - scr.alPrScr.buttonIndex;
-        }
-        else if (scr.prMng.previewPlayerLg == 2)
-        {
-            cntrInd = scr.prMng.itemList_2[ind].cntrInd;
-            playerImage.sprite = scr.prMng.itemList_2[ind].icon;
-            ind1 = 40 - scr.alPrScr.buttonIndex;
-        }
-
-        legIm.sprite = scr.cntrL.Countries[cntrInd].boot;
-        SetSkills();
+		if (scr.gM.MainMenuBools.menuProfile || scr.gM.MainMenuBools.mainMenu) 
+		{
+			playerImage.sprite = scr.prScrL.itemList [scr.alPrScr.playerIndex].icon;
+			flagIm.sprite = scr.prScrL.itemList [scr.alPrScr.playerIndex].flag;
+			profileText.text = scr.prScrL.itemList [scr.alPrScr.playerIndex].name0;
+		} 
 	}
 
-    private void SetSkills()
-    {
-        float new_h_val;
-        float skill_Speed = 0f;
-        float skill_Kick = 0f;
-        float skill_Jump = 0f;
+	//If menu is "players", then button opens players profile, if "balls", then balls profile.
+	public void GoToProfilePlayers(string menu)
+	{
+		if (scr.gM.MainMenuBools.menuCareer)
+		{
+			scr.carScrL.CareerPreviewBack();
+			scr.shScrL.anCareer.SetTrigger("back");
+			scr.shScrL.anCareer.gameObject.SetActive(false);
+		} 
+		else if (scr.gM.MainMenuBools.menuFreePlay)
+		{
+			scr.shScrL.anFP.SetTrigger("fpback");
+		} 
+		else if (scr.gM.MainMenuBools.mainMenu)
+		{
+			//topPanelAnim.SetTrigger("call");
+			scr.gM.LogoOff();
+			scr.objM.mainMenuAnim.SetTrigger("call");
+		} 
+		else if (scr.gM.MainMenuBools.menuSinglePlayer)
+		{
+			scr.objM.singlePlayerRect.GetComponent<Animator> ().SetBool("call", false);
+			//topPanelAnim.SetTrigger("call");
+			scr.gM.LogoOff();
+		} 
+		else if (scr.gM.MainMenuBools.menuOptions)
+		{
+			scr.gM.MainMenuBools.menuOptions = false;
+			scr.objM.menuOptionsAnim.SetTrigger("back");
+			topPanelAnim.SetTrigger("call");
+			scr.gM.LogoOff();
+		}
+			
+		scr.objM.menuProfAnim.SetTrigger ("call");
 
-        if (scr.prMng.previewPlayerLg == 1)
-        {
-            skill_Speed = scr.prMng.itemList[ind].skill_Speed;
-            skill_Kick = scr.prMng.itemList[ind].skill_Kick;
-            skill_Jump = scr.prMng.itemList[ind].skill_Jump;
-        }
-        else if (scr.prMng.previewPlayerLg == 2)
-        {
-            skill_Speed = scr.prMng.itemList_2[ind].skill_Speed;
-            skill_Kick = scr.prMng.itemList_2[ind].skill_Kick;
-            skill_Jump = scr.prMng.itemList_2[ind].skill_Jump;
-        }
+		if (menu == "players")
+		{
+			scr.shScrL.anPrPlayers.SetBool("call", true);
+			scr.gM.MainMenuBools.menuProfilePlayers = true;
+		} 
+		else if (menu == "balls")
+			scr.gM.MainMenuBools.menuProfilePlayers = false;
 
-        im_Speed.rectTransform.sizeDelta = new Vector2(
-                im_Speed.rectTransform.rect.width,
-                150f * skill_Speed / 100f);
-        im_Kick.rectTransform.sizeDelta = new Vector2(
-                im_Kick.rectTransform.rect.width,
-                150f * skill_Kick / 100f);
-        im_Jump.rectTransform.sizeDelta = new Vector2(
-                im_Jump.rectTransform.rect.width,
-                150f * skill_Jump / 100f);
+		scr.gM.MainMenuBools.menuProfile = true;
+		scr.gM.MainMenuBools.menuCareer = false;
+		scr.gM.MainMenuBools.menuFreePlay = false;
+		scr.gM.MainMenuBools.mainMenu = false;
+		scr.gM.MainMenuBools.menuSinglePlayer = false;
+		scr.gM.MainMenuBools.menuProfileStadiums = false;
+	}
 
-        /*new_h_val = 2 * (120f / 400f) * (skill_Speed / 100f - 0.5f);
-        im_Speed.color = Color.HSVToRGB(
-            new_h_val,
-            scr.univFunc.HSV_from_RGB(im_Speed.color).y,
-            scr.univFunc.HSV_from_RGB(im_Speed.color).z);
+	public void GoToProfileBalls()
+	{
 
-        new_h_val = 2 * (120f / 400f) * (skill_Kick / 100f - 0.5f);
-        im_Kick.color = Color.HSVToRGB(
-            new_h_val,
-            scr.univFunc.HSV_from_RGB(im_Kick.color).y,
-            scr.univFunc.HSV_from_RGB(im_Kick.color).z);
+	}
 
-        new_h_val = 2 * (120f / 400f) * (skill_Jump / 100f - 0.5f);
-        im_Jump.color = Color.HSVToRGB(
-            new_h_val,
-            scr.univFunc.HSV_from_RGB(im_Jump.color).y,
-            scr.univFunc.HSV_from_RGB(im_Jump.color).z);*/
-    }
+	public void ButtonDown(RectTransform imTr)
+	{
+		//imTr.localScale = new Vector3 (1.2f, 1.2f, 1);
+	}
+
+	public void ButtonUp(RectTransform imTr)
+	{
+		//imTr.localScale = new Vector3 (1, 1, 1);
+	}
 }
 
 

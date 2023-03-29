@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/0.unity
+    path: Assets/Scenes/Start.unity
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/MainMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/old/Cup.unity
+  - enabled: 1
+    path: Assets/Scenes/old/Playoff.unity
+  - enabled: 1
+    path: Assets/Scenes/old/Championship.unity
   - enabled: 1
     path: Assets/Scenes/Level.unity

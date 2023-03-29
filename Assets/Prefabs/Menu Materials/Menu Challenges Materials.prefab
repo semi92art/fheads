@@ -1,0 +1,665 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &143390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 439642}
+  - 114: {fileID: 11457902}
+  - 114: {fileID: 11456266}
+  m_Layer: 0
+  m_Name: Menu Challenges Materials
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &439642
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 714.628967, y: 60.1985474, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11456266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e33c7f7c1f30c4a9923aed4a44828d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contPanel: {fileID: 0}
+  challScrollRect: {fileID: 11429318, guid: 99a24bf1f5bfefa40aee8383967b68e9, type: 2}
+  playButton: {fileID: 0}
+  prev2: {fileID: 0}
+  lockText: {fileID: 0}
+  lockString: Win previous challenge to open this!
+  previewAnim: {fileID: 0}
+  timerEnd: 150
+  timer: 0
+  previewText: {fileID: 0}
+  previewImage: {fileID: 0}
+  prevSpriteDefault: {fileID: 0}
+  secondEnemy1: {fileID: 0}
+  secondEnemy2: {fileID: 0}
+  secondEnemy3: {fileID: 0}
+  secondEnemy4: {fileID: 0}
+  prStr: []
+  prSpr: []
+  challNum: 
+  selectedChal: 0
+  chall1: 0
+--- !u!114 &11457902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92dc85a398fefa4fbcdd2b54e1d1e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grayVar2: {r: 0, g: 0, b: 0, a: 0}
+  challenges: {fileID: 0}
+  sampleButton: {fileID: 164326, guid: 964480d1c3e79974d9649803faf87a2b, type: 2}
+  contentPanel: {fileID: 0}
+  itemList:
+  - isLocked: 0
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge1
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge2
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge3
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge4
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge5
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge6
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge7
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge8
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge9
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge10
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge11
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge12
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge13
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge14
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge15
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: d6eb03709fb8b2f429b58f337fcc0c73,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge16
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge17
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge18
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge19
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge20
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge21
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge22
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge23
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge24
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge25
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge26
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge27
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge28
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge29
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - isLocked: 1
+    isGalochka: 0
+    thingToDo:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11456266}
+          m_MethodName: Challenge30
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: bb54def8c58f033429d60b1f7358ad33,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: challScrollRect
+      value: 
+      objectReference: {fileID: 11429318, guid: 99a24bf1f5bfefa40aee8383967b68e9,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 143390}
+  m_IsPrefabParent: 1
