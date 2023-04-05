@@ -3,132 +3,37 @@
   <component name="issues">
     <option name="index">
       <map>
-        <entry key="C:/dev/rmazor/Client/.gitignore">
+        <entry key="$PROJECT_DIR$/Assets/2DDL/Examples/5 - Bomb Explosion Simulation and Visibility algorithm/PlayerStatusManager.cs">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="C:/dev/rmazor/Client/Assets/Prefabs/Fonts/japaneese-symbols.txt">
+        <entry key="$PROJECT_DIR$/Assets/2DDL/Examples/6 - Fog of War with Occlusion effect and Sight with dispatch events/OcclusionEventsDelegate.cs">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="C:/dev/rmazor/Client/Assets/Prefabs/Fonts/korean-symbols.txt">
+        <entry key="$PROJECT_DIR$/Assets/Scripts/AllAwardsScript.cs">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="C:/dev/rmazor/Client/Assets/Scripts/Common/Helpers/GlobalGameSettings.cs">
+        <entry key="$PROJECT_DIR$/Assets/Scripts/AllPrefsScript.cs">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="C:/dev/rmazor/Client/Assets/Scripts/Common/Managers/Advertising/AdsManager.cs">
+        <entry key="$PROJECT_DIR$/Assets/Scripts/AndroidAdMob_0.cs">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="C:/dev/rmazor/Client/Assets/Scripts/Common/Managers/Advertising/AdsProviders/AdMobAdsProvider.cs">
+        <entry key="$PROJECT_DIR$/Assets/Scripts/GameManager.cs">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/Managers/RemoteConfigManager.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/UI/PanelItems/Customoze Character Panel Items/CustomizeCharacterPanelItemBase.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/UI/PanelItems/Main Menu Panel Items/MainMenuPanelButtonPlayBase.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/Views/Characters/ViewParticleBase.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/Views/Common/Additional Background/ViewMazeAdditionalBackground.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/Views/Controllers/ViewInputCommandsPlayer.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/Views/UI/Game Logo/ViewUIGameLogoBladyMaze2.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="C:/dev/rmazor/Client/Assets/Scripts/RMAZOR/Views/Utils/ViewLevelStageSwitcherUtils.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Plugins/Reign/Platforms/Shared/ImageTools/Common/Helpers/Extensions.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Reporter/Reporter.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/Achievements.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/AndroidAdMob.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/ApplicationInitializer.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/BluetoothScript.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/Level/EnemyAlgoritm.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/Mono Installers/MonoInstallerImplBase.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/Mono Installers/PreloadMonoInstaller.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/MultiplayerScr.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/Objects_Start.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/SceneObjects/Objects_Level.cs">
+        <entry key="$PROJECT_DIR$/Assets/Scripts/SceneNames.cs">
           <value>
             <set />
           </value>
@@ -138,37 +43,7 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/Scroll Lists/CareerScrollList.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/SecretButtonsScript.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/SkyScript.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/SunEmitationInGame.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/_Universal/AllLevelsScript.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/_Universal/AllPrefsScript.cs">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Assets/Scripts/_Universal/GameManager.cs">
+        <entry key="$PROJECT_DIR$/Assets/Scripts/UniversalFunctions.cs">
           <value>
             <set />
           </value>

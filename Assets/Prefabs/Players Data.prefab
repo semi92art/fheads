@@ -1,0 +1,745 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1709639276755232}
+  m_IsPrefabParent: 1
+--- !u!1 &1709639276755232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4798685316457096}
+  - component: {fileID: 114157563132982636}
+  - component: {fileID: 114414454813534204}
+  - component: {fileID: 114190614451214268}
+  m_Layer: 0
+  m_Name: Players Data
+  m_TagString: MenuProfileMaterials
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4798685316457096
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709639276755232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114157563132982636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709639276755232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894373aa02a855547900a969951089ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scr: {fileID: 0}
+  itemList:
+  - name: Aguero
+    cntr: Argentina
+    icon: {fileID: 21300000, guid: a88a615193233e24889d77aeab530aad, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 1
+  - name: Akinfeev
+    cntr: Russia
+    icon: {fileID: 21300000, guid: 6892a1c1337ee51479935f40b5c45793, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 30
+  - name: Bale
+    cntr: Wales
+    icon: {fileID: 21300000, guid: e250eda00fc28e448a2b5a2fcb1eaec3, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 40
+  - name: Benzema
+    cntr: France
+    icon: {fileID: 21300000, guid: f01bc15fc04f4634e8f1533a4741b922, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 17
+  - name: Buffon
+    cntr: 
+    icon: {fileID: 21300000, guid: 786ad953838f92b4699b8e4ffc8cf24e, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 23
+  - name: Cahill
+    cntr: 
+    icon: {fileID: 21300000, guid: 6f9e527adb74b384182f37196c6cc6a9, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 2
+  - name: Casillias
+    cntr: 
+    icon: {fileID: 21300000, guid: 31ba8489c125f6e4d948514b018bf15e, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 31
+  - name: Cassano
+    cntr: 
+    icon: {fileID: 21300000, guid: f68e8cb0c39a5834ba1748c67328a0cc, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 23
+  - name: Cavani
+    cntr: 
+    icon: {fileID: 21300000, guid: 469578cf5082d954d904d220084429d4, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 1
+  - name: Cech
+    cntr: 
+    icon: {fileID: 21300000, guid: 4d7985c6d799a8a4ea6fe78e7bf6888a, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 13
+  - name: Costa
+    cntr: 
+    icon: {fileID: 21300000, guid: e5d90945b51038a4dbcadb35c6350d46, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 31
+  - name: Courtois
+    cntr: 
+    icon: {fileID: 21300000, guid: 86a39dbb2a3a26d47a1438f671862ef4, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 4
+  - name: de Jea
+    cntr: 
+    icon: {fileID: 21300000, guid: 74dd6969dab38bb48bef9661843bf3b9, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 31
+  - name: Dempsey
+    cntr: 
+    icon: {fileID: 21300000, guid: abd6f954844c3c048b761344c746374f, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 37
+  - name: di Maria
+    cntr: 
+    icon: {fileID: 21300000, guid: a8d1a335504854948a83e1b5db687924, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 1
+  - name: Donnovan
+    cntr: 
+    icon: {fileID: 21300000, guid: fb59997100041724393a828371189786, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 37
+  - name: Dzeko
+    cntr: 
+    icon: {fileID: 21300000, guid: 1a02cfd404b22b046b689bbc01b25837, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 5
+  - name: Dzyuba
+    cntr: 
+    icon: {fileID: 21300000, guid: 0824b4722b957654a99e82e2a4f3c13a, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 30
+  - name: Falcao
+    cntr: 
+    icon: {fileID: 21300000, guid: 761cdd5e37b81ae43b2b043326c69cc1, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 9
+  - name: Getze
+    cntr: 
+    icon: {fileID: 21300000, guid: 8f1dde728f6a3d04fa5b41bea5c25c9b, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 18
+  - name: Giroud
+    cntr: 
+    icon: {fileID: 21300000, guid: e0c52541a4d62e941b21c73279763059, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 17
+  - name: Griezmann
+    cntr: 
+    icon: {fileID: 21300000, guid: 138388115227a0241a8e5747a01f639c, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 17
+  - name: Hart
+    cntr: 
+    icon: {fileID: 21300000, guid: 1f9badfed4f09104f8ca361bbc9315c7, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 16
+  - name: Hazard
+    cntr: 
+    icon: {fileID: 21300000, guid: a47b288091d3df44592d4b8c8027f51b, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 4
+  - name: Ibrahimovic
+    cntr: 
+    icon: {fileID: 21300000, guid: efcd45e200a724748bf75a99f589c614, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 0
+  - name: Iniesta
+    cntr: 
+    icon: {fileID: 21300000, guid: 248d23c46af0331418d1382392e3fb99, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 31
+  - name: Kane
+    cntr: 
+    icon: {fileID: 21300000, guid: 5791ebdebbc9e0042be6b2bf9a8d82f3, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 16
+  - name: Levandowski
+    cntr: 
+    icon: {fileID: 21300000, guid: b325fc937dc29ef4886cfd1a3559a809, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 27
+  - name: Luiz
+    cntr: 
+    icon: {fileID: 21300000, guid: d35651cf0f9618d408f3dcf4c9c1efb2, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 6
+  - name: Mandzukic
+    cntr: 
+    icon: {fileID: 21300000, guid: c6edae09df860b6489d1222308f9bd8d, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 12
+  - name: Messi
+    cntr: 
+    icon: {fileID: 21300000, guid: c0520798ffff30b4c983b774f8df4b04, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 1
+  - name: Muller
+    cntr: 
+    icon: {fileID: 21300000, guid: b8c0d2e6e91809443abcbf20812cc01d, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 18
+  - name: Neuer
+    cntr: 
+    icon: {fileID: 21300000, guid: 1429f22f6c69dbb4ba3c5e9760736f27, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 18
+  - name: Neymar
+    cntr: 
+    icon: {fileID: 21300000, guid: 87b76a7ae62134b40b5d6a4e5597ee6d, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 6
+  - name: Ozil
+    cntr: 
+    icon: {fileID: 21300000, guid: 45c2e3e986f8098448395816ddfdcb42, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 18
+  - name: Piquet
+    cntr: 
+    icon: {fileID: 21300000, guid: dc76dfa03beaef94aa1cc534b7f27a63, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 31
+  - name: Pogba
+    cntr: 
+    icon: {fileID: 21300000, guid: 939a8641d8234244e8fc585b6591986d, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 17
+  - name: Rakitic
+    cntr: 
+    icon: {fileID: 21300000, guid: ef3fba72bee91e3429cb466dd9dbba57, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 12
+  - name: Ribery
+    cntr: 
+    icon: {fileID: 21300000, guid: 5e157f31279bea14c947a2f5bf402b41, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 17
+  - name: Robben
+    cntr: 
+    icon: {fileID: 21300000, guid: 3b94957737bad3f4db1ad5717881afc0, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 25
+  - name: Rodriguez
+    cntr: 
+    icon: {fileID: 21300000, guid: bc45e642b9b18ac4a8ba2875c2550ee4, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 9
+  - name: Ronaldo
+    cntr: 
+    icon: {fileID: 21300000, guid: 6714a60c38363584d9fc80cd68378f4d, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 28
+  - name: Rooney
+    cntr: 
+    icon: {fileID: 21300000, guid: 3f5c0dc317b49fe4db22fbcfc27cb2e6, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 0
+  - name: Sanchez
+    cntr: 
+    icon: {fileID: 21300000, guid: 74fc181f1c4de0f4a9a3fc297829c706, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 16
+  - name: Suarez
+    cntr: 
+    icon: {fileID: 21300000, guid: aa0e152676146394db42e61a71b033f2, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 36
+  - name: Tevez
+    cntr: 
+    icon: {fileID: 21300000, guid: 8bdb1471c5db2ab4e96bef6395716a7e, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 1
+  - name: Toure
+    cntr: 
+    icon: {fileID: 21300000, guid: 974026a53ef7b7e41ae608f24ba7b5e8, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 11
+  - name: Turan
+    cntr: 
+    icon: {fileID: 21300000, guid: 9cb669c0e0f30e241a2a6006e6f922b0, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 34
+  - name: Vardi
+    cntr: 
+    icon: {fileID: 21300000, guid: 36a8c679801aa2248824618029947c25, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 16
+  - name: Vidal
+    cntr: 
+    icon: {fileID: 21300000, guid: 719cb0a576c95cc4ab151bab5b4d0caa, type: 3}
+    boot: {fileID: 0}
+    moneyCoast: 0
+    index: 0
+    summSkill: 0
+    isOpened: 0
+    country: 8
+--- !u!114 &114190614451214268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709639276755232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d7fb0074deb4b4cbab17054337f821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Countries:
+  - cntr: Algeria
+    cntrRus: 
+    country: 0
+    boot: {fileID: 21300000, guid: 7f8091e46efdc3a4ba1e3f4010890f07, type: 3}
+  - cntr: Argentina
+    cntrRus: 
+    country: 1
+    boot: {fileID: 21300000, guid: e9fd60d2bc7e5cf45bc2ea1dd98a4d5c, type: 3}
+  - cntr: Australia
+    cntrRus: 
+    country: 2
+    boot: {fileID: 21300000, guid: 6eedf0b79e059a348ba4227d91a68654, type: 3}
+  - cntr: Austria
+    cntrRus: 
+    country: 3
+    boot: {fileID: 21300000, guid: 2f4667b31dedb544aa374484e1c34398, type: 3}
+  - cntr: Belgium
+    cntrRus: 
+    country: 4
+    boot: {fileID: 21300000, guid: 0442454154753f84f89208c8f6eba843, type: 3}
+  - cntr: Bosnia
+    cntrRus: 
+    country: 5
+    boot: {fileID: 21300000, guid: bd4434d3f902bff4fb085c8a55a4c93d, type: 3}
+  - cntr: Brazil
+    cntrRus: 
+    country: 6
+    boot: {fileID: 21300000, guid: 1de9e568cba81a94e995bed0e71d97c4, type: 3}
+  - cntr: Cameroon
+    cntrRus: 
+    country: 7
+    boot: {fileID: 21300000, guid: ac26acd174ad28d47ba6e91e2b6e5451, type: 3}
+  - cntr: Chilie
+    cntrRus: 
+    country: 8
+    boot: {fileID: 21300000, guid: 92cc82ea6c50eda4681acb435c041844, type: 3}
+  - cntr: Colombia
+    cntrRus: 
+    country: 9
+    boot: {fileID: 21300000, guid: 30faf736e8b6743468f57d0a4503836a, type: 3}
+  - cntr: Costa Rica
+    cntrRus: 
+    country: 10
+    boot: {fileID: 21300000, guid: 318fe3e6f50f59046aba5f5d1b61d121, type: 3}
+  - cntr: Cote d'Voire
+    cntrRus: 
+    country: 11
+    boot: {fileID: 21300000, guid: 04147714e5db1c342af45a0c79d0bdd9, type: 3}
+  - cntr: Croatia
+    cntrRus: 
+    country: 12
+    boot: {fileID: 21300000, guid: fc3d41a3e7bddf94683d9038f22cec12, type: 3}
+  - cntr: Czech
+    cntrRus: 
+    country: 13
+    boot: {fileID: 21300000, guid: c50c37e55e687024eab6bd9644310e9f, type: 3}
+  - cntr: Denmark
+    cntrRus: 
+    country: 14
+    boot: {fileID: 21300000, guid: f8760e392011c6544ac2f818f3683fcd, type: 3}
+  - cntr: Ecuador
+    cntrRus: 
+    country: 15
+    boot: {fileID: 21300000, guid: 46b04c73e3045c647a6f4838e8a00bd3, type: 3}
+  - cntr: England
+    cntrRus: 
+    country: 16
+    boot: {fileID: 21300000, guid: 42b551cd87ad3d545a107a0eaad6da8b, type: 3}
+  - cntr: France
+    cntrRus: 
+    country: 17
+    boot: {fileID: 21300000, guid: e98d0c43de63d434ca8c78e1763e9e0e, type: 3}
+  - cntr: Germany
+    cntrRus: 
+    country: 18
+    boot: {fileID: 21300000, guid: 2447357ca3dc8004d953be4bff3e42f1, type: 3}
+  - cntr: Ghana
+    cntrRus: 
+    country: 19
+    boot: {fileID: 21300000, guid: 57d43f45b6762654389e374a70bbd11b, type: 3}
+  - cntr: Greece
+    cntrRus: 
+    country: 20
+    boot: {fileID: 21300000, guid: 4730cd3d3e37c7843b89c4544523677d, type: 3}
+  - cntr: Hungary
+    cntrRus: 
+    country: 21
+    boot: {fileID: 21300000, guid: d0983725049623c45adc541192a6c0fa, type: 3}
+  - cntr: Ireland
+    cntrRus: 
+    country: 22
+    boot: {fileID: 21300000, guid: 1ce1c1f6d576d7344a50c684c478c214, type: 3}
+  - cntr: Italy
+    cntrRus: 
+    country: 23
+    boot: {fileID: 21300000, guid: 8e48d363ec17bf040bb852a51274fb62, type: 3}
+  - cntr: Mexico
+    cntrRus: 
+    country: 24
+    boot: {fileID: 21300000, guid: eee4958e6f12d4f46928572dfb618465, type: 3}
+  - cntr: Netherlands
+    cntrRus: 
+    country: 25
+    boot: {fileID: 21300000, guid: 7d2c886aa9d24924ab5a424c1e6985aa, type: 3}
+  - cntr: Nigeria
+    cntrRus: 
+    country: 26
+    boot: {fileID: 21300000, guid: 59f88b125c65b744dae6a7066ea65648, type: 3}
+  - cntr: Poland
+    cntrRus: 
+    country: 27
+    boot: {fileID: 21300000, guid: b60d287ded0ebbf41b948b264f5fdf9d, type: 3}
+  - cntr: Portugal
+    cntrRus: 
+    country: 28
+    boot: {fileID: 21300000, guid: 90679bc9d7261d542aa0d4306b11e680, type: 3}
+  - cntr: Puerto Rico
+    cntrRus: 
+    country: 29
+    boot: {fileID: 21300000, guid: ed91b93e51ac176438d8d491f45f5bcb, type: 3}
+  - cntr: Russia
+    cntrRus: 
+    country: 30
+    boot: {fileID: 21300000, guid: c484313d3feb73347aaff92a62308772, type: 3}
+  - cntr: Spain
+    cntrRus: 
+    country: 31
+    boot: {fileID: 21300000, guid: d75b994cc38913f4dba9880bdc5e6bef, type: 3}
+  - cntr: Sweden
+    cntrRus: 
+    country: 32
+    boot: {fileID: 21300000, guid: edff14115f007774cb4683e14bd5a8d9, type: 3}
+  - cntr: Switzerland
+    cntrRus: 
+    country: 33
+    boot: {fileID: 21300000, guid: 174b76b7c0d8a3544a4fff21d181d1e8, type: 3}
+  - cntr: Turkey
+    cntrRus: 
+    country: 34
+    boot: {fileID: 21300000, guid: 2e34a6fa50b43b5488d2e03aba3ef487, type: 3}
+  - cntr: Ukraine
+    cntrRus: 
+    country: 35
+    boot: {fileID: 21300000, guid: b33c621a68f894a4687cc545e5cfceb7, type: 3}
+  - cntr: Uruguay
+    cntrRus: 
+    country: 36
+    boot: {fileID: 21300000, guid: 675483cd512cc8440a2e431e412fa7f8, type: 3}
+  - cntr: USA
+    cntrRus: 
+    country: 37
+    boot: {fileID: 21300000, guid: 1eaaea09132bb344ca810c00c0d5b3b2, type: 3}
+  - cntr: USSR
+    cntrRus: 
+    country: 38
+    boot: {fileID: 21300000, guid: 1eaaea09132bb344ca810c00c0d5b3b2, type: 3}
+  - cntr: Venezuela
+    cntrRus: 
+    country: 39
+    boot: {fileID: 21300000, guid: bae2428461b5b3448bb6a288fc8c9b09, type: 3}
+  - cntr: Wales
+    cntrRus: 
+    country: 40
+    boot: {fileID: 21300000, guid: 8c4f6e8c32d8c5a4788fb51f40cfc148, type: 3}
+--- !u!114 &114414454813534204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709639276755232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbf0ab5b266d3d045aa4bba1f4d73718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Players:
+  - player: 7
+  - player: 5
+  - player: 47
+  - player: 48
+  - player: 1
+  - player: 45
+  - player: 20
+  - player: 39
+  - player: 13
+  - player: 6
+  - player: 8
+  - player: 9
+  - player: 11
+  - player: 17
+  - player: 14
+  - player: 15
+  - player: 40
+  - player: 16
+  - player: 18
+  - player: 4
+  - player: 19
+  - player: 38
+  - player: 21
+  - player: 22
+  - player: 35
+  - player: 25
+  - player: 34
+  - player: 42
+  - player: 26
+  - player: 12
+  - player: 29
+  - player: 31
+  - player: 32
+  - player: 46
+  - player: 28
+  - player: 36
+  - player: 37
+  - player: 43
+  - player: 0
+  - player: 24
+  - player: 49
+  - player: 3
+  - player: 10
+  - player: 2
+  - player: 33
+  - player: 27
+  - player: 44
+  - player: 23
+  - player: 41
+  - player: 30

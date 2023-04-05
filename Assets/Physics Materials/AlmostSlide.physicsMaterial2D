@@ -6,5 +6,5 @@ PhysicsMaterial2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: AlmostSlide
-  friction: .200000003
-  bounciness: .200000003
+  friction: 0.05
+  bounciness: 0.1

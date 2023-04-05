@@ -26,7 +26,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\Assembly-CSharp\</OutputPath>
-    <DefineConstants>UNITY_2021_3_16;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2021_3_16;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -41,315 +41,486 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ApplicationInitializer.cs" />
-     <Compile Include="Assets\Scripts\Mono Installers\MonoInstallerImplBase.cs" />
-     <Compile Include="Assets\Scripts\Mono Installers\PreloadMonoInstaller.cs" />
-     <Compile Include="Assets\Scripts\MoveRightButtonScr.cs" />
+     <Compile Include="Assets\Scripts\UniversalFunctions.cs" />
      <Compile Include="Assets\Reporter\Test\Rotate.cs" />
-     <Compile Include="Assets\Scripts\Scroll Lists\PlayoffPlayerList.cs" />
-     <Compile Include="Assets\Scripts\ChallPreviewManager.cs" />
-     <Compile Include="Assets\Extensions\IOSDeploy\Scripts\Core\Models\ISD_Lib.cs" />
-     <Compile Include="Assets\Scripts\Level\RedBlockPush.cs" />
-     <Compile Include="Assets\Extensions\IOSDeploy\Scripts\Core\Config\ISDSettings.cs" />
-     <Compile Include="Assets\Extensions\StansAssetsCommon\EditorTesting\UI\Scripts\UIWidthDependence.cs" />
-     <Compile Include="Assets\Scripts\Level\JumpScript.cs" />
-     <Compile Include="Assets\Extensions\StansAssetsCommon\EditorTesting\Advertisement\SA_EditorAd.cs" />
-     <Compile Include="Assets\Extensions\StansAssetsCommon\FileStaticAPI.cs" />
+     <Compile Include="Assets\Scripts\PracticeText_3.cs" />
+     <Compile Include="Assets\GoalScript.cs" />
+     <Compile Include="Assets\Scripts\BonusObjManager.cs" />
+     <Compile Include="Assets\Scripts\JumpScript.cs" />
+     <Compile Include="Assets\Scripts\GameButton.cs" />
      <Compile Include="Assets\Scripts\CurrentProfilePanel.cs" />
-     <Compile Include="Assets\Extensions\AndroidManifestManager\Models\AN_ApplicationTemplate.cs" />
      <Compile Include="Assets\Scripts\EverydayReward.cs" />
-     <Compile Include="Assets\Scripts\Scroll Lists\ChallengesScrollList.cs" />
-     <Compile Include="Assets\Scripts\LandObjectsScript.cs" />
-     <Compile Include="Assets\Scripts\BallTail.cs" />
+     <Compile Include="Assets\RandomChech.cs" />
+     <Compile Include="Assets\Scripts\TimeFreeze.cs" />
+     <Compile Include="Assets\2DDL\2DLight\PropertyDrawers\Attributes.cs" />
+     <Compile Include="Assets\Scripts\BonusSearch.cs" />
      <Compile Include="Assets\Reporter\Reporter.cs" />
-     <Compile Include="Assets\Scripts\BallSoundOnScript.cs" />
-     <Compile Include="Assets\Scripts\PlayersLegColor.cs" />
-     <Compile Include="Assets\Scripts\BirdScript.cs" />
-     <Compile Include="Assets\Scripts\Sample Buttons\SampleButton.cs" />
-     <Compile Include="Assets\Scripts\ProfileArrowScript.cs" />
+     <Compile Include="Assets\Anim_Shield.cs" />
      <Compile Include="Assets\Scripts\ScrollScript.cs" />
-     <Compile Include="Assets\Scripts\Level\LostCup.cs" />
-     <Compile Include="Assets\Scripts\Scroll Lists\PlayoffPlayerListSave.cs" />
-     <Compile Include="Assets\Scripts\_Universal\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Champ,Cup,Playoff\PlayoffManager.cs" />
-     <Compile Include="Assets\Scripts\MainMenu\GrassSpawner.cs" />
-     <Compile Include="Assets\Scripts\LevelManager.cs" />
-     <Compile Include="Assets\Scripts\ControlOptionsScript.cs" />
-     <Compile Include="Assets\Scripts\LotteryScript.cs" />
-     <Compile Include="Assets\Scripts\Level\BarForce1.cs" />
-     <Compile Include="Assets\Scripts\Sample Buttons\ChallengesSampleButton.cs" />
-     <Compile Include="Assets\Scripts\Champ,Cup,Playoff\CupSplashes.cs" />
-     <Compile Include="Assets\Scripts\PlaneScript.cs" />
-     <Compile Include="Assets\Scripts\ReviewScript.cs" />
-     <Compile Include="Assets\Scripts\MainMenu\PlayButtonScript.cs" />
-     <Compile Include="Assets\Scripts\MainMenu\JumpBot.cs" />
-     <Compile Include="Assets\Scripts\SecretButtonsScript.cs" />
-     <Compile Include="Assets\Scripts\Scroll Lists\StadiumsScrollList.cs" />
-     <Compile Include="Assets\Scripts\Scroll Lists\CareerScrollList.cs" />
-     <Compile Include="Assets\Scripts\Level\GroundTrigger1.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\2DDL\Add-ons\Illumination.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\RainCollision.cs" />
+     <Compile Include="Assets\Scripts\BycicleKick.cs" />
+     <Compile Include="Assets\Anim_StartPanel.cs" />
+     <Compile Include="Assets\2DDL\Add-ons\Source.cs" />
+     <Compile Include="Assets\FireworkScript.cs" />
+     <Compile Include="Assets\2DDL\2DLight\PropertyDrawers\PopUpAttributeDrawer.cs" />
+     <Compile Include="Assets\Scripts\BarForce1.cs" />
+     <Compile Include="Assets\Anim_ButtonPlay.cs" />
+     <Compile Include="Assets\Scripts\CareerManager.cs" />
+     <Compile Include="Assets\Scripts\PlayButtonScript.cs" />
+     <Compile Include="Assets\2DDL\2DLight\Utils\more\TablaSenoCoseno.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\BaseRainScript.cs" />
+     <Compile Include="Assets\2DDL\2DLight\Utils\more\SetRenderQueue.cs" />
+     <Compile Include="Assets\2DDL\2DLight\Utils\more\CoroutineExt\CoroutineExtentions.cs" />
+     <Compile Include="Assets\Scripts\GroundTrigger1.cs" />
      <Compile Include="Assets\Reporter\Test\TestReporter.cs" />
-     <Compile Include="Assets\Scripts\MobWave.cs" />
-     <Compile Include="Assets\Extensions\AndroidManifestManager\Core\AMMSettings.cs" />
-     <Compile Include="Assets\Scripts\SunRotation.cs" />
-     <Compile Include="Assets\Scripts\Scroll Lists\ProfileScrollList.cs" />
-     <Compile Include="Assets\Scripts\StadiumBannerScript.cs" />
-     <Compile Include="Assets\Scripts\MainMenu\LightSplash.cs" />
-     <Compile Include="Assets\Scripts\Level\EnemyAlgoritm.cs" />
+     <Compile Include="Assets\Scripts\BonusZone.cs" />
+     <Compile Include="Assets\lightening\DemoScene\UIScript.cs" />
+     <Compile Include="Assets\Scripts\ProfileManager.cs" />
+     <Compile Include="Assets\2DDL\2DLight\AssetUtility\AssetUtility.cs" />
+     <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\2DDL\2DLight\Utils\more\interface_touch.cs" />
+     <Compile Include="Assets\Scripts\PracticeText_Player.cs" />
+     <Compile Include="Assets\Scripts\PlayersList.cs" />
+     <Compile Include="Assets\2DDL\Add-ons\Fire.cs" />
      <Compile Include="Assets\Scripts\LevelAudioScript.cs" />
-     <Compile Include="Assets\Scripts\BallTailDisapear.cs" />
-     <Compile Include="Assets\Scripts\SunEmitationInGame.cs" />
-     <Compile Include="Assets\Scripts\Level\GunForce.cs" />
-     <Compile Include="Assets\Scripts\SceneObjects\Objects_MainMemu.cs" />
-     <Compile Include="Assets\Scripts\ADCVideoZoneType.cs" />
-     <Compile Include="Assets\Extensions\AndroidManifestManager\Models\AN_PropertyTemplate.cs" />
-     <Compile Include="Assets\Extensions\StansAssetsCommon\Utilities\Modules\SA_ModulesInfo.cs" />
-     <Compile Include="Assets\Scripts\Level\Score.cs" />
-     <Compile Include="Assets\Scripts\Level\Wall4Enemy2Manager.cs" />
-     <Compile Include="Assets\Scripts\PlayerSampleButton.cs" />
-     <Compile Include="Assets\Scripts\PlaneSampleObject.cs" />
-     <Compile Include="Assets\Extensions\IOSDeploy\Scripts\Core\Models\ISD_Framework.cs" />
-     <Compile Include="Assets\Scripts\_Universal\AllLevelsScript.cs" />
-     <Compile Include="Assets\Scripts\MoveLeftButtonScr.cs" />
-     <Compile Include="Assets\Scripts\MainMenu\StadiumChooseScript.cs" />
-     <Compile Include="Assets\Scripts\PlayoffEditor.cs" />
-     <Compile Include="Assets\Scripts\LevelData.cs" />
-     <Compile Include="Assets\Scripts\SceneObjects\Objects_Level.cs" />
+     <Compile Include="Assets\2DDL\2DLight\Core\DynamicLight.cs" />
+     <Compile Include="Assets\Spinning Top\Spinning.cs" />
+     <Compile Include="Assets\Scripts\Objects_Menu.cs" />
+     <Compile Include="Assets\2DDL\2DLight\Sight\SightListenerTemplate.cs" />
+     <Compile Include="Assets\Scripts\Score.cs" />
+     <Compile Include="Assets\Anim_EvrdReward.cs" />
+     <Compile Include="Assets\2DDL\2DLight\Utils\more\GLDebug.cs" />
+     <Compile Include="Assets\2DDL\Add-ons\LensFlares.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />
+     <Compile Include="Assets\Scripts\StadiumChooseScript.cs" />
+     <Compile Include="Assets\2DDL\2DLight\PropertyDrawers\IncrementableAttributeDrawer.cs" />
+     <Compile Include="Assets\2DDL\2DLight\PropertyDrawers\TitleAttributeDrawer.cs" />
+     <Compile Include="Assets\Scripts\BallShoot.cs" />
+     <Compile Include="Assets\Scripts\Objects_Level.cs" />
      <Compile Include="Assets\Scripts\SkyScript.cs" />
-     <Compile Include="Assets\Scripts\Sample Buttons\ProfileSampleButton.cs" />
-     <Compile Include="Assets\Extensions\StansAssetsCommon\EditorTesting\Utilities\SA_EditorTesting.cs" />
-     <Compile Include="Assets\Scripts\LevelDataEditor.cs" />
-     <Compile Include="Assets\Scripts\WinCupPanelScript.cs" />
-     <Compile Include="Assets\Extensions\AndroidManifestManager\AN_ManifestManager.cs" />
-     <Compile Include="Assets\Scripts\EnemyCollisionScript.cs" />
-     <Compile Include="Assets\Scripts\Level\WallForceScript1.cs" />
-     <Compile Include="Assets\Extensions\StansAssetsCommon\EditorTesting\UI\Scripts\UIHightDependence.cs" />
-     <Compile Include="Assets\Extensions\StansAssetsCommon\SA_DataConverter.cs" />
-     <Compile Include="Assets\Scripts\JumpScriptStarter.cs" />
-     <Compile Include="Assets\Extensions\AndroidManifestManager\Models\AN_ManifestPermission.cs" />
+     <Compile Include="Assets\Scripts\ProfileSampleButton.cs" />
+     <Compile Include="Assets\2D Fire Arsenal\SelfDestruct.cs" />
+     <Compile Include="Assets\Anim_Leagues.cs" />
+     <Compile Include="Assets\Anim_Players.cs" />
+     <Compile Include="Assets\Scripts\RainManager.cs" />
      <Compile Include="Assets\Scripts\SampleBonus.cs" />
-     <Compile Include="Assets\Scripts\FlagSampleButton.cs" />
-     <Compile Include="Assets\Scripts\SceneObjects\Objects_Championship.cs" />
-     <Compile Include="Assets\Scripts\Interop.cs" />
+     <Compile Include="Assets\UnityAds_0.cs" />
+     <Compile Include="Assets\Anim_Sound.cs" />
      <Compile Include="Assets\Scripts\CongradulationsPanel.cs" />
      <Compile Include="Assets\Reporter\ReporterGUI.cs" />
      <Compile Include="Assets\Scripts\BallTouchScript.cs" />
-     <Compile Include="Assets\Scripts\MenuMultiplayer.cs" />
-     <Compile Include="Assets\Scripts\ProfileButtonsScript.cs" />
-     <Compile Include="Assets\Scripts\SceneObjects\Objects_Playoff.cs" />
-     <Compile Include="Assets\Scripts\LevelStadiumScrollList.cs" />
-     <Compile Include="Assets\Scripts\CanvasNotActiveOnStart.cs" />
-     <Compile Include="Assets\Scripts\Sample Buttons\ExtrasButton.cs" />
+     <Compile Include="Assets\Scripts\Star.cs" />
+     <Compile Include="Assets\Scripts\EnableOrDisable.cs" />
+     <Compile Include="Assets\2DDL\Add-ons\AddOnBase\AddOnBase.cs" />
+     <Compile Include="Assets\Scripts\Practice.cs" />
+     <Compile Include="Assets\Fireworks\Scripts\ParticleSystemSound.cs" />
+     <Compile Include="Assets\Scripts\PlayersListEditor.cs" />
+     <Compile Include="Assets\Anim_RestartButton.cs" />
      <Compile Include="Assets\Reporter\MultiKeyDictionary.cs" />
-     <Compile Include="Assets\Scripts\Scroll Lists\ShopScrollList.cs" />
-     <Compile Include="Assets\Scripts\MainMenu\ChallengesManager.cs" />
-     <Compile Include="Assets\Scripts\Scroll Lists\CupListImage.cs" />
      <Compile Include="Assets\Scripts\CameraSize.cs" />
-     <Compile Include="Assets\Scripts\SkyEditor.cs" />
+     <Compile Include="Assets\2DDL\2DLight\Core\DynamicLightEvents.cs" />
+     <Compile Include="Assets\Scripts\Buffer.cs" />
      <Compile Include="Assets\Scripts\StadiumEditor.cs" />
-     <Compile Include="Assets\Scripts\ADCVideoZone.cs" />
+     <Compile Include="Assets\2DDL\2DLight\Utils\RegisterCaster.cs" />
      <Compile Include="Assets\Scripts\TopPanelManager.cs" />
+     <Compile Include="Assets\2DDL\2DLight\PropertyDrawers\FieldDescriptionAttributeDrawer.cs" />
      <Compile Include="Assets\Scripts\BallSlow.cs" />
-     <Compile Include="Assets\Scripts\SceneObjects\Objects_Cup.cs" />
-     <Compile Include="Assets\CameraMove.cs" />
-     <Compile Include="Assets\Scripts\Scroll Lists\CupPlayerList.cs" />
-     <Compile Include="Assets\Extensions\StansAssetsCommon\WWWTextureLoader.cs" />
-     <Compile Include="Assets\Scripts\ContinueTournScript.cs" />
-     <Compile Include="Assets\Scripts\Sample Buttons\CareerSampleButton.cs" />
-     <Compile Include="Assets\Extensions\IOSDeploy\Scripts\Core\Models\ISD_VariableListed.cs" />
-     <Compile Include="Assets\Scripts\ADCAdManager.cs" />
-     <Compile Include="Assets\Extensions\AndroidManifestManager\Models\AN_BaseTemplate.cs" />
+     <Compile Include="Assets\Anim_VictoryText.cs" />
+     <Compile Include="Assets\Scripts\ColorCorrectionControl.cs" />
+     <Compile Include="Assets\RainMaker\Demo\DemoScriptStartRainOnSpaceBar.cs" />
+     <Compile Include="Assets\Anim_UpgradesMenu.cs" />
+     <Compile Include="Assets\Scripts\CareerSampleButton.cs" />
+     <Compile Include="Assets\Scripts\CountriesList.cs" />
      <Compile Include="Assets\Reporter\ReporterMessageReceiver.cs" />
      <Compile Include="Assets\Scripts\MaxHeight.cs" />
-     <Compile Include="Assets\Scripts\_Universal\AllPrefsScript.cs" />
+     <Compile Include="Assets\Scripts\AllPrefsScript.cs" />
      <Compile Include="Assets\Scripts\Scripts.cs" />
-     <Compile Include="Assets\Scripts\Sample Buttons\ChampPlayer.cs" />
-     <Compile Include="Assets\Scripts\Champ,Cup,Playoff\CupInfoPanel.cs" />
-     <Compile Include="Assets\Scripts\EnvironmentButtons.cs" />
-     <Compile Include="Assets\Scripts\MainMenu\PointerScript.cs" />
-     <Compile Include="Assets\Extensions\StansAssetsCommon\SA_ScreenShotMaker.cs" />
-     <Compile Include="Assets\Scripts\Hints.cs" />
-     <Compile Include="Assets\Scripts\PlayVideoZoneButton.cs" />
-     <Compile Include="Assets\Extensions\AndroidManifestManager\Models\AN_ActivityTemplate.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
+     <Compile Include="Assets\Scripts\Destroyer.cs" />
+     <Compile Include="Assets\Scripts\PointerScript.cs" />
+     <Compile Include="Assets\Anim_AllAwardsPanel.cs" />
+     <Compile Include="Assets\lightening\LighteningScript.cs" />
      <Compile Include="Assets\Scripts\BallScript.cs" />
-     <Compile Include="Assets\Scripts\GrassAnimation.cs" />
-     <Compile Include="Assets\Extensions\IOSDeploy\Scripts\Core\Enum\ISD_PlistValueTypes.cs" />
-     <Compile Include="Assets\Extensions\StansAssetsCommon\SA_Singleton.cs" />
-     <Compile Include="Assets\Scripts\Champ,Cup,Playoff\ChampInfoPanelManager.cs" />
-     <Compile Include="Assets\Scripts\DoubleScroll.cs" />
-     <Compile Include="Assets\Extensions\StansAssetsCommon\EditorTesting\UI\Scripts\SA_EditorTestingUIController.cs" />
-     <Compile Include="Assets\Extensions\StansAssetsCommon\SA_IdFactory.cs" />
-     <Compile Include="Assets\Scripts\Champ,Cup,Playoff\ChampManager.cs" />
-     <Compile Include="Assets\Scripts\ChangableTextScript.cs" />
+     <Compile Include="Assets\Scripts\PracticeText_2.cs" />
+     <Compile Include="Assets\2DDL\2DLight\Utils\more\TimerClass.cs" />
      <Compile Include="Assets\Scripts\LanguageScript.cs" />
-     <Compile Include="Assets\Scripts\MainMenu\GrassDestroy.cs" />
-     <Compile Include="Assets\Scripts\Level\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\Level\TimeManager.cs" />
-     <Compile Include="Assets\Scripts\Level\GoalPanelScript.cs" />
-     <Compile Include="Assets\Scripts\FPContPanelScript.cs" />
+     <Compile Include="Assets\2DDL\Add-ons\Rotation.cs" />
+     <Compile Include="Assets\2DDL\Add-ons\ColorBlending.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\PlusMoney.cs" />
+     <Compile Include="Assets\Scripts\TimeManager.cs" />
+     <Compile Include="Assets\Scripts\GoalPanelScript.cs" />
+     <Compile Include="Assets\Scripts\AllAwardsScript.cs" />
+     <Compile Include="Assets\2DDL\Add-ons\LookAt.cs" />
+     <Compile Include="Assets\2DDL\2DLight\Core\CoreUtils.cs" />
+     <Compile Include="Assets\Scripts\Markers.cs" />
      <Compile Include="Assets\Scripts\MoneyWinScript.cs" />
-     <Compile Include="Assets\Scripts\NetworkTime.cs" />
-     <Compile Include="Assets\Scripts\MainMenu\SoundVolumeScript.cs" />
-     <Compile Include="Assets\Scripts\Scroll Lists\ChampList.cs" />
+     <Compile Include="Assets\2DDL\2DLight\PropertyDrawers\SeparatorAttributeDrawer.cs" />
+     <Compile Include="Assets\Scripts\SoundVolumeScript.cs" />
      <Compile Include="Assets\Scripts\variable_height_reorderable_list_example.cs" />
-     <Compile Include="Assets\Scripts\Sample Buttons\StadiumButton.cs" />
-     <Compile Include="Assets\Extensions\AndroidManifestManager\Models\AN_ManifestTemplate.cs" />
-     <Compile Include="Assets\Scripts\Objects_Start.cs" />
-     <Compile Include="Assets\Scripts\Level\WallForceScript.cs" />
-     <Compile Include="Assets\Scripts\Sample Buttons\CupPlayer.cs" />
-     <Compile Include="Assets\Scripts\LevelStadiumSampleButton.cs" />
-     <Compile Include="Assets\Scripts\Scroll Lists\ChampListImage.cs" />
-     <Compile Include="Assets\Scripts\Level\FlagPanel.cs" />
-     <Compile Include="Assets\Scripts\PlaneTrace.cs" />
-     <Compile Include="Assets\Extensions\IOSDeploy\Scripts\Core\Models\ISD_Variable.cs" />
-     <Compile Include="Assets\FastBloom\FastBloom.cs" />
-     <Compile Include="Assets\FastBloom\Example\PoolManager.cs" />
-     <Compile Include="Assets\FastBloom\Example\Car.cs" />
-     <Compile Include="Assets\FastBloom\Example\Move.cs" />
-     <Compile Include="Assets\ChromaticAberration\ChromaticAberration.cs" />
-     <Compile Include="Assets\Fast Color Grading\ColorGrading.cs" />
-     <Compile Include="Assets\FastMobileDepthOfField\Example\Sliders.cs" />
-     <Compile Include="Assets\FastMobileDepthOfField\FastDOF.cs" />
-     <Compile Include="Assets\FXAA\FXAA.cs" />
-     <Compile Include="Assets\FastGlitch\Example\Hover.cs" />
-     <Compile Include="Assets\FastGlitch\FastGlitch.cs" />
-     <Compile Include="Assets\FastMobilePixellate\Pixellate.cs" />
+     <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
+     <Compile Include="Assets\2DDL\2DLight\PropertyDrawers\IncrementableAttribute.cs" />
+     <Compile Include="Assets\Upgrades.cs" />
+     <Compile Include="Assets\Scripts\BonusObject.cs" />
+     <Compile Include="Assets\RainMaker\Demo\DemoScript2D.cs" />
+     <Compile Include="Assets\Scripts\TestList.cs" />
+     <Compile Include="Assets\2DDL\2DLight\Utils\more\ExtendsMe.cs" />
+     <Compile Include="Assets\Fireworks\Scripts\Demo\SmoothCameraOrbit.cs" />
+     <Compile Include="Assets\2DDL\2DLight\Core\CasterCollider.cs" />
+     <Compile Include="Assets\Fireworks\Scripts\SoundController.cs" />
+     <Compile Include="Assets\2DDL\2DLight\PropertyDrawers\ButtonAttributeDrawer.cs" />
+     <Compile Include="Assets\Scripts\SceneNames.cs" />
      <Folder Include="Assets" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Two Colors\Gradient-SingleTexture-Radial-TwoColors-InvertedUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders" />
+     <Folder Include="Assets\Spinning Top" />
      <Folder Include="Assets\Prefabs" />
-     <Folder Include="Assets\Hierarchy 2" />
-     <Folder Include="Assets\FastGlitch\Example\Materials" />
-     <None Include="Assets\FastGlitch\Example\Objects\CustomSpecular.shader" />
-     <Folder Include="Assets\FastMobileDepthOfField\Example\Materials" />
-     <Folder Include="Assets\FastMobileDepthOfField\Example\Models\Materials" />
-     <Folder Include="Assets\Scripts\Champ,Cup,Playoff" />
-     <Folder Include="Assets\Sprites\Balls" />
-     <Folder Include="Assets\Sprites\Env_1" />
-     <Folder Include="Assets\FastMobileDepthOfField\Example\Textures" />
-     <Folder Include="Assets\Extensions\StansAssetsCommon\EditorTesting\Advertisement" />
-     <Folder Include="Assets\Sprites\UI" />
-     <Folder Include="Assets\Prefabs\Kokoko" />
-     <Folder Include="Assets\Extensions\IOSDeploy\Scripts\Core\Models" />
-     <Folder Include="Assets\Reporter\Test" />
-     <Folder Include="Assets\FastBloom\Example\Materials" />
-     <Folder Include="Assets\FastMobileDepthOfField\Shaders" />
-     <Folder Include="Assets\FastBloom\Example\Obj" />
-     <Folder Include="Assets\Network" />
-     <Folder Include="Assets\FastBloom\Example\ExampleBloom" />
-     <None Include="Assets\Confetti Particles\Confetti - Readme.txt" />
-     <Folder Include="Assets\Physics Materials" />
-     <None Include="Assets\FastMobileDepthOfField\Shaders\Specular.shader" />
-     <None Include="Assets\FXAA\FXAA.shader" />
-     <Folder Include="Assets\Prefabs\Bosses" />
-     <Folder Include="Assets\Extensions\StansAssetsCommon\Utilities\Modules" />
-     <Folder Include="Assets\Extensions\IOSDeploy" />
-     <Folder Include="Assets\FastMobileDepthOfField\Example" />
-     <Folder Include="Assets\Extensions\AndroidManifestManager\Core" />
-     <Folder Include="Assets\Prefabs\Menu Materials" />
-     <Folder Include="Assets\Confetti Particles\Materials" />
-     <Folder Include="Assets\Scripts\Scroll Lists" />
-     <Folder Include="Assets\FastBloom" />
-     <Folder Include="Assets\Prefabs\_NEW\LevelManyBalls" />
-     <Folder Include="Assets\2DDL Pro" />
-     <Folder Include="Assets\Scenes" />
-     <None Include="Assets\Extensions\AndroidManifestManager\default.xml" />
-     <Folder Include="Assets\Extensions\StansAssetsCommon\Utilities" />
-     <Folder Include="Assets\Animation" />
-     <Folder Include="Assets\Prefabs\Championship" />
-     <Folder Include="Assets\Extensions\IOSDeploy\Scripts\Core" />
-     <Folder Include="Assets\FXAA" />
-     <Folder Include="Assets\Sprites\Env_3" />
-     <Folder Include="Assets\Sprites\CareerImages\TopPanelImages" />
-     <Folder Include="Assets\Extensions\IOSDeploy\Scripts\Core\Enum" />
-     <None Include="Assets\FastMobileDepthOfField\Shaders\BumpedDiffuse.shader" />
-     <Folder Include="Assets\FastMobileDepthOfField\Example\Models" />
-     <Folder Include="Assets\Prefabs\_NEW" />
-     <Folder Include="Assets\Prefabs\_NEW\LevelWithGun" />
-     <Folder Include="Assets\Resources" />
-     <None Include="Assets\FastMobileDepthOfField\Shaders\Unlit.shader" />
-     <Folder Include="Assets\FastBloom\Example\Pref" />
-     <Folder Include="Assets\Sprites\Players" />
-     <Folder Include="Assets\Prefabs\Cup Scene" />
-     <Folder Include="Assets\FastGlitch\Example\Textures" />
-     <Folder Include="Assets\Audio" />
-     <Folder Include="Assets\Hierarchy 2\Editor Resources\Icons" />
-     <Folder Include="Assets\Scripts\_Universal" />
-     <Folder Include="Assets\Prefabs\Menu Buttons" />
-     <None Include="Assets\Fast Color Grading\ColorGrading.shader" />
-     <Folder Include="Assets\FastGlitch\Example\Objects" />
-     <None Include="Assets\DoubleScroll.txt" />
-     <Folder Include="Assets\Sprites\CareerImages" />
-     <Folder Include="Assets\Sprites\UI_1" />
-     <None Include="Assets\ChromaticAberration\ChromaticAberration.shader" />
-     <Folder Include="Assets\Sprites\Env_5" />
-     <Folder Include="Assets\Reporter\Images" />
-     <Folder Include="Assets\FXAA\Example" />
-     <Folder Include="Assets\Extensions\AndroidManifestManager\Models" />
-     <Folder Include="Assets\ChromaticAberration\Example" />
-     <Folder Include="Assets\Reporter" />
-     <Folder Include="Assets\Confetti Particles\Textures" />
-     <Folder Include="Assets\FastGlitch" />
-     <Folder Include="Assets\Extensions\StansAssetsCommon\EditorTesting" />
-     <Folder Include="Assets\Extensions" />
-     <Folder Include="Assets\Scripts\MainMenu" />
-     <None Include="Assets\Resources\BillingMode.json" />
-     <Folder Include="Assets\Fast Color Grading\Example" />
-     <Folder Include="Assets\Extensions\IOSDeploy\Scripts\Core\Config" />
-     <Folder Include="Assets\Extensions\IOSDeploy\Documentation" />
-     <Folder Include="Assets\Sprites\Stadiums" />
-     <Folder Include="Assets\Extensions\AndroidManifestManager" />
-     <Folder Include="Assets\Sprites\Env_4" />
-     <Folder Include="Assets\Extensions\StansAssetsCommon" />
-     <Folder Include="Assets\Extensions\StansAssetsCommon\EditorTesting\Utilities" />
-     <Folder Include="Assets\FastMobilePixellate\Example" />
-     <Folder Include="Assets\Sprites" />
-     <None Include="Assets\Android Bluetooth Multiplayer - ReadMe.txt" />
-     <Folder Include="Assets\Reporter\Documentation" />
-     <Folder Include="Assets\Confetti Particles\Prefabs" />
-     <Folder Include="Assets\Prefabs\Game Materials" />
-     <Folder Include="Assets\FastMobileDepthOfField" />
-     <None Include="Assets\FastMobileDepthOfField\DOF.shader" />
-     <Folder Include="Assets\Extensions\IOSDeploy\Scripts" />
-     <Folder Include="Assets\Animation\Clips" />
-     <Folder Include="Assets\Prefabs\Menu" />
-     <Folder Include="Assets\Materials" />
-     <Folder Include="Assets\Extensions\AllDocumentation" />
-     <Folder Include="Assets\Confetti Particles" />
-     <None Include="Assets\FastGlitch\FastGlitch.shader" />
-     <Folder Include="Assets\Fonts\Book Antiqua" />
-     <Folder Include="Assets\Gizmos" />
-     <Folder Include="Assets\Scenes\old" />
-     <Folder Include="Assets\FastMobilePixellate" />
-     <Folder Include="Assets\FastBloom\Example\Textures" />
-     <Folder Include="Assets\Sprites\Env_2" />
-     <None Include="Assets\FastMobileDepthOfField\Shaders\Transparent.shader" />
-     <Folder Include="Assets\ChromaticAberration" />
-     <Folder Include="Assets\Prefabs\Stadiums" />
-     <Folder Include="Assets\Sprites\2016" />
-     <Folder Include="Assets\Prefabs\_NEW\LevelMovingGates" />
-     <Folder Include="Assets\Prefabs\Content Panels" />
-     <Folder Include="Assets\Sprites\2015" />
-     <Folder Include="Assets\Sprites\Flags" />
-     <Folder Include="Assets\Hierarchy 2\Editor Resources" />
-     <Folder Include="Assets\StreamingAssets" />
-     <Folder Include="Assets\Animation\Controllers" />
-     <Folder Include="Assets\Extensions\StansAssetsCommon\EditorTesting\UI\Graphics" />
-     <None Include="Assets\FastMobilePixellate\Pixellate.shader" />
-     <None Include="Assets\FastBloom\FastBloom.shader" />
-     <Folder Include="Assets\Scripts\Sample Buttons" />
-     <Folder Include="Assets\Fast Color Grading" />
-     <Folder Include="Assets\Prefabs\Mobs" />
+     <Folder Include="Assets\Gradient Shaders\Multi-Palette Gradient\Box3" />
+     <None Include="Assets\2DDL\2DLight\Shaders\OffsetShader.shader" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Box4\Gradient-Palette-Box4-SolidBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box6\Gradient-SingleTexture-Box6-SolidBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Palette Gradient\Vertical" />
+     <None Include="Assets\Gradient Shaders\Vertex Color Gradient with Texture\Gradient-VertexColor-SingleTexture-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond\Two Colors\Gradient-NoTexture-Diamond-TwoColors-RegularUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Fireworks\Prefabs\_Optimized" />
+     <Folder Include="Assets\2D Fire Arsenal\DemoScene" />
+     <Folder Include="Assets\Luke Peek\VFX\Realistic Snow\Demo Scene\Scenes" />
+     <Folder Include="Assets\Gradient Shaders\Multi-Palette Gradient" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Horizontal\Gradient-MultiPalette-Horizontal-AlphaBlend.shader" />
+     <None Include="Assets\2DDL\2DLight\Shaders\DepthMask.shader" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Single Color\Gradient-SingleTexture-Radial-SingleColor-ToTransparent-InvertedUV-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Vertex Color Gradient\Readme.txt" />
      <Folder Include="Assets\Confetti Particles\Scenes" />
-     <Folder Include="Assets\Scripts\Level" />
-     <Folder Include="Assets\FastGlitch\Example" />
-     <Folder Include="Assets\Prefabs\_NEW\Loading Panels" />
-     <Folder Include="Assets\Extensions\StansAssetsCommon\EditorTesting\UI" />
-     <None Include="Assets\FastMobileDepthOfField\Shaders\Diffuse.shader" />
-     <None Include="Assets\FastMobileDepthOfField\Shaders\BumpedSpecular.shader" />
-     <Folder Include="Assets\Extensions\StansAssetsCommon\EditorTesting\UI\Scripts" />
+     <Folder Include="Assets\Unity-Logs-Viewer\ReporterDocumentation" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Angular\Gradient-Palette-Angular-InvertedUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Sprites\Main" />
+     <Folder Include="Assets\Gradient Shaders\Multi-Palette Gradient\Angular" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Radial\Two Colors\Gradient-NoTexture-Radial-TwoColors-InvertedUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Fixed Color" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Radial\Gradient-MultiPalette-Radial-InvertedUV-SolidBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Vertex Color Gradient\Gradient-VertexColor-SolidBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Radial\Gradient-Palette-Radial-InvertedUV-SolidBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Examples\Prefabs" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond\Two Colors\Gradient-NoTexture-Diamond-TwoColors-InvertedUV-SolidBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Multi-Palette Gradient\Horizontal" />
+     <Folder Include="Assets\lightening\Materials" />
+     <Folder Include="Assets\Sprites\Tribunes" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Horizontal\Two Colors\Gradient-SingleTexture-Horizontal-TwoColors-AlphaBlend.shader" />
+     <Folder Include="Assets\Luke Peek\VFX\Realistic Snow\Demo Scene\Materials" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Angular\Two Colors\Gradient-NoTexture-Angular-TwoColors-RegularUV-SolidBlend.shader" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box4\Gradient-NoTexture-Box4-AlphaBlend.shader" />
+     <Folder Include="Assets\Sprites\Bonuses" />
+     <Folder Include="Assets\2DDL\2DLight\PropertyDrawers" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Vertical\Two Colors\Gradient-NoTexture-Vertical-TwoColors-SolidBlend.shader" />
+     <Folder Include="Assets\Sprites\UI other" />
+     <Folder Include="Assets\Luke Peek\VFX\Realistic Snow\Prefabs" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Angular\Two Colors" />
+     <None Include="Assets\2DDL\2DLight\Shaders\DefaultTexturizedWithAlpha.shader" />
+     <Folder Include="Assets\RainMaker" />
+     <Folder Include="Assets\Luke Peek\Extensions" />
+     <Folder Include="Assets\Sprites\Game Buttons" />
+     <Folder Include="Assets\Luke Peek\VFX" />
+     <Folder Include="Assets\2DDL\Prefabs\Lights\Textures" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Horizontal" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box9\Gradient-NoTexture-Box9-SolidBlend.shader" />
+     <Folder Include="Assets\Reporter\Test" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular\Two Colors\Gradient-SingleTexture-Angular-TwoColors-RegularUV-AlphaBlend.shader" />
+     <Folder Include="Assets\2DDL\Bugs" />
+     <Folder Include="Assets\Fireworks\Sounds" />
+     <Folder Include="Assets\RainMaker\Prefab" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box3\Gradient-NoTexture-Box3-SolidBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Horizontal\Two Colors" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Radial\Two Colors\Gradient-NoTexture-Radial-TwoColors-RegularUV-SolidBlend.shader" />
+     <Folder Include="Assets\Animation\New Folder" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Vertical\Single Color\Gradient-NoTexture-Vertical-SingleColor-ToTransparent-AlphaBlend.shader" />
+     <Folder Include="Assets\2D Fire Arsenal" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Angular\Single Color" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond\Two Colors\Gradient-SingleTexture-Diamond-TwoColors-RegularUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Sprites\Players\Main" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Horizontal\Single Color" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Box3\Gradient-Palette-Box3-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Vertical\Two Colors\Gradient-NoTexture-Vertical-TwoColors-AlphaBlend.shader" />
+     <Folder Include="Assets\Sprites\Players\res" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular\Single Color\Gradient-SingleTexture-Angular-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Angular\Two Colors\Gradient-NoTexture-Angular-TwoColors-RegularUV-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Two Colors\Gradient-SingleTexture-Radial-TwoColors-InvertedUV-SolidBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Angular\Gradient-Palette-Angular-InvertedUV-SolidBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Multi-Palette Gradient\Radial" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Vertical" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Horizontal\Two Colors" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Horizontal\Gradient-MultiPalette-Horizontal-SolidBlend.shader" />
+     <Folder Include="Assets\2DDL\Add-ons" />
+     <Folder Include="Assets\2D Fire Arsenal\Prefabs" />
+     <Folder Include="Assets\Confetti Particles\Textures" />
+     <Folder Include="Assets\2DDL\Add-ons\AddOnBase" />
+     <Folder Include="Assets\Luke Peek\_Common\Demo Scene" />
+     <None Include="Assets\Confetti Particles\Confetti - Readme.txt" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond\Two Colors\Gradient-SingleTexture-Diamond-TwoColors-InvertedUV-SolidBlend.shader" />
+     <Folder Include="Assets\Physics Materials" />
+     <Folder Include="Assets\Spinning Top\Textures" />
+     <Folder Include="Assets\lightening\Textures" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Horizontal\Single Color\Gradient-SingleTexture-Horizontal-SingleColor-ToTransparent-AlphaBlend.shader" />
+     <Folder Include="Assets\Sprites\Main\Other Balls" />
+     <None Include="Assets\Gradient Shaders\Fixed Color with Texture\Gradient-FixedColor-SingleTexture-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Readme.txt" />
+     <Folder Include="Assets\2DDL\2DLight\Utils\more\CoroutineExt" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Two Colors\Gradient-SingleTexture-Radial-TwoColors-RegularUV-SolidBlend.shader" />
+     <Folder Include="Assets\2DDL\Prefabs\Casters" />
+     <Folder Include="Assets\Gradient Shaders\Examples\Scenes\Palette" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond\Two Colors" />
+     <Folder Include="Assets\Luke Peek\VFX\Realistic Snow" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Angular\Single Color\Gradient-NoTexture-Angular-SingleColor-ToTransparent-InvertedUV-AlphaBlend.shader" />
+     <Folder Include="Assets\2DDL\2DLight\BugReport" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Two Colors\Gradient-SingleTexture-Radial-TwoColors-RegularUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Box6" />
+     <Folder Include="Assets\Sprites\UI other\reserve" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box3\Gradient-NoTexture-Box3-AlphaBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Horizontal\Single Color" />
+     <Folder Include="Assets\Gradient Shaders\Palette Gradient\Box4" />
+     <Folder Include="Assets\2DDL\2DLight\Shaders" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Angular\Two Colors\Gradient-NoTexture-Angular-TwoColors-InvertedUV-SolidBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Angular\Gradient-MultiPalette-Angular-RegularUV-SolidBlend.shader" />
+     <Folder Include="Assets\Sprites\Boots\reserve" />
+     <None Include="Assets\Scripts\CareerManager.txt" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Radial\Gradient-MultiPalette-Radial-RegularUV-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box4\Gradient-SingleTexture-Box4-SolidBlend.shader" />
+     <Folder Include="Assets\Luke Peek\VFX\Realistic Snow\Demo Scene" />
+     <Folder Include="Assets\lightening" />
+     <Folder Include="Assets\Gradient Shaders\Multi-Palette Gradient\Box4" />
+     <Folder Include="Assets\Fireworks\Materials" />
+     <Folder Include="Assets\2DDL" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Box4" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Readme.txt" />
+     <Folder Include="Assets\_TerrainAutoUpgrade" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Vertical\Gradient-MultiPalette-Vertical-AlphaBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular\Two Colors" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Angular\Single Color\Gradient-NoTexture-Angular-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Diamond\Gradient-Palette-Diamond-RegularUV-AlphaBlend.shader" />
+     <None Include="Assets\2DDL\2DLight\Shaders\VertexColor.shader" />
+     <None Include="Assets\lightening\readme.txt" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond\Single Color\Gradient-NoTexture-Diamond-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Scenes" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Single Color" />
+     <Folder Include="Assets\Luke Peek\VFX\Realistic Snow\Materials" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Diamond\Gradient-MultiPalette-Diamond-RegularUV-SolidBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Horizontal" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Angular\Gradient-Palette-Angular-RegularUV-SolidBlend.shader" />
+     <Folder Include="Assets\Sprites\Players\For Banners" />
+     <Folder Include="Assets\2DDL\2DLight" />
+     <Folder Include="Assets\Animation" />
+     <Folder Include="Assets\Fireworks\Scripts\Simple Particle Scaler" />
+     <None Include="Assets\Scripts\GameManager.txt" />
+     <Folder Include="Assets\2DDL\2DLight\Utils\more" />
+     <Folder Include="Assets\2DDL\Prefabs" />
+     <Folder Include="Assets\RainMaker\Demo\Standard Assets" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Readme.txt" />
+     <Folder Include="Assets\Animation\Stars Animations" />
+     <None Include="Assets\Fireworks\Scripts\Simple Particle Scaler\Simple Particle Scaler - Readme.txt" />
+     <None Include="Assets\2DDL\2DLight\Shaders\StencilMask.shader" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Box4\Gradient-MultiPalette-Box4-SolidBlend.shader" />
+     <Folder Include="Assets\Sprites\CareerImages\reserve\TopPanelImages" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Readme.txt" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Radial\Gradient-MultiPalette-Radial-InvertedUV-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Radial\Gradient-MultiPalette-Radial-RegularUV-SolidBlend.shader" />
+     <None Include="Assets\Scripts\PlayerMovement.txt" />
+     <None Include="Assets\2DDL\2DLight\Shaders\occluded.shader" />
+     <None Include="Assets\RainMaker\Readme.txt" />
+     <None Include="Assets\2DDL\2DLight\Shaders\DefaultTexturizedAdditive.shader" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Horizontal\Single Color\Gradient-NoTexture-Horizontal-SingleColor-ToTransparent-AlphaBlend.shader" />
+     <None Include="Assets\2DDL\2DLight\Shaders\RadialGradientAlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Vertical\Two Colors\Gradient-SingleTexture-Vertical-TwoColors-SolidBlend.shader" />
+     <Folder Include="Assets\2DDL\2DLight\Misc" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond\Two Colors" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box9\Gradient-NoTexture-Box9-AlphaBlend.shader" />
+     <Folder Include="Assets\2D Fire Arsenal\Sprites" />
+     <None Include="Assets\Gradient Shaders\Texture Only\Gradient-TextureOnly-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box9\Gradient-SingleTexture-Box9-AlphaBlend.shader" />
+     <None Include="Assets\Scripts\Objects_Menu.txt" />
+     <Folder Include="Assets\Gradient Shaders\Palette Gradient\Radial" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box4\Gradient-SingleTexture-Box4-AlphaBlend.shader" />
+     <Folder Include="Assets\Sprites\Players" />
+     <None Include="Assets\Gradient Shaders\Vertex Color Gradient\Gradient-VertexColor-AlphaBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Box6" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Two Colors" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond\Single Color\Gradient-SingleTexture-Diamond-SingleColor-ToTransparent-InvertedUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial" />
+     <None Include="Assets\2DDL\2DLight\Shaders\occluder.shader" />
+     <None Include="Assets\Scripts\MultiplayerScr.txt" />
+     <Folder Include="Assets\Audio" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Vertical\Gradient-Palette-Vertical-AlphaBlend.shader" />
+     <Folder Include="Assets\2DDL\Prefabs\Lights" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond" />
+     <Folder Include="Assets\Gradient Shaders\Examples\Scenes\Simple" />
+     <None Include="Assets\_.txt" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Radial" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond\Two Colors\Gradient-NoTexture-Diamond-TwoColors-RegularUV-SolidBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Examples\Scenes\Multi Palette" />
+     <Folder Include="Assets\Gradient Shaders\Palette Gradient\Horizontal" />
+     <Folder Include="Assets\Gradient Shaders\Multi-Palette Gradient\Vertical" />
+     <Folder Include="Assets\2DDL\2DLight\AssetUtility" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Vertical\Single Color\Gradient-SingleTexture-Vertical-SingleColor-ToTransparent-AlphaBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Box3" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Vertical\Gradient-Palette-Vertical-SolidBlend.shader" />
+     <Folder Include="Assets\Sprites\Flags" />
+     <Folder Include="Assets\Gradient Shaders\Examples\Scenes" />
+     <None Include="Assets\Luke Peek\Extensions\Particle Scaler Utility\README.txt" />
+     <Folder Include="Assets\RainMaker\Prefab\Materials" />
+     <Folder Include="Assets\Gradient Shaders\Palette Gradient\Box3" />
+     <None Include="Assets\Gradient Shaders\Texture Only\Readme.txt" />
+     <None Include="Assets\Gradient Shaders\Fixed Color\Readme.txt" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient" />
+     <Folder Include="Assets\Confetti Particles\Prefabs" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Angular\Gradient-MultiPalette-Angular-InvertedUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Box3" />
+     <Folder Include="Assets\2D Fire Arsenal\Materials" />
+     <Folder Include="Assets\Sprites\CareerImages" />
+     <Folder Include="Assets\Luke Peek\_Common" />
+     <Folder Include="Assets\Confetti Particles" />
+     <None Include="Assets\Scripts\MoneyWinScript.txt" />
+     <Folder Include="Assets\Fireworks\Prefabs\_Update 1" />
+     <Folder Include="Assets\Unity-Logs-Viewer" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box4\Gradient-NoTexture-Box4-SolidBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Examples" />
+     <None Include="Assets\2DDL\2DLight\Shaders\StencilObject.shader" />
+     <None Include="Assets\2DDL\2DLight\Shaders\DefaultTexturized.shader" />
+     <Folder Include="Assets\Reporter\Images" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Radial\Single Color\Gradient-NoTexture-Radial-SingleColor-ToTransparent-InvertedUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Multi-Palette Gradient\Diamond" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Radial\Single Color" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Radial\Gradient-Palette-Radial-RegularUV-SolidBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Diamond\Gradient-Palette-Diamond-InvertedUV-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Horizontal\Two Colors\Gradient-SingleTexture-Horizontal-TwoColors-SolidBlend.shader" />
+     <None Include="Assets\Scripts\Scripts.txt" />
+     <Folder Include="Assets\Luke Peek" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Readme.txt" />
+     <Folder Include="Assets\Reporter" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Box4" />
+     <Folder Include="Assets\Fireworks\Materials\_Mobile" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond\Single Color" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Angular\Gradient-Palette-Angular-RegularUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Fireworks\Textures" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular\Single Color" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box9\Gradient-SingleTexture-Box9-SolidBlend.shader" />
+     <Folder Include="Assets\Sprites\Players\Retro" />
+     <Folder Include="Assets\Luke Peek\Extensions\Particle Scaler Utility" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular\Two Colors\Gradient-SingleTexture-Angular-TwoColors-InvertedUV-SolidBlend.shader" />
+     <Folder Include="Assets\Fireworks" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Vertical" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Vertical\Two Colors" />
+     <Folder Include="Assets\Gradient Shaders\Palette Gradient\Angular" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Diamond\Gradient-Palette-Diamond-InvertedUV-SolidBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Palette Gradient" />
+     <Folder Include="Assets\Fireworks\Scripts\Simple Particle Scaler\Scripts" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Radial\Gradient-Palette-Radial-InvertedUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Fireworks\Scripts\Textures" />
+     <None Include="Assets\RainMaker\Prefab\RainShader.shader" />
+     <Folder Include="Assets\Fireworks\Scripts" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Box9" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond\Single Color\Gradient-SingleTexture-Diamond-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Sprites" />
+     <Folder Include="Assets\UnityAds" />
+     <None Include="Assets\Scripts\TopPanelManager.txt" />
+     <Folder Include="Assets\Reporter\Documentation" />
+     <Folder Include="Assets\2DDL\Prefabs\Casters\Materials" />
+     <Folder Include="Assets\Fireworks\Prefabs" />
+     <Folder Include="Assets\2DDL Pro" />
+     <Folder Include="Assets\2DDL\2DLight\Misc\Fonts" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Box3\Gradient-MultiPalette-Box3-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Horizontal\Gradient-Palette-Horizontal-SolidBlend.shader" />
+     <Folder Include="Assets\RainMaker\Demo\Standard Assets\Environment\TerrainAssets\BillboardTextures" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box6\Gradient-NoTexture-Box6-AlphaBlend.shader" />
+     <Folder Include="Assets\lightening\DemoScene" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Horizontal\Two Colors\Gradient-NoTexture-Horizontal-TwoColors-AlphaBlend.shader" />
+     <Folder Include="Assets\2DDL\2DLight\Utils" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond\Single Color" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Angular\Two Colors\Gradient-NoTexture-Angular-TwoColors-InvertedUV-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Diamond\Gradient-Palette-Diamond-RegularUV-SolidBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Diamond\Gradient-MultiPalette-Diamond-RegularUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Examples\Scenes\Layered" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond\Two Colors\Gradient-SingleTexture-Diamond-TwoColors-InvertedUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Horizontal\Two Colors\Gradient-NoTexture-Horizontal-TwoColors-SolidBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Vertex Color Gradient" />
+     <Folder Include="Assets\Confetti Particles\Materials" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box3\Gradient-SingleTexture-Box3-AlphaBlend.shader" />
+     <Folder Include="Assets\Sprites\CareerImages\reserve" />
+     <Folder Include="Assets\Fireworks\Prefabs\_Update 2 - Sound - Optimized" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Radial\Gradient-Palette-Radial-RegularUV-AlphaBlend.shader" />
+     <Folder Include="Assets\RainMaker\Demo\Standard Assets\Environment" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Radial\Two Colors\Gradient-NoTexture-Radial-TwoColors-InvertedUV-SolidBlend.shader" />
+     <Folder Include="Assets\Materials" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Box3\Gradient-MultiPalette-Box3-SolidBlend.shader" />
+     <Folder Include="Assets\2DDL\2DLight\Sight" />
+     <Folder Include="Assets\Fireworks\Scripts\Demo" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Vertical\Single Color" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond" />
+     <Folder Include="Assets\Fireworks\Prefabs\_Mobile" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Box6\Gradient-NoTexture-Box6-SolidBlend.shader" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Radial\Single Color\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Spinning Top\Materials" />
+     <None Include="Assets\Gradient Shaders\Texture Only\Gradient-TextureOnly-SolidBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Box4\Gradient-MultiPalette-Box4-AlphaBlend.shader" />
+     <Folder Include="Assets\2DDL\Prefabs\Casters\Textures" />
+     <Folder Include="Assets\Gizmos" />
+     <Folder Include="Assets\Gradient Shaders\Examples\Sky Palettes" />
+     <Folder Include="Assets\2DDL\Prefabs\Lights\Materials" />
+     <Folder Include="Assets\Sprites\Stadium Objects" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Angular\Gradient-MultiPalette-Angular-RegularUV-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Fixed Color with Texture\Gradient-FixedColor-SingleTexture-SolidBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Box3\Gradient-Palette-Box3-SolidBlend.shader" />
+     <Folder Include="Assets\2DDL\2DLight\Core" />
+     <None Include="Assets\Gradient Shaders\Fixed Color\Gradient-FixedColor-AlphaBlend.shader" />
+     <None Include="Assets\2DDL\2DLight\Shaders\CGTexturizing.shader" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box6\Gradient-SingleTexture-Box6-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Radial\Two Colors\Gradient-NoTexture-Radial-TwoColors-RegularUV-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Box4\Gradient-Palette-Box4-AlphaBlend.shader" />
+     <Folder Include="Assets\RainMaker\Demo" />
+     <None Include="Assets\Gradient Shaders\Fixed Color\Gradient-FixedColor-SolidBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Box9" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Diamond\Gradient-MultiPalette-Diamond-InvertedUV-SolidBlend.shader" />
+     <Folder Include="Assets\Luke Peek\VFX\Realistic Snow\Textures" />
+     <Folder Include="Assets\Gradient Shaders\Palette Gradient\Diamond" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular\Two Colors\Gradient-SingleTexture-Angular-TwoColors-InvertedUV-AlphaBlend.shader" />
+     <Folder Include="Assets\2DDL\2DLight\BugReport\Materials" />
+     <None Include="Assets\2DDL\Bugs\READ FIRST.txt" />
+     <Folder Include="Assets\Sprites\Boots" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular\Single Color\Gradient-SingleTexture-Angular-SingleColor-ToTransparent-InvertedUV-AlphaBlend.shader" />
+     <None Include="Assets\2DDL\2DLight\Shaders\Gradient-ZFighting.shader" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Vertical\Single Color" />
+     <Folder Include="Assets\Scripts" />
+     <Folder Include="Assets\StreamingAssets" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Single Color\Gradient-SingleTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Sprites\Other" />
+     <Folder Include="Assets\Gradient Shaders\Single Texture with Gradient\Vertical\Two Colors" />
+     <None Include="Assets\Luke Peek\VFX\Realistic Snow\README.txt" />
+     <Folder Include="Assets\RainMaker\Demo\Standard Assets\Environment\TerrainAssets" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Vertical\Two Colors\Gradient-SingleTexture-Vertical-TwoColors-AlphaBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Vertex Color Gradient with Texture" />
+     <Folder Include="Assets\Prefabs\Mobs" />
+     <None Include="Assets\Gradient Shaders\Vertex Color Gradient with Texture\Readme.txt" />
+     <Folder Include="Assets\Fireworks\Scenes" />
+     <None Include="Assets\Gradient Shaders\Palette Gradient\Horizontal\Gradient-Palette-Horizontal-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Angular\Gradient-MultiPalette-Angular-InvertedUV-SolidBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Fixed Color with Texture\Readme.txt" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Angular" />
+     <Folder Include="Assets\Gradient Shaders\No-Texture Gradient\Radial\Two Colors" />
+     <Folder Include="Assets\RainMaker\Demo\Standard Assets\Environment\TerrainAssets\SurfaceTextures" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond\Two Colors\Gradient-NoTexture-Diamond-TwoColors-InvertedUV-AlphaBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Texture Only" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Box3\Gradient-SingleTexture-Box3-SolidBlend.shader" />
      <Folder Include="Assets\Fonts" />
-     <Folder Include="Assets\Scripts\SceneObjects" />
-     <Folder Include="Assets\FastBloom\Example" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Diamond\Gradient-MultiPalette-Diamond-InvertedUV-AlphaBlend.shader" />
+     <Folder Include="Assets\2DDL\2DLight\Misc\Textures" />
+     <None Include="Assets\Gradient Shaders\Multi-Palette Gradient\Vertical\Gradient-MultiPalette-Vertical-SolidBlend.shader" />
      <None Include="Assets\StreamingAssets\build_info.txt" />
-     <Folder Include="Assets\Prefabs\Players" />
+     <None Include="Assets\Gradient Shaders\No-Texture Gradient\Diamond\Single Color\Gradient-NoTexture-Diamond-SingleColor-ToTransparent-InvertedUV-AlphaBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Angular\Two Colors\Gradient-SingleTexture-Angular-TwoColors-RegularUV-SolidBlend.shader" />
+     <Folder Include="Assets\Gradient Shaders\Fixed Color with Texture" />
+     <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Diamond\Two Colors\Gradient-SingleTexture-Diamond-TwoColors-RegularUV-SolidBlend.shader" />
+     <None Include="Assets\Gradient Shaders\Vertex Color Gradient with Texture\Gradient-Palette-Angular-InvertedUV-SolidBlend.shader" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Editor\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
@@ -587,47 +758,17 @@
      <Reference Include="UnityEditor.UnityConnectModule">
      <HintPath>C:\Program Files\Unity\Editor\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
-     <Reference Include="GoogleAdsWP8">
-     <HintPath>F:\FH\Assets\Plugins\GoogleAdsWP8.dll</HintPath>
-     </Reference>
-     <Reference Include="Newtonsoft.Json">
-     <HintPath>F:\FH\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+     <Reference Include="UnityEngine.Advertisements.Editor">
+     <HintPath>F:\FH\Assets\UnityAds\UnityEngine.Advertisements.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
      <HintPath>F:\FH\Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
-     <Reference Include="WindowsPhone8_Store">
-     <HintPath>F:\FH\Assets\Plugins\WindowsPhone8_Store.dll</HintPath>
+     <Reference Include="Resources2DDL">
+     <HintPath>F:\FH\Assets\2DDL\2DLight\Utils\Resources2DDL.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Burst.Cecil.Pdb">
-     <HintPath>F:\FH\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Unsafe">
-     <HintPath>F:\FH\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.Unsafe.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Cecil.Mdb">
-     <HintPath>F:\FH\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Cecil">
-     <HintPath>F:\FH\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Cecil.Rocks">
-     <HintPath>F:\FH\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject-usage">
-     <HintPath>F:\FH\Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
-     <HintPath>F:\FH\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
-     <HintPath>F:\FH\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
-     <HintPath>F:\FH\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
-     <HintPath>F:\FH\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+     <Reference Include="Newtonsoft.Json">
+     <HintPath>F:\FH\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.iOS.Extensions.Xcode">
      <HintPath>C:\Program Files\Unity\Editor\2021.3.16f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -1010,23 +1151,26 @@
      <Reference Include="Unity.VisualScripting.Flow.Editor">
      <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Purchasing.Common">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Purchasing.Common.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.VSCode.Editor">
      <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Notifications">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Notifications.dll</HintPath>
+     <Reference Include="Unity.Services.Core.Analytics">
+     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEngine.Purchasing">
-     <HintPath>F:\FH\Library\ScriptAssemblies\UnityEngine.Purchasing.dll</HintPath>
+     <Reference Include="Unity.VisualScripting.Shared.Editor">
+     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
      <HintPath>F:\FH\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.Services.Core.Environments">
+     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
      <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Timeline.Editor">
+     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
      <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
@@ -1036,9 +1180,6 @@
      </Reference>
      <Reference Include="Unity.TextMeshPro">
      <HintPath>F:\FH\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.Purchasing.SecurityStub">
-     <HintPath>F:\FH\Library\ScriptAssemblies\UnityEngine.Purchasing.SecurityStub.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State.Editor">
      <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
@@ -1052,119 +1193,29 @@
      <Reference Include="UnityEditor.UI">
      <HintPath>F:\FH\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.InputSystem">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+     <Reference Include="Unity.PlasticSCM.Editor">
+     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
      <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.UI">
      <HintPath>F:\FH\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-     </Reference>
-     <Reference Include="Mazing.Common.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Mazing.Common.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Notifications.iOS">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Notifications.iOS.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core">
      <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
      </Reference>
-     <Reference Include="Common.Upm">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Common.Upm.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Services.Core.Analytics">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.Purchasing.SecurityCore">
-     <HintPath>F:\FH\Library\ScriptAssemblies\UnityEngine.Purchasing.SecurityCore.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.Purchasing.Codeless">
-     <HintPath>F:\FH\Library\ScriptAssemblies\UnityEngine.Purchasing.Codeless.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Services.Core.Environments">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Timeline.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.Purchasing.Stores">
-     <HintPath>F:\FH\Library\ScriptAssemblies\UnityEngine.Purchasing.Stores.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEditor.Purchasing">
-     <HintPath>F:\FH\Library\ScriptAssemblies\UnityEditor.Purchasing.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Notifications.Android">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Notifications.Android.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Services.Analytics.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Services.Analytics.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Services.Analytics">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Services.Analytics.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Mathematics">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.EditorCoroutines.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+     <Reference Include="Unity.VisualScripting.Core">
+     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{a5762011-c3cc-11f9-8e6a-483257d67690}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
-    <ProjectReference Include="Hierarchy2.Editor.csproj">
-      <Project>{3cdc8254-96a8-3d24-ee52-e365099d75c6}</Project>
-      <Name>Hierarchy2.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Hierarchy2.Runtime.csproj">
-      <Project>{92dd4c9b-8f39-793e-5d0a-2acf59d1fb4f}</Project>
-      <Name>Hierarchy2.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject-Editor.csproj">
-      <Project>{15930798-659a-8195-7a0c-7f4feec1a10c}</Project>
-      <Name>Zenject-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
-      <Project>{7244cc33-cc85-6799-7d8f-047022e7be85}</Project>
-      <Name>Zenject-PoolMonitor-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
-      <Project>{c50c3043-6fe9-6cbb-354c-3fd0c4337f93}</Project>
-      <Name>Zenject-ReflectionBaking-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject.csproj">
-      <Project>{25abaf1d-864b-0212-c691-1e5da6d102a0}</Project>
-      <Name>Zenject</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

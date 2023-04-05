@@ -99,6 +99,26 @@ extern "C" {
         [[GoogleMobileAdController sharedInstance] ShowInterstitialAd];
     }
     
+    
+    void _GADStartRewardedVideo(char* unit_id) {
+        NSString* adUnitId = [GoogleMobileAdController charToNSString:unit_id];
+        [[GoogleMobileAdController sharedInstance] StartRewardedVideo:adUnitId];
+    }
+    
+    void _GADLoadRewardedVideo(char* unit_id) {
+        NSString* adUnitId = [GoogleMobileAdController charToNSString:unit_id];
+        [[GoogleMobileAdController sharedInstance] LoadRewardedVideo:adUnitId];
+    }
+    
+    void _GADShowRewardedVideoAd(char* unit_id) {
+        [[GoogleMobileAdController sharedInstance] ShowRewardedVideoAd];
+    }
+
+    
+   
+    
+    
+    
     void _GADReportPurchaseStatus(int status) {
          [[GoogleMobileAdController sharedInstance] reportPurchaseStatus:status];
     }

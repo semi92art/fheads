@@ -44,6 +44,9 @@ static GoogleMobileAdController *_sharedInstance;
 static GADInterstitial *interstitial_ = NULL;
 static bool showInterstitialOnLoad = false;
 
+static GADRewardBasedVideoAd * video = NULL;
+static bool showVideoOnLoad = false;
+
 static GADRequest *adRequest;
 
 static NSMutableDictionary* _banners;
@@ -130,6 +133,8 @@ static NSMutableDictionary* _banners;
     
     [banner CreateBannerAdPos:x y:y size:size bannerId:bannerId];
     [_banners setObject:banner forKey:[NSNumber numberWithInt:bannerId]];
+    
+    
     
 }
 
@@ -284,29 +289,123 @@ static NSMutableDictionary* _banners;
 #pragma mark Interstitial
 
 -(void) StartInterstitialAd {
+    
+    
     NSLog(@"StartInterstitialAd");
+    
+    
     [self LoadInterstitialAd];
     showInterstitialOnLoad = true;
     
 }
 
 -(void) LoadInterstitialAd {
-    interstitial_ = [[GADInterstitial alloc] init];
-    interstitial_.adUnitID = _interstitial_ad_unit_id;
+    
+    
+    interstitial_ = [[GADInterstitial alloc] initWithAdUnitID:_interstitial_ad_unit_id];
+    
+    
     interstitial_.delegate = self;
     interstitial_.inAppPurchaseDelegate = self;
     [interstitial_ loadRequest:adRequest];
+   
     
     showInterstitialOnLoad = false;
 }
+
 
 -(void) ShowInterstitialAd {
     if(interstitial_ != NULL) {
         UIViewController *vc =  UnityGetGLViewController();
         [interstitial_ presentFromRootViewController:vc];
     }
+}
+
+-(void) StartRewardedVideo:(NSString*) unit_id {
+   
+    [self LoadRewardedVideo:unit_id];
+    showVideoOnLoad = true;
     
 }
+
+-(void) LoadRewardedVideo:(NSString*) unit_id {
+    
+    
+    [GADRewardBasedVideoAd sharedInstance].delegate = self;
+    [[GADRewardBasedVideoAd sharedInstance] loadRequest:adRequest withAdUnitID:unit_id];
+
+    showVideoOnLoad = false;
+
+    
+}
+
+
+-(void) ShowRewardedVideoAd {
+    if([[GADRewardBasedVideoAd sharedInstance] isReady] ) {
+        UIViewController *vc =  UnityGetGLViewController();
+        [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:vc];
+    }
+}
+
+
+#pragma mark GADRewardBasedVideoAdDelegate implementation
+
+/// Tells the delegate that the reward based video ad has rewarded the user.
+- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd didRewardUserWithReward:(GADAdReward *)reward {
+    
+    NSLog(@"didRewardUserWithReward");
+    
+}
+
+
+
+/// Tells the delegate that the reward based video ad failed to load.
+- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd didFailToLoadWithError:(NSError *)error {
+    
+     NSLog(@"didFailToLoadWithError %@", error.description);
+    
+     UnitySendMessage("IOSAdMobController", "RewardBasedVideoAdDidFailToLoadWithError", "");
+}
+
+/// Tells the delegate that a reward based video ad was received.
+- (void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+    NSLog(@"rewardBasedVideoAdDidReceiveAd");
+    
+   
+
+    if(showVideoOnLoad) {
+        [self ShowRewardedVideoAd];
+    }
+
+     UnitySendMessage("IOSAdMobController", "RewardBasedVideoAdDidReceiveAd", "");
+
+}
+
+/// Tells the delegate that the reward based video ad opened.
+- (void)rewardBasedVideoAdDidOpen:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+     UnitySendMessage("IOSAdMobController", "RewardBasedVideoAdDidOpen", "");
+}
+
+/// Tells the delegate that the reward based video ad started playing.
+- (void)rewardBasedVideoAdDidStartPlaying:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+       UnitySendMessage("IOSAdMobController", "RewardBasedVideoAdDidStartPlaying", "");
+}
+
+/// Tells the delegate that the reward based video ad closed.
+- (void)rewardBasedVideoAdDidClose:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+    NSLog(@"rewardBasedVideoAdDidClose");
+    
+    UnitySendMessage("IOSAdMobController", "RewardBasedVideoAdDidClose", "");
+}
+
+/// Tells the delegate that the reward based video ad will leave the application.
+- (void)rewardBasedVideoAdWillLeaveApplication:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+     NSLog(@"rewardBasedVideoAdWillLeaveApplication");
+     UnitySendMessage("IOSAdMobController", "RewardBasedVideoAdWillLeaveApplication", "");
+}
+
+
+
 
 #pragma mark GADInterstitialDelegate implementation
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec33aea0-be36-4843-8f4e-7787296394d8" name="Default Changelist" comment="" />
+    <list default="true" id="6c75f371-e051-457e-ae5f-87f8158b808f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,35 +10,24 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Plugins/Reign/Platforms/Shared/ImageTools/Common/Helpers/Extensions.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MultiplayerScr.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BluetoothScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/_Universal/AllLevelsScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Reporter/Reporter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SunEmitationInGame.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SkyScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Scroll Lists/CareerScrollList.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Objects_Start.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/_Universal/AllPrefsScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SecretButtonsScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SceneObjects/Objects_Level.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Level/EnemyAlgoritm.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/AndroidAdMob.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Achievements.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UniversalFunctions.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AllPrefsScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/2DDL/Examples/6 - Fog of War with Occlusion effect and Sight with dispatch events/OcclusionEventsDelegate.cs" />
+        <option value="$PROJECT_DIR$/Assets/2DDL/Examples/5 - Bomb Explosion Simulation and Visibility algorithm/PlayerStatusManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AndroidAdMob_0.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Scripts.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/_Universal/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Mono Installers/MonoInstallerImplBase.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Mono Installers/PreloadMonoInstaller.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ApplicationInitializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AllAwardsScript.cs" />
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="2NdfqXPFFrIontfUHikQMmH98s6" />
+  <component name="ProjectId" id="2NzvDdGK2YXiBhR9bGPcved9Z0l" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34995976" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30008045" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -55,10 +44,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="28384">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="28384" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -68,12 +57,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ec33aea0-be36-4843-8f4e-7787296394d8" name="Default Changelist" comment="" />
-      <created>1679999070716</created>
+      <changelist id="6c75f371-e051-457e-ae5f-87f8158b808f" name="Default Changelist" comment="" />
+      <created>1680679606702</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1679999070716</updated>
-      <workItem from="1679999092155" duration="3184000" />
+      <updated>1680679606702</updated>
+      <workItem from="1680679608369" duration="1688000" />
     </task>
     <servers />
   </component>
@@ -84,5 +73,90 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="2517" height="519" key="GridCell.Tab.0.bottom" timestamp="1680681771977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771977" />
+    <state width="2517" height="519" key="GridCell.Tab.0.center" timestamp="1680681771976">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771976" />
+    <state width="2517" height="519" key="GridCell.Tab.0.left" timestamp="1680681771976">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771976" />
+    <state width="2517" height="519" key="GridCell.Tab.0.right" timestamp="1680681771977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771977" />
+    <state width="2517" height="519" key="GridCell.Tab.1.bottom" timestamp="1680681771977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771977" />
+    <state width="2517" height="519" key="GridCell.Tab.1.center" timestamp="1680681771977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771977" />
+    <state width="2517" height="519" key="GridCell.Tab.1.left" timestamp="1680681771977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771977" />
+    <state width="2517" height="519" key="GridCell.Tab.1.right" timestamp="1680681771977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771977" />
+    <state width="2517" height="519" key="GridCell.Tab.2.bottom" timestamp="1680681771977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.2.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771977" />
+    <state width="2517" height="519" key="GridCell.Tab.2.center" timestamp="1680681771977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.2.center/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771977" />
+    <state width="2517" height="519" key="GridCell.Tab.2.left" timestamp="1680681771977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.2.left/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771977" />
+    <state width="2517" height="519" key="GridCell.Tab.2.right" timestamp="1680681771977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.2.right/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771977" />
+    <state width="2517" height="519" key="GridCell.Tab.3.bottom" timestamp="1680681771977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.3.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771977" />
+    <state width="2517" height="519" key="GridCell.Tab.3.center" timestamp="1680681771977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.3.center/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771977" />
+    <state width="2517" height="519" key="GridCell.Tab.3.left" timestamp="1680681771977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.3.left/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771977" />
+    <state width="2517" height="519" key="GridCell.Tab.3.right" timestamp="1680681771977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="519" key="GridCell.Tab.3.right/0.0.2560.1400@0.0.2560.1400" timestamp="1680681771977" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs</url>
+          <line>40</line>
+          <properties documentPath="F:\FH\Assets\Scripts\GameManager.cs" initialLine="40">
+            <startOffsets>
+              <option value="834" />
+            </startOffsets>
+            <endOffsets>
+              <option value="861" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

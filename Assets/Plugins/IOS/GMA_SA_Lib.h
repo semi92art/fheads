@@ -15,7 +15,6 @@
 
 
 
-
 @interface GoogleMobileAdController : NSObject //<GADInterstitialDelegate, GADInAppPurchaseDelegate>
 
 //@property(nonatomic, strong) GADInAppPurchase *purchase;
@@ -42,6 +41,11 @@
 - (void) StartInterstitialAd;
 - (void) LoadInterstitialAd;
 - (void) ShowInterstitialAd;
+
+
+- (void) StartRewardedVideo:(NSString*) unit_id;
+- (void) LoadRewardedVideo:(NSString*) unit_id;
+- (void) ShowRewardedVideoAd;
 
 
 - (void) reportPurchaseStatus: (int) value;

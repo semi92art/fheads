@@ -7,302 +7,229 @@ using System.Collections.Generic;
 [System.Serializable]
 public class MatchBonus
 {
-	public string meaning;
-	public string name;
-	public string nameRus;
-	public int award;
+    public string[] names;
+    public int award;
 }
 
 public class MoneyWinScript : MonoBehaviour 
 {
-	public Scripts scr;
+    [SerializeField]
+    private Scripts scr;
 
-	public GameObject menuButton;
-	public GameObject congrPan;
-	public int defaultPrice;
-	public int repeatTournPrice;
-	public int freePlayDefaultPrice;
-	public Text moneyBankText;
-	public float skill;
-	public GameObject bank;
-	public GameObject sampleBonus;
-	public RectTransform contentPanel;
+    public GameObject congrPan;
+    public int defaultPrice;
+    public int repeatTournPrice;
+    public int freePlayDefaultPrice;
+    public Text moneyBankText;
+    public GameObject sampleBonus;
+    public RectTransform contentPanel;
 
-	public List<MatchBonus> bonusList;
+    public List<MatchBonus> bonusList;
 
-	public int totalPrice;
-	private float totalPrice0;
-	public bool isMoneyToBank;
-	private float timer;
-	private int bankMoney;
+    public bool isMoneyToBank;
+    private bool updatesChecked;
+    public int totalPrice;
 
-	void Awake()
-	{
-		if (!scr.objLev.isMoneyWinPopulate)
-		{
-			congrPan.SetActive (true);
-			menuButton.SetActive(false);
-			moneyBankText.text = scr.gM.moneyString(scr.alPrScr.moneyCount);
-			GetEnemySkill();
-			bankMoney = scr.alPrScr.moneyCount;
-			DestroyEditorButtons ();
-			PopulateList ();
+    private float totalPrice0;
+    private float timer;
+    private int bankMoney;
+    private bool advertiseShown;
 
-			congrPan.SetActive (false);
-		}
-	}
 
-	private void DestroyEditorButtons()
-	{
-		GameObject[] bonusObj = GameObject.FindGameObjectsWithTag ("SampleBonus");
+    void Awake()
+    {
+        if (!scr.objLev.isMoneyWinPopulate)
+        {
+            congrPan.SetActive (true);
+            moneyBankText.text = scr.univFunc.moneyString(scr.alPrScr.moneyCount);
+            bankMoney = scr.alPrScr.moneyCount;
+            DestroyEditorButtons ();
+            //PopulateList ();
 
-		for (int i = 0; i < bonusObj.Length; i++)
-			DestroyImmediate (bonusObj [i]);
-	}
+            congrPan.SetActive (false);
+        }
+    }
 
-	private void PopulateList()
-	{
-		foreach (var item in bonusList)
-		{
-			Debug.Log ("Instantiated");
-			GameObject bonusObj = Instantiate(sampleBonus) as GameObject;
-			SampleBonus bonus = bonusObj.GetComponent<SampleBonus> ();
-			bonus.meaning = item.meaning;
-			bonus.award = item.award;
-			bonus.awardText.text = scr.gM.moneyString (item.award);
+    private void DestroyEditorButtons()
+    {
+        GameObject[] bonusObj = GameObject.FindGameObjectsWithTag ("SampleBonus");
 
-			if ((Application.systemLanguage == SystemLanguage.Russian ||
-				Application.systemLanguage == SystemLanguage.Ukrainian ||
-				Application.systemLanguage == SystemLanguage.Belarusian) && scr.alPrScr.langChange)
-				bonus._name.text = item.nameRus;
-			else
-				bonus._name.text = item.name;
+        for (int i = 0; i < bonusObj.Length; i++)
+            DestroyImmediate (bonusObj [i]);
+    }
 
-			bonusObj.transform.SetParent (contentPanel);
-		}
+    /*private void PopulateList()
+    {
+        foreach (var item in bonusList)
+        {
+            GameObject bonusObj = Instantiate(sampleBonus) as GameObject;
+            SampleBonus bonus = bonusObj.GetComponent<SampleBonus> ();
+            bonus.award = item.award;
+            bonus.awardText.text = scr.univFunc.moneyString (item.award);
+            bonus.name0 = item.names[0];
 
-		GameObject[] bonusObj1 = GameObject.FindGameObjectsWithTag ("SampleBonus");
-		Debug.Log("bonusObj.length = " + bonusObj1.Length);
-		scr.objLev.isMoneyWinPopulate = true;
-	}
+            bonus._name.text = item.names[scr.univFunc.sysLang()];
 
-	public void CheckForBonuses()
-	{
-		GameObject[] bonusObj = GameObject.FindGameObjectsWithTag ("SampleBonus");
-		SampleBonus[] sampBonus = new SampleBonus[bonusObj.Length];
+            if (scr.univFunc.sysLang() == 1 || scr.univFunc.sysLang() == 2 || scr.univFunc.sysLang() == 3)
+                bonus._name.font = scr.langScr.font_Second;
 
-		for (int i = 0; i < bonusObj.Length; i++) 
-			sampBonus [i] = bonusObj [i].GetComponent<SampleBonus> ();
+            bonusObj.transform.SetParent (contentPanel);
+        }
+            
+        scr.objLev.isMoneyWinPopulate = true;
+    }*/
 
-		for (int i = 0; i < sampBonus.Length; i++) 
-		{
-			if (Score.score > Score.score1) 
-			{
-				if (sampBonus [i].meaning == "tie")
-				{
-					sampBonus [i].award = 0;
-					bonusObj [i].SetActive (false);			
-				}
+    /*public void TournamentGameResult()
+    {
+        if (scr.alPrScr.isRandGame == 0)
+        {
+            int lg = scr.alPrScr.lg;
+            int game = scr.alPrScr.game;
+            int lastInd;
 
-			}
-			else if (Score.score == Score.score1)
-			{
-				if (sampBonus [i].meaning == "tie")
-				{
-					sampBonus [i].award = 0;
-					bonusObj [i].SetActive (false);			
-				}
+            if (TimeManager.resOfGame == 1)
+            {
+                scr.alPrScr.wonGames[game, lg] = 1;
+                scr.alPrScr.doCh = true;
+            }
+        }
+    }
 
-				if (sampBonus [i].meaning == "win")
-				{
-					sampBonus [i].award = 0;
-					bonusObj [i].SetActive (false);			
-				}
-			}
-			else
-			{
-				if (sampBonus [i].meaning == "tie")
-				{
-					sampBonus [i].award = 0;
-					bonusObj [i].SetActive (false);			
-				}
+    public void CheckForBonuses()
+    {
+        GameObject[] bonusObj = GameObject.FindGameObjectsWithTag ("SampleBonus");
+        SampleBonus[] sampBonus = new SampleBonus[bonusObj.Length];
 
-				if (sampBonus [i].meaning == "win")
-				{
-					sampBonus [i].award = 0;
-					bonusObj [i].SetActive (false);			
-				}
-			}
+        for (int i = 0; i < bonusObj.Length; i++) 
+            sampBonus [i] = bonusObj [i].GetComponent<SampleBonus> ();
 
-			if (!scr.tM.isGoldenGoal) 
-			{
-				if (sampBonus [i].meaning == "golden goal")
-				{
-					sampBonus [i].award = 0;
-					bonusObj [i].SetActive (false);			
-				}
-			}
+        // Disable bonuses, whitch were not got in this game.
+        for (int i = 0; i < sampBonus.Length; i++) 
+        {
+            if (sampBonus [i].name0 == "award")
+            {
+                if (TimeManager.resOfGame == 1 && scr.alPrScr.isRandGame == 0) 
+                {
+                    sampBonus [i].award = scr.alPrScr.award;
+                    sampBonus [i].awardText.text = scr.univFunc.moneyString(sampBonus [i].award);
+                }
+                else
+                {
+                    sampBonus [i].award = 0;
+                    bonusObj [i].SetActive (false);         
+                }
+            }
+            else if (sampBonus [i].name0 == "win in match")
+            {
+                if (TimeManager.resOfGame != 1) 
+                {
+                    sampBonus [i].award = 0;
+                    bonusObj [i].SetActive (false);         
+                }
+            }
+            else if (sampBonus [i].name0 == "clean match")
+            {
+                if (Score.score1 != 0)
+                {
+                    sampBonus [i].award = 0;
+                    bonusObj [i].SetActive (false); 
+                }
+            }
+        }
 
-			if (Score.score1 != 0)
-			{
-				if (sampBonus [i].meaning == "clean")
-				{
-					sampBonus [i].award = 0;
-					bonusObj [i].SetActive (false);	
-				}
-			}
+        for (int i = 0; i < sampBonus.Length; i++) 
+        {
+            if (sampBonus [i].name0 == "total")
+            {
+                for (int j = 0; j < sampBonus.Length; j++)
+                {
+                    if (i != j && bonusObj[j].activeSelf)
+                        sampBonus [i].award += sampBonus [j].award;
+                }
 
-			if (sampBonus [i].meaning == "goals") 
-			{
-				int oneGoalAward = sampBonus [i].award;
-				sampBonus [i].award = Score.score * oneGoalAward;
-				sampBonus [i].awardText.text = scr.gM.moneyString (sampBonus [i].award);
+                scr.objLev.totalPrice = sampBonus [i].award;
+                totalPrice = scr.objLev.totalPrice;
+                //Debug.Log ("totalPrice = " + scr.objLev.totalPrice);
+                sampBonus [i].awardText.text = scr.univFunc.moneyString (sampBonus [i].award);
+            }
+        }
 
-				string nameStr = sampBonus [i]._name.text;
-				string goals1 = Score.score.ToString ();
+        updatesChecked = true;
+    }*/
 
-				if (nameStr.Contains("#"))
-				{
-					Debug.Log ("goals1 = " + goals1);
-					Debug.Log ("nameStr = " + nameStr);
-					string nameStr1 = nameStr.Replace ("#", goals1);
-					Debug.Log ("nameStr = " + nameStr1);
-					sampBonus [i]._name.text = nameStr1;
-				}
+    void Update()
+    {
+        if (isMoneyToBank && updatesChecked)
+        {
+            timer += Time.deltaTime;
 
-			}
+            if (timer <= Time.deltaTime && timer != 0)
+            {
+                scr.alPrScr.moneyCount += totalPrice;
 
-			if (sampBonus [i].meaning == "skill") 
-			{
-				float award1 = 0.0f;
+                if (scr.alPrScr.moneyCount > 100000000)
+                    scr.alPrScr.moneyCount = 100000000;
 
-				if (Score.score > Score.score1) 
-				{
-					if (scr.alPrScr.freePlay == 1)
-						award1 = (float)sampBonus [i].award * (1 + (float)scr.alPrScr.enemyIndexFP / 30);
-					else
-						award1 = (float)sampBonus [i].award * (1 + (float)scr.alPrScr.enemyIndex / 30);
+                scr.alPrScr.setMoney = true;
+            } 
+            else if (timer >= 0.8f)
+            {
+                if (totalPrice > 0)
+                {
+                    if (timer >= 1 && timer < 1 + Time.deltaTime)
+                    {
+                        if (scr.levAudScr.moneyWinSource.enabled)
+                            scr.levAudScr.moneyWinSource.Play();
 
-					sampBonus [i].award = Mathf.CeilToInt(award1);
-					sampBonus [i].awardText.text = scr.gM.moneyString (sampBonus [i].award);
-				}
-				else
-					bonusObj [i].SetActive (false);
-			}
+                        scr.levAudScr.moneyWinSource1.PlayDelayed(0.2f);
+                    }
 
-			if (sampBonus [i].meaning == "stage") 
-			{
-				bonusObj [i].SetActive (false);	
-			}
+                    if (totalPrice > 10000)
+                    {
+                        totalPrice -= 1000;
+                        bankMoney += 1000;
+                    } 
+                    else if (totalPrice > 1000)
+                    {
+                        totalPrice -= 100;
+                        bankMoney += 100;
+                    } 
+                    else if (totalPrice <= 1000 && totalPrice > 10)
+                    {
+                        totalPrice -= 10;
+                        bankMoney += 10;
+                    }
+                    else
+                    {
+                        totalPrice -= 1;
+                        bankMoney += 1;
+                    }
 
-			if (sampBonus [i].meaning == "shots") 
-			{
-				bonusObj [i].SetActive (false);	
-			}
-		}
+                    moneyBankText.text = scr.univFunc.moneyString(bankMoney);
+                } 
+                else
+                {
+                    if (scr.levAudScr.moneyWinSource.isPlaying)
+                    {
+                        scr.levAudScr.moneyWinSource.Stop();
+                        scr.levAudScr.moneyWinSource1.Stop();
+                        isMoneyToBank = false;
+                    }
 
-		for (int i = 0; i < sampBonus.Length; i++) 
-		{
-			if (sampBonus [i].meaning == "total")
-			{
-				for (int j = 0; j < sampBonus.Length; j++)
-				{
-					if (i != j && bonusObj[j].activeSelf)
-						sampBonus [i].award += sampBonus [j].award;
-				}
+                    /*if (!advertiseShown)
+                    {
+                        scr.univFunc.ShowInterstitialAd();
+                        advertiseShown = true;
+                    }*/
+                }
+            }
+        }
+    }
 
-				scr.objLev.totalPrice = sampBonus [i].award;
-				totalPrice = scr.objLev.totalPrice;
-				Debug.Log ("totalPrice = " + scr.objLev.totalPrice);
-				sampBonus [i].awardText.text = scr.gM.moneyString (sampBonus [i].award);
-			}
-		}
-	}
-		
-	void Update()
-	{
-		if (isMoneyToBank)
-		{
-			timer += Time.deltaTime;
-
-			if (timer <= Time.deltaTime && timer != 0)
-			{
-				scr.alPrScr.moneyCount += totalPrice;
-
-				if (scr.alPrScr.moneyCount > 10000000)
-					scr.alPrScr.moneyCount = 10000000;
-
-				scr.alPrScr.setMoney = true;
-			} 
-			else if (timer >= 0.8f)
-			{
-				if (totalPrice > 0)
-				{
-					if (timer >= 1 && timer < 1 + Time.deltaTime)
-					{
-						scr.levAudScr.moneyWinSource.Play();
-						scr.levAudScr.moneyWinSource1.PlayDelayed(0.2f);
-					}
-
-					if (totalPrice > 1000)
-					{
-						totalPrice -= 100;
-						bankMoney += 100;
-					} 
-					else if (totalPrice <= 1000 && totalPrice > 10)
-					{
-						totalPrice -= 10;
-						bankMoney += 10;
-					}
-					else
-					{
-						totalPrice -= 1;
-						bankMoney += 1;
-					}
-
-					if (bankMoney > 10000000)
-						bankMoney = 10000000;
-
-					moneyBankText.text = scr.gM.moneyString(bankMoney);
-				} 
-				else
-				{
-					if (scr.levAudScr.moneyWinSource.isPlaying)
-					{
-						scr.levAudScr.moneyWinSource.Stop();
-						scr.levAudScr.moneyWinSource1.Stop();
-						isMoneyToBank = false;
-						menuButton.SetActive(true);
-					}
-
-					if (!menuButton.activeSelf)
-						menuButton.SetActive(true);
-
-					if (!advertiseShown)
-					{
-						scr.objLev.ShowInterstitialAd();
-						advertiseShown = true;
-					}
-				}
-			}
-		}
-	}
-		
-	private bool advertiseShown;
-
-	private void GetEnemySkill()
-	{
-		for (int i = 0; i < scr.prScrL.itemList.Count; i++)
-		{
-			if (scr.prScrL.itemList[i].icon == scr.alScr.enemySprite)
-				skill = scr.prScrL.itemList[i].summSkill;
-		} 
-	}
-
-	public void SetMoneyWin()
-	{
-		moneyBankText.gameObject.SetActive(true);
-		isMoneyToBank = true;
-		Time.timeScale = 1;
-	}
+    public void SetMoneyWin()
+    {
+        moneyBankText.gameObject.SetActive(true);
+        isMoneyToBank = true;
+        Time.timeScale = 1;
+    }
 }

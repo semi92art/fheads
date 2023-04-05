@@ -7,4 +7,4 @@ PhysicsMaterial2D:
   m_PrefabInternal: {fileID: 0}
   m_Name: Platform
   friction: 10
-  bounciness: 0.12
+  bounciness: 0

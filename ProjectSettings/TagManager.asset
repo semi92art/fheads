@@ -102,6 +102,12 @@ TagManager:
   - BallTail
   - PlaneTail
   - SampleBonus
+  - BonusZone
+  - GameButton
+  - Showcase_2
+  - ProfileButton_2
+  - Showcase_0
+  - Showcase_2_0
   layers:
   - Default
   - TransparentFX
@@ -113,23 +119,23 @@ TagManager:
   - 
   - Sun
   - Player
-  - 
+  - Markers
   - Ball
   - Ground
   - Test
-  - 
+  - Bonus
   - Leg
-  - 
+  - Bonus_1
   - BodyCollider
   - Walls4Player
   - BallsForce
   - Enemy2Wall
   - WallStop
   - Wall4Enemy
-  - 
-  - 
-  - 
-  - 
+  - Rain
+  - Triangles
+  - Test_1
+  - Test_2
   - 
   - 
   - 

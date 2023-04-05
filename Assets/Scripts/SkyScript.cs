@@ -1,98 +1,116 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class SkyScript : MonoBehaviour 
+
+[System.Serializable]
+public class Tribunes
 {
-	public Scripts scr;
-	public float[] sunBeamScale;
-	public SpriteRenderer stadiumSprR;
-	public Sprite[] stadiumSpr;
-	public bool isTraining;
-	public int currentSky;
-	public Color[] lineRColors;
-	public Color[] cameraColors;
-	public Color[] sunColors;
-	public Color[] planeColors;
-	public Color[] planeTraceColors;
-	public Color[] cloudsColors;
-	public Material[] sunMaterials;
-	[HideInInspector]
-	public Color currPlaneTraceColor;
+    public enum Weather { 
+        clear,
+        rain,
+        snow,
+        sun,
+        rain_and_snow 
+    };
 
-	[HideInInspector]
-	public bool isPlaneDestroyed;
-	public int stad_ind;
+    public Weather _weather;
+    public Sprite spr_tribunes;
+}
 
-	void Awake()
-	{
-		if (scr.alPrScr.freePlay == 0)
-		{
-			float rand1 = Random.value;
-			int rand1_int = Mathf.FloorToInt(rand1 * 2.9f) + 1;
-			stadiumSprR.sprite = stadiumSpr[rand1_int];
-			Debug.Log("rand1_int = " + rand1_int);
-			stad_ind = rand1_int;
-		}
-		else
-			stadiumSprR.sprite = stadiumSpr [0];
+public class SkyScript : MonoBehaviour
+{
+    public Scripts scr;
+    [Header("Stadiums and weather:")]
+    public List<Tribunes> _tribunes;
+    public GameObject bannerGroup1, bannerGroup2;
+    public GameObject obj_Splashes;
+    public Animator bannersAnim;
+    public bool isGoal;
+    public bool isRandTribunes;
+    public SpriteRenderer[] wallSprs;
+    public SpriteRenderer stadiumSprR;
+    public Sprite[] tribunesSpr;
+    public Color[] randCol;
+    public GameObject obj_Snow;
 
-		if (scr.sunEmit != null)
-		{
-			if (scr.sunEmit.xSun <= -10)
-				currentSky = 2;
-			else if (scr.sunEmit.xSun > -10 && scr.sunEmit.xSun <= 5)
-				currentSky = 1;
-			else
-				currentSky = 0;
-		}
-			
-		if (scr.alPrScr.freePlay == 0)
-			isTraining = false;
-		else
-			isTraining = true;
-	}
+    private float tim;
 
-	void Update()
-	{
-		#if UNITY_EDITOR
-		if (Input.GetKeyDown (KeyCode.Q))
-			ChangeSkyAndStadiumColor ();
 
-		if (Input.GetKeyDown (KeyCode.E))
-			ChangeStadium ();
-		#endif
-	}
+    void Awake()
+    {
+        SetTribunes();
+        SetWeather();
+    }
 
-	private void ChangeSkyAndStadiumColor()
-	{
-		if (currentSky != sunColors.Length - 1)
-			currentSky++;
-		else
-			currentSky = 0;
+    void Start()
+    {
+        PlayerPrefs.SetInt("MenuTrigger_1", 0);
 
-		// for (int i = 0; i < scr.sunEmit.sunLightTr.Length; i++) 
-		// 	scr.sunEmit.sunLightTr [i].gameObject.GetComponent<DynamicLight> ().LightMaterial = sunMaterials [currentSky];
-	}
+        if (scr.alPrScr.tribunes == 0)
+        {
+            bannersAnim.enabled = false;
+            bannerGroup1.SetActive(false);
+            bannerGroup2.SetActive(false);
+            obj_Splashes.SetActive(false);
+        }
+        else
+        {
+            bannersAnim.enabled = true;
+            bannerGroup1.SetActive(true);
+            bannerGroup2.SetActive(true);
+        }
+    }
 
-	private void ChangeStadium()
-	{
-	}
+    void Update()
+    {
+        if (isGoal && scr.alPrScr.tribunes != 0)
+        {
+            string call_str = "call";
+            int call_int = Animator.StringToHash(call_str);
+            bannersAnim.ResetTrigger(call_int);
+            bannersAnim.SetTrigger(call_int);
+            isGoal = false;
+        }
+    }
+        
+    private void SetTribunes()
+    {
+        /*float rand0 = ((float)tribunesSpr.Length - 0.1f) * Random.value;
+        int randStad = Mathf.FloorToInt(rand0);
+        stad = scr.alPrScr.isRandGame == 0 ? scr.alPrScr.game : randStad;*/
+        stadiumSprR.sprite = _tribunes[scr.alPrScr.tribunes].spr_tribunes;
 
-	public void SetNextSky()
-	{
-		if (currentSky != sunColors.Length - 1)
-			currentSky++;
-		else
-			currentSky = 0;
+        int randC = Mathf.FloorToInt(((float)randCol.Length - 0.1f) * Random.value);
 
-		currPlaneTraceColor = planeTraceColors [currentSky];
+        for (int i = 0; i < wallSprs.Length; i++)
+            wallSprs[i].color = randCol[randC];
+    }
 
-		// for (int i = 0; i < scr.sunEmit.sunLightTr.Length; i++) 
-		// 	scr.sunEmit.sunLightTr [i].gameObject.GetComponent<DynamicLight> ().LightMaterial = sunMaterials [currentSky];
-	}
-
-	public void EnableDisableStadium()
-	{
-
-	}
+    public void SetWeather()
+    {
+        switch (_tribunes[scr.alPrScr.tribunes]._weather)
+        {
+            case Tribunes.Weather.clear:
+                scr.rainMan.isRainThisGame = false;
+                obj_Snow.SetActive(false);
+                break;
+            case Tribunes.Weather.rain:
+                scr.rainMan.isRainThisGame = true;
+                obj_Snow.SetActive(false);
+                break;
+            case Tribunes.Weather.rain_and_snow:
+                scr.rainMan.isRainThisGame = true;
+                obj_Snow.SetActive(true);
+                break;
+            case Tribunes.Weather.snow:
+                scr.rainMan.isRainThisGame = false;
+                obj_Snow.SetActive(true);
+                break;
+            case Tribunes.Weather.sun:
+                scr.rainMan.isRainThisGame = false;
+                obj_Snow.SetActive(false);
+                break;
+        }
+    }
 }
