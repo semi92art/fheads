@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1303623744
+--- !u!1 &628136705
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,75 +131,21 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1303623746}
-  - component: {fileID: 1303623745}
+  - component: {fileID: 628136706}
   m_Layer: 0
-  m_Name: Buffer
+  m_Name: Initializer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1303623745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303623744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2751e1a5f3c6fa24a92b46be82fe93b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isLevelStarted: 0
-  is1stPractice: 0
-  isPractice: 0
-  plInd: 0
-  plCntrInd: 0
-  plSkillSpeed: 0
-  plSkillKick: 0
-  plSkillJump: 0
-  plSpr: {fileID: 0}
-  plBoot: {fileID: 0}
-  plCol1: {r: 0, g: 0, b: 0, a: 0}
-  plCol2: {r: 0, g: 0, b: 0, a: 0}
-  plColStad: {r: 0, g: 0, b: 0, a: 0}
-  enInd: 0
-  enCntrInd: 0
-  enSkillSpeed: 0
-  enSkillKick: 0
-  enSkillJump: 0
-  enSpr: {fileID: 0}
-  enBoot: {fileID: 0}
-  enCol1: {r: 0, g: 0, b: 0, a: 0}
-  enCol2: {r: 0, g: 0, b: 0, a: 0}
-  enColStad: {r: 0, g: 0, b: 0, a: 0}
-  oppType: 0
-  enInd_1: 0
-  enCntrInd_1: 0
-  enSkillSpeed_1: 0
-  enSkillKick_1: 0
-  enSkillJump_1: 0
-  enSpr_1: {fileID: 0}
-  enBoot_1: {fileID: 0}
-  enCol1_1: {r: 0, g: 0, b: 0, a: 0}
-  enCol2_1: {r: 0, g: 0, b: 0, a: 0}
-  enColStad_1: {r: 0, g: 0, b: 0, a: 0}
-  oppType_1: 0
-  _careerGames: []
-  _careerGame:
-    oppsNumAndAge: 0
-    oppsMain: []
-    oppsLegend: []
-  is2Enemies: 0
---- !u!4 &1303623746
+--- !u!4 &628136706
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303623744}
+  m_GameObject: {fileID: 628136705}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
