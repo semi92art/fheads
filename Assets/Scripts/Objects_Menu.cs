@@ -47,22 +47,13 @@ public class Objects_Menu : MonoBehaviour
         scr.upgr.curr_ind = 0;
         scr.upgr.curr_indBall = 0;
 
-#if UNITY_EDITOR
-        if (FindObjectOfType<Reporter>())
-            DestroyImmediate(FindObjectOfType<Reporter>().gameObject);
-#else
+#if !UNITY_EDITOR
         bool doNotDestroy = false;
 
         for (int i = 0; i < idForTesting.Length; i++)
         {
             if (Android_Id() == idForTesting[i])
                 doNotDestroy = true;
-        }
-
-        if (!doNotDestroy)
-        {
-            if (FindObjectOfType<Reporter>())
-                DestroyImmediate(FindObjectOfType<Reporter>().gameObject);
         }
 #endif
 
