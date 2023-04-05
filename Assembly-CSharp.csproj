@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{9d75344e-3b32-9f47-c9ad-96a36d3b53dd}</ProjectGuid>
+    <ProjectGuid>{ded02eed-896a-c118-750b-bc57ca77bfc1}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -44,29 +44,29 @@
      <Compile Include="Assets\Scripts\UniversalFunctions.cs" />
      <Compile Include="Assets\Reporter\Test\Rotate.cs" />
      <Compile Include="Assets\Scripts\PracticeText_3.cs" />
-     <Compile Include="Assets\GoalScript.cs" />
+     <Compile Include="Assets\Scripts\GoalScript.cs" />
      <Compile Include="Assets\Scripts\BonusObjManager.cs" />
      <Compile Include="Assets\Scripts\JumpScript.cs" />
      <Compile Include="Assets\Scripts\GameButton.cs" />
      <Compile Include="Assets\Scripts\CurrentProfilePanel.cs" />
      <Compile Include="Assets\Scripts\EverydayReward.cs" />
-     <Compile Include="Assets\RandomChech.cs" />
+     <Compile Include="Assets\Scripts\RandomChech.cs" />
      <Compile Include="Assets\Scripts\TimeFreeze.cs" />
      <Compile Include="Assets\2DDL\2DLight\PropertyDrawers\Attributes.cs" />
      <Compile Include="Assets\Scripts\BonusSearch.cs" />
      <Compile Include="Assets\Reporter\Reporter.cs" />
-     <Compile Include="Assets\Anim_Shield.cs" />
+     <Compile Include="Assets\Scripts\Anim_Shield.cs" />
      <Compile Include="Assets\Scripts\ScrollScript.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\2DDL\Add-ons\Illumination.cs" />
      <Compile Include="Assets\RainMaker\Prefab\RainCollision.cs" />
      <Compile Include="Assets\Scripts\BycicleKick.cs" />
-     <Compile Include="Assets\Anim_StartPanel.cs" />
+     <Compile Include="Assets\Scripts\Anim_StartPanel.cs" />
      <Compile Include="Assets\2DDL\Add-ons\Source.cs" />
-     <Compile Include="Assets\FireworkScript.cs" />
+     <Compile Include="Assets\Scripts\FireworkScript.cs" />
      <Compile Include="Assets\2DDL\2DLight\PropertyDrawers\PopUpAttributeDrawer.cs" />
      <Compile Include="Assets\Scripts\BarForce1.cs" />
-     <Compile Include="Assets\Anim_ButtonPlay.cs" />
+     <Compile Include="Assets\Scripts\Anim_ButtonPlay.cs" />
      <Compile Include="Assets\Scripts\CareerManager.cs" />
      <Compile Include="Assets\Scripts\PlayButtonScript.cs" />
      <Compile Include="Assets\2DDL\2DLight\Utils\more\TablaSenoCoseno.cs" />
@@ -83,6 +83,7 @@
      <Compile Include="Assets\2DDL\2DLight\Utils\more\interface_touch.cs" />
      <Compile Include="Assets\Scripts\PracticeText_Player.cs" />
      <Compile Include="Assets\Scripts\PlayersList.cs" />
+     <Compile Include="Assets\Scripts\SceneNames.cs" />
      <Compile Include="Assets\2DDL\Add-ons\Fire.cs" />
      <Compile Include="Assets\Scripts\LevelAudioScript.cs" />
      <Compile Include="Assets\2DDL\2DLight\Core\DynamicLight.cs" />
@@ -90,7 +91,7 @@
      <Compile Include="Assets\Scripts\Objects_Menu.cs" />
      <Compile Include="Assets\2DDL\2DLight\Sight\SightListenerTemplate.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
-     <Compile Include="Assets\Anim_EvrdReward.cs" />
+     <Compile Include="Assets\Scripts\Anim_EvrdReward.cs" />
      <Compile Include="Assets\2DDL\2DLight\Utils\more\GLDebug.cs" />
      <Compile Include="Assets\2DDL\Add-ons\LensFlares.cs" />
      <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />
@@ -102,12 +103,12 @@
      <Compile Include="Assets\Scripts\SkyScript.cs" />
      <Compile Include="Assets\Scripts\ProfileSampleButton.cs" />
      <Compile Include="Assets\2D Fire Arsenal\SelfDestruct.cs" />
-     <Compile Include="Assets\Anim_Leagues.cs" />
-     <Compile Include="Assets\Anim_Players.cs" />
+     <Compile Include="Assets\Scripts\Anim_Leagues.cs" />
+     <Compile Include="Assets\Scripts\Anim_Players.cs" />
      <Compile Include="Assets\Scripts\RainManager.cs" />
      <Compile Include="Assets\Scripts\SampleBonus.cs" />
-     <Compile Include="Assets\UnityAds_0.cs" />
-     <Compile Include="Assets\Anim_Sound.cs" />
+     <Compile Include="Assets\Scripts\UnityAds_0.cs" />
+     <Compile Include="Assets\Scripts\Anim_Sound.cs" />
      <Compile Include="Assets\Scripts\CongradulationsPanel.cs" />
      <Compile Include="Assets\Reporter\ReporterGUI.cs" />
      <Compile Include="Assets\Scripts\BallTouchScript.cs" />
@@ -117,7 +118,7 @@
      <Compile Include="Assets\Scripts\Practice.cs" />
      <Compile Include="Assets\Fireworks\Scripts\ParticleSystemSound.cs" />
      <Compile Include="Assets\Scripts\PlayersListEditor.cs" />
-     <Compile Include="Assets\Anim_RestartButton.cs" />
+     <Compile Include="Assets\Scripts\Anim_RestartButton.cs" />
      <Compile Include="Assets\Reporter\MultiKeyDictionary.cs" />
      <Compile Include="Assets\Scripts\CameraSize.cs" />
      <Compile Include="Assets\2DDL\2DLight\Core\DynamicLightEvents.cs" />
@@ -127,10 +128,10 @@
      <Compile Include="Assets\Scripts\TopPanelManager.cs" />
      <Compile Include="Assets\2DDL\2DLight\PropertyDrawers\FieldDescriptionAttributeDrawer.cs" />
      <Compile Include="Assets\Scripts\BallSlow.cs" />
-     <Compile Include="Assets\Anim_VictoryText.cs" />
+     <Compile Include="Assets\Scripts\Anim_VictoryText.cs" />
      <Compile Include="Assets\Scripts\ColorCorrectionControl.cs" />
      <Compile Include="Assets\RainMaker\Demo\DemoScriptStartRainOnSpaceBar.cs" />
-     <Compile Include="Assets\Anim_UpgradesMenu.cs" />
+     <Compile Include="Assets\Scripts\Anim_UpgradesMenu.cs" />
      <Compile Include="Assets\Scripts\CareerSampleButton.cs" />
      <Compile Include="Assets\Scripts\CountriesList.cs" />
      <Compile Include="Assets\Reporter\ReporterMessageReceiver.cs" />
@@ -140,7 +141,7 @@
      <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
      <Compile Include="Assets\Scripts\Destroyer.cs" />
      <Compile Include="Assets\Scripts\PointerScript.cs" />
-     <Compile Include="Assets\Anim_AllAwardsPanel.cs" />
+     <Compile Include="Assets\Scripts\Anim_AllAwardsPanel.cs" />
      <Compile Include="Assets\lightening\LighteningScript.cs" />
      <Compile Include="Assets\Scripts\BallScript.cs" />
      <Compile Include="Assets\Scripts\PracticeText_2.cs" />
@@ -149,7 +150,7 @@
      <Compile Include="Assets\2DDL\Add-ons\Rotation.cs" />
      <Compile Include="Assets\2DDL\Add-ons\ColorBlending.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\PlusMoney.cs" />
+     <Compile Include="Assets\Scripts\PlusMoney.cs" />
      <Compile Include="Assets\Scripts\TimeManager.cs" />
      <Compile Include="Assets\Scripts\GoalPanelScript.cs" />
      <Compile Include="Assets\Scripts\AllAwardsScript.cs" />
@@ -162,7 +163,7 @@
      <Compile Include="Assets\Scripts\variable_height_reorderable_list_example.cs" />
      <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
      <Compile Include="Assets\2DDL\2DLight\PropertyDrawers\IncrementableAttribute.cs" />
-     <Compile Include="Assets\Upgrades.cs" />
+     <Compile Include="Assets\Scripts\Upgrades.cs" />
      <Compile Include="Assets\Scripts\BonusObject.cs" />
      <Compile Include="Assets\RainMaker\Demo\DemoScript2D.cs" />
      <Compile Include="Assets\Scripts\TestList.cs" />
@@ -171,7 +172,7 @@
      <Compile Include="Assets\2DDL\2DLight\Core\CasterCollider.cs" />
      <Compile Include="Assets\Fireworks\Scripts\SoundController.cs" />
      <Compile Include="Assets\2DDL\2DLight\PropertyDrawers\ButtonAttributeDrawer.cs" />
-     <Compile Include="Assets\Scripts\SceneNames.cs" />
+     <Compile Include="Assets\Scripts\ApplicationInitializer.cs" />
      <Folder Include="Assets" />
      <None Include="Assets\Gradient Shaders\Single Texture with Gradient\Radial\Two Colors\Gradient-SingleTexture-Radial-TwoColors-InvertedUV-AlphaBlend.shader" />
      <Folder Include="Assets\Gradient Shaders" />
@@ -759,16 +760,16 @@
      <HintPath>C:\Program Files\Unity\Editor\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.Advertisements.Editor">
-     <HintPath>F:\FH\Assets\UnityAds\UnityEngine.Advertisements.Editor.dll</HintPath>
+     <HintPath>F:\fheads\Assets\UnityAds\UnityEngine.Advertisements.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>F:\FH\Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     <HintPath>F:\fheads\Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Resources2DDL">
-     <HintPath>F:\FH\Assets\2DDL\2DLight\Utils\Resources2DDL.dll</HintPath>
+     <HintPath>F:\fheads\Assets\2DDL\2DLight\Utils\Resources2DDL.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
-     <HintPath>F:\FH\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+     <HintPath>F:\fheads\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.iOS.Extensions.Xcode">
      <HintPath>C:\Program Files\Unity\Editor\2021.3.16f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -1149,72 +1150,72 @@
      <HintPath>C:\Program Files\Unity\Editor\2021.3.16f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core.Analytics">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core.Environments">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>F:\FH\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>F:\FH\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>F:\FH\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+     <HintPath>F:\fheads\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{a5762011-c3cc-11f9-8e6a-483257d67690}</Project>
+      <Project>{0623042d-fc30-67af-e66f-284f0ca9fd89}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
   </ItemGroup>
