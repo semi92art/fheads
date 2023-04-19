@@ -1,4 +1,4 @@
-﻿#if FIREBASE
+﻿#if FIREBASE && !UNITY_WEBGL
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

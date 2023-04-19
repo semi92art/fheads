@@ -1,4 +1,5 @@
-﻿﻿using System;
+﻿#if FIREBASE && !UNITY_WEBGL
+using System;
 using Firebase;
 using mazing.common.Runtime;
 using mazing.common.Runtime.Helpers;
@@ -49,3 +50,4 @@ namespace Common
         }
     }
 }
+#endif

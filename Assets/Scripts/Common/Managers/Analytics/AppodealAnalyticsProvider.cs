@@ -1,7 +1,9 @@
-﻿#if APPODEAL_3
+﻿#if APPODEAL_3 && !UNITY_WEBGL
 using System.Collections.Generic;
 using System.Linq;
 using AppodealStack.Monetization.Api;
+using mazing.common.Runtime.Managers;
+using mazing.common.Runtime.Managers.Analytics;
 
 namespace Common.Managers.Analytics
 {
