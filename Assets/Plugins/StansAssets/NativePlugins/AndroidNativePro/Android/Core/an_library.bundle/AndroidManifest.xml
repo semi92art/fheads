@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.stansassets.androidnative">
+  <application>
+    <service android:name="com.stansassets.android.app.notifications.AN_AlarmNotificationService" android:process=":externalProcess" />
+    <receiver android:name="com.stansassets.android.app.notifications.AN_AlarmNotificationTriggerReceiver" android:enabled="true" android:exported="true">
+      <intent-filter>
+        <action android:name="com.androidnative.local.intent.OPEN" />
+        <action android:name="android.intent.action.BOOT_COMPLETED" />
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+    </receiver>
+    <activity android:name="com.stansassets.core.utility.AN_ProxyActivity" android:launchMode="singleTask" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <activity android:name="com.stansassets.android.app.permissions.AN_PermissionsProxyActivity" android:launchMode="singleTask" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <activity android:name="com.stansassets.android.app.notifications.AN_NotificationLaunchActivity" android:launchMode="singleTask" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+  </application>
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+</manifest>

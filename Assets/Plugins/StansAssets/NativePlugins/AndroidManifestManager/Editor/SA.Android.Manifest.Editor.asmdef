@@ -1,0 +1,20 @@
+{
+    "name": "SA.Android.Manifest.Editor",
+    "references": [
+        "SA.Android.Manifest",
+        "SA.Foundation",
+        "SA.Foundation.Editor",
+        "StansAssets.Plugins.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,34 @@
+{
+    "name": "SA.Android.Editor",
+    "references": [
+        "SA.Android",
+        "SA.Foundation",
+        "SA.Foundation.Editor",
+        "SA.Android.Manifest",
+        "SA.Android.Manifest.Editor",
+        "StansAssets.Foundation.Editor",
+        "StansAssets.Plugins.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.google.firebase.analytics",
+            "expression": "1.0.0",
+            "define": "AN_FIREBASE_ANALYTICS"
+        },
+        {
+            "name": "com.google.firebase.messaging",
+            "expression": "1.0.0",
+            "define": "AN_FIREBASE_MESSAGING"
+        }
+    ],
+    "noEngineReferences": false
+}
