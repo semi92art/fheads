@@ -785,7 +785,8 @@ public class BonusObjManager : MonoBehaviour
             case 1:
                 isVideoCalled = true;
                 isWatchVideoInPause = false;
-                FindObjectOfType<UnityAds_0>().ShowRewardedAd();
+                // FIXME показ рекламы
+                // FindObjectOfType<UnityAds_0>().ShowRewardedAd();
                 break;
             case 2:
                 watchVideoTr.position = startBonTrs[12];

@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using Lean.Common;
 
 public class ScrollScript : MonoBehaviour 
 {
@@ -36,7 +37,7 @@ public class ScrollScript : MonoBehaviour
 			#if UNITY_EDITOR
 			//screenWidth = GameManager.GetMainGameViewSize().x;
 
-			if (!Input.GetKey(KeyCode.Mouse0))
+			if (!LeanInput.GetPressed(KeyCode.Mouse0))
 				ButtonToMiddle();
 			else 
 				timer1 = 0;

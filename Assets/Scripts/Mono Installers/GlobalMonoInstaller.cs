@@ -1,5 +1,6 @@
 ﻿using Common;
 using Common.Managers.Analytics;
+using mazing.common.Runtime.Helpers;
 using mazing.common.Runtime.Managers;
 using mazing.common.Runtime.Network;
 using mazing.common.Runtime.Ticker;
@@ -26,28 +27,24 @@ namespace Mono_Installers
             Container.Bind<IAnalyticsProvidersSet>().To<AnalyticsProvidersSet>().AsSingle();
             Container.Bind<IUnityAnalyticsProvider>().To<UnityAnalyticsProvider>().AsSingle();
             Container.Bind<IMyOwnAnalyticsProvider>().To<MyOwnAnalyticsProvider>().AsSingle();
-#if FIREBASE
+#if FIREBASE && !UNITY_WEBGL
             Container.Bind<IFirebaseAnalyticsProvider>().To<FirebaseAnalyticsProvider>().AsSingle();
 #endif
-#if APPODEAL_3
+#if APPODEAL_3 && !UNITY_WEBGL
             Container.Bind<IAppodealAnalyticsProvider>().To<AppodealAnalyticsProvider>().AsSingle();
 #endif
         }
         
         private void BindPermissionsRequester()
         {
-            if (Application.isEditor)
-            {
-                Container.Bind<IPermissionsRequester>() .To<FakePermissionsRequester>().AsSingle();
-            }
-            else
-            {
-#if UNITY_ANDROID
+            
+#if UNITY_EDITOR || UNITY_WEBGL
+            Container.Bind<IPermissionsRequester>() .To<FakePermissionsRequester>().AsSingle();
+#elif UNITY_ANDROID
                 Container.Bind<IPermissionsRequester>().To<FakePermissionsRequester>() .AsSingle();
 #elif UNITY_IOS || UNITY_IPHONE
                 Container.Bind<IPermissionsRequester>().To<IosPermissionsRequester>()  .AsSingle();
 #endif
-            }
         }
         
         private void BindTickers()
@@ -61,9 +58,12 @@ namespace Mono_Installers
         
         private void BindOther()
         {
+            Container.Bind<IRemotePropertiesCommon>().To<RemotePropertiesCommon>().AsSingle();
             Container.Bind<IGameClient>().To<GameClient>().AsSingle();
-#if FIREBASE
+#if FIREBASE && !UNITY_WEBGL
             Container.Bind<IFirebaseInitializer>().To<FirebaseInitializer>().AsSingle();
+#elif FIREBASE && UNITY_WEBGL
+
 #endif
         }
     }

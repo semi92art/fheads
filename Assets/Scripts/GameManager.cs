@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Lean.Common;
 using UnityEngine.UI;
 
 public enum Menues
@@ -66,11 +67,11 @@ public class GameManager : MonoBehaviour
     private void Update_Menu()
     {
 #if UNITY_EDITOR
-        if(Input.GetKey(KeyCode.R))
+        if(LeanInput.GetPressed(KeyCode.R))
             SceneManager.LoadScene("Menu");
 #endif
 
-        if (Input.GetKeyUp (KeyCode.Escape))
+        if (LeanInput.GetUp (KeyCode.Escape))
         {
             switch (_menues)
             {
@@ -89,7 +90,7 @@ public class GameManager : MonoBehaviour
 		
     private void Update_Level()
     {
-        if (Input.GetKeyUp (KeyCode.Escape)) 
+        if (LeanInput.GetUp (KeyCode.Escape)) 
         {
             if (scr.tM.isBetweenTimes && Time.timeScale <= 0.1f)
             {
@@ -125,7 +126,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (LeanInput.GetUp(KeyCode.Space))
         {
             if (!scr.pMov.startGame || scr.tM.isBetweenTimes)
                 StartGame();

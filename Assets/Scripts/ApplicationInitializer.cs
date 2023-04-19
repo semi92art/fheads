@@ -19,17 +19,18 @@ public class ApplicationInitializer : MonoBehaviour
     #region inject
 
     private IAnalyticsManager     AnalyticsManager     { get; set; }
-    private IFirebaseInitializer  FirebaseInitializer  { get; set; }
+    
+    #if FIREBASE && !UNITY_WEBGL
+    [Inject] private IFirebaseInitializer  FirebaseInitializer  { get; set; }
+    #endif
     private IPermissionsRequester PermissionsRequester { get; set; }
 
     [Inject]
     private void Inject(
         IAnalyticsManager     _AnalyticsManager,
-        IFirebaseInitializer  _FirebaseInitializer,
         IPermissionsRequester _PermissionsRequester)
     {
         AnalyticsManager     = _AnalyticsManager;
-        FirebaseInitializer  = _FirebaseInitializer;
         PermissionsRequester = _PermissionsRequester;
     }
 
@@ -39,7 +40,10 @@ public class ApplicationInitializer : MonoBehaviour
 
     private IEnumerator Start()
     {
+#if FIREBASE && !UNITY_WEBGL
         FirebaseInitializer.Init();
+#endif
+        Application.targetFrameRate = 120;
         // yield return UpdateTodaySessionsCountCoroutine();
         // ApplicationVersionUpdater.UpdateToCurrentVersion();
         // yield return SetGameId();
@@ -135,7 +139,14 @@ public class ApplicationInitializer : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
         SceneManager.sceneLoaded += OnSceneLoaded;
         yield return WaitWhile(
-            () => !FirebaseInitializer.Initialized,
+            () =>
+            {
+#if FIREBASE && !UNITY_WEBGL
+                return !FirebaseInitializer.Initialized;
+#else
+                return false;
+#endif
+            }, 
             () =>
             {
                 // SceneManager.LoadScene(SceneNames.Level);

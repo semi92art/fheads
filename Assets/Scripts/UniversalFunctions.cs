@@ -75,23 +75,6 @@ public class UniversalFunctions : MonoBehaviour
         return new Vector3(h_val, s_val, v_val);
     }
 
-    public bool IsMyDevice()
-    {
-        Objects_Level objL = FindObjectOfType<Objects_Level>();
-        bool show = false;
-
-        for (int i = 0; i < objL.idForTesting.Length; i++)
-        {
-            if (Android_Id() == objL.idForTesting[i])
-            {
-                show = true;
-                break;
-            }
-        }
-
-        return show;
-    }
-
     public void RestartLevel()
     {
         if (scr.alPrScr.isRandGame == 0)
@@ -111,7 +94,8 @@ public class UniversalFunctions : MonoBehaviour
 
     private void RestartForVideo()
     {
-        FindObjectOfType<UnityAds_0>().ShowRewardedAd();
+        //FIXME показ рекламы
+        // FindObjectOfType<UnityAds_0>().ShowRewardedAd();
     }
 
     private void RestartForFree()
@@ -121,35 +105,12 @@ public class UniversalFunctions : MonoBehaviour
         
     public void ShowInterstitialAd()
     {
-        if (!IsMyDevice() && !scr.gM.isNoAds)
-        {
-            // if (GoogleMobileAd.IsInterstitialReady)
-            //     GoogleMobileAd.ShowInterstitialAd();
-        }
+        // TODO
+        // if (GoogleMobileAd.IsInterstitialReady)
+        // //     GoogleMobileAd.ShowInterstitialAd();
     }
 
-    public string Android_Id()
-    {
-        string android_id = "editor";
-
-        #if UNITY_EDITOR
-        #else
-        AndroidJavaClass up = new AndroidJavaClass ("com.unity3d.player.UnityPlayer");
-        AndroidJavaObject currentActivity = up.GetStatic<AndroidJavaObject> ("currentActivity");
-        AndroidJavaObject contentResolver = currentActivity.Call<AndroidJavaObject> ("getContentResolver");  
-        AndroidJavaClass secure = new AndroidJavaClass ("android.provider.Settings$Secure");
-        android_id = secure.CallStatic<string> ("getString", contentResolver, "android_id");
-        #endif
-
-        return android_id;
-    }
-
-    public void ShowDeviceIdentifier()
-    {
-        Debug.Log(Android_Id());
-    }
-
-	public bool Int2Bool(int _int)
+    public bool Int2Bool(int _int)
 	{
         if (_int == 0)
 			return false;

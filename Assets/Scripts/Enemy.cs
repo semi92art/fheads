@@ -585,7 +585,7 @@ public class Enemy : MonoBehaviour
     {
         kOvH = isKickOverHead();
 
-        //if (Input.GetKeyDown(KeyCode.C))
+        //if (LeanInput.GetDown(KeyCode.C))
         //    kOvH = true;
 
         if (kOvH)

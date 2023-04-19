@@ -78,10 +78,10 @@ public class GameManager : MonoBehaviour
 
     private void Update_Menu()
     {
-        if(Input.GetKey(KeyCode.R))
+        if(LeanInput.Get(KeyCode.R))
             SceneManager.LoadScene("Menu");
 
-        if (Input.GetKeyUp (KeyCode.Escape))
+        if (LeanInput.GetUp (KeyCode.Escape))
         {
             if (menuBools.menu)
                 Application.Quit();
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
         if (Time.timeSinceLevelLoad <= .1f && Time.timeScale != 1f)
             Time.timeScale = 1f;
 
-        if (Input.GetKeyUp (KeyCode.Escape)) 
+        if (LeanInput.GetUp (KeyCode.Escape)) 
         {
             if (scr.tM.isBetweenTimes && Time.timeScale <= 0.1f)
             {
@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (LeanInput.GetUp(KeyCode.Space))
         {
             if (!scr.pMov.startGame || scr.tM.isBetweenTimes)
                 StartGame();

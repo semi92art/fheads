@@ -523,67 +523,67 @@ public class PlayerMovement : MonoBehaviour
 	private void Controls()
 	{
 		#if UNITY_EDITOR || UNITY_STANDALONE
-		if (Input.GetKeyDown (KeyCode.LeftArrow))
+		if (LeanInput.GetDown (KeyCode.LeftArrow))
 			MoveLeft();
-		else if (Input.GetKeyUp (KeyCode.LeftArrow))
+		else if (LeanInput.GetUp (KeyCode.LeftArrow))
 			MoveLeftEnd ();
 
-		if (Input.GetKeyDown (KeyCode.RightArrow)) 
+		if (LeanInput.GetDown (KeyCode.RightArrow)) 
 			MoveRight ();
-		else if (Input.GetKeyUp (KeyCode.RightArrow)) 
+		else if (LeanInput.GetUp (KeyCode.RightArrow)) 
 			MoveRightEnd ();
 
-		if (Input.GetKeyDown (KeyCode.UpArrow)) 
+		if (LeanInput.GetDown (KeyCode.UpArrow)) 
 			Jump ();
-		else if (Input.GetKeyUp (KeyCode.UpArrow))
+		else if (LeanInput.GetUp (KeyCode.UpArrow))
 			JumpEnd ();
 
-		if (Input.GetKeyDown (KeyCode.LeftControl)) 
+		if (LeanInput.GetDown (KeyCode.LeftControl)) 
 			Kick ();
-		else if (Input.GetKeyUp (KeyCode.LeftControl)) 
+		else if (LeanInput.GetUp (KeyCode.LeftControl)) 
 			KickEnd ();
 
-		if (Input.GetKeyDown (KeyCode.RightControl)) 
+		if (LeanInput.GetDown (KeyCode.RightControl)) 
 			Kick ();
-		else if (Input.GetKeyUp (KeyCode.RightControl)) 
+		else if (LeanInput.GetUp (KeyCode.RightControl)) 
 			KickEnd ();
 
-		if (Input.GetKeyDown (KeyCode.R))
+		if (LeanInput.GetDown (KeyCode.R))
 			scr.gM.LevelRestartInLevel();
 
-		if (Input.GetKeyDown (KeyCode.W))
+		if (LeanInput.GetDown (KeyCode.W))
 		{
 			scr.gM.WinGame1();
 			scr.tM.matchPeriods = 1;
 		}
 
-		if (Input.GetKeyDown (KeyCode.L))
+		if (LeanInput.GetDown (KeyCode.L))
 		{
 			scr.gM.LooseGame();
 			scr.tM.matchPeriods = 1;
 		}
 
-		if (Input.GetKeyDown (KeyCode.T)) 
+		if (LeanInput.GetDown (KeyCode.T)) 
 		{
 			scr.gM.TieGame();
 			scr.tM.matchPeriods = 1;
 		}
 
-		if (Input.GetKeyDown(KeyCode.Alpha2))
+		if (LeanInput.GetDown(KeyCode.Alpha2))
 		{
 			Score.score++;
 			scr.scoreScr.SetScore();
 		}
 
-		if (Input.GetKeyDown(KeyCode.Alpha1)) 
+		if (LeanInput.GetDown(KeyCode.Alpha1)) 
 		{
 			Score.score1++;
 			scr.scoreScr.SetScore();
 		}
 
-        if (Input.GetKeyDown (KeyCode.LeftShift))
+        if (LeanInput.GetDown (KeyCode.LeftShift))
             KickOverHead();
-        else if (Input.GetKeyUp (KeyCode.LeftShift))
+        else if (LeanInput.GetUp (KeyCode.LeftShift))
             KickOverHeadEnd();
 		#endif
 	}

@@ -33,7 +33,6 @@ public class Scripts : MonoBehaviour
     public Enemy enAlg, enAlg_1;
     public MoneyWinScript monWin;
     public CameraSize camSize;
-    public ColorCorrectionControl colCorr;
     public Markers marks;
     public GoalPanelScript goalPanScr;
     public Score scoreScr;
@@ -84,7 +83,6 @@ public class Scripts : MonoBehaviour
                 if (enOrDis == null) enOrDis = FindObjectOfType<EnableOrDisable>();
                 if (monWin == null) monWin = FindObjectOfType<MoneyWinScript>();
                 if (camSize == null) camSize = FindObjectOfType<CameraSize>();
-                if (colCorr == null) colCorr = FindObjectOfType<ColorCorrectionControl>();
                 if (marks == null) marks = FindObjectOfType<Markers>();
                 if (goalPanScr == null) goalPanScr = FindObjectOfType<GoalPanelScript>();
                 if (objLev == null) objLev = FindObjectOfType<Objects_Level>();

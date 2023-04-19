@@ -1,7 +1,6 @@
-﻿using UnityEngine;
+﻿using Lean.Common;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using UnityStandardAssets.ImageEffects;
 
 
 public class AllPrefsScript : MonoBehaviour 
@@ -185,64 +184,54 @@ public class AllPrefsScript : MonoBehaviour
 	{
         if (SceneManager.GetActiveScene ().buildIndex == 1) 
 		{
-            if (Input.GetKeyDown(KeyCode.P))
+			if (LeanInput.GetDown(KeyCode.P))
                 ViewWonGames();
 
-			if (Input.GetKeyDown(KeyCode.D))
+			if (LeanInput.GetDown(KeyCode.D))
 			{
 				PlayerPrefs.DeleteAll();
 				moneyCount = 0;
 				setMoney = true;
 			}
 
-			if (Input.GetKeyDown(KeyCode.M))
+			if (LeanInput.GetDown(KeyCode.M))
 			{
 				moneyCount += 50000;
 				setMoney = true;
 			}
 
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (LeanInput.GetDown(KeyCode.Alpha1))
                 scr.allAw.CallAwardPanel_1();
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            else if (LeanInput.GetDown(KeyCode.Alpha2))
                 scr.allAw.CallAwardPanel_3(); 
 
-            if (Input.GetKeyDown(KeyCode.C))
+            if (LeanInput.GetDown(KeyCode.C))
                 System.GC.Collect();
 
-            if (Input.GetKeyDown(KeyCode.Alpha0))
+            if (LeanInput.GetDown(KeyCode.Alpha0))
             {
                 // if (GoogleMobileAd.IsInterstitialReady)
                 //     GoogleMobileAd.ShowInterstitialAd ();
             }
-
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                FindObjectOfType<UnityAds_0>().ShowSimpleAd();       
-            }
-
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                FindObjectOfType<UnityAds_0>().ShowRewardedAd();        
-            }
 		}
         else if (SceneManager.GetActiveScene ().buildIndex == 2) 
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (LeanInput.GetDown(KeyCode.Alpha1))
                 scr.bonObjMan.BallBig(-1);
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            else if (LeanInput.GetDown(KeyCode.Alpha2))
                 scr.bonObjMan.BallBig(-2);
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            else if (LeanInput.GetDown(KeyCode.Alpha3))
                 scr.bonObjMan.BallBig(-3);
-            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            else if (LeanInput.GetDown(KeyCode.Alpha4))
                 scr.bonObjMan.PlayerSpeedUp(2);
-            else if (Input.GetKeyDown(KeyCode.Alpha5))
+            else if (LeanInput.GetDown(KeyCode.Alpha5))
                 scr.bonObjMan.EnemySpeedUp(2);
-            else if (Input.GetKeyDown(KeyCode.Alpha6))
+            else if (LeanInput.GetDown(KeyCode.Alpha6))
                 scr.bonObjMan.SetBonusPosition(BonusType.bonusType.WatchVideo);
 
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (LeanInput.GetDown(KeyCode.Z))
                 scr.timFr.TimeFreeze_StartOrStop();
-            else if (Input.GetKeyDown(KeyCode.X))
+            else if (LeanInput.GetDown(KeyCode.X))
                 scr.molnia.Lightnin_OnOff();
         }
 	}
