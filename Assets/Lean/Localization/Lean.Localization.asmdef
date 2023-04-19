@@ -1,0 +1,17 @@
+{
+    "name": "Lean.Localization",
+    "rootNamespace": "",
+    "references": [
+        "GUID:82c7e6eac44d7e048b22ad98800dcfc7",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
