@@ -41,7 +41,7 @@ public class MoneyWinScript : MonoBehaviour
         if (!scr.objLev.isMoneyWinPopulate)
         {
             congrPan.SetActive (true);
-            moneyBankText.text = scr.univFunc.moneyString(scr.alPrScr.moneyCount);
+            moneyBankText.text = scr.univFunc.MoneyString(scr.alPrScr.moneyCount);
             bankMoney = scr.alPrScr.moneyCount;
             DestroyEditorButtons ();
             //PopulateList ();
@@ -205,7 +205,7 @@ public class MoneyWinScript : MonoBehaviour
                         bankMoney += 1;
                     }
 
-                    moneyBankText.text = scr.univFunc.moneyString(bankMoney);
+                    moneyBankText.text = scr.univFunc.MoneyString(bankMoney);
                 } 
                 else
                 {

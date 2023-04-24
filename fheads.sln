@@ -89,6 +89,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-ReflectionBaking-Ed
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Play.Games.Editor", "Google.Play.Games.Editor.csproj", "{3b63d9aa-9ea5-31a6-3be7-6401bd62b112}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleMobileAds.Editor", "GoogleMobileAds.Editor.csproj", "{e72a6e1e-7757-04c8-d15b-341f431efb8d}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-Editor", "Zenject-Editor.csproj", "{b4f00595-7258-8d37-a7c7-c524ee7f143b}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hierarchy2.Editor", "Hierarchy2.Editor.csproj", "{725f5609-1123-553f-32b5-6731a8609158}"
@@ -188,6 +190,8 @@ Global
 		{10e75e54-9075-bd41-7b85-91d8da5ab3a5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3b63d9aa-9ea5-31a6-3be7-6401bd62b112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3b63d9aa-9ea5-31a6-3be7-6401bd62b112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{e72a6e1e-7757-04c8-d15b-341f431efb8d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{e72a6e1e-7757-04c8-d15b-341f431efb8d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{b4f00595-7258-8d37-a7c7-c524ee7f143b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{b4f00595-7258-8d37-a7c7-c524ee7f143b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{725f5609-1123-553f-32b5-6731a8609158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

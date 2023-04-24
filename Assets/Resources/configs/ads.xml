@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<!--AdMob Android-->
+	<ad source="admob" type="app_id" os="android">ca-app-pub-5357184552698168~6995915851</ad>
+	<ad source="admob" type="interstitial" os="android">ca-app-pub-5357184552698168/7920765543</ad>
+	<ad source="admob" type="reward" os="android">ca-app-pub-5357184552698168/6804344160</ad>
+	<!--AdMob iOS-->
+	<ad source="admob" type="app_id" os="ios">ca-app-pub-5357184552698168~5080198957</ad>
+	<ad source="admob" type="interstitial" os="ios">ca-app-pub-5357184552698168/6201708938</ad>
+	<ad source="admob" type="reward" os="ios">ca-app-pub-5357184552698168/4697055577</ad>
+
+</data>

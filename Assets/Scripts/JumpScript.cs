@@ -32,7 +32,7 @@ public class JumpScript : MonoBehaviour
 	{
         if (Time.timeSinceLevelLoad > PlayerMovement.restartDelay1 + 1)
         {
-            if (enAlg._enType == OpponentType.Classic || enAlg._enType == OpponentType.Bycicle)
+            if (enAlg._enType == EOpponentType.Classic || enAlg._enType == EOpponentType.Bicycle)
             {
                 if (transform.rotation.eulerAngles.z < zMin)
                     sign = 1.0f;
@@ -94,13 +94,13 @@ public class JumpScript : MonoBehaviour
             // Real jump of Enemy:
             switch (enAlg._enType)
             {
-                case OpponentType.Classic:
+                case EOpponentType.Classic:
                     isEnemyGrounded = scr.grTr.isEnemyGrounded;
                     break;
-                case OpponentType.Bycicle:
+                case EOpponentType.Bicycle:
                     isEnemyGrounded = scr.grTr.isEnemyGrounded;
                     break;
-                case OpponentType.Goalkeeper:
+                case EOpponentType.Goalkeeper:
                     isEnemyGrounded = scr.grTr.isEnemy1Grounded;
                     break;
             }

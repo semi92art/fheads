@@ -86,8 +86,8 @@ public class Objects_Menu : MonoBehaviour
             PlayerPrefs.SetInt("SoundOn", onInt_1);
 
         onInt = PlayerPrefs.GetInt("SoundOn");
-        mainThemeSource.mute = !scr.univFunc.Int2Bool(onInt);
-        buttonsSource.mute = !scr.univFunc.Int2Bool(onInt);
+        mainThemeSource.mute = !CommonUtilsFheads.Int2Bool(onInt);
+        buttonsSource.mute = !CommonUtilsFheads.Int2Bool(onInt);
         SoundImage(onInt);
     }
 
@@ -98,7 +98,7 @@ public class Objects_Menu : MonoBehaviour
        
     public void OpenGameInMarket()
     {
-        Application.OpenURL("market://details?id=com.Artem.FootballHeads");
+        Application.OpenURL("market://details?id=" + Application.identifier);
         PlayerPrefs.SetInt("Review_Done", 1);
     }
 

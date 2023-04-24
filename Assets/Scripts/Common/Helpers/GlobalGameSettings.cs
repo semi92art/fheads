@@ -9,14 +9,6 @@ namespace Common.Helpers
         public float     adsLoadDelay;
         public bool      debugAnyway;
         public ELogLevel logLevel;
-        public int       firstLevelToShowAds;
-        public int       payToContinueMoneyCount;
-        public int       moneyItemCoast;
-        public float     interstitialAdsRatio;
-        public float     moneyItemsRate;
-        public float     betweenLevelAdShowIntervalInSeconds;
-        public bool      enableExtraLevels;
-        public int       extraLevelEveryNStage;
         public bool      showOnlyRewardedAds;
     }
 }

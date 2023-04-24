@@ -93,7 +93,7 @@ public class Objects_Level : MonoBehaviour
             text_GameNum.text = "GAME " + gameNum.ToString();
             obj_RestartButon.SetActive(false);
             int _canRestart = PlayerPrefs.GetInt("CanRestart");
-            scr.objLev.obj_RestartButon.SetActive(!scr.univFunc.Int2Bool(_canRestart));
+            scr.objLev.obj_RestartButon.SetActive(!CommonUtilsFheads.Int2Bool(_canRestart));
         }
 
         startPanObjs.im_PlayerHead.sprite = scr.buf.plSpr;
@@ -110,10 +110,10 @@ public class Objects_Level : MonoBehaviour
         else
             scr.enAlg_1.gameObject.SetActive(false);
         
-        isTiltOn = scr.univFunc.Int2Bool(PlayerPrefs.GetInt("Tilt"));
+        isTiltOn = CommonUtilsFheads.Int2Bool(PlayerPrefs.GetInt("Tilt"));
         EnableTilt(1);
         scr.levAudScr.isSoundOn = 
-            scr.univFunc.Int2Bool(PlayerPrefs.GetInt("SoundOn"));
+            CommonUtilsFheads.Int2Bool(PlayerPrefs.GetInt("SoundOn"));
         //scr.levAudScr.EnableSound(1);
 
         ButtonsSize(-1);
@@ -131,7 +131,7 @@ public class Objects_Level : MonoBehaviour
         quitText.text = "You will lose this game.\nContinue?";
                 
         obj_BK_But1.SetActive(
-            scr.univFunc.Int2Bool(
+            CommonUtilsFheads.Int2Bool(
                 PlayerPrefs.GetInt("BycicleKick")));
 
         scrBar_ButtCap.value = PlayerPrefs.GetFloat("ButtonsCapacity");

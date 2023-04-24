@@ -1,50 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using System.Collections;
 using System.Collections.Generic;
-
-
-[System.Serializable]
-public class League_UI_Elements
-{
-    public Image im_CirclePercent;
-    public Image im_Cup;
-    public Image[] im_Wins;
-    public Sprite spr_CupGold;
-    public Sprite spr_CupGray;
-    public Text text_cupName_1;
-    public Text text_cupName_2;
-    public Button _button;
-}
-    
-public enum OpponentsNumAndAge
-{
-    Main,
-    Legend,
-    Main_Main,
-    Main_Legend,
-    Legend_Main,
-    Legend_Legend
-}
-
-public enum AgeType
-{
-    main, legend
-}
+using Common.Managers.Advertising;
+using Common.Utils;
+using mazing.common.Runtime.Utils;
+using Zenject;
 
 [System.Serializable]
 public class CareerOpponentMain
 {
-    public OpponentType oppType;
+    public EOpponentType oppType;
     public Names.PlayerName oppName;
 }
 
 [System.Serializable]
 public class CareerOpponentLegend
 {
-    public OpponentType oppType;
+    public EOpponentType oppType;
     public Names.PlayerName_2 oppName_2;
 
 }
@@ -52,146 +25,81 @@ public class CareerOpponentLegend
 [System.Serializable]
 public class CareerGame
 {
-    public OpponentsNumAndAge oppsNumAndAge;
+    public EOpponentsNumAndAge oppsNumAndAge;
     public List<CareerOpponentMain> oppsMain;
     public List<CareerOpponentLegend> oppsLegend;
-}
-    
-public enum OpponentType
-{
-    Classic,
-    Bycicle,
-    Goalkeeper
 }
 
 public class UniversalFunctions : MonoBehaviour
 {
-    public Scripts scr;
+    #region inject
+    
+    private IAdsManager AdsManager { get; set; }
 
-    public Vector3 HSV_from_RGB(Color col)
+    [Inject]
+    private void Inject(IAdsManager _AdsManager)
     {
-        float h_val, s_val, v_val;
-        Color.RGBToHSV(col, out h_val, out s_val, out v_val);
-        return new Vector3(h_val, s_val, v_val);
+        AdsManager = _AdsManager;
     }
+
+    #endregion
+
+    public Scripts scr;
 
     public void RestartLevel()
     {
         if (scr.alPrScr.isRandGame == 0)
-            RestartForVideo();
+            RestartLevelForAds();
         else
         {
             if (scr.tM.matchPeriods == 0)
-                RestartForFree();
+                RestartLevelCore();
             else
             {
                 if (!scr.tM.isBetweenTimes)
-                    RestartForFree();
+                    RestartLevelCore();
             }
                 
         }  
     }
 
-    private void RestartForVideo()
+    private void RestartLevelForAds()
     {
-        //FIXME показ рекламы
-        // FindObjectOfType<UnityAds_0>().ShowRewardedAd();
+        if (AdsManager.RewardedAdReady)
+            AdsManager.ShowRewardedAd(_OnReward: RestartLevelCore);
+        else MazorCommonUtils.ShowAlertDialog("OOPS", "the ad didn't load. Try later...");
     }
 
-    private void RestartForFree()
+    private static void RestartLevelCore()
     {
         SceneManager.LoadScene(2);
     }
         
     public void ShowInterstitialAd()
     {
-        // TODO
-        // if (GoogleMobileAd.IsInterstitialReady)
-        // //     GoogleMobileAd.ShowInterstitialAd();
+        AdsManager.ShowInterstitialAd();
     }
 
-    public bool Int2Bool(int _int)
+    public string CurrentTime(int _Hour, int _Minute, int _Second)
 	{
-        if (_int == 0)
-			return false;
-		else 
-			return true;
+        if (_Hour == 24)   _Hour   = 0;
+        if (_Minute == 60) _Minute = 0;
+        if (_Second == 60) _Second = 0;
+        string hour   = GetTimeValueStringNormalized(_Hour);
+        string minute = GetTimeValueStringNormalized(_Minute);
+        string second = GetTimeValueStringNormalized(_Second);
+        return $"{hour}:{minute}:{second}";
 	}
-
-	public string CurrentTime(int hour, int minute, int second)
-	{
-		string _hour = null;
-		string _minute = null;
-		string _second = null;
-		string _time = null;
-
-		if (hour == 24)
-			hour = 0;
-
-		if (minute == 60)
-			minute = 0;
-
-		if (second == 60)
-			second = 0;
-
-		if (hour < 10) 
-			_hour = " " + hour.ToString ();
-		else
-			_hour = hour.ToString ();
-
-		if (minute < 10) 
-			_minute = "0" + minute.ToString ();
-		else
-			_minute = minute.ToString ();
-
-		if (second < 10) 
-			_second = "0" + second.ToString ();
-		else
-			_second = second.ToString ();
-
-		_time = _hour + ":" + _minute + ":" + _second;
-
-		return _time;
-	}
-
-	public string TimeToGettingReward(int hour, int minute, int second)
-	{
-		string _hour = null;
-		string _minute = null;
-		string _second = null;
-		string _time = null;
-
-		hour = 24 - hour;
-		minute = 60 - minute;
-		second = 60 - second;
-
-		if (hour == 24)
-			hour = 0;
-
-		if (minute == 60)
-			minute = 0;
-
-		if (second == 60)
-			second = 0;
-
-		if (hour < 10) 
-			_hour = " " + hour.ToString ();
-		else
-			_hour = hour.ToString ();
-
-		if (minute < 10) 
-			_minute = "0" + minute.ToString ();
-		else
-			_minute = minute.ToString ();
-
-		if (second < 10) 
-			_second = "0" + second.ToString ();
-		else
-			_second = second.ToString ();
-
-		_time = _hour + ":" + _minute + ":" + _second;
-
-		return _time;
+    
+    public string TimeToGettingReward(int _Hour, int _Minute, int _Second)
+    {
+        _Hour   = _Hour == 0   ? 0 : 24 - _Hour;
+        _Minute = _Minute == 0 ? 0 : 60 - _Minute;
+        _Second = _Second == 0 ? 0 : 60 - _Second;
+        string hour   = GetTimeValueStringNormalized(_Hour);
+        string minute = GetTimeValueStringNormalized(_Minute);
+        string second = GetTimeValueStringNormalized(_Second);
+        return $"{hour}:{minute}:{second}";
 	}
 
 	public void ExitGame()
@@ -199,11 +107,11 @@ public class UniversalFunctions : MonoBehaviour
 		Application.Quit();
 	}
 
-	public void PictureOff(Image image1)
+	public void PictureOff(Image _Image1)
 	{
-		Color color2 = image1.color;
+		Color color2 = _Image1.color;
 		color2.a = 0;
-		image1.color = color2;
+		_Image1.color = color2;
 	}
 
 	public void PictureOn(Image image1)
@@ -213,52 +121,50 @@ public class UniversalFunctions : MonoBehaviour
 		image1.color = color2;
 	}
 
-	public void PlayerLeagueOn (Animator AnimMenu)
+	public void PlayerLeagueOn (Animator _AnimMenu)
 	{
-		AnimMenu.SetBool("call", true);
+		_AnimMenu.SetBool("call", true);
 	}
 
-	public void PlayerLeagueOff (Animator AnimMenu)
+	public void PlayerLeagueOff (Animator _AnimMenu)
 	{
-		AnimMenu.SetBool("call", false);
+		_AnimMenu.SetBool("call", false);
 	}
 
 	/// <summary>
 	/// Convert money count in integer format to string. Example: 10000 = 10,000$
 	/// </summary>
 	/// <returns>The string.</returns>
-	/// <param name="money">Money.</param>
-	public string moneyString(int money)
+	/// <param name="_Money">Money.</param>
+	public string MoneyString(int _Money)
 	{
-        return moneyString_0(money);
+        return MoneyStringCore(_Money);
 	}
 
-    public string moneyString(float money)
+    public string MoneyString(float _Money)
     {
-        int money_1 = (int)money;
-        return moneyString_0(money_1);
+        return MoneyStringCore((int)_Money);
     }
 
-    private string moneyString_0(int money)
+    private static string MoneyStringCore(int _Money)
     {
-        string strNum1 = "";
-        string strNum2 = "";
-        string strNum3 = "";
+        string strNum1, strNum2;
 
-        string moneyStr = money.ToString("D");
+        string moneyStr = _Money.ToString("D");
+        static string Normalize(int _V) => _V.ToString("D");
 
         if (moneyStr.Length <= 3)
         {
             return moneyStr + "C";
         }
-        else if (moneyStr.Length > 3 && moneyStr.Length <= 6)
+        if (moneyStr.Length > 3 && moneyStr.Length <= 6)
         {
-            int num1 = Mathf.FloorToInt(money / 1000);
-            int num2 = money - num1 * 1000;
+            int num1 = Mathf.FloorToInt(_Money * 0.001f);
+            int num2 = _Money - num1 * 1000;
 
             if (num2 < 10)
                 strNum2 = "00" + num2.ToString("D");
-            else if (num2 >= 10 && num2 < 100)
+            else if (num2 < 100)
                 strNum2 = "0" + num2.ToString("D");
             else
                 strNum2 = "" + num2.ToString("D");
@@ -266,24 +172,25 @@ public class UniversalFunctions : MonoBehaviour
             strNum1 = num1.ToString("D");
             return strNum1 + "," + strNum2 + "C";
         }
-        else if (moneyStr.Length > 6 && moneyStr.Length <= 9)
+        if (moneyStr.Length > 6 && moneyStr.Length <= 9)
         {
-            int num1 = Mathf.FloorToInt(money / 1000000);
-            int num2 = money - num1 * 1000000;
-            int num2_1 = Mathf.FloorToInt(num2 / 1000);
+            int num1 = Mathf.FloorToInt(_Money * 0.000001f );
+            int num2 = _Money - num1 * 1000000;
+            int num2_1 = Mathf.FloorToInt(num2 * 0.001f);
 
             if (num2_1 < 10)
                 strNum2 = "00" + num2_1.ToString("D");
-            else if (num2_1 >= 10 && num2_1 < 100)
+            else if (num2_1 < 100)
                 strNum2 = "0" + num2_1.ToString("D");
             else
                 strNum2 = "" + num2_1.ToString("D");
 
-            int num3 = money - num1 * 1000000 - num2_1 * 1000;
+            int num3 = _Money - num1 * 1000000 - num2_1 * 1000;
 
+            string strNum3;
             if (num3 < 10)
                 strNum3 = "00" + num3.ToString("D");
-            else if (num3 >= 10 && num3 < 100)
+            else if (num3 < 100)
                 strNum3 = "0" + num3.ToString("D");
             else
                 strNum3 = "" + num3.ToString("D");
@@ -291,146 +198,70 @@ public class UniversalFunctions : MonoBehaviour
             strNum1 = num1.ToString("D");
             return strNum1 + "," + strNum2 + "," + strNum3 + "C";
         }
-        else
-            return "";
+        return "";
     }
 
 
-    public string string_IMPERVUM_Number(int _num)
-	{
-        switch (_num)
-        {
-            case 1:
-                return "I";
-            case 2:
-                return "III";
-            case 3:
-                return "III";
-            case 4:
-                return "IV";
-            case 5:
-                return "V";
-            case 6:
-                return "VI";
-            case 7:
-                return "VII";
-            case 8:
-                return "VIII";
-            case 9:
-                return "IX";
-            case 10:
-                return "X";
-            case 11:
-                return "XI";
-            case 12:
-                return "XII";
-            case 13:
-                return "XIII";
-            case 14:
-                return "XIV";
-            case 15:
-                return "XV";
-            case 16:
-                return "XVI";
-            case 17:
-                return "XVII";
-            case 18:
-                return "XVIII";
-            case 19:
-                return "IXX";
-            case 20:
-                return "XX";
-            case 21:
-                return "XXI";
-            case 22:
-                return "XXII";
-            case 23:
-                return "XXIII";
-            case 24:
-                return "XXIV";
-            case 25:
-                return "XXV";
-            case 26:
-                return "XXVI";
-            case 27:
-                return "XXVII";
-            case 28:
-                return "XXVIII";
-            case 29:
-                return "XXIX";
-            case 30:
-                return "XXX";
-            case 31:
-                return "XLI";
-            case 32:
-                return "XLII";
-            case 33:
-                return "XLIII";
-            case 34:
-                return "XLIV";
-            case 35:
-                return "XLV";
-            case 36:
-                return "XLVI";
-            case 37:
-                return "XLVII";
-            case 38:
-                return "XLVIII";
-            case 39:
-                return "XLIX";
-            case 40:
-                return "XL";
-            case 41:
-                return "LI";
-            case 42:
-                return "LII";
-            case 43:
-                return "LIII";
-            case 44:
-                return "LIV";
-            case 45:
-                return "LV";
-            case 46:
-                return "LVI";
-            case 47:
-                return "LVII";
-            case 48:
-                return "LVIII";
-            case 49:
-                return "LIX";
-            case 50:
-                return "L";
-            default:
-                return "-";
-        }
-	}
-
-    public int Stadium(int _game)
+    public string ImpervumNumberString(int _Num)
     {
-        switch (_game)
+        return _Num switch
         {
-            case 0:
-                return 0;
-            case 1:
-                return 1;
-            case 2:
-                return 2;
-            case 3:
-                return 3;
-            case 4:
-                return 6;
-            case 5:
-                return 7;
-            case 6:
-                return 8;
-            case 7:
-                return 9;
-            case 8:
-                return 13;
-            case 9:
-                return 16;
-            default:
-                return 0;
-        }
+            1  => "I",
+            2  => "III",
+            3  => "III",
+            4  => "IV",
+            5  => "V",
+            6  => "VI",
+            7  => "VII",
+            8  => "VIII",
+            9  => "IX",
+            10 => "X",
+            11 => "XI",
+            12 => "XII",
+            13 => "XIII",
+            14 => "XIV",
+            15 => "XV",
+            16 => "XVI",
+            17 => "XVII",
+            18 => "XVIII",
+            19 => "IXX",
+            20 => "XX",
+            21 => "XXI",
+            22 => "XXII",
+            23 => "XXIII",
+            24 => "XXIV",
+            25 => "XXV",
+            26 => "XXVI",
+            27 => "XXVII",
+            28 => "XXVIII",
+            29 => "XXIX",
+            30 => "XXX",
+            31 => "XLI",
+            32 => "XLII",
+            33 => "XLIII",
+            34 => "XLIV",
+            35 => "XLV",
+            36 => "XLVI",
+            37 => "XLVII",
+            38 => "XLVIII",
+            39 => "XLIX",
+            40 => "XL",
+            41 => "LI",
+            42 => "LII",
+            43 => "LIII",
+            44 => "LIV",
+            45 => "LV",
+            46 => "LVI",
+            47 => "LVII",
+            48 => "LVIII",
+            49 => "LIX",
+            50 => "L",
+            _  => "-"
+        };
+    }
+
+    private static string GetTimeValueStringNormalized(int _V)
+    {
+        return _V < 10 ? " " + _V : _V.ToString();
     }
 }

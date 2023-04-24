@@ -1,22 +1,9 @@
 <dependencies>
   <packages>
     <package>androidx.appcompat:appcompat:1.2.0</package>
-    <package>com.appodeal.ads.sdk.core:internal:3.0.2</package>
-    <package>com.appodeal.ads.sdk.core:public:3.0.2</package>
-    <package>com.appodeal.ads.sdk.networks:a4g:3.0.2.0</package>
-    <package>com.appodeal.ads.sdk.networks:admob:3.0.2.0</package>
-    <package>com.appodeal.ads.sdk.networks:appodeal:3.0.2.0</package>
-    <package>com.appodeal.ads.sdk.networks:mraid:3.0.2.0</package>
-    <package>com.appodeal.ads.sdk.networks:nast:3.0.2.0</package>
-    <package>com.appodeal.ads.sdk.networks:notsy:3.0.2.0</package>
-    <package>com.appodeal.ads.sdk.networks:vast:3.0.2.0</package>
-    <package>com.appodeal.ads.sdk:core:3.0.2</package>
-    <package>com.appodeal.ads:advertising:3.0.2</package>
-    <package>com.appodeal.ads:consent:3.0.2</package>
-    <package>com.appodeal.ads:network:3.0.2</package>
-    <package>com.explorestack:iab:1.4.1</package>
-    <package>com.google.android.gms:play-services-ads:21.4.0</package>
+    <package>com.google.android.gms:play-services-ads:22.0.0</package>
     <package>com.google.android.gms:play-services-base:18.2.0</package>
+    <package>com.google.android.ump:user-messaging-platform:2.0.0</package>
     <package>com.google.code.gson:gson:2.8.5</package>
     <package>com.google.firebase:firebase-analytics:21.2.1</package>
     <package>com.google.firebase:firebase-analytics-unity:10.7.0</package>
@@ -29,9 +16,6 @@
     <package>com.google.firebase:firebase-messaging-unity:10.7.0</package>
     <package>com.google.flatbuffers:flatbuffers-java:1.12.0</package>
     <package>com.google.games:gpgs-plugin-support:0.11.01</package>
-    <package>org.jetbrains.kotlin:kotlin-stdlib:1.7.10</package>
-    <package>org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4</package>
-    <package>org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4</package>
   </packages>
   <files>
     <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-analytics-unity/10.7.0/firebase-analytics-unity-10.7.0.aar</file>
@@ -42,6 +26,8 @@
     <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-crashlytics-unity/10.7.0/firebase-crashlytics-unity-10.7.0.pom</file>
     <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-messaging-unity/10.7.0/firebase-messaging-unity-10.7.0.aar</file>
     <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-messaging-unity/10.7.0/firebase-messaging-unity-10.7.0.pom</file>
+    <file>Assets/GeneratedLocalRepo/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/0.11.01/gpgs-plugin-support-0.11.01.aar</file>
+    <file>Assets/GeneratedLocalRepo/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/0.11.01/gpgs-plugin-support-0.11.01.pom</file>
   </files>
   <settings>
     <setting name="androidAbis" value="arm64-v8a" />

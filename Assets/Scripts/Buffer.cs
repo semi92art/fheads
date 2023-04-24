@@ -28,7 +28,7 @@ public class Buffer : MonoBehaviour
     public Sprite enSpr;
     public Sprite enBoot;
     public Color enCol1, enCol2, enColStad;
-    public OpponentType oppType;
+    public EOpponentType oppType;
 
     public int enInd_1;
     public int enCntrInd_1;
@@ -38,7 +38,7 @@ public class Buffer : MonoBehaviour
     public Sprite enSpr_1;
     public Sprite enBoot_1;
     public Color enCol1_1, enCol2_1, enColStad_1;
-    public OpponentType oppType_1;
+    public EOpponentType oppType_1;
 
     public List<CareerGame> _careerGames;
     public CareerGame _careerGame;
@@ -77,30 +77,30 @@ public class Buffer : MonoBehaviour
 
         switch (_careerGame.oppsNumAndAge)
         {
-            case OpponentsNumAndAge.Main:
+            case EOpponentsNumAndAge.Main:
                 is2Enemies = false;
                 SetEnemyData(0, 0);
                 break;
-            case OpponentsNumAndAge.Legend:
+            case EOpponentsNumAndAge.Legend:
                 is2Enemies = false;
                 SetEnemyData(0, 1);
                 break;
-            case OpponentsNumAndAge.Main_Main:
+            case EOpponentsNumAndAge.Main_Main:
                 is2Enemies = true;
                 SetEnemyData(0, 0);
                 SetEnemyData(1, 0);
                 break;
-            case OpponentsNumAndAge.Legend_Legend:
+            case EOpponentsNumAndAge.Legend_Legend:
                 is2Enemies = true;
                 SetEnemyData(0, 1);
                 SetEnemyData(1, 1);
                 break;
-            case OpponentsNumAndAge.Main_Legend:
+            case EOpponentsNumAndAge.Main_Legend:
                 is2Enemies = true;
                 SetEnemyData(0, 0);
                 SetEnemyData(1, 1);
                 break;
-            case OpponentsNumAndAge.Legend_Main:
+            case EOpponentsNumAndAge.Legend_Main:
                 is2Enemies = true;
                 SetEnemyData(0, 1);
                 SetEnemyData(1, 0);
@@ -213,29 +213,29 @@ public class Buffer : MonoBehaviour
 
     private int EnemyIndex(int _num, int _lg)
     {
-        OpponentType oppType_0 = OpponentType.Bycicle;
+        EOpponentType oppType_0 = EOpponentType.Bicycle;
         Names.PlayerName oppName = Names.PlayerName.Aguero;
         Names.PlayerName_2 oppName_2 = Names.PlayerName_2.Baggio;
 
         switch (_careerGame.oppsNumAndAge)
         {
-            case OpponentsNumAndAge.Main:
+            case EOpponentsNumAndAge.Main:
                 oppType_0 = _careerGame.oppsMain[_num].oppType;
                 oppName = _careerGame.oppsMain[_num].oppName;
                 break;
-            case OpponentsNumAndAge.Legend:
+            case EOpponentsNumAndAge.Legend:
                 oppType_0 = _careerGame.oppsLegend[_num].oppType;
                 oppName_2 = _careerGame.oppsLegend[_num].oppName_2;
                 break;
-            case OpponentsNumAndAge.Main_Main:
+            case EOpponentsNumAndAge.Main_Main:
                 oppType_0 = _careerGame.oppsMain[_num].oppType;
                 oppName = _careerGame.oppsMain[_num].oppName;
                 break;
-            case OpponentsNumAndAge.Legend_Legend:
+            case EOpponentsNumAndAge.Legend_Legend:
                 oppType_0 = _careerGame.oppsLegend[_num].oppType;
                 oppName_2 = _careerGame.oppsLegend[_num].oppName_2;
                 break;
-            case OpponentsNumAndAge.Main_Legend:
+            case EOpponentsNumAndAge.Main_Legend:
                 if (_num == 0)
                 {
                     oppType_0 = _careerGame.oppsMain[0].oppType;
@@ -247,7 +247,7 @@ public class Buffer : MonoBehaviour
                     oppName_2 = _careerGame.oppsLegend[0].oppName_2;
                 }
                 break;
-            case OpponentsNumAndAge.Legend_Main:
+            case EOpponentsNumAndAge.Legend_Main:
                 if (_num == 0)
                 {
                     oppType_0 = _careerGame.oppsLegend[0].oppType;
@@ -310,7 +310,7 @@ public class Buffer : MonoBehaviour
         SetPlayerData(ind, lg);
 
         is2Enemies = Random.value > 0.5f ? true : false;
-        oppType = Random.value > 0.5f ? OpponentType.Bycicle : OpponentType.Classic;
+        oppType = Random.value > 0.5f ? EOpponentType.Bicycle : EOpponentType.Classic;
 
         lg = Random.value < 0.5f ? 0 : 1;
         SetEnemyData(0, lg);

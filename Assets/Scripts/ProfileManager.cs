@@ -159,14 +159,14 @@ public class ProfileManager : MonoBehaviour
                     button.icon.sprite = itemList[j].icon;
                     button.leg.sprite = scr.cntrL.Countries[itemList[j].cntrInd].boot;
 
-                    bool opnd = scr.univFunc.Int2Bool(scr.alPrScr.openedPlayers[i]);
+                    bool opnd = CommonUtilsFheads.Int2Bool(scr.alPrScr.openedPlayers[i]);
                     button.isOpened = opnd;
                     button.showcase.color = opnd ? scr.objM.col_Blue : scr.objM.col_Gray;
                     button.showcase_2.color = opnd ? scr.objM.col_Blue : scr.objM.col_Gray;
                     button.im_MoneyCoastShowcase.color = opnd ?
                         Color.clear : scr.objM.col_Gray;
-                    button.moneyCoast.text = scr.univFunc.moneyString(moneyCoast[i]);
-                    button.moneyCoast.gameObject.SetActive(!scr.univFunc.Int2Bool(scr.alPrScr.openedPlayers[i]));
+                    button.moneyCoast.text = scr.univFunc.MoneyString(moneyCoast[i]);
+                    button.moneyCoast.gameObject.SetActive(!CommonUtilsFheads.Int2Bool(scr.alPrScr.openedPlayers[i]));
                     button.plInd = j;
                     button.buttonInd = i;
                     button.cntrInd = itemList[j].cntrInd;
@@ -210,14 +210,14 @@ public class ProfileManager : MonoBehaviour
                     button.icon.sprite = itemList_2[j].icon;
                     button.leg.sprite = scr.cntrL.Countries[itemList_2[j].cntrInd].boot;
 
-                    bool opnd = scr.univFunc.Int2Bool(scr.alPrScr.openedPlayers_2[i]);
+                    bool opnd = CommonUtilsFheads.Int2Bool(scr.alPrScr.openedPlayers_2[i]);
                     button.isOpened = opnd;
                     button.showcase.color = opnd ? scr.objM.col_Blue : scr.objM.col_Gray;
                     button.showcase_2.color = opnd ? scr.objM.col_Blue : scr.objM.col_Gray;
                     button.im_MoneyCoastShowcase.color = opnd ?
                         Color.clear : scr.objM.col_Gray;
-                    button.moneyCoast.text = scr.univFunc.moneyString(moneyCoast_2[i]);
-                    button.moneyCoast.gameObject.SetActive(!scr.univFunc.Int2Bool(scr.alPrScr.openedPlayers_2[i]));
+                    button.moneyCoast.text = scr.univFunc.MoneyString(moneyCoast_2[i]);
+                    button.moneyCoast.gameObject.SetActive(!CommonUtilsFheads.Int2Bool(scr.alPrScr.openedPlayers_2[i]));
                     button.plInd = j;
                     button.buttonInd = i;
                     button.cntrInd = itemList_2[j].cntrInd;
@@ -417,7 +417,7 @@ public class ProfileManager : MonoBehaviour
 		{
 			if (scr.alPrScr.moneyCount >= coast)
 			{
-                buyPlayerString = "Do you want to buy this head for " + scr.univFunc.moneyString(coast) + "?";
+                buyPlayerString = "Do you want to buy this head for " + scr.univFunc.MoneyString(coast) + "?";
 				scr.allAw.yesButObj.SetActive(true);
 			} 
 			else
@@ -470,7 +470,7 @@ public class ProfileManager : MonoBehaviour
 
             if (scr.alPrScr.moneyCount >= coast)
             {
-                buyPlayerString = "Do you want to buy this head for " + scr.univFunc.moneyString(coast) + "?";
+                buyPlayerString = "Do you want to buy this head for " + scr.univFunc.MoneyString(coast) + "?";
                 scr.allAw.yesButObj.SetActive(true);
             }
             else

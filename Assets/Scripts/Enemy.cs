@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private Scripts scr;
 
-    public OpponentType _enType;
+    public EOpponentType _enType;
     public float whenKick;
     public float distToBall;
     public float whenKick_State_1;
@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
 
         kickSpeed = scr.pMov.kickSpeed0;
 
-        if (_enType != OpponentType.Goalkeeper)
+        if (_enType != EOpponentType.Goalkeeper)
         {
             _enType = scr.buf.oppType;
             enSpr.sprite = scr.buf.enSpr;
@@ -124,17 +124,17 @@ public class Enemy : MonoBehaviour
     {
         switch (_enType)
         {
-            case OpponentType.Classic:
+            case EOpponentType.Classic:
                 isGrounded = scr.grTr.isEnemyGrounded;
                 defPosX = bX < scr.marks.midTr.position.x ?
                     scr.marks.gkStateTr.position.x : scr.marks.defPosTr.position.x;
                 break;
-            case OpponentType.Bycicle:
+            case EOpponentType.Bicycle:
                 isGrounded = scr.grTr.isEnemyGrounded;
                 defPosX = bX < scr.marks.midTr.position.x ?
                     scr.marks.gkStateTr.position.x : scr.marks.defPosTr.position.x;
                 break;
-            case OpponentType.Goalkeeper:
+            case EOpponentType.Goalkeeper:
                 isGrounded = scr.grTr.isEnemy1Grounded;
                 defPosX = scr.marks.gkStateTr.position.x + 12f * (0.5f + 1f * Mathf.Sin(Time.time)) + 3f;
                 //Debug.Log(defPosX);
@@ -212,9 +212,9 @@ public class Enemy : MonoBehaviour
         //if (isKickControl && !gameStop) 
             KickControl();
 
-        if (_enType == OpponentType.Goalkeeper)
+        if (_enType == EOpponentType.Goalkeeper)
             GoalkeeperJump();
-        else if (_enType == OpponentType.Bycicle)
+        else if (_enType == EOpponentType.Bicycle)
             KickOverHeadFcn();
     }
 
@@ -233,7 +233,7 @@ public class Enemy : MonoBehaviour
         else
             isKick = false;
 
-        if (scr.jScr.isMolniya && _enType != OpponentType.Goalkeeper)
+        if (scr.jScr.isMolniya && _enType != EOpponentType.Goalkeeper)
             isKick = false;
 
         JointMotor2D motor = legHJ.motor;
@@ -245,13 +245,13 @@ public class Enemy : MonoBehaviour
 
         switch (_enType)
         {
-            case OpponentType.Classic:
+            case EOpponentType.Classic:
                 limits = legHJ.limits;
                 limits.min = 0f;
                 limits.max = -90f;
                 legHJ.limits = limits;
                 break;
-            case OpponentType.Bycicle:
+            case EOpponentType.Bicycle:
                 if (!kOvH)
                 {
                     limits = legHJ.limits;
@@ -260,7 +260,7 @@ public class Enemy : MonoBehaviour
                     legHJ.limits = limits;
                 }
                 break;
-            case OpponentType.Goalkeeper:
+            case EOpponentType.Goalkeeper:
                 limits = legHJ.limits;
                 limits.min = 0f;
                 limits.max = -90f;
@@ -433,7 +433,7 @@ public class Enemy : MonoBehaviour
         enY = transform.position.y;
         enX = transform.position.x;
 
-        if (_enType == OpponentType.Goalkeeper)
+        if (_enType == EOpponentType.Goalkeeper)
             GoalKeeper();
         else
         {

@@ -71,7 +71,7 @@ public class AllAwardsScript : MonoBehaviour
         pansActive[0] = 1;
         //aw1MainText.alignment = TextAnchor.LowerCenter;
         aw0CountText.enabled = true;
-        aw0CountText.text = scr.univFunc.moneyString (scr.everyDayReward.reward);
+        aw0CountText.text = scr.univFunc.MoneyString (scr.everyDayReward.reward);
     }
 
     /// <summary>
@@ -89,13 +89,13 @@ public class AllAwardsScript : MonoBehaviour
             {
                 yesButObj.SetActive(true);
                 prevText.text = "Do you want to unlock this league for " +
-                    scr.univFunc.moneyString(scr.carMng.lg_cost[scr.carMng._lgPrev]);
+                    scr.univFunc.MoneyString(scr.carMng.lg_cost[scr.carMng._lgPrev]);
             }
             else
             {
                 yesButObj.SetActive(false);
                 prevText.text = "You have not enough money to unlock this league. " +
-                    "You need " + scr.univFunc.moneyString(scr.carMng.lg_cost[scr.carMng._lgPrev]);
+                    "You need " + scr.univFunc.MoneyString(scr.carMng.lg_cost[scr.carMng._lgPrev]);
             }
         }
     }

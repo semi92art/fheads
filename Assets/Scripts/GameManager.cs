@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
 	void Awake()
 	{
-        isNoAds = scr.univFunc.Int2Bool(PlayerPrefs.GetInt("NoAds"));
+        isNoAds = CommonUtilsFheads.Int2Bool(PlayerPrefs.GetInt("NoAds"));
 
 		switch (SceneManager.GetActiveScene().buildIndex) 
 		{
@@ -230,7 +230,7 @@ public class GameManager : MonoBehaviour
 	{
         scr.alPrScr.stadium = scr.alPrScr.isRandGame == 1 ? 
             Mathf.FloorToInt(Random.value * (18 - 0.01f)) : 
-            scr.univFunc.Stadium(scr.alPrScr.game);
+            CommonUtilsFheads.Stadium(scr.alPrScr.game);
 
         scr.alPrScr.tribunes = scr.alPrScr.isRandGame == 0 ? 
             scr.alPrScr.lg : Mathf.FloorToInt(1f + (5 - 0.1f) * Random.value);

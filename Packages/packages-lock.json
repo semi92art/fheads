@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.appodeal.appodeal-unity-plugin-upm": {
-      "version": "https://github.com/appodeal/appodeal-unity-plugin-upm.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "4c9c09738284b39a5d78bdb380e8163474f2e050"
-    },
     "com.coffee.softmask-for-ugui": {
       "version": "https://github.com/mob-sakai/SoftMaskForUGUI.git",
       "depth": 0,

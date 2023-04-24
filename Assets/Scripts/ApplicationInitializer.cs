@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Text;
 using Common;
+using Common.Managers.Advertising;
 using mazing.common.Runtime;
 using mazing.common.Runtime.Constants;
 using mazing.common.Runtime.Entities;
@@ -19,18 +20,21 @@ public class ApplicationInitializer : MonoBehaviour
     #region inject
 
     private IAnalyticsManager     AnalyticsManager     { get; set; }
-    
-    #if FIREBASE && !UNITY_WEBGL
-    [Inject] private IFirebaseInitializer  FirebaseInitializer  { get; set; }
-    #endif
+    private IAdsManager           AdsManager           { get; set; }
     private IPermissionsRequester PermissionsRequester { get; set; }
+    
+#if FIREBASE && !UNITY_WEBGL
+    [Inject] private IFirebaseInitializer  FirebaseInitializer  { get; set; }
+#endif
 
     [Inject]
     private void Inject(
         IAnalyticsManager     _AnalyticsManager,
+        IAdsManager           _AdsManager,
         IPermissionsRequester _PermissionsRequester)
     {
         AnalyticsManager     = _AnalyticsManager;
+        AdsManager           = _AdsManager;
         PermissionsRequester = _PermissionsRequester;
     }
 
@@ -49,7 +53,6 @@ public class ApplicationInitializer : MonoBehaviour
         // yield return SetGameId();
         yield return LogAppInfoCoroutine();
         yield return PermissionsRequestCoroutine();
-        yield return InitStartDataCoroutine();
         yield return InitGameManagersCoroutine();
         yield return LoadGameSceneCoroutine();
     }
@@ -84,29 +87,12 @@ public class ApplicationInitializer : MonoBehaviour
         while (permissionsEntity.Result == EEntityResult.Pending)
             yield return new WaitForEndOfFrame();
     }
-    
-    private IEnumerator InitStartDataCoroutine()
-    {
-        yield return null;
-        // ScoreManager.Initialize += OnScoreManagerInitialize;
-        // MazorCommonData.Release = true;
-        // SaveUtils.PutValue(SaveKeysMazor.AppVersion, Application.version);
-        // Application.targetFrameRate = GraphicUtils.GetTargetFps();
-        // Dbg.LogLevel = GlobalGameSettings.logLevel;
-        // if (SaveUtils.GetValue(SaveKeysMazor.NotFirstLaunch))
-        //     yield break;
-        // SaveUtils.PutValue(SaveKeysCommon.SettingSoundOn,         true);
-        // SaveUtils.PutValue(SaveKeysCommon.SettingMusicOn,         true);
-        // SaveUtils.PutValue(SaveKeysCommon.SettingNotificationsOn, true);
-        // SaveUtils.PutValue(SaveKeysCommon.SettingHapticsOn,       true);
-        // SaveUtils.PutValue(SaveKeysMazor .NotFirstLaunch,         true);
-        // CommonUtils.DoOnInitializedEx(LocalizationManager, SetDefaultLanguage);
-    }
-    
+
     private IEnumerator InitGameManagersCoroutine()
     {
         yield return null;
         InitAnalyticsManager();
+        InitAdsManager();
         // InitRemoteConfigManager();
         // InitAssetBundleManager();
         // InitShopManager();
@@ -120,6 +106,11 @@ public class ApplicationInitializer : MonoBehaviour
     {
         AnalyticsManager.Initialize += () => AnalyticsManager.SendAnalytic(AnalyticIds.SessionStart);
         TryExecute(AnalyticsManager.Init);
+    }
+
+    private void InitAdsManager()
+    {
+        TryExecute(AdsManager.Init);
     }
     
     private static void TryExecute(UnityAction _Action)
@@ -136,32 +127,24 @@ public class ApplicationInitializer : MonoBehaviour
     
     private IEnumerator LoadGameSceneCoroutine()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.sceneLoaded += OnSceneLoaded;
         yield return WaitWhile(
+            LoadGameSceneCoroutinePredicate, 
             () =>
             {
-#if FIREBASE && !UNITY_WEBGL
-                return !FirebaseInitializer.Initialized;
-#else
-                return false;
-#endif
-            }, 
-            () =>
-            {
-                // SceneManager.LoadScene(SceneNames.Level);
                 var @params = new LoadSceneParameters(LoadSceneMode.Single);
                 SceneManager.LoadSceneAsync(SceneNames.Menu, @params);
             }, 3f);
     }
     
-    private void OnSceneLoaded(Scene _Scene, LoadSceneMode _Mode)
+    private bool LoadGameSceneCoroutinePredicate()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        // GameLogo.Init();
-        // Cor.Run(InitGameControllerCoroutine());
+#if FIREBASE && !UNITY_WEBGL
+        return !FirebaseInitializer.Initialized;
+#else
+        return false;
+#endif
     }
-    
+
     private static IEnumerator WaitWhile(
         Func<bool>  _Predicate,
         UnityAction _Action,
